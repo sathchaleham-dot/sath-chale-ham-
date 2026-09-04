@@ -1,1 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sath Chale Ham Foundation</title>
 
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:Arial,sans-serif;
+color:#333;
+background:#fff;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:35px 15px 25px;
+background:#fff;
+}
+.logo{
+width:120px;
+height:120px;
+margin:auto;
+border:2px dashed #ccc;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#999;
+font-size:14px;
+}
+header h1{
+font-size:26px;
+margin-top:15px;
+}
+.tagline{
+color:#e67e22;
+font-weight:bold;
+font-size:16px;
+}
+
+/* NAVIGATION */
+nav{
+position:sticky;
+top:0;
+z-index:1000;
+background:#fff;
+border-top:1px solid #eee;
+border-bottom:1px solid #ddd;
+box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.nav{
+display:flex;
+justify-content:center;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+.nav a{
+padding:14px 15px;
+text-decoration:none;
+color:#333;
+font-weight:bold;
+font-size:14px;
+}
+
+.nav a:hover{
+color:#e67e22;
+background:#fff7ef;
+}
+
+/* HERO */
+.hero{
+text-align:center;
+padding:75px 20px;
+background:linear-gradient(135deg,#fff8f0,#fff);
+}
+
+.hero h2{
+font-size:38px;
+margin-bottom:15px;
+}
+
+.hero h2 span{
+color:#e67e22;
+}
+
+.hero p{
+font-size:18px;
+color:#666;
+max-width:700px;
+margin:0 auto 28px;
+}
+
+.buttons{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+display:inline-block;
+padding:13px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.donate{
+background:#e67e22;
+color:white;
+}
+
+.join{
+background:#333;
+color:white;
+}
+
+/* SECTIONS */
+section{
+padding:60px 20px;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+}
+
+.title{
+text-align:center;
+margin-bottom:35px;
+}
+
+.title h2{
+font-size:30px;
+}
+
+.title p{
+color:#777;
+}
+
+.about{
+text-align:center;
+max-width:850px;
+margin:auto;
+font-size:17px;
+}
+
+/* CARDS */
+.cards{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+.card{
+padding:28px 20px;
+border:1px solid #eee;
+border-radius:15px;
+box-shadow:0 4px 18px rgba(0,0,0,.06);
+text-align:center;
+}
+
+.card h3{
+color:#e67e22;
+margin-bottom:10px;
+}
+
+/* WORK */
+.work{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.work div{
+padding:16px;
+background:#fafafa;
+border-left:4px solid #e67e22;
+border-radius:8px;
+}
+
+/* CTA */
+.cta{
+text-align:center;
+background:#fff8f0;
+}
+
+.cta h2{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.cta p{
+margin-bottom:25px;
+}
+
+/* FOOTER */
+footer{
+background:#333;
+color:white;
+text-align:center;
+padding:30px 15px;
+}
+
+footer a{
+color:white;
+text-decoration:none;
+margin:0 8px;
+}
+
+footer a:hover{
+color:#e67e22;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+
+header h1{
+font-size:23px;
+}
+
+.nav{
+justify-content:flex-start;
+}
+
+.nav a{
+font-size:13px;
+padding:12px 13px;
+}
+
+.hero{
+padding:55px 18px;
+}
+
+.hero h2{
+font-size:30px;
+}
+
+.hero p{
+font-size:16px;
+}
+
+.cards{
+grid-template-columns:1fr;
+}
+
+.work{
+grid-template-columns:1fr;
+}
+
+section{
+padding:45px 18px;
+}
+
+.btn{
+width:100%;
+max-width:280px;
+}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header id="home">
+
+<div class="logo">
+LOGO
+</div>
+
+<h1>Sath Chale Ham Foundation</h1>
+
+<div class="tagline">
+साथ चले हम – बदलाव की ओर
+</div>
+
+</header>
+
+
+<!-- NAVIGATION BAR -->
+<nav>
+<div class="nav">
+
+<a href="#home">Home</a>
+<a href="#about">About Us</a>
+<a href="#team">Our Team</a>
+<a href="#work">Our Work</a>
+<a href="#donate">Donate Us</a>
+<a href="#join">Join Us</a>
+<a href="#download">Download</a>
+
+</div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+
+<h2>
+<span>Sath Chale Ham</span> Foundation
+</h2>
+
+<p>
+Together towards positive change, dignity and a better future for all.
+</p>
+
+<div class="buttons">
+
+<a href="#donate" class="btn donate">
+❤️ Donate Us
+</a>
+
+<a href="#join" class="btn join">
+🤝 Join Us
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT US -->
+<section id="about">
+
+<div class="container">
+
+<div class="title">
+<h2>About Us</h2>
+<p>साथ चले हम – बदलाव की ओर</p>
+</div>
+
+<div class="about">
+
+<p>
+Sath Chale Ham Foundation is committed to bringing positive change
+in society by working with children, women, youth, senior citizens,
+persons with disabilities and needy families.
+</p>
+
+<br>
+
+<p>
+हम शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, आजीविका,
+ग्रामीण विकास, पर्यावरण संरक्षण, सामाजिक जागरूकता
+और सामुदायिक विकास के क्षेत्र में कार्य करने के लिए प्रतिबद्ध हैं।
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MISSION VISION VALUES -->
+<section>
+
+<div class="container">
+
+<div class="title">
+<h2>Mission & Vision</h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>Our Mission</h3>
+<p>
+To support people in need and create opportunities for
+education, health, empowerment and sustainable development.
+</p>
+</div>
+
+<div class="card">
+<h3>Our Vision</h3>
+<p>
+To build an inclusive, equal and empowered society where
+every person has dignity, opportunity and hope.
+</p>
+</div>
+
+<div class="card">
+<h3>Our Values</h3>
+<p>
+Service, Equality, Integrity, Transparency, Compassion,
+Empowerment and Community Participation.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OUR TEAM -->
+<section id="team">
+
+<div class="container">
+
+<div class="title">
+<h2>Our Team</h2>
+<p>Working together for social change</p>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>President</h3>
+<p>अध्यक्ष</p>
+</div>
+
+<div class="card">
+<h3>Secretary</h3>
+<p>सचिव</p>
+</div>
+
+<div class="card">
+<h3>Treasurer</h3>
+<p>कोषाध्यक्ष</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OUR WORK -->
+<section id="work">
+
+<div class="container">
+
+<div class="title">
+<h2>Our Work</h2>
+<p>Our Key Areas of Work</p>
+</div>
+
+<div class="work">
+
+<div>Education & Child Development</div>
+<div>Women Empowerment & Development</div>
+<div>Health & Medical Care</div>
+<div>Welfare of Poor & Needy</div>
+<div>Disability Welfare & Empowerment</div>
+<div>Senior Citizen Welfare</div>
+<div>Youth & Skill Development</div>
+<div>Employment & Livelihood</div>
+<div>Rural Development</div>
+<div>Agriculture & Farmer Welfare</div>
+<div>Environment & Water Conservation</div>
+<div>Sanitation, Drinking Water & Nutrition</div>
+<div>Animal Welfare & Protection</div>
+<div>Disaster Relief & Rehabilitation</div>
+<div>Social Justice & Human Rights</div>
+<div>Community Development</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DONATE US -->
+<section id="donate" class="cta">
+
+<div class="container">
+
+<h2>Donate Us</h2>
+
+<p>
+<strong>आपका ₹1, किसी की मुस्कान</strong>
+</p>
+
+<a href="#" class="btn donate">
+❤️ DONATE NOW
+</a>
+
+</div>
+
+</section>
+
+
+<!-- JOIN US -->
+<section id="join">
+
+<div class="container">
+
+<div class="title">
+<h2>Join Us</h2>
+<p>Be a part of positive change.</p>
+</div>
+
+<div class="buttons">
+
+<a href="#" class="btn join">
+🤝 JOIN NOW
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DOWNLOAD -->
+<section id="download" class="cta">
+
+<div class="container">
+
+<h2>Download</h2>
+
+<p>
+Download our documents, forms and other useful resources.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+© 2026 Sath Chale Ham Foundation. All Rights Reserved.
+</p>
+
+<p>
+साथ चले हम – बदलाव की ओर
+</p>
+
+<br>
+
+<p>
+<a href="#">Terms & Conditions</a>
+<a href="#">Privacy Policy</a>
+</p>
+
+</footer>
+
+</body>
+</html>
