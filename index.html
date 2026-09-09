@@ -53,13 +53,14 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .logo-title-group {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            width: 100%;
         }
 
         .logo-img {
@@ -69,42 +70,56 @@
             border-radius: 50%;
             background: #fff;
             padding: 2px;
+            flex-shrink: 0;
         }
 
+        .org-details {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        /* Responsive font-size so title stays on 1 line even on mobile */
         .org-details h1 {
-            font-size: 26px;
+            font-size: clamp(16px, 5vw, 28px);
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
+            white-space: nowrap;
         }
 
         .org-details p {
-            font-size: 14px;
+            font-size: clamp(11px, 3vw, 14px);
             color: var(--primary-orange);
             font-weight: 700;
+            white-space: nowrap;
         }
 
-        /* Navigation Bar */
+        /* Full Width Desktop Navigation Bar (Left to Right Fill) */
         .navbar {
             background-color: #ffffff;
             border-bottom: 2px solid #e0e0e0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            width: 100%;
         }
 
         .nav-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 10px 4%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 0;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
+            width: 100%;
+            justify-content: space-between;
             align-items: center;
+            gap: 15px;
         }
 
         .nav-links a {
@@ -113,6 +128,7 @@
             font-size: 15px;
             color: var(--primary-blue);
             transition: color 0.3s;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -148,11 +164,13 @@
             }
         }
 
+        /* Mobile View Toggle Icon Right Side */
         .mobile-toggle {
             display: none;
-            font-size: 24px;
+            font-size: 26px;
             cursor: pointer;
             color: var(--primary-blue);
+            margin-left: auto;
         }
 
         /* Hero Slideshow Section */
@@ -231,31 +249,30 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* Tagline Banner - EXTRA BOLD ATTRACTIVE DESIGN */
+        /* Tagline Banner (No Blue Border & Extra Big Font) */
         .tagline-section {
             padding: 35px 0;
             background-color: #ffffff;
         }
 
         .tagline-box {
-            border: 3px solid #0056b3;
-            border-radius: 8px;
-            padding: 14px 18px;
+            border: none;
+            border-radius: 0;
+            padding: 10px;
             width: 100%;
             box-sizing: border-box;
-            background: #ffffff;
+            background: transparent;
             text-align: center;
-            box-shadow: 0 6px 20px rgba(0, 86, 179, 0.12);
+            box-shadow: none;
         }
 
         .tagline-box h2 {
             margin: 0;
-            font-size: clamp(22px, 4.5vw, 44px);
-            font-weight: 800; /* Ultra Bold Mukta */
-            line-height: 1.25;
+            font-size: clamp(32px, 7vw, 68px); /* Extra Big Font Size */
+            font-weight: 900;
+            line-height: 1.2;
             white-space: nowrap;
-            letter-spacing: -0.2px;
-            text-shadow: 0.5px 0.5px 0px rgba(0,0,0,0.15);
+            letter-spacing: -0.5px;
         }
 
         .highlight-red { color: var(--accent-red); }
@@ -268,10 +285,10 @@
 
         .smile-svg {
             position: absolute;
-            bottom: -12px;
+            bottom: -15px;
             right: 0;
-            width: 68%;
-            height: 22px;
+            width: 70%;
+            height: 26px;
             overflow: visible;
         }
 
@@ -498,7 +515,7 @@
             color: #aaa;
         }
 
-        /* Modal / Popup Overlay */
+        /* Modal Overlay */
         .popup-overlay {
             position: fixed;
             top: 0; left: 0;
@@ -563,7 +580,9 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .mobile-toggle { display: block; }
+            .mobile-toggle { 
+                display: block; 
+            }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -578,7 +597,7 @@
             .nav-links.active { display: flex; }
             .options-grid { grid-template-columns: repeat(2, 1fr); }
             .slide-overlay h2 { font-size: 26px; }
-            .tagline-box h2 { font-size: 20px; }
+            .logo-img { width: 55px; height: 55px; }
             .popup-main-title { font-size: 28px; }
         }
     </style>
@@ -645,11 +664,11 @@
         </div>
     </div>
 
-    <!-- Header Section -->
+    <!-- Header Section with Original Logo & Single Line Mobile Text -->
     <header class="header-top">
         <div class="container header-container">
             <div class="logo-title-group">
-                <img src="1000465048.png" alt="साथ चले हम Foundation Logo" class="logo-img">
+                <img src="logo.png" alt="Sath Chale Hum Foundation Original Logo" class="logo-img">
                 <div class="org-details">
                     <h1>साथ चले हम Foundation</h1>
                     <p>साथ चले हम, बदलाव की ओर</p>
@@ -660,13 +679,14 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="container nav-container">
+        <div class="nav-container">
             <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#work">Work</a></li>
-                <li><a href="#team">Team</a></li>
+                <li><a href="#work">Our Work</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#events">Events</a></li>
                 <li><a href="#join">Join Us</a></li>
                 <li><a href="#donate" class="nav-donate-btn">DONATE NOW</a></li>
             </ul>
@@ -717,7 +737,7 @@
         </div>
     </section>
 
-    <!-- Tagline Banner - EXTRA BOLD MAIN ATTRACTIVE DESIGN -->
+    <!-- Tagline Banner (No Blue Border & Extra Big Font) -->
     <section class="tagline-section">
         <div class="container">
             <div class="tagline-box">
@@ -734,7 +754,7 @@
                     </span>
                 </h2>
             </div>
-            <p style="text-align:center; font-weight:800; color:var(--primary-blue); margin-top:6px; font-size:16px;">Your ₹1, Someone’s Smile</p>
+            <p style="text-align:center; font-weight:800; color:var(--primary-blue); margin-top:8px; font-size:18px;">Your ₹1, Someone’s Smile</p>
         </div>
     </section>
 
@@ -786,7 +806,6 @@
                 <i>Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.</i>
             </p>
 
-            <!-- Corrected Mission & Vision Section -->
             <h2 class="sec-title" style="font-size:24px; margin-top:40px;">हमारा मिशन और विज़न | Our Mission & Vision</h2>
             <div class="mv-grid">
                 <div class="mv-card">
@@ -817,7 +836,7 @@
     <!-- Key Work Areas -->
     <section class="sec-padding" id="work" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="sec-title">हमारे प्रमुख कार्य क्षेत्र | Our Key Areas of Work</h2>
+            <h2 class="sec-title">हमारे प्रमुख कार्य क्षेत्र | Our Key Work Areas</h2>
             <div class="grid-3">
                 <div class="work-card">1. शिक्षा एवं बाल विकास — Education & Child Development</div>
                 <div class="work-card">2. महिला सशक्तिकरण एवं विकास — Women Empowerment & Development</div>
@@ -839,7 +858,7 @@
         </div>
     </section>
 
-    <!-- Our Team & Way of Working -->
+    <!-- Our Team Section -->
     <section class="sec-padding" id="team">
         <div class="container">
             <h2 class="sec-title">Our Team | हमारी टीम</h2>
@@ -869,8 +888,29 @@
         </div>
     </section>
 
+    <!-- Events Section -->
+    <section class="sec-padding" id="events" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2 class="sec-title">Events | हमारे कार्यक्रम व इवेंट्स</h2>
+            <div class="grid-3">
+                <div class="work-card" style="border-left-color: var(--primary-blue);">
+                    <h4>Daily ₹1 Supporter Drive</h4>
+                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">दैनिक छोटे सहयोग से सामाजिक कार्यों का संचालन करना।</p>
+                </div>
+                <div class="work-card" style="border-left-color: var(--primary-blue);">
+                    <h4>Shiksha & Bal Vikas Camp</h4>
+                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">जरूरतमंद बच्चों तक पठन-पाठन सामग्री पहुँचाने का विशेष कार्यक्रम।</p>
+                </div>
+                <div class="work-card" style="border-left-color: var(--primary-blue);">
+                    <h4>Swasthya Suraksha Health Checkup</h4>
+                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">स्वास्थ्य जागरूकता शिविर एवं नि:शुल्क चिकित्सा सहायता वितरण।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- How You Can Help Section -->
-    <section class="sec-padding" style="background-color: var(--light-bg);">
+    <section class="sec-padding">
         <div class="container">
             <h2 class="sec-title">आप हमारी मदद कैसे कर सकते हैं? | How You Can Help</h2>
             <div class="values-grid">
@@ -948,6 +988,7 @@
                         <li><a href="#about">About Us | हमारे बारे में</a></li>
                         <li><a href="#work">Our Work | हमारे कार्य</a></li>
                         <li><a href="#team">Our Team | हमारी टीम</a></li>
+                        <li><a href="#events">Events | इवेंट्स</a></li>
                         <li><a href="#donate">Donate Us | दान करें</a></li>
                         <li><a href="#join">Join Us | हमारे साथ जुड़ें</a></li>
                         <li><a href="#contact">Contact Us | संपर्क करें</a></li>
@@ -962,7 +1003,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript Scripting -->
+    <!-- JavaScript -->
     <script>
         // Automatic Popup
         window.onload = function() {
