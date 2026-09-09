@@ -7,30 +7,34 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;600;700;800;900&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
         :root {
+            --primary-navy: #001254;
             --primary-orange: #f37021;
-            --primary-blue: #001254;
             --accent-red: #d60000;
             --accent-green: #0d5c2d;
             --light-bg: #f8f9fa;
             --dark-text: #111111;
+            --border-light: #e2e8f0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Mukta', 'Segoe UI', sans-serif;
+            font-family: 'Mukta', 'Poppins', 'Segoe UI', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             color: var(--dark-text);
             background-color: #ffffff;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         a { text-decoration: none; color: inherit; }
@@ -41,12 +45,12 @@
             margin: 0 auto;
         }
 
-        /* Top Header */
         .header-top {
-            background: linear-gradient(135deg, #001254, #002b80);
+            background: linear-gradient(135deg, #001254, #002580);
             color: #ffffff;
-            padding: 12px 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            padding: 18px 0;
+            box-shadow: 0 4px 12px rgba(0, 18, 84, 0.25);
+            border-bottom: 3px solid var(--primary-orange);
         }
 
         .header-container {
@@ -55,16 +59,16 @@
             justify-content: flex-start;
         }
 
-        .header-row-1 {
+        .header-row {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 18px;
             width: 100%;
         }
 
         .logo-box {
-            width: 80px;
-            height: 80px;
+            width: 85px;
+            height: 85px;
             flex-shrink: 0;
             background: #ffffff;
             border-radius: 50%;
@@ -72,7 +76,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 10px rgba(255,255,255,0.4);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
             overflow: hidden;
         }
 
@@ -85,7 +89,6 @@
 
         .org-details {
             width: 100%;
-            overflow: hidden;
         }
 
         .org-details h1 {
@@ -93,31 +96,31 @@
             font-weight: 900;
             color: #ffffff;
             letter-spacing: 0.5px;
-            white-space: nowrap;
             line-height: 1.1;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
         }
 
         .org-details p {
-            font-size: clamp(12px, 3.2vw, 18px);
+            font-size: clamp(13px, 3.2vw, 18px);
             color: var(--primary-orange);
             font-weight: 800;
-            white-space: nowrap;
+            letter-spacing: 0.5px;
         }
 
-        /* Navigation Bar */
         .navbar {
             background-color: #ffffff;
-            border-bottom: 2px solid #e0e0e0;
+            border-bottom: 2px solid #e2e8f0;
             position: sticky;
             top: 0;
             z-index: 1000;
             width: 100%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .nav-container {
             width: 100%;
-            max-width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 10px 4%;
             display: flex;
             justify-content: space-between;
@@ -137,7 +140,7 @@
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 15px;
-            color: var(--primary-blue);
+            color: var(--primary-navy);
             transition: color 0.3s;
             white-space: nowrap;
         }
@@ -146,14 +149,16 @@
             color: var(--primary-orange);
         }
 
+        /* Blinking Donate Button in Nav */
         .nav-donate-btn {
             background: linear-gradient(45deg, #d60000, #ff2a2a);
             color: #ffffff !important;
-            padding: 10px 22px;
+            padding: 10px 24px;
             border-radius: 30px;
             font-weight: 800 !important;
             font-size: 14px !important;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
             box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7);
             animation: pulse-blink 1.5s infinite;
         }
@@ -168,17 +173,16 @@
             display: none;
             font-size: 26px;
             cursor: pointer;
-            color: var(--primary-blue);
+            color: var(--primary-navy);
             margin-left: auto;
         }
 
-        /* Hero Slideshow Section */
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 460px;
+            height: 500px;
             overflow: hidden;
-            background-color: #111;
+            background-color: #000;
         }
 
         .slide {
@@ -197,7 +201,7 @@
         .slide.active { opacity: 1; }
 
         .slide-overlay {
-            background: rgba(0, 18, 84, 0.7);
+            background: linear-gradient(rgba(0, 18, 84, 0.75), rgba(0, 0, 0, 0.8));
             width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
@@ -209,16 +213,19 @@
         }
 
         .slide-overlay h2 {
-            font-size: 38px;
-            margin-bottom: 10px;
+            font-size: clamp(28px, 5vw, 48px);
+            margin-bottom: 12px;
             color: #ffffff;
-            font-weight: 800;
+            font-weight: 900;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
         }
 
         .slide-overlay p {
-            font-size: 20px;
+            font-size: clamp(16px, 3vw, 22px);
             margin-bottom: 25px;
             color: #f0f0f0;
+            font-weight: 600;
+            max-width: 800px;
         }
 
         .hero-btns {
@@ -231,117 +238,248 @@
         .btn-primary {
             background-color: var(--accent-red);
             color: #fff;
-            padding: 12px 28px;
-            border-radius: 25px;
+            padding: 12px 32px;
+            border-radius: 30px;
             font-weight: 800;
             font-size: 16px;
+            box-shadow: 0 4px 15px rgba(214, 0, 0, 0.4);
+            transition: transform 0.2s, background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            background-color: #b30000;
         }
 
         .btn-secondary {
             background-color: var(--primary-orange);
             color: #fff;
-            padding: 12px 28px;
-            border-radius: 25px;
+            padding: 12px 32px;
+            border-radius: 30px;
             font-weight: 800;
             font-size: 16px;
-        }
-
-        /* Tagline Banner */
-        .tagline-section {
-            padding: 35px 0;
-            background-color: #ffffff;
-        }
-
-        .tagline-box {
-            text-align: center;
-        }
-
-        .tagline-box h2 {
-            margin: 0;
-            font-size: clamp(28px, 6vw, 65px);
-            font-weight: 900;
-            line-height: 1.25;
-            display: flex;
-            justify-content: center;
+            box-shadow: 0 4px 15px rgba(243, 112, 33, 0.4);
+            transition: transform 0.2s, background 0.2s;
+            display: inline-flex;
             align-items: center;
-            flex-wrap: wrap;
             gap: 8px;
         }
 
-        .highlight-red { color: var(--accent-red); }
-        .highlight-blue { color: var(--primary-blue); }
-
-        .smile-wrapper {
-            position: relative;
-            display: inline-block;
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            background-color: #d95b0d;
         }
 
-        .smile-svg {
+        .btn-dark {
+            background-color: var(--primary-navy);
+            color: #fff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0, 18, 84, 0.4);
+            transition: transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-2px);
+        }
+
+        .campaign-banner-box {
+            background: #ffffff;
+            border: 2px solid var(--primary-navy);
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 10px 30px rgba(0, 18, 84, 0.08);
+            margin: 0 auto;
+            max-width: 950px;
+        }
+
+        /* Heading Container without outer border */
+        .smile-heading-container {
+            text-align: center;
+            margin-bottom: 10px;
+            border: none !important;
+            padding: 0 !important;
+            background: transparent !important;
+        }
+
+        .smile-heading-container h2 {
+            margin: 0;
+            font-size: clamp(28px, 6vw, 52px);
+            font-weight: 900;
+            line-height: 1.25;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .text-navy { color: var(--primary-navy); }
+        .text-orange { color: var(--primary-orange); }
+
+        .smile-word-wrap {
+            position: relative;
+            display: inline-block;
+            color: var(--primary-orange);
+        }
+
+        /* SVG Curve strictly under "मुस्कान" */
+        .smile-svg-under {
             position: absolute;
             bottom: -12px;
             left: 0;
             width: 100%;
-            height: 22px;
+            height: 18px;
+            pointer-events: none;
         }
 
-        /* Campaign Section */
-        .campaign-section {
-            background-color: var(--light-bg);
-            padding: 45px 0;
+        .sub-tagline-english {
             text-align: center;
+            font-weight: 800;
+            color: var(--primary-navy);
+            margin-top: 4px;
+            font-size: clamp(15px, 3.5vw, 20px);
+            letter-spacing: 0.3px;
         }
+
+        .campaign-sub-pill {
+            background: var(--primary-navy);
+            color: #ffffff;
+            padding: 8px 24px;
+            border-radius: 30px;
+            display: inline-block;
+            font-size: clamp(14px, 3.5vw, 19px);
+            font-weight: 800;
+            margin: 18px 0 20px;
+            box-shadow: 0 4px 12px rgba(0, 18, 84, 0.2);
+        }
+
+        .campaign-sub-pill strong { color: #ffd700; }
 
         .campaign-desc {
             max-width: 880px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
             font-size: 16px;
-            color: #333;
+            color: #333333;
+            text-align: center;
+            line-height: 1.7;
         }
 
-        .options-grid {
+        .campaign-desc-en {
+            margin-top: 10px;
+            color: #555555;
+            font-size: 15px;
+            font-style: italic;
+        }
+
+        /* 4 Tier Pricing Cards Container */
+        .cards-outline-box {
+            border: 2px solid var(--primary-navy);
+            border-radius: 14px;
+            background: #ffffff;
+            overflow: hidden;
+            margin: 25px 0;
+        }
+
+        .options-grid-divided {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-            margin-top: 20px;
+            background: #ffffff;
         }
 
-        .option-card {
-            background: #fff;
-            border: 2px solid #1a5276;
-            border-radius: 8px;
-            padding: 15px;
+        .option-card-divided {
+            padding: 22px 12px;
             text-align: center;
+            border-right: 1.5px solid #dcdcdc;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .option-card h3 { font-size: 32px; font-weight: 800; margin: 0; }
-        .opt-title { font-size: 12px; font-weight: 800; margin: 4px 0; }
-        .opt-sub { font-size: 14px; margin: 4px 0 8px; font-weight: 700; }
-        .opt-badge {
-            color: #fff;
-            font-size: 12px;
-            padding: 5px;
-            border-radius: 4px;
+        .option-card-divided:last-child { border-right: none; }
+
+        .option-card-divided .amount {
+            font-size: clamp(34px, 4.5vw, 48px);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .option-card-divided .opt-heading {
+            font-size: 13px;
             font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            padding-bottom: 2px;
+            border-bottom: 2px solid currentColor;
+            display: inline-block;
         }
 
-        .green h3, .green .opt-title { color: #0d5c2d; }
-        .green .opt-badge { background: #0d5c2d; }
+        .option-card-divided .opt-subtext {
+            font-size: 14px;
+            color: #333333;
+            font-weight: 700;
+            margin: 6px 0 12px;
+        }
 
-        .blue h3, .blue .opt-title { color: #003366; }
-        .blue .opt-badge { background: #003366; }
+        .option-card-divided .opt-pill-badge {
+            color: #ffffff;
+            font-size: 13px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-weight: 800;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+        }
 
-        .orange h3, .orange .opt-title { color: #d35400; }
-        .orange .opt-badge { background: #e67e22; }
+        /* Card Colors */
+        .card-green .amount, .card-green .opt-heading { color: #0d5c2d; }
+        .card-green .opt-pill-badge { background-color: #0d5c2d; }
 
-        .red h3, .red .opt-title { color: #c0392b; }
-        .red .opt-badge { background: #c0392b; }
+        .card-blue .amount, .card-blue .opt-heading { color: var(--primary-navy); }
+        .card-blue .opt-pill-badge { background-color: var(--primary-navy); }
 
-        /* General Section Styling */
-        .sec-padding { padding: 50px 0; }
+        .card-orange .amount, .card-orange .opt-heading { color: #e67e22; }
+        .card-orange .opt-pill-badge { background-color: #e67e22; }
+
+        .card-red .amount, .card-red .opt-heading { color: var(--accent-red); }
+        .card-red .opt-pill-badge { background-color: var(--accent-red); }
+
+        /* Donate CTA Container with Flanking Accent Lines */
+        .donate-cta-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .cta-line {
+            height: 3px;
+            flex: 1;
+            max-width: 120px;
+            background: linear-gradient(to right, transparent, var(--accent-red));
+            border-radius: 2px;
+        }
+
+        .cta-line.right {
+            background: linear-gradient(to left, transparent, var(--accent-red));
+        }
+
+        .sec-padding { padding: 55px 0; }
         .sec-title {
             text-align: center;
-            font-size: 32px;
-            color: var(--primary-blue);
+            font-size: clamp(24px, 4vw, 34px);
+            color: var(--primary-navy);
             font-weight: 900;
             margin-bottom: 25px;
             position: relative;
@@ -367,65 +505,99 @@
 
         .mv-card {
             background: #ffffff;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            border-top: 5px solid var(--primary-blue);
+            border-radius: 12px;
+            padding: 30px 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+            border-top: 5px solid var(--primary-navy);
+            border-left: 1px solid var(--border-light);
+            border-right: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            transition: transform 0.3s;
         }
+
+        .mv-card:hover { transform: translateY(-4px); }
 
         .mv-card.vision { border-top-color: var(--primary-orange); }
 
         .mv-card h3 {
             font-size: 22px;
-            color: var(--primary-blue);
+            color: var(--primary-navy);
             margin-bottom: 12px;
             font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .mv-card p { font-size: 15px; margin-bottom: 10px; color: #222; }
+        .mv-card.vision h3 { color: var(--primary-orange); }
+
+        .mv-card p { font-size: 15px; margin-bottom: 8px; color: #333; line-height: 1.6; }
+        .mv-card p.en-text { color: #666; font-style: italic; }
 
         /* All 16 Work Areas Grid */
-        .grid-3 {
+        .grid-work-areas {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 15px;
+            gap: 18px;
         }
 
-        .work-card {
-            background: #fff;
+        .work-card-premium {
+            background: #ffffff;
             border: 1px solid #e2e8f0;
             border-left: 5px solid var(--primary-orange);
-            padding: 14px 18px;
-            border-radius: 6px;
+            padding: 16px 20px;
+            border-radius: 10px;
             font-weight: 700;
-            color: #222;
+            color: #222222;
             font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+            transition: all 0.3s ease;
         }
 
-        /* Team Section Styling */
+        .work-card-premium:hover {
+            border-left-color: var(--primary-navy);
+            box-shadow: 0 6px 18px rgba(0, 18, 84, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .work-card-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(243, 112, 33, 0.12);
+            color: var(--primary-orange);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        /* Team Cards */
         .team-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
         .team-card-styled {
             text-align: center;
-            padding: 30px 20px;
-            border-radius: 12px;
+            padding: 35px 25px;
+            border-radius: 16px;
             background: linear-gradient(145deg, #001254, #002580);
             color: #ffffff;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 24px rgba(0, 18, 84, 0.2);
             border: 2px solid var(--primary-orange);
             transition: transform 0.3s ease;
         }
 
-        .team-card-styled:hover {
-            transform: translateY(-5px);
-        }
+        .team-card-styled:hover { transform: translateY(-5px); }
 
         .team-card-styled i {
-            font-size: 40px;
+            font-size: 42px;
             color: var(--primary-orange);
             margin-bottom: 15px;
         }
@@ -434,89 +606,139 @@
             font-size: 22px;
             font-weight: 900;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
         }
 
         .team-card-styled p {
             font-size: 18px;
             font-weight: 800;
-            color: #ffc107;
+            color: #ffd700;
         }
 
-        /* Values & Working Grid */
+        /* Generic Flex Grid for Values / Ways / Help */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
             text-align: center;
         }
 
-        .value-box {
-            background: var(--primary-blue);
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
+        .value-box-card {
+            background: var(--primary-navy);
+            color: #ffffff;
+            padding: 18px 15px;
+            border-radius: 12px;
             font-weight: 800;
-            font-size: 16px;
+            font-size: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
         }
+
+        .value-box-card:hover { transform: translateY(-3px); }
+
+        .value-box-card i {
+            font-size: 26px;
+            color: var(--primary-orange);
+        }
+
+        .value-box-card.style-way { background: #0a2540; }
+        .value-box-card.style-way i { color: #ffd700; }
+
+        .value-box-card.style-help { background: #0d5c2d; }
+        .value-box-card.style-help i { color: #80e6a3; }
 
         /* Contact Section */
         .contact-box {
-            background: #f1f5f9;
-            padding: 30px;
-            border-radius: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 20px;
+            background: #ffffff;
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-light);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
-        .contact-item { flex: 1; min-width: 250px; }
+        .contact-item {
+            padding: 15px;
+            border-left: 4px solid var(--primary-orange);
+            background: #f8fafc;
+            border-radius: 0 10px 10px 0;
+        }
+
         .contact-item h4 {
-            color: var(--primary-blue);
-            margin-bottom: 10px;
+            color: var(--primary-navy);
+            margin-bottom: 8px;
             font-size: 18px;
             font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        /* Footer Section */
+        .contact-item p {
+            font-size: 15px;
+            color: #333333;
+            font-weight: 600;
+        }
+
         footer {
-            background: #000c36;
+            background: #000a30;
             color: #ffffff;
-            padding: 40px 0 20px;
+            padding: 50px 0 20px;
+            border-top: 4px solid var(--primary-orange);
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
+            gap: 35px;
+            margin-bottom: 35px;
         }
 
         .footer-col h3 {
             color: var(--primary-orange);
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             font-size: 20px;
             font-weight: 900;
+            position: relative;
+            padding-bottom: 8px;
         }
 
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 8px; }
-        .footer-links a { color: #ccc; font-size: 14px; }
-        .footer-links a:hover { color: #fff; }
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 40px; height: 3px;
+            background: #ffffff;
+        }
+
+        .social-heading {
+            font-size: 16px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
         .footer-social-icons {
-            margin-top: 15px;
             display: flex;
-            gap: 10px;
+            gap: 12px;
         }
 
         .footer-social-icons a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             background: rgba(255,255,255,0.12);
             color: #fff;
             border-radius: 50%;
@@ -529,109 +751,97 @@
             transform: translateY(-3px);
         }
 
-        /* Footer Bottom Legal Section */
-        .footer-bottom-legal {
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            color: #cccccc;
+            font-size: 15px;
+            transition: color 0.3s, padding-left 0.3s;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-orange);
+            padding-left: 5px;
+        }
+
+        .footer-bottom-area {
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 25px;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
         }
 
-        .legal-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
+        .footer-legal-links {
             margin-bottom: 12px;
-            flex-wrap: wrap;
+            font-size: 15px;
         }
 
-        .legal-links a {
-            color: #dddddd;
-            font-size: 14px;
+        .footer-legal-links a {
+            color: #ffffff;
             font-weight: 700;
+            margin: 0 12px;
             transition: color 0.3s;
         }
 
-        .legal-links a:hover {
+        .footer-legal-links a:hover {
             color: var(--primary-orange);
-        }
-
-        .legal-divider {
-            color: rgba(255,255,255,0.3);
+            text-decoration: underline;
         }
 
         .copyright {
             font-size: 14px;
-            color: #aaa;
+            color: #aaaaaa;
         }
 
-        /* Popup Modal Styling */
+        /* POPUP MODAL STYLES */
         .popup-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.78);
+            background-color: rgba(0, 0, 0, 0.82);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 99999;
+            padding: 15px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .popup-content {
             background: #ffffff;
-            width: 92%;
-            max-width: 680px;
-            border-radius: 12px;
-            padding: 25px 20px;
+            width: 100%;
+            max-width: 850px;
+            border-radius: 24px;
+            padding: 35px 25px 25px;
             position: relative;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            max-height: 90vh;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            max-height: 92vh;
             overflow-y: auto;
+            border: 3px solid var(--primary-navy);
         }
 
         .close-btn {
             position: absolute;
-            top: 10px;
-            right: 15px;
-            font-size: 28px;
+            top: 12px;
+            right: 18px;
+            font-size: 32px;
             font-weight: bold;
             cursor: pointer;
-            color: #333;
+            color: #444;
+            line-height: 1;
+            transition: color 0.2s;
+            z-index: 10;
         }
 
-        .popup-main-title {
-            font-size: 36px;
-            margin: 0;
-            color: #0d233a;
-            font-weight: 900;
-        }
+        .close-btn:hover { color: var(--accent-red); }
 
-        .campaign-badge {
-            background: #0d5c2d;
-            color: #ffffff;
-            font-weight: 800;
-            display: inline-block;
-            padding: 4px 18px;
-            border-radius: 4px;
-            font-size: 14px;
-            margin: 5px 0 10px;
-        }
-
-        .sub-banner {
-            background: #0a2540;
-            color: #fff;
-            padding: 6px 15px;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 14px;
-            margin: 10px 0;
-        }
-
-        .sub-banner strong { color: #f1c40f; }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .mobile-toggle { display: block; }
             .nav-links {
                 display: none;
@@ -640,85 +850,124 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
-                background: #fff;
-                padding: 15px;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                background: #ffffff;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+                border-top: 1px solid var(--border-light);
             }
             .nav-links.active { display: flex; }
-            .options-grid { grid-template-columns: repeat(2, 1fr); }
-            .slide-overlay h2 { font-size: 26px; }
-            .logo-box { width: 60px; height: 60px; }
-            .popup-main-title { font-size: 28px; }
+            .options-grid-divided {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .option-card-divided {
+                border-bottom: 1.5px solid #dcdcdc;
+            }
+            .option-card-divided:nth-child(2n) {
+                border-right: none;
+            }
+            .option-card-divided:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+            .slide-overlay h2 { font-size: 28px; }
+            .logo-box { width: 70px; height: 70px; }
+            .cta-line { max-width: 50px; }
+            .campaign-sub-pill { font-size: 14px; padding: 6px 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .options-grid-divided {
+                grid-template-columns: 1fr;
+            }
+            .option-card-divided {
+                border-right: none !important;
+                border-bottom: 1.5px solid #dcdcdc;
+            }
+            .option-card-divided:last-child {
+                border-bottom: none;
+            }
+            .donate-cta-container {
+                flex-direction: column;
+            }
+            .cta-line { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Popup Modal -->
-    <div id="campaignPopup" class="popup-overlay">
+    <!-- Campaign Popup Modal -->
+    <div id="campaignPopup" class="popup-overlay" style="display: none;">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
-            <h1 class="popup-main-title"><span class="highlight-red">₹1</span> DAILY</h1>
-            <div class="campaign-badge">🍃 SUPPORTER CAMPAIGN 🍃</div>
             
-            <div class="tagline-box">
+            <div class="smile-heading-container">
                 <h2>
-                    <span class="highlight-red">आपका ₹1, </span>
-                    <span class="highlight-blue">किसी की </span>
-                    <span class="smile-wrapper highlight-blue">
-                        मुस्कान
-                        <svg class="smile-svg" viewBox="0 0 100 30" preserveAspectRatio="none">
-                            <path d="M 5 8 C 5 8, 12 28, 50 28 C 88 28, 95 8, 95 8 C 95 8, 88 18, 50 18 C 12 18, 5 8, 5 8 Z" fill="#d60000" />
-                            <path d="M 5 8 C 1 12, 1 15, 6 15 C 8 13, 8 10, 5 8 Z" fill="#d60000" />
-                            <path d="M 95 8 C 99 12, 99 15, 94 15 C 92 13, 92 10, 95 8 Z" fill="#d60000" />
+                    <span class="text-navy">आपका ₹1, </span>
+                    <span class="smile-word-wrap">
+                        किसी की मुस्कान
+                        <svg class="smile-svg-under" viewBox="0 0 100 25" preserveAspectRatio="none">
+                            <path d="M 0 5 Q 50 25 100 5 Q 50 16 0 5 Z" fill="#d60000" />
                         </svg>
                     </span>
                 </h2>
             </div>
             
-            <div class="sub-banner">
-                रोज़ ₹1 – <strong>बदलाव की ओर साथ चले हम !</strong>
-            </div>
-            
-            <div class="options-grid">
-                <div class="option-card green">
-                    <h3>₹1</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 1 प्रति दिन</p>
-                    <div class="opt-badge">लगभग ₹ 30/माह</div>
-                </div>
-                <div class="option-card blue">
-                    <h3>₹2</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 2 प्रति दिन</p>
-                    <div class="opt-badge">लगभग ₹ 60/माह</div>
-                </div>
-                <div class="option-card orange">
-                    <h3>₹5</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 5 प्रति दिन</p>
-                    <div class="opt-badge">लगभग ₹ 150/माह</div>
-                </div>
-                <div class="option-card red">
-                    <h3>₹10</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 10 प्रति दिन</p>
-                    <div class="opt-badge">लगभग ₹ 300/माह</div>
+            <div class="sub-tagline-english">Your ₹1, Someone’s Smile</div>
+
+            <div style="text-align:center;">
+                <div class="campaign-sub-pill">
+                    रोज़ ₹1 – <strong>बदलाव की ओर साथ चले हम !</strong>
                 </div>
             </div>
+
+            <p style="font-size:15px; color:#444; margin-bottom: 15px; line-height: 1.5;">
+                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर अपना योगदान दें।
+            </p>
             
-            <div style="margin-top: 20px;">
-                <a href="#donate" onclick="closePopup()" class="btn-primary" style="display:inline-block; padding: 10px 30px;">❤️ DONATE NOW &rarr;</a>
+            <div class="cards-outline-box">
+                <div class="options-grid-divided">
+                    <div class="option-card-divided card-green">
+                        <div class="amount">₹1</div>
+                        <div class="opt-heading">DAILY SUPPORTER</div>
+                        <div class="opt-subtext">₹ 1 प्रति दिन</div>
+                        <div class="opt-pill-badge">₹ 30 / माह</div>
+                    </div>
+                    <div class="option-card-divided card-blue">
+                        <div class="amount">₹2</div>
+                        <div class="opt-heading">DAILY SUPPORTER</div>
+                        <div class="opt-subtext">₹ 2 प्रति दिन</div>
+                        <div class="opt-pill-badge">₹ 60 / माह</div>
+                    </div>
+                    <div class="option-card-divided card-orange">
+                        <div class="amount">₹5</div>
+                        <div class="opt-heading">DAILY SUPPORTER</div>
+                        <div class="opt-subtext">₹ 5 प्रति दिन</div>
+                        <div class="opt-pill-badge">₹ 150 / माह</div>
+                    </div>
+                    <div class="option-card-divided card-red">
+                        <div class="amount">₹10</div>
+                        <div class="opt-heading">DAILY SUPPORTER</div>
+                        <div class="opt-subtext">₹ 10 प्रति दिन</div>
+                        <div class="opt-pill-badge">₹ 300 / माह</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="donate-cta-container">
+                <div class="cta-line"></div>
+                <a href="#donate" onclick="closePopup()" class="btn-primary">
+                    <i class="fas fa-heart"></i> DONATE NOW &rarr;
+                </a>
+                <div class="cta-line right"></div>
             </div>
         </div>
     </div>
 
-    <!-- Header Section (With GitHub Synced HD Logo) -->
+    <!-- Top Header -->
     <header class="header-top">
         <div class="container header-container">
-            <div class="header-row-1">
+            <div class="header-row">
                 <div class="logo-box">
-                    <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="साथ चले हम Foundation Logo">
+                    <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="साथ चले हम Foundation Logo" onerror="this.onerror=null; this.src='https://placehold.co/200x200/001254/ffffff?text=SCHF+Logo';">
                 </div>
                 
                 <div class="org-details">
@@ -729,162 +978,299 @@
         </div>
     </header>
 
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="mobile-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#work">Our Work</a></li>
-                <li><a href="#team">Our Team</a></li>
-                <li><a href="events.html">Events</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#join">Join Us</a></li>
-                <li><a href="#donate" class="nav-donate-btn">DONATE NOW</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="#donate" class="nav-donate-btn">Donate Us</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section Slideshow -->
+    <!-- Hero Slider -->
     <section id="home" class="hero-slider">
-        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200');">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1400');">
             <div class="slide-overlay">
                 <h2>साथ चले हम, बदलाव की ओर</h2>
-                <p>आपका साथ, किसी की नई शुरुआत। <br><i>Your Support, Someone’s New Beginning.</i></p>
+                <p>आपका साथ, किसी की नई शुरुआत।<br><i>Your Support, Someone’s New Beginning.</i></p>
                 <div class="hero-btns">
-                    <a href="#donate" class="btn-primary">Donate Us</a>
-                    <a href="#join" class="btn-secondary">Join Us</a>
+                    <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                    <a href="#join" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200');">
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1400');">
             <div class="slide-overlay">
                 <h2>शिक्षा एवं बाल विकास</h2>
-                <p>हर बच्चे को मिले बेहतर शिक्षा का अधिकार।</p>
+                <p>हर बच्चे को मिले बेहतर शिक्षा का अधिकार और सुनहरा भविष्य।</p>
                 <div class="hero-btns">
-                    <a href="#donate" class="btn-primary">Donate Us</a>
+                    <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                    <a href="#join" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=1200');">
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=1400');">
             <div class="slide-overlay">
                 <h2>स्वास्थ्य एवं जरूरतमंद कल्याण</h2>
-                <p>जरूरतमंदों तक सीधी सहायता पहुँचाने का प्रयास।</p>
+                <p>जरूरतमंदों तक सीधी सहायता एवं चिकित्सा सेवा पहुँचाने का निरंतर प्रयास।</p>
                 <div class="hero-btns">
-                    <a href="#join" class="btn-secondary">Join Us</a>
+                    <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                    <a href="#join" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 4 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1400');">
+            <div class="slide-overlay">
+                <h2>महिला सशक्तिकरण एवं स्वावलंबन</h2>
+                <p>महिलाओं को आत्मनिर्भर, शिक्षित एवं सशक्त बनाने का संकल्प।</p>
+                <div class="hero-btns">
+                    <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                    <a href="#join" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
+                </div>
+            </div>
+        </div>
+        <!-- Slide 5 -->
+        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1400');">
+            <div class="slide-overlay">
+                <h2>पर्यावरण एवं ग्रामीण विकास</h2>
+                <p>हरियाली, जल संरक्षण एवं ग्रामीण क्षेत्रों के समग्र उत्थान के लिए समर्पित।</p>
+                <div class="hero-btns">
+                    <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                    <a href="#join" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tagline Banner -->
-    <section class="tagline-section">
+    <!-- Campaign Section -->
+    <section class="sec-padding" id="donate" style="background-color: var(--light-bg);">
         <div class="container">
-            <div class="tagline-box">
-                <h2>
-                    <span class="highlight-red">आपका ₹1, </span>
-                    <span class="highlight-blue">किसी की </span>
-                    <span class="smile-wrapper highlight-blue">
-                        मुस्कान
-                        <svg class="smile-svg" viewBox="0 0 100 30" preserveAspectRatio="none">
-                            <path d="M 5 8 C 5 8, 12 28, 50 28 C 88 28, 95 8, 95 8 C 95 8, 88 18, 50 18 C 12 18, 5 8, 5 8 Z" fill="#d60000" />
-                            <path d="M 5 8 C 1 12, 1 15, 6 15 C 8 13, 8 10, 5 8 Z" fill="#d60000" />
-                            <path d="M 95 8 C 99 12, 99 15, 94 15 C 92 13, 92 10, 95 8 Z" fill="#d60000" />
-                        </svg>
-                    </span>
-                </h2>
+            <div class="campaign-banner-box">
+                <div class="smile-heading-container">
+                    <h2>
+                        <span class="text-navy">आपका ₹1, </span>
+                        <span class="smile-word-wrap">
+                            किसी की मुस्कान
+                            <svg class="smile-svg-under" viewBox="0 0 100 25" preserveAspectRatio="none">
+                                <path d="M 0 5 Q 50 25 100 5 Q 50 16 0 5 Z" fill="#d60000" />
+                            </svg>
+                        </span>
+                    </h2>
+                </div>
+                
+                <div class="sub-tagline-english">Your ₹1, Someone’s Smile</div>
+
+                <div style="text-align:center;">
+                    <div class="campaign-sub-pill">
+                        Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+                    </div>
+                </div>
+
+                <div class="campaign-desc">
+                    <p>
+                        हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
+                    </p>
+                    <p class="campaign-desc-en">
+                        A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+                    </p>
+                    <p style="margin-top: 15px; font-weight: 800; color: var(--primary-navy);">
+                        अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।<br>
+                        <span style="font-size:14px; font-weight:600; color:#555;">Choose a daily contribution that suits you and become part of our efforts to support those in need.</span>
+                    </p>
+                </div>
+                
+                <div class="cards-outline-box">
+                    <div class="options-grid-divided">
+                        <div class="option-card-divided card-green">
+                            <div class="amount">₹1</div>
+                            <div class="opt-heading">DAILY SUPPORTER</div>
+                            <div class="opt-subtext">₹ 1 प्रति दिन</div>
+                            <div class="opt-pill-badge">₹ 30 / माह</div>
+                        </div>
+                        <div class="option-card-divided card-blue">
+                            <div class="amount">₹2</div>
+                            <div class="opt-heading">DAILY SUPPORTER</div>
+                            <div class="opt-subtext">₹ 2 प्रति दिन</div>
+                            <div class="opt-pill-badge">₹ 60 / माह</div>
+                        </div>
+                        <div class="option-card-divided card-orange">
+                            <div class="amount">₹5</div>
+                            <div class="opt-heading">DAILY SUPPORTER</div>
+                            <div class="opt-subtext">₹ 5 प्रति दिन</div>
+                            <div class="opt-pill-badge">₹ 150 / माह</div>
+                        </div>
+                        <div class="option-card-divided card-red">
+                            <div class="amount">₹10</div>
+                            <div class="opt-heading">DAILY SUPPORTER</div>
+                            <div class="opt-subtext">₹ 10 प्रति दिन</div>
+                            <div class="opt-pill-badge">₹ 300 / माह</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="donate-cta-container">
+                    <div class="cta-line"></div>
+                    <a href="#contact" class="btn-primary">
+                        <i class="fas fa-heart"></i> DONATE NOW &rarr;
+                    </a>
+                    <div class="cta-line right"></div>
+                </div>
             </div>
-            <p style="text-align:center; font-weight:800; color:var(--primary-blue); margin-top:8px; font-size:18px;">Your ₹1, Someone’s Smile</p>
         </div>
     </section>
 
-    <!-- Daily Supporter Section -->
-    <section class="campaign-section" id="donate">
-        <div class="container">
-            <h2 class="sec-title">Daily ₹1 Supporter | दैनिक ₹1 सहयोगी</h2>
-            <p class="campaign-desc">
-                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें।<br><br>
-                <i>A small contribution of just ₹1 a day can bring hope into someone’s life.</i>
-            </p>
-            
-            <div class="options-grid">
-                <div class="option-card green">
-                    <h3>₹1</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 1 प्रति दिन</p>
-                    <div class="opt-badge">₹ 30 / माह</div>
-                </div>
-                <div class="option-card blue">
-                    <h3>₹2</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 2 प्रति दिन</p>
-                    <div class="opt-badge">₹ 60 / माह</div>
-                </div>
-                <div class="option-card orange">
-                    <h3>₹5</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 5 प्रति दिन</p>
-                    <div class="opt-badge">₹ 150 / माह</div>
-                </div>
-                <div class="option-card red">
-                    <h3>₹10</h3>
-                    <p class="opt-title">DAILY SUPPORTER</p>
-                    <p class="opt-sub">₹ 10 प्रति दिन</p>
-                    <div class="opt-badge">₹ 300 / माह</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Us Section -->
+    <!-- About Section -->
     <section class="sec-padding" id="about">
         <div class="container">
             <h2 class="sec-title">About Us | हमारे बारे में</h2>
-            <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; font-size: 16px;">
-                साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
-            </p>
+            <div style="max-width: 950px; margin: 0 auto 35px; text-align: center;">
+                <p style="font-size: 17px; margin-bottom: 12px; color: #222;">
+                    साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+                </p>
+                <p style="font-size: 15px; color: #555; font-style: italic;">
+                    Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+                </p>
+            </div>
 
             <h2 class="sec-title" style="font-size:24px; margin-top:40px;">हमारा मिशन और विज़न | Our Mission & Vision</h2>
             <div class="mv-grid">
                 <div class="mv-card">
-                    <h3>Mission | हमारा मिशन</h3>
-                    <p>हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल और विकास के अवसर पहुँचाना है।</p>
+                    <h3><i class="fas fa-bullseye"></i> Mission | हमारा मिशन</h3>
+                    <p>हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।</p>
+                    <p class="en-text">Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.</p>
                 </div>
                 <div class="mv-card vision">
-                    <h3>Our Vision | हमारा विज़न</h3>
-                    <p>हमारा विज़न एक ऐसे समावेशी, जागरूक और आत्मनिर्भर समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान और अवसर मिले।</p>
+                    <h3><i class="fas fa-eye"></i> Our Vision | हमारा विज़न</h3>
+                    <p>हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।</p>
+                    <p class="en-text">Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ALL 16 Key Work Areas Grid -->
-    <section class="sec-padding" id="work" style="background-color: var(--light-bg);">
+    <!-- Values Section -->
+    <section class="sec-padding" style="background-color: var(--light-bg);">
         <div class="container">
-            <h2 class="sec-title">हमारे प्रमुख कार्य क्षेत्र | Our Key Work Areas</h2>
-            <div class="grid-3">
-                <div class="work-card">1. शिक्षा एवं बाल विकास — Education & Child Development</div>
-                <div class="work-card">2. महिला सशक्तिकरण एवं विकास — Women Empowerment & Development</div>
-                <div class="work-card">3. स्वास्थ्य एवं चिकित्सा — Health & Medical Care</div>
-                <div class="work-card">4. गरीब एवं जरूरतमंद कल्याण — Welfare of Poor & Needy</div>
-                <div class="work-card">5. दिव्यांगजन कल्याण एवं सशक्तिकरण — Disability Welfare & Empowerment</div>
-                <div class="work-card">6. वृद्धजन कल्याण — Senior Citizen Welfare</div>
-                <div class="work-card">7. युवा विकास एवं कौशल विकास — Youth Development & Skill Development</div>
-                <div class="work-card">8. रोजगार, स्वरोजगार एवं आजीविका — Employment, Self-Employment & Livelihood</div>
-                <div class="work-card">9. ग्रामीण विकास एवं ग्राम उत्थान — Rural Development & Village Upliftment</div>
-                <div class="work-card">10. कृषि एवं किसान कल्याण — Agriculture & Farmer Welfare</div>
-                <div class="work-card">11. पर्यावरण एवं जल संरक्षण — Environment & Water Conservation</div>
-                <div class="work-card">12. स्वच्छता, पेयजल एवं पोषण — Sanitation, Drinking Water & Nutrition</div>
-                <div class="work-card">13. पशु कल्याण एवं संरक्षण — Animal Welfare & Protection</div>
-                <div class="work-card">14. आपदा राहत एवं पुनर्वास — Disaster Relief & Rehabilitation</div>
-                <div class="work-card">15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता — Social Justice, Human Rights & Legal Awareness</div>
-                <div class="work-card">16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास — Digital Education, Public Awareness & Social Development</div>
+            <h2 class="sec-title">Our Values | हमारे मूल्य</h2>
+            <div class="values-grid">
+                <div class="value-box-card">
+                    <i class="fas fa-hands-helping"></i>
+                    <div>1. सेवा | Service</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-balance-scale"></i>
+                    <div>2. समानता | Equality</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>3. ईमानदारी | Integrity</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-eye"></i>
+                    <div>4. पारदर्शिता | Transparency</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-heart"></i>
+                    <div>5. करुणा | Compassion</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-arrow-up"></i>
+                    <div>6. सशक्तिकरण | Empowerment</div>
+                </div>
+                <div class="value-box-card">
+                    <i class="fas fa-users"></i>
+                    <div>7. सामुदायिक भागीदारी | Community Participation</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Team & Our Values Section -->
-    <section class="sec-padding" id="team">
+    <!-- Work Areas Section -->
+    <section class="sec-padding" id="work">
+        <div class="container">
+            <h2 class="sec-title">हमारे प्रमुख कार्य क्षेत्र | Our Key Areas of Work</h2>
+            <div class="grid-work-areas">
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <div>1. शिक्षा एवं बाल विकास — Education & Child Development</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-female"></i></div>
+                    <div>2. महिला सशक्तिकरण एवं विकास — Women Empowerment & Development</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-user-md"></i></div>
+                    <div>3. स्वास्थ्य एवं चिकित्सा — Health & Medical Care</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <div>4. गरीब एवं जरूरतमंद कल्याण — Welfare of Poor & Needy</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-wheelchair"></i></div>
+                    <div>5. दिव्यांगजन कल्याण एवं सशक्तिकरण — Disability Welfare & Empowerment</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-blind"></i></div>
+                    <div>6. वृद्धजन कल्याण — Senior Citizen Welfare</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-laptop-code"></i></div>
+                    <div>7. युवा विकास एवं कौशल विकास — Youth Development & Skill Development</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-briefcase"></i></div>
+                    <div>8. रोजगार, स्वरोजगार एवं आजीविका — Employment, Self-Employment & Livelihood</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-home"></i></div>
+                    <div>9. ग्रामीण विकास एवं ग्राम उत्थान — Rural Development & Village Upliftment</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-tractor"></i></div>
+                    <div>10. कृषि एवं किसान कल्याण — Agriculture & Farmer Welfare</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-leaf"></i></div>
+                    <div>11. पर्यावरण एवं जल संरक्षण — Environment & Water Conservation</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-pump-soap"></i></div>
+                    <div>12. स्वच्छता, पेयजल एवं पोषण — Sanitation, Drinking Water & Nutrition</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-paw"></i></div>
+                    <div>13. पशु कल्याण एवं संरक्षण — Animal Welfare & Protection</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-ambulance"></i></div>
+                    <div>14. आपदा राहत एवं पुनर्वास — Disaster Relief & Rehabilitation</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-gavel"></i></div>
+                    <div>15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता — Social Justice, Human Rights & Legal Awareness</div>
+                </div>
+                <div class="work-card-premium">
+                    <div class="work-card-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <div>16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास — Digital Education, Public Awareness & Social Development</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="sec-padding" id="team" style="background-color: var(--light-bg);">
         <div class="container">
             <h2 class="sec-title">Our Team | हमारी टीम</h2>
             <div class="team-grid">
@@ -904,117 +1290,142 @@
                     <p>कार्यक्रम संचालन टीम</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Our Values (हमारे मूल्य - 7 Points) -->
-            <h2 class="sec-title" style="margin-top: 50px;">Our Values | हमारे मूल्य</h2>
+    <!-- Our Way Section -->
+    <section class="sec-padding">
+        <div class="container">
+            <h2 class="sec-title">हमारा काम करने का तरीका | Our Way of Working</h2>
             <div class="values-grid">
-                <div class="value-box">1. सेवा | Service</div>
-                <div class="value-box">2. समानता | Equality</div>
-                <div class="value-box">3. ईमानदारी | Integrity</div>
-                <div class="value-box">4. पारदर्शिता | Transparency</div>
-                <div class="value-box">5. करुणा | Compassion</div>
-                <div class="value-box">6. सशक्तिकरण | Empowerment</div>
-                <div class="value-box">7. सामुदायिक भागीदारी | Community Participation</div>
-            </div>
-
-            <h2 class="sec-title" style="margin-top: 50px;">हमारा काम करने का तरीका | Our Way of Working</h2>
-            <div class="values-grid">
-                <div class="value-box" style="background:#0a2540;">1. सीधी मदद | Direct Help</div>
-                <div class="value-box" style="background:#0a2540;">2. मिलकर काम करना | Working Together</div>
-                <div class="value-box" style="background:#0a2540;">3. ईमानदारी और पारदर्शिता | Transparency</div>
-                <div class="value-box" style="background:#0a2540;">4. समुदाय की भागीदारी | Community</div>
-                <div class="value-box" style="background:#0a2540;">5. समानता और सम्मान | Equality</div>
+                <div class="value-box-card style-way">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <div>1. सीधी मदद | Direct Help</div>
+                </div>
+                <div class="value-box-card style-way">
+                    <i class="fas fa-people-carry"></i>
+                    <div>2. मिलकर काम करना | Working Together</div>
+                </div>
+                <div class="value-box-card style-way">
+                    <i class="fas fa-certificate"></i>
+                    <div>3. ईमानदारी और पारदर्शिता | Honesty & Transparency</div>
+                </div>
+                <div class="value-box-card style-way">
+                    <i class="fas fa-users"></i>
+                    <div>4. समुदाय की भागीदारी | Community Participation</div>
+                </div>
+                <div class="value-box-card style-way">
+                    <i class="fas fa-equals"></i>
+                    <div>5. समानता और सम्मान | Equality & Respect</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How You Can Help Section -->
+    <!-- How to Help Section -->
     <section class="sec-padding" style="background-color: var(--light-bg);">
         <div class="container">
             <h2 class="sec-title">आप हमारी मदद कैसे कर सकते हैं? | How You Can Help</h2>
             <div class="values-grid">
-                <div class="value-box" style="background:#0d5c2d;">1. अपना समय दें | Give Your Time</div>
-                <div class="value-box" style="background:#0d5c2d;">2. दान दें | Donate</div>
-                <div class="value-box" style="background:#0d5c2d;">3. सहयोग करें | Support Us</div>
-                <div class="value-box" style="background:#0d5c2d;">4. जागरूकता फैलाएँ | Spread Awareness</div>
-                <div class="value-box" style="background:#0d5c2d;">5. अपनी आवाज़ बनें | Be a Voice for Change</div>
+                <div class="value-box-card style-help">
+                    <i class="fas fa-clock"></i>
+                    <div>1. अपना समय दें | Give Your Time</div>
+                </div>
+                <div class="value-box-card style-help">
+                    <i class="fas fa-donate"></i>
+                    <div>2. दान दें | Donate</div>
+                </div>
+                <div class="value-box-card style-help">
+                    <i class="fas fa-hands"></i>
+                    <div>3. सहयोग करें | Support Us</div>
+                </div>
+                <div class="value-box-card style-help">
+                    <i class="fas fa-bullhorn"></i>
+                    <div>4. जागरूकता फैलाएँ | Spread Awareness</div>
+                </div>
+                <div class="value-box-card style-help">
+                    <i class="fas fa-microphone"></i>
+                    <div>5. अपनी आवाज़ बनें | Be a Voice for Change</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Join Us Section -->
-    <section class="sec-padding" id="join" style="background: var(--primary-blue); color: #fff; text-align: center;">
+    <section class="sec-padding" id="join" style="background: linear-gradient(135deg, #001254, #002580); color: #fff; text-align: center;">
         <div class="container">
-            <h2 style="font-size: 32px; margin-bottom: 15px; font-weight:900;">हमारे साथ जुड़ें | Join Us</h2>
-            <p style="max-width: 800px; margin: 0 auto 20px; font-size: 18px;">
+            <h2 style="font-size: clamp(26px, 4vw, 36px); margin-bottom: 15px; font-weight: 900;">हमारे साथ जुड़ें | Join Us</h2>
+            <p style="max-width: 850px; margin: 0 auto 10px; font-size: 18px; font-weight: 700;">
                 हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।
             </p>
+            <p style="max-width: 850px; margin: 0 auto 25px; font-size: 16px; color: #d0d8ff;">
+                आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।<br>
+                <i>Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.</i>
+            </p>
             <div class="hero-btns">
-                <a href="#donate" class="btn-primary">Donate Us</a>
-                <a href="#contact" class="btn-secondary">Join Us</a>
+                <a href="#donate" class="btn-primary"><i class="fas fa-heart"></i> Donate Us</a>
+                <a href="#contact" class="btn-secondary"><i class="fas fa-user-plus"></i> Join Us</a>
+                <a href="#" class="btn-dark" style="background:#ffffff; color:#001254;"><i class="fas fa-download"></i> Downloads</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Us Section -->
+    <!-- Contact Section -->
     <section class="sec-padding" id="contact">
         <div class="container">
             <h2 class="sec-title">📞 Contact Us | हमसे संपर्क करें</h2>
             <div class="contact-box">
                 <div class="contact-item">
-                    <h4>📍 पता | Address</h4>
+                    <h4><i class="fas fa-map-marker-alt" style="color: var(--accent-red);"></i> 📍 पता | Address</h4>
                     <p>भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201</p>
                 </div>
                 <div class="contact-item">
-                    <h4>📧 ईमेल | Email</h4>
+                    <h4><i class="fas fa-envelope" style="color: var(--primary-orange);"></i> 📧 ईमेल | Email</h4>
                     <p>sathchaleham@gmail.com</p>
                 </div>
                 <div class="contact-item">
-                    <h4>☎️ हेल्पलाइन | Helpline</h4>
+                    <h4><i class="fas fa-phone-alt" style="color: var(--accent-green);"></i> ☎️ हेल्पलाइन | Helpline</h4>
                     <p>+91 7011893028</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer Section -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Sath Chale Hum Foundation</h3>
-                    <p>साथ चले हम – बदलाव की ओर</p>
-                    <p style="font-size:13px; color:#aaa; margin-top:3px;">Step Together Towards Change</p>
+                    <p style="font-weight: 700; font-size: 16px;">साथ चले हम – बदलाव की ओर</p>
+                    <p style="font-size: 14px; color: #bbb; margin-top: 2px;">Step Together Towards Change</p>
                     
-                    <!-- Social Media Links Under Sath Chale Hum Foundation -->
+                    <div class="social-heading">Our Social Media</div>
                     <div class="footer-social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h3>Quick Links | महत्वपूर्ण लिंक</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home | होम</a></li>
-                        <li><a href="#about">About Us | हमारे बारे में</a></li>
-                        <li><a href="#work">Our Work | हमारे कार्य</a></li>
-                        <li><a href="#team">Our Team | हमारी टीम</a></li>
-                        <li><a href="events.html">Events | इवेंट्स</a></li>
-                        <li><a href="#donate">Donate Us | दान करें</a></li>
-                        <li><a href="#contact">Contact Us | संपर्क करें</a></li>
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home | होम</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us | हमारे बारे में</a></li>
+                        <li><a href="#work"><i class="fas fa-chevron-right"></i> Our Work | हमारे कार्य</a></li>
+                        <li><a href="#team"><i class="fas fa-chevron-right"></i> Our Team | हमारी टीम</a></li>
+                        <li><a href="#donate"><i class="fas fa-chevron-right"></i> Donate Us | दान करें</a></li>
+                        <li><a href="#join"><i class="fas fa-chevron-right"></i> Join Us | हमारे साथ जुड़ें</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us | संपर्क करें</a></li>
                     </ul>
                 </div>
             </div>
 
-            <!-- Bottom Legal Section Above Copyright -->
-            <div class="footer-bottom-legal">
-                <div class="legal-links">
-                    <a href="privacy-policy.html">Privacy Policy | गोपनीयता नीति</a>
-                    <span class="legal-divider">|</span>
-                    <a href="terms-and-conditions.html">Terms & Conditions | नियम एवं शर्तें</a>
+            <div class="footer-bottom-area">
+                <div class="footer-legal-links">
+                    <a href="terms-and-conditions.html">Terms & Conditions</a> | 
+                    <a href="privacy-policy.html">Privacy Policy</a>
                 </div>
                 <div class="copyright">
                     <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
@@ -1023,35 +1434,47 @@
         </div>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- JavaScript logic -->
     <script>
-        // Automatic Popup
-        window.onload = function() {
+        // Open Popup Modal after 1 second of page load
+        window.addEventListener('load', function() {
             setTimeout(function() {
-                document.getElementById('campaignPopup').style.display = 'flex';
+                var popup = document.getElementById('campaignPopup');
+                if (popup) {
+                    popup.style.display = 'flex';
+                }
             }, 1000);
-        };
+        });
 
+        // Close Popup Function
         function closePopup() {
-            document.getElementById('campaignPopup').style.display = 'none';
+            var popup = document.getElementById('campaignPopup');
+            if (popup) {
+                popup.style.display = 'none';
+            }
         }
 
+        // Mobile Menu Toggle Function
         function toggleMenu() {
             var nav = document.getElementById('navLinks');
-            nav.classList.toggle('active');
+            if (nav) {
+                nav.classList.toggle('active');
+            }
         }
 
-        // Automatic Hero Slider
+        // Hero Slider Functionality
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
 
         function nextSlide() {
-            slides[currentSlide].classList.remove('active');
-            currentSlide = (currentSlide + 1) % slides.length;
-            slides[currentSlide].classList.add('active');
+            if (slides.length > 0) {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }
         }
 
-        setInterval(nextSlide, 4000);
+        setInterval(nextSlide, 4500);
     </script>
 </body>
 </html>
