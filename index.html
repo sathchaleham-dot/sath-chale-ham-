@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>साथ चले हम Foundation - बदलाव की ओर</title>
-    <!-- Google Fonts for Ultra Bold Hindi -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@700;800&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@700;800;900&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -45,56 +45,67 @@
         .header-top {
             background: linear-gradient(135deg, #001254, #002b80);
             color: #ffffff;
-            padding: 15px 0;
+            padding: 12px 0;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .header-container {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: nowrap;
+            justify-content: flex-start;
         }
 
-        .logo-title-group {
+        .header-row-1 {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
             width: 100%;
         }
 
-        .logo-img {
-            width: 75px;
-            height: 75px;
-            object-fit: contain;
-            border-radius: 50%;
-            background: #fff;
-            padding: 2px;
+        .logo-box {
+            width: 80px;
+            height: 80px;
             flex-shrink: 0;
-        }
-
-        .org-details {
-            white-space: nowrap;
+            background: #ffffff;
+            border-radius: 50%;
+            padding: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(255,255,255,0.4);
             overflow: hidden;
         }
 
-        /* Responsive font-size so title stays on 1 line even on mobile */
+        .logo-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .org-details {
+            width: 100%;
+            overflow: hidden;
+        }
+
         .org-details h1 {
-            font-size: clamp(16px, 5vw, 28px);
-            font-weight: 800;
+            font-size: clamp(22px, 5.5vw, 42px);
+            font-weight: 900;
             color: #ffffff;
             letter-spacing: 0.5px;
             white-space: nowrap;
+            line-height: 1.1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         .org-details p {
-            font-size: clamp(11px, 3vw, 14px);
+            font-size: clamp(12px, 3.2vw, 18px);
             color: var(--primary-orange);
-            font-weight: 700;
+            font-weight: 800;
             white-space: nowrap;
         }
 
-        /* Full Width Desktop Navigation Bar (Left to Right Fill) */
+        /* Navigation Bar */
         .navbar {
             background-color: #ffffff;
             border-bottom: 2px solid #e0e0e0;
@@ -135,7 +146,6 @@
             color: var(--primary-orange);
         }
 
-        /* Blinking / Pulsing Donate Button */
         .nav-donate-btn {
             background: linear-gradient(45deg, #d60000, #ff2a2a);
             color: #ffffff !important;
@@ -144,27 +154,16 @@
             font-weight: 800 !important;
             font-size: 14px !important;
             text-transform: uppercase;
-            letter-spacing: 1px;
             box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7);
             animation: pulse-blink 1.5s infinite;
         }
 
         @keyframes pulse-blink {
-            0% {
-                transform: scale(0.98);
-                box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7);
-            }
-            70% {
-                transform: scale(1.05);
-                box-shadow: 0 0 0 12px rgba(214, 0, 0, 0);
-            }
-            100% {
-                transform: scale(0.98);
-                box-shadow: 0 0 0 0 rgba(214, 0, 0, 0);
-            }
+            0% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(214, 0, 0, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 12px rgba(214, 0, 0, 0); }
+            100% { transform: scale(0.98); box-shadow: 0 0 0 0 rgba(214, 0, 0, 0); }
         }
 
-        /* Mobile View Toggle Icon Right Side */
         .mobile-toggle {
             display: none;
             font-size: 26px;
@@ -177,7 +176,7 @@
         .hero-slider {
             position: relative;
             width: 100%;
-            height: 480px;
+            height: 460px;
             overflow: hidden;
             background-color: #111;
         }
@@ -198,7 +197,7 @@
         .slide.active { opacity: 1; }
 
         .slide-overlay {
-            background: rgba(0, 18, 84, 0.68);
+            background: rgba(0, 18, 84, 0.7);
             width: 100%; height: 100%;
             display: flex;
             flex-direction: column;
@@ -236,7 +235,6 @@
             border-radius: 25px;
             font-weight: 800;
             font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .btn-secondary {
@@ -246,33 +244,28 @@
             border-radius: 25px;
             font-weight: 800;
             font-size: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
-        /* Tagline Banner (No Blue Border & Extra Big Font) */
+        /* Tagline Banner */
         .tagline-section {
             padding: 35px 0;
             background-color: #ffffff;
         }
 
         .tagline-box {
-            border: none;
-            border-radius: 0;
-            padding: 10px;
-            width: 100%;
-            box-sizing: border-box;
-            background: transparent;
             text-align: center;
-            box-shadow: none;
         }
 
         .tagline-box h2 {
             margin: 0;
-            font-size: clamp(32px, 7vw, 68px); /* Extra Big Font Size */
+            font-size: clamp(28px, 6vw, 65px);
             font-weight: 900;
-            line-height: 1.2;
-            white-space: nowrap;
-            letter-spacing: -0.5px;
+            line-height: 1.25;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .highlight-red { color: var(--accent-red); }
@@ -285,11 +278,10 @@
 
         .smile-svg {
             position: absolute;
-            bottom: -15px;
-            right: 0;
-            width: 70%;
-            height: 26px;
-            overflow: visible;
+            bottom: -12px;
+            left: 0;
+            width: 100%;
+            height: 22px;
         }
 
         /* Campaign Section */
@@ -319,7 +311,6 @@
             border-radius: 8px;
             padding: 15px;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
 
         .option-card h3 { font-size: 32px; font-weight: 800; margin: 0; }
@@ -349,9 +340,9 @@
         .sec-padding { padding: 50px 0; }
         .sec-title {
             text-align: center;
-            font-size: 30px;
+            font-size: 32px;
             color: var(--primary-blue);
-            font-weight: 800;
+            font-weight: 900;
             margin-bottom: 25px;
             position: relative;
         }
@@ -382,9 +373,7 @@
             border-top: 5px solid var(--primary-blue);
         }
 
-        .mv-card.vision {
-            border-top-color: var(--primary-orange);
-        }
+        .mv-card.vision { border-top-color: var(--primary-orange); }
 
         .mv-card h3 {
             font-size: 22px;
@@ -393,19 +382,9 @@
             font-weight: 800;
         }
 
-        .mv-card p {
-            font-size: 15px;
-            margin-bottom: 10px;
-            color: #222;
-        }
+        .mv-card p { font-size: 15px; margin-bottom: 10px; color: #222; }
 
-        .mv-card p.en-text {
-            font-style: italic;
-            color: #555;
-            font-size: 14px;
-        }
-
-        /* Work Areas Grid */
+        /* All 16 Work Areas Grid */
         .grid-3 {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -418,16 +397,56 @@
             border-left: 5px solid var(--primary-orange);
             padding: 14px 18px;
             border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
             font-weight: 700;
             color: #222;
             font-size: 15px;
         }
 
-        /* Values & Help Grid */
+        /* Team Section Styling */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .team-card-styled {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #001254, #002580);
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            border: 2px solid var(--primary-orange);
+            transition: transform 0.3s ease;
+        }
+
+        .team-card-styled:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card-styled i {
+            font-size: 40px;
+            color: var(--primary-orange);
+            margin-bottom: 15px;
+        }
+
+        .team-card-styled h4 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .team-card-styled p {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffc107;
+        }
+
+        /* Values & Working Grid */
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 15px;
             text-align: center;
         }
@@ -437,8 +456,8 @@
             color: #fff;
             padding: 15px;
             border-radius: 8px;
-            font-weight: 700;
-            font-size: 15px;
+            font-weight: 800;
+            font-size: 16px;
         }
 
         /* Contact Section */
@@ -452,11 +471,7 @@
             gap: 20px;
         }
 
-        .contact-item {
-            flex: 1;
-            min-width: 250px;
-        }
-
+        .contact-item { flex: 1; min-width: 250px; }
         .contact-item h4 {
             color: var(--primary-blue);
             margin-bottom: 10px;
@@ -464,7 +479,7 @@
             font-weight: 800;
         }
 
-        /* Footer */
+        /* Footer Section */
         footer {
             background: #000c36;
             color: #ffffff;
@@ -473,7 +488,7 @@
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             margin-bottom: 30px;
         }
@@ -481,8 +496,8 @@
         .footer-col h3 {
             color: var(--primary-orange);
             margin-bottom: 15px;
-            font-size: 18px;
-            font-weight: 800;
+            font-size: 20px;
+            font-weight: 900;
         }
 
         .footer-links { list-style: none; }
@@ -490,37 +505,72 @@
         .footer-links a { color: #ccc; font-size: 14px; }
         .footer-links a:hover { color: #fff; }
 
-        .social-icons a {
-            display: inline-block;
-            width: 38px;
-            height: 38px;
-            background: rgba(255,255,255,0.1);
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 38px;
-            margin-right: 8px;
-            font-size: 16px;
+        .footer-social-icons {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
         }
 
-        .social-icons a:hover {
+        .footer-social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 18px;
+            transition: all 0.3s;
+        }
+
+        .footer-social-icons a:hover {
             background: var(--primary-orange);
+            transform: translateY(-3px);
+        }
+
+        /* Footer Bottom Legal Section */
+        .footer-bottom-legal {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: #dddddd;
+            font-size: 14px;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .legal-links a:hover {
+            color: var(--primary-orange);
+        }
+
+        .legal-divider {
+            color: rgba(255,255,255,0.3);
         }
 
         .copyright {
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 20px;
             font-size: 14px;
             color: #aaa;
         }
 
-        /* Modal Overlay */
+        /* Popup Modal Styling */
         .popup-overlay {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(0, 0, 0, 0.78);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -530,29 +580,31 @@
         .popup-content {
             background: #ffffff;
             width: 92%;
-            max-width: 650px;
+            max-width: 680px;
             border-radius: 12px;
             padding: 25px 20px;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            max-height: 90vh;
+            overflow-y: auto;
         }
 
         .close-btn {
             position: absolute;
             top: 10px;
             right: 15px;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: bold;
             cursor: pointer;
             color: #333;
         }
 
         .popup-main-title {
-            font-size: 38px;
+            font-size: 36px;
             margin: 0;
             color: #0d233a;
-            font-weight: 800;
+            font-weight: 900;
         }
 
         .campaign-badge {
@@ -580,9 +632,7 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
-            .mobile-toggle { 
-                display: block; 
-            }
+            .mobile-toggle { display: block; }
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -597,7 +647,7 @@
             .nav-links.active { display: flex; }
             .options-grid { grid-template-columns: repeat(2, 1fr); }
             .slide-overlay h2 { font-size: 26px; }
-            .logo-img { width: 55px; height: 55px; }
+            .logo-box { width: 60px; height: 60px; }
             .popup-main-title { font-size: 28px; }
         }
     </style>
@@ -608,7 +658,6 @@
     <div id="campaignPopup" class="popup-overlay">
         <div class="popup-content">
             <span class="close-btn" onclick="closePopup()">&times;</span>
-            
             <h1 class="popup-main-title"><span class="highlight-red">₹1</span> DAILY</h1>
             <div class="campaign-badge">🍃 SUPPORTER CAMPAIGN 🍃</div>
             
@@ -664,11 +713,14 @@
         </div>
     </div>
 
-    <!-- Header Section with Original Logo & Single Line Mobile Text -->
+    <!-- Header Section (With GitHub Synced HD Logo) -->
     <header class="header-top">
         <div class="container header-container">
-            <div class="logo-title-group">
-                <img src="logo.png" alt="Sath Chale Hum Foundation Original Logo" class="logo-img">
+            <div class="header-row-1">
+                <div class="logo-box">
+                    <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="साथ चले हम Foundation Logo">
+                </div>
+                
                 <div class="org-details">
                     <h1>साथ चले हम Foundation</h1>
                     <p>साथ चले हम, बदलाव की ओर</p>
@@ -686,7 +738,7 @@
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#work">Our Work</a></li>
                 <li><a href="#team">Our Team</a></li>
-                <li><a href="#events">Events</a></li>
+                <li><a href="events.html">Events</a></li>
                 <li><a href="#join">Join Us</a></li>
                 <li><a href="#donate" class="nav-donate-btn">DONATE NOW</a></li>
             </ul>
@@ -723,21 +775,9 @@
                 </div>
             </div>
         </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200');">
-            <div class="slide-overlay">
-                <h2>महिला सशक्तिकरण एवं विकास</h2>
-                <p>महिलाओं को आत्मनिर्भर बनाने की ओर एक कदम।</p>
-            </div>
-        </div>
-        <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200');">
-            <div class="slide-overlay">
-                <h2>पर्यावरण एवं सामुदायिक विकास</h2>
-                <p>हरियाली, स्वच्छता और आत्मनिर्भर समाज का निर्माण।</p>
-            </div>
-        </div>
     </section>
 
-    <!-- Tagline Banner (No Blue Border & Extra Big Font) -->
+    <!-- Tagline Banner -->
     <section class="tagline-section">
         <div class="container">
             <div class="tagline-box">
@@ -763,10 +803,9 @@
         <div class="container">
             <h2 class="sec-title">Daily ₹1 Supporter | दैनिक ₹1 सहयोगी</h2>
             <p class="campaign-desc">
-                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।<br><br>
-                <i>A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.</i>
+                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें।<br><br>
+                <i>A small contribution of just ₹1 a day can bring hope into someone’s life.</i>
             </p>
-            <p style="font-weight: 800; color: var(--accent-red); font-size:17px;">अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।<br><i style="font-size:15px; color:#555;">Choose a daily contribution that suits you and become part of our efforts to support those in need.</i></p>
             
             <div class="options-grid">
                 <div class="option-card green">
@@ -802,38 +841,24 @@
         <div class="container">
             <h2 class="sec-title">About Us | हमारे बारे में</h2>
             <p style="text-align: center; max-width: 900px; margin: 0 auto 30px; font-size: 16px;">
-                साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।<br><br>
-                <i>Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.</i>
+                साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
             </p>
 
             <h2 class="sec-title" style="font-size:24px; margin-top:40px;">हमारा मिशन और विज़न | Our Mission & Vision</h2>
             <div class="mv-grid">
                 <div class="mv-card">
                     <h3>Mission | हमारा मिशन</h3>
-                    <p>हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।</p>
-                    <p class="en-text">Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.</p>
+                    <p>हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल और विकास के अवसर पहुँचाना है।</p>
                 </div>
                 <div class="mv-card vision">
                     <h3>Our Vision | हमारा विज़न</h3>
-                    <p>हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।</p>
-                    <p class="en-text">Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.</p>
+                    <p>हमारा विज़न एक ऐसे समावेशी, जागरूक और आत्मनिर्भर समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान और अवसर मिले।</p>
                 </div>
-            </div>
-
-            <h3 style="text-align: center; margin: 40px 0 20px; color: var(--primary-blue); font-size: 22px; font-weight:800;">Our Values | हमारे मूल्य</h3>
-            <div class="values-grid">
-                <div class="value-box">1. सेवा | Service</div>
-                <div class="value-box">2. समानता | Equality</div>
-                <div class="value-box">3. ईमानदारी | Integrity</div>
-                <div class="value-box">4. पारदर्शिता | Transparency</div>
-                <div class="value-box">5. करुणा | Compassion</div>
-                <div class="value-box">6. सशक्तिकरण | Empowerment</div>
-                <div class="value-box">7. सामुदायिक भागीदारी | Community Participation</div>
             </div>
         </div>
     </section>
 
-    <!-- Key Work Areas -->
+    <!-- ALL 16 Key Work Areas Grid -->
     <section class="sec-padding" id="work" style="background-color: var(--light-bg);">
         <div class="container">
             <h2 class="sec-title">हमारे प्रमुख कार्य क्षेत्र | Our Key Work Areas</h2>
@@ -858,59 +883,53 @@
         </div>
     </section>
 
-    <!-- Our Team Section -->
+    <!-- Our Team & Our Values Section -->
     <section class="sec-padding" id="team">
         <div class="container">
             <h2 class="sec-title">Our Team | हमारी टीम</h2>
-            <div class="grid-3" style="margin-bottom: 45px;">
-                <div style="text-align:center; padding:25px; border:2px solid #e0e0e0; border-radius:8px; background:#fff;">
-                    <h4 style="color:var(--primary-blue); font-size:18px;">1. Board of Trustees</h4>
-                    <p style="font-weight:700;">न्यास मंडल</p>
+            <div class="team-grid">
+                <div class="team-card-styled">
+                    <i class="fas fa-users-cog"></i>
+                    <h4>1. Board of Trustees</h4>
+                    <p>न्यास मंडल</p>
                 </div>
-                <div style="text-align:center; padding:25px; border:2px solid #e0e0e0; border-radius:8px; background:#fff;">
-                    <h4 style="color:var(--primary-blue); font-size:18px;">2. Advisory Board</h4>
-                    <p style="font-weight:700;">सलाहकार मंडल</p>
+                <div class="team-card-styled">
+                    <i class="fas fa-user-tie"></i>
+                    <h4>2. Advisory Board</h4>
+                    <p>सलाहकार मंडल</p>
                 </div>
-                <div style="text-align:center; padding:25px; border:2px solid #e0e0e0; border-radius:8px; background:#fff;">
-                    <h4 style="color:var(--primary-blue); font-size:18px;">3. Program Team</h4>
-                    <p style="font-weight:700;">कार्यक्रम संचालन टीम</p>
+                <div class="team-card-styled">
+                    <i class="fas fa-hands-helping"></i>
+                    <h4>3. Program Team</h4>
+                    <p>कार्यक्रम संचालन टीम</p>
                 </div>
             </div>
 
-            <h2 class="sec-title">हमारा काम करने का तरीका | Our Way of Working</h2>
+            <!-- Our Values (हमारे मूल्य - 7 Points) -->
+            <h2 class="sec-title" style="margin-top: 50px;">Our Values | हमारे मूल्य</h2>
             <div class="values-grid">
-                <div class="value-box" style="background:var(--primary-orange);">1. सीधी मदद | Direct Help</div>
-                <div class="value-box" style="background:var(--primary-orange);">2. मिलकर काम करना | Working Together</div>
-                <div class="value-box" style="background:var(--primary-orange);">3. ईमानदारी और पारदर्शिता | Honesty & Transparency</div>
-                <div class="value-box" style="background:var(--primary-orange);">4. समुदाय की भागीदारी | Community Participation</div>
-                <div class="value-box" style="background:var(--primary-orange);">5. समानता और सम्मान | Equality & Respect</div>
+                <div class="value-box">1. सेवा | Service</div>
+                <div class="value-box">2. समानता | Equality</div>
+                <div class="value-box">3. ईमानदारी | Integrity</div>
+                <div class="value-box">4. पारदर्शिता | Transparency</div>
+                <div class="value-box">5. करुणा | Compassion</div>
+                <div class="value-box">6. सशक्तिकरण | Empowerment</div>
+                <div class="value-box">7. सामुदायिक भागीदारी | Community Participation</div>
             </div>
-        </div>
-    </section>
 
-    <!-- Events Section -->
-    <section class="sec-padding" id="events" style="background-color: var(--light-bg);">
-        <div class="container">
-            <h2 class="sec-title">Events | हमारे कार्यक्रम व इवेंट्स</h2>
-            <div class="grid-3">
-                <div class="work-card" style="border-left-color: var(--primary-blue);">
-                    <h4>Daily ₹1 Supporter Drive</h4>
-                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">दैनिक छोटे सहयोग से सामाजिक कार्यों का संचालन करना।</p>
-                </div>
-                <div class="work-card" style="border-left-color: var(--primary-blue);">
-                    <h4>Shiksha & Bal Vikas Camp</h4>
-                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">जरूरतमंद बच्चों तक पठन-पाठन सामग्री पहुँचाने का विशेष कार्यक्रम।</p>
-                </div>
-                <div class="work-card" style="border-left-color: var(--primary-blue);">
-                    <h4>Swasthya Suraksha Health Checkup</h4>
-                    <p style="font-weight: normal; font-size: 14px; margin-top:5px;">स्वास्थ्य जागरूकता शिविर एवं नि:शुल्क चिकित्सा सहायता वितरण।</p>
-                </div>
+            <h2 class="sec-title" style="margin-top: 50px;">हमारा काम करने का तरीका | Our Way of Working</h2>
+            <div class="values-grid">
+                <div class="value-box" style="background:#0a2540;">1. सीधी मदद | Direct Help</div>
+                <div class="value-box" style="background:#0a2540;">2. मिलकर काम करना | Working Together</div>
+                <div class="value-box" style="background:#0a2540;">3. ईमानदारी और पारदर्शिता | Transparency</div>
+                <div class="value-box" style="background:#0a2540;">4. समुदाय की भागीदारी | Community</div>
+                <div class="value-box" style="background:#0a2540;">5. समानता और सम्मान | Equality</div>
             </div>
         </div>
     </section>
 
     <!-- How You Can Help Section -->
-    <section class="sec-padding">
+    <section class="sec-padding" style="background-color: var(--light-bg);">
         <div class="container">
             <h2 class="sec-title">आप हमारी मदद कैसे कर सकते हैं? | How You Can Help</h2>
             <div class="values-grid">
@@ -926,17 +945,13 @@
     <!-- Join Us Section -->
     <section class="sec-padding" id="join" style="background: var(--primary-blue); color: #fff; text-align: center;">
         <div class="container">
-            <h2 style="font-size: 32px; margin-bottom: 15px; font-weight:800;">हमारे साथ जुड़ें | Join Us</h2>
+            <h2 style="font-size: 32px; margin-bottom: 15px; font-weight:900;">हमारे साथ जुड़ें | Join Us</h2>
             <p style="max-width: 800px; margin: 0 auto 20px; font-size: 18px;">
-                हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें। आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
-            </p>
-            <p style="font-style:italic; font-size:15px; color:#ddd; margin-bottom:25px;">
-                Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
+                हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।
             </p>
             <div class="hero-btns">
                 <a href="#donate" class="btn-primary">Donate Us</a>
                 <a href="#contact" class="btn-secondary">Join Us</a>
-                <a href="#" class="btn-primary" style="background:#fff; color:#000;">Downloads</a>
             </div>
         </div>
     </section>
@@ -962,22 +977,21 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h3>Sath Chale Hum Foundation</h3>
                     <p>साथ चले हम – बदलाव की ओर</p>
-                    <p style="font-size: 13px; color: #aaa; margin-top:5px;">Step Together Towards Change</p>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>Our Social Media</h3>
-                    <div class="social-icons">
+                    <p style="font-size:13px; color:#aaa; margin-top:3px;">Step Together Towards Change</p>
+                    
+                    <!-- Social Media Links Under Sath Chale Hum Foundation -->
+                    <div class="footer-social-icons">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
 
@@ -988,17 +1002,23 @@
                         <li><a href="#about">About Us | हमारे बारे में</a></li>
                         <li><a href="#work">Our Work | हमारे कार्य</a></li>
                         <li><a href="#team">Our Team | हमारी टीम</a></li>
-                        <li><a href="#events">Events | इवेंट्स</a></li>
+                        <li><a href="events.html">Events | इवेंट्स</a></li>
                         <li><a href="#donate">Donate Us | दान करें</a></li>
-                        <li><a href="#join">Join Us | हमारे साथ जुड़ें</a></li>
                         <li><a href="#contact">Contact Us | संपर्क करें</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="copyright">
-                <p><a href="#" style="color:#aaa;">Terms & Conditions</a> | <a href="#" style="color:#aaa;">Privacy Policy</a></p>
-                <p style="margin-top: 10px;">© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+            <!-- Bottom Legal Section Above Copyright -->
+            <div class="footer-bottom-legal">
+                <div class="legal-links">
+                    <a href="privacy-policy.html">Privacy Policy | गोपनीयता नीति</a>
+                    <span class="legal-divider">|</span>
+                    <a href="terms-and-conditions.html">Terms & Conditions | नियम एवं शर्तें</a>
+                </div>
+                <div class="copyright">
+                    <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
@@ -1016,14 +1036,6 @@
             document.getElementById('campaignPopup').style.display = 'none';
         }
 
-        window.onclick = function(event) {
-            var popup = document.getElementById('campaignPopup');
-            if (event.target == popup) {
-                popup.style.display = "none";
-            }
-        }
-
-        // Mobile Nav Toggle
         function toggleMenu() {
             var nav = document.getElementById('navLinks');
             nav.classList.toggle('active');
