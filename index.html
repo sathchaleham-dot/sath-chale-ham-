@@ -1,2950 +1,2253 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>साथ चले हम Foundation | बदलाव की ओर</title>
-
-    <meta name="description" content="साथ चले हम Foundation - बदलाव की ओर. Education, Healthcare, Women Empowerment, Rural Development, Skill Development and Social Awareness.">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-        :root {
-            --primary-navy: #001254;
-            --deep-blue: #001b5e;
-            --primary-blue: #073b9b;
-            --primary-orange: #f37021;
-            --deep-orange: #d95700;
-            --accent-red: #d60000;
-            --accent-green: #0d5c2d;
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
-            --dark-text: #111111;
-            --muted-text: #5c6575;
-            --border-light: #e2e8f0;
-            --shadow-soft: 0 12px 35px rgba(0,18,84,0.10);
-            --shadow-premium: 0 18px 55px rgba(0,18,84,0.14);
-            --radius: 18px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Mukta','Poppins',sans-serif;
-            font-weight: 400;
-            color: var(--dark-text);
-            background: #fff;
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-            overflow-x: hidden;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(1180px, calc(100% - 32px));
-            margin: 0 auto;
-        }
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        .header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,.96);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(0,18,84,.08);
-            box-shadow: 0 4px 20px rgba(0,18,84,.05);
-        }
-
-        .nav-wrap {
-            min-height: 78px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 11px;
-            min-width: 0;
-        }
-
-        .brand-logo {
-            width: 53px;
-            height: 53px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .brand-text {
-            min-width: 0;
-        }
-
-        .brand-name {
-            font-family: 'Poppins','Mukta',sans-serif;
-            font-weight: 900;
-            font-size: clamp(.82rem,2.1vw,1.32rem);
-            line-height: 1.05;
-            color: var(--primary-navy);
-            white-space: nowrap;
-            letter-spacing: -.55px;
-        }
-
-        .brand-tagline {
-            color: var(--primary-orange);
-            font-family: 'Mukta',sans-serif;
-            font-size: .85rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-top: 3px;
-        }
-
-        .nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav a {
-            position: relative;
-            padding: 9px 11px;
-            color: var(--primary-navy);
-            font-family: 'Poppins',sans-serif;
-            font-size: .76rem;
-            font-weight: 700;
-            white-space: nowrap;
-            transition: .25s ease;
-        }
-
-        .nav a:not(.nav-donate)::after {
-            content: "";
-            position: absolute;
-            left: 11px;
-            right: 11px;
-            bottom: 3px;
-            height: 2px;
-            border-radius: 10px;
-            background: var(--primary-orange);
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: .25s ease;
-        }
-
-        .nav a:hover {
-            color: var(--primary-orange);
-        }
-
-        .nav a:hover::after {
-            transform: scaleX(1);
-        }
-
-        .nav-donate {
-            color: #fff !important;
-            background: var(--primary-orange);
-            border-radius: 50px;
-            padding: 10px 17px !important;
-            box-shadow: 0 8px 20px rgba(243,112,33,.25);
-            animation: donatePulse 2s infinite;
-        }
-
-        @keyframes donatePulse {
-            0%,100% {
-                box-shadow: 0 8px 20px rgba(243,112,33,.25);
-            }
-            50% {
-                box-shadow: 0 8px 28px rgba(243,112,33,.50);
-            }
-        }
-
-        .menu-btn {
-            display: none;
-            width: 43px;
-            height: 43px;
-            border: 0;
-            border-radius: 12px;
-            background: #f2f5fb;
-            color: var(--primary-navy);
-            font-size: 1.15rem;
-            cursor: pointer;
-        }
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-            position: relative;
-            min-height: 650px;
-            display: flex;
-            align-items: center;
-            overflow: hidden;
-            background: var(--primary-navy);
-        }
-
-        .hero-slides {
-            position: absolute;
-            inset: 0;
-        }
-
-        .hero-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            background-size: cover;
-            background-position: center;
-            animation: heroSlide 25s infinite;
-        }
-
-        .hero-slide:nth-child(1) {
-            background-image: url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1800&q=85");
-            animation-delay: 0s;
-        }
-
-        .hero-slide:nth-child(2) {
-            background-image: url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1800&q=85");
-            animation-delay: 5s;
-        }
-
-        .hero-slide:nth-child(3) {
-            background-image: url("https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1800&q=85");
-            animation-delay: 10s;
-        }
-
-        .hero-slide:nth-child(4) {
-            background-image: url("https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?auto=format&fit=crop&w=1800&q=85");
-            animation-delay: 15s;
-        }
-
-        .hero-slide:nth-child(5) {
-            background-image: url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1800&q=85");
-            animation-delay: 20s;
-        }
-
-        @keyframes heroSlide {
-            0% {
-                opacity: 0;
-            }
-            5%,19% {
-                opacity: 1;
-            }
-            24%,100% {
-                opacity: 0;
-            }
-        }
-
-        .hero-overlay {
-            position: absolute;
-            inset: 0;
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,18,84,.94) 0%,
-                    rgba(0,18,84,.78) 42%,
-                    rgba(0,18,84,.32) 100%
-                );
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 720px;
-            color: #fff;
-            padding: 90px 0;
-        }
-
-        .hero-kicker {
-            display: inline-flex;
-            padding: 7px 15px;
-            border-radius: 50px;
-            background: rgba(255,255,255,.12);
-            border: 1px solid rgba(255,255,255,.22);
-            backdrop-filter: blur(8px);
-            font-family: 'Poppins',sans-serif;
-            font-size: .72rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-family: 'Mukta',sans-serif;
-            font-size: clamp(3.2rem,8vw,6.8rem);
-            font-weight: 900;
-            line-height: .88;
-            letter-spacing: -2px;
-            margin-bottom: 24px;
-        }
-
-        .hero h1 span:first-child {
-            display: block;
-            color: #fff;
-        }
-
-        .hero h1 span:last-child {
-            display: block;
-            color: #ff8a3d;
-        }
-
-        .hero-main-text {
-            font-size: clamp(1.2rem,2.5vw,1.65rem);
-            font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 6px;
-        }
-
-        .hero-sub-text {
-            color: rgba(255,255,255,.78);
-            font-family: 'Poppins',sans-serif;
-            font-size: .9rem;
-            margin-bottom: 30px;
-        }
-
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            min-height: 48px;
-            padding: 11px 23px;
-            border-radius: 50px;
-            font-family: 'Poppins',sans-serif;
-            font-size: .82rem;
-            font-weight: 800;
-            border: 0;
-            cursor: pointer;
-            transition: .3s ease;
-        }
-
-        .btn-primary {
-            color: #fff;
-            background: var(--primary-orange);
-            box-shadow: 0 10px 25px rgba(243,112,33,.28);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 16px 32px rgba(243,112,33,.35);
-        }
-
-        .btn-blue {
-            color: #fff;
-            background: var(--primary-blue);
-            box-shadow: 0 10px 25px rgba(7,59,155,.28);
-        }
-
-        .btn-blue:hover {
-            transform: translateY(-3px);
-            background: #0a48b9;
-        }
-
-        /* =========================
-           COMMON SECTION
-        ========================= */
-
-        section {
-            scroll-margin-top: 90px;
-        }
-
-        .section {
-            padding: 85px 0;
-        }
-
-        .section.alt {
-            background: #f8faff;
-        }
-
-        .section-heading {
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 45px;
-        }
-
-        .section-heading h2 {
-            color: var(--primary-navy);
-            font-family: 'Mukta',sans-serif;
-            font-size: clamp(2.1rem,4vw,3.3rem);
-            line-height: 1.1;
-            font-weight: 900;
-            letter-spacing: -.7px;
-        }
-
-        .section-heading h2 span {
-            color: var(--primary-orange);
-        }
-
-        .section-heading::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            margin: 16px auto 0;
-            border-radius: 10px;
-            background: linear-gradient(90deg,var(--primary-navy),var(--primary-orange));
-        }
-
-        .section-heading p {
-            color: var(--muted-text);
-            margin-top: 16px;
-            font-size: 1rem;
-        }
-
-        /* =========================
-           ABOUT US
-        ========================= */
-
-        .about-card {
-            padding: 42px;
-            border-radius: 22px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .about-card p {
-            font-size: 1.1rem;
-            line-height: 1.85;
-            color: var(--dark-text);
-        }
-
-        .about-card p + p {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-light);
-            font-family: 'Poppins',sans-serif;
-            font-size: .95rem;
-            color: var(--muted-text);
-        }
-
-        /* =========================
-           DAILY ₹1 PREMIUM SECTION
-        ========================= */
-
-        .daily-one-section {
-            position: relative;
-            padding: 90px 20px;
-            background:
-                radial-gradient(circle at 10% 15%, rgba(243,112,33,.10), transparent 30%),
-                radial-gradient(circle at 90% 85%, rgba(0,18,84,.09), transparent 32%),
-                linear-gradient(135deg,#fff 0%,#f7f9ff 52%,#fffaf5 100%);
-            overflow: hidden;
-        }
-
-        .daily-one-section::before {
-            content: "";
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            background: rgba(243,112,33,.07);
-            top: -150px;
-            right: -100px;
-        }
-
-        .daily-one-section::after {
-            content: "";
-            position: absolute;
-            width: 240px;
-            height: 240px;
-            border-radius: 50%;
-            background: rgba(0,18,84,.045);
-            bottom: -120px;
-            left: -90px;
-        }
-
-        .daily-one-inner {
-            position: relative;
-            z-index: 2;
-            max-width: 1180px;
-            margin: 0 auto;
-        }
-
-        .daily-one-heading {
-            text-align: center;
-            margin-bottom: 42px;
-        }
-
-        .daily-mini-label {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 7px 17px;
-            margin-bottom: 18px;
-            border-radius: 50px;
-            background: rgba(243,112,33,.10);
-            border: 1px solid rgba(243,112,33,.18);
-            color: var(--primary-orange);
-            font-family: 'Poppins',sans-serif;
-            font-size: .76rem;
-            font-weight: 800;
-            letter-spacing: .5px;
-            text-transform: uppercase;
-        }
-
-        .daily-one-heading h2 {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-family: 'Mukta',sans-serif;
-            font-size: clamp(2.8rem,6vw,5.4rem);
-            line-height: .98;
-            letter-spacing: -1.8px;
-            font-weight: 900;
-        }
-
-        .daily-one-heading h2 span:first-child,
-        .daily-one-heading h2 span:first-child strong {
-            color: #001b5e;
-            font-weight: 900;
-        }
-
-        .daily-one-heading h2 span:last-child,
-        .daily-one-heading h2 span:last-child b {
-            color: #d95700;
-            font-weight: 900;
-        }
-
-        .daily-one-heading h2 span:last-child b {
-            position: relative;
-            display: inline-block;
-        }
-
-        .daily-one-heading h2 span:last-child b::after {
-            content: "";
-            position: absolute;
-            left: 2%;
-            right: 2%;
-            bottom: 2px;
-            height: 7px;
-            border-radius: 20px;
-            background: rgba(217,87,0,.16);
-            z-index: -1;
-        }
-
-        .daily-heading-line {
-            width: 90px;
-            height: 5px;
-            margin: 22px auto 13px;
-            border-radius: 20px;
-            background: linear-gradient(90deg,#001b5e,#d95700);
-        }
-
-        .daily-one-heading h3 {
-            margin: 0;
-            font-family: 'Poppins',sans-serif;
-            color: var(--muted-text);
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .daily-one-content {
-            position: relative;
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 38px;
-            background: rgba(255,255,255,.90);
-            border: 1px solid rgba(0,18,84,.08);
-            border-radius: 28px;
-            box-shadow:
-                0 20px 60px rgba(0,18,84,.10),
-                0 4px 16px rgba(0,0,0,.04);
-            backdrop-filter: blur(10px);
-        }
-
-        .daily-one-content p {
-            margin: 0;
-            font-family: 'Mukta',sans-serif;
-            font-size: 1.08rem;
-            line-height: 1.85;
-            color: var(--dark-text);
-        }
-
-        .daily-hindi {
-            padding-bottom: 24px;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .daily-english {
-            padding: 24px 0;
-            color: var(--muted-text) !important;
-            font-family: 'Poppins',sans-serif !important;
-            font-size: .94rem !important;
-            line-height: 1.75 !important;
-        }
-
-        .daily-choice {
-            margin-top: 5px;
-            padding: 20px 22px;
-            border-left: 4px solid var(--deep-orange);
-            background: linear-gradient(90deg,rgba(217,87,0,.07),rgba(217,87,0,.015));
-            border-radius: 0 14px 14px 0;
-        }
-
-        .daily-choice p + p {
-            margin-top: 8px;
-            color: var(--muted-text);
-            font-family: 'Poppins',sans-serif;
-            font-size: .91rem;
-            line-height: 1.7;
-        }
-
-        .daily-plans {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 16px;
-            margin-top: 34px;
-        }
-
-        .daily-plan {
-            position: relative;
-            overflow: hidden;
-            padding: 25px 16px 23px;
-            text-align: center;
-            background: linear-gradient(145deg,#fff 0%,#f8faff 100%);
-            border: 1px solid rgba(0,27,94,.11);
-            border-radius: 20px;
-            box-shadow:
-                0 10px 25px rgba(0,27,94,.08),
-                inset 0 1px 0 rgba(255,255,255,.95);
-            transition: transform .3s ease,box-shadow .3s ease,border-color .3s ease;
-        }
-
-        .daily-plan::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 15%;
-            right: 15%;
-            height: 3px;
-            border-radius: 0 0 10px 10px;
-            background: linear-gradient(90deg,#001b5e,#d95700);
-        }
-
-        .daily-plan::after {
-            content: "";
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            top: -45px;
-            right: -35px;
-            border-radius: 50%;
-            background: rgba(217,87,0,.07);
-        }
-
-        .daily-plan:hover {
-            transform: translateY(-7px);
-            border-color: rgba(0,27,94,.20);
-            box-shadow:
-                0 18px 38px rgba(0,27,94,.14),
-                0 4px 12px rgba(217,87,0,.08);
-        }
-
-        .daily-plan span {
-            display: block;
-            margin-bottom: 8px;
-            color: #001b5e;
-            font-family: 'Poppins',sans-serif;
-            font-size: .88rem;
-            font-weight: 800;
-        }
-
-        .daily-plan strong {
-            display: block;
-            color: #d95700;
-            font-family: 'Poppins',sans-serif;
-            font-size: 1.18rem;
-            font-weight: 900;
-        }
-
-        /* =========================
-           MISSION / VISION
-        ========================= */
-
-        .mission-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .mission-card {
-            padding: 34px;
-            border-radius: 22px;
-            background: linear-gradient(145deg,#fff,#f7f9ff);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .mission-card .card-icon {
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            background: #eef3ff;
-            color: var(--primary-navy);
-            font-size: 21px;
-            margin-bottom: 18px;
-        }
-
-        .mission-card:nth-child(2) .card-icon {
-            background: #fff2e9;
-            color: var(--primary-orange);
-        }
-
-        .mission-card h3 {
-            color: var(--primary-navy);
-            font-size: 1.55rem;
-            font-weight: 800;
-            margin-bottom: 13px;
-        }
-
-        .mission-card p {
-            color: var(--muted-text);
-            line-height: 1.85;
-        }
-
-        .mission-card p + p {
-            margin-top: 15px;
-            font-family: 'Poppins',sans-serif;
-            font-size: .87rem;
-        }
-
-        /* =========================
-           VALUES
-        ========================= */
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 17px;
-        }
-
-        .value-card {
-            padding: 25px 15px;
-            text-align: center;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 17px;
-            box-shadow: 0 8px 22px rgba(0,18,84,.06);
-            transition: .3s ease;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 32px rgba(0,18,84,.11);
-        }
-
-        .value-icon {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg,#fff3e9,#eef3ff);
-            color: var(--primary-orange);
-            font-size: 18px;
-            border: 1px solid rgba(243,112,33,.12);
-            box-shadow: 0 5px 14px rgba(0,18,84,.08);
-            transition: .3s ease;
-        }
-
-        .value-card:hover .value-icon {
-            transform: translateY(-3px) scale(1.05);
-            background: linear-gradient(135deg,#fff0e4,#e9efff);
-        }
-
-        .value-card h3 {
-            color: var(--primary-navy);
-            font-family: 'Mukta',sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            line-height: 1.35;
-        }
-
-        /* =========================
-           WORK AREAS
-        ========================= */
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            gap: 15px;
-        }
-
-        .work-card {
-            min-height: 115px;
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            border-radius: 16px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 7px 20px rgba(0,18,84,.05);
-            transition: .3s ease;
-        }
-
-        .work-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(243,112,33,.25);
-            box-shadow: 0 13px 28px rgba(0,18,84,.09);
-        }
-
-        .work-card i {
-            width: 40px;
-            height: 40px;
-            flex: 0 0 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            border-radius: 11px;
-            background: #eef3ff;
-            color: var(--primary-navy);
-            font-size: 15px;
-        }
-
-        .work-card span {
-            color: var(--primary-navy);
-            font-size: .95rem;
-            font-weight: 700;
-            line-height: 1.35;
-        }
-
-        /* =========================
-           TEAM
-        ========================= */
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3,1fr);
-            gap: 22px;
-        }
-
-        .team-card {
-            padding: 38px 25px;
-            text-align: center;
-            background: linear-gradient(145deg,#fff,#f8faff);
-            border: 1px solid var(--border-light);
-            border-radius: 22px;
-            box-shadow: var(--shadow-soft);
-            transition: .3s ease;
-        }
-
-        .team-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-premium);
-        }
-
-        .team-icon {
-            width: 62px;
-            height: 62px;
-            margin: 0 auto 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 18px;
-            background: #eef3ff;
-            color: var(--primary-navy);
-            font-size: 24px;
-        }
-
-        .team-card:nth-child(2) .team-icon {
-            background: #fff2e9;
-            color: var(--primary-orange);
-        }
-
-        .team-card:nth-child(3) .team-icon {
-            background: #eef8f2;
-            color: var(--accent-green);
-        }
-
-        .team-card h3 {
-            color: var(--primary-navy);
-            font-size: 1.15rem;
-            font-weight: 800;
-        }
-
-        /* =========================
-           WORKING METHOD
-        ========================= */
-
-        .method-grid {
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            gap: 15px;
-        }
-
-        .method-card {
-            padding: 26px 14px;
-            text-align: center;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 17px;
-            box-shadow: 0 8px 22px rgba(0,18,84,.06);
-            transition: .3s ease;
-        }
-
-        .method-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 32px rgba(0,18,84,.11);
-        }
-
-        .method-icon {
-            width: 44px;
-            height: 44px;
-            margin: 0 auto 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg,#eef3ff,#fff3e9);
-            color: var(--primary-navy);
-            font-size: 17px;
-            border: 1px solid rgba(0,18,84,.08);
-            box-shadow: 0 5px 14px rgba(0,18,84,.07);
-            transition: .3s ease;
-        }
-
-        .method-card:hover .method-icon {
-            transform: translateY(-3px) scale(1.05);
-            color: var(--primary-orange);
-        }
-
-        .method-card h3 {
-            margin-top: 4px;
-            font-family: 'Mukta',sans-serif;
-            color: var(--primary-navy);
-            font-size: 1rem;
-            line-height: 1.45;
-            font-weight: 600;
-        }
-
-        /* =========================
-           HELP
-        ========================= */
-
-        .help-grid {
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            gap: 15px;
-        }
-
-        .help-card {
-            padding: 27px 14px;
-            text-align: center;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 17px;
-            box-shadow: 0 8px 20px rgba(0,18,84,.05);
-        }
-
-        .help-card i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 46px;
-            height: 46px;
-            margin: 0 auto 13px;
-            border-radius: 13px;
-            background: #fff2e9;
-            color: var(--primary-orange);
-        }
-
-        .help-card h3 {
-            color: var(--primary-navy);
-            font-size: .98rem;
-            line-height: 1.4;
-            font-weight: 700;
-        }
-
-        /* =========================
-           EVENTS
-        ========================= */
-
-        .events-card {
-            padding: 55px 30px;
-            text-align: center;
-            border-radius: 25px;
-            background:
-                linear-gradient(135deg,rgba(0,18,84,.96),rgba(7,59,155,.94));
-            color: #fff;
-            box-shadow: var(--shadow-premium);
-        }
-
-        .events-card i {
-            font-size: 40px;
-            color: #ff914d;
-            margin-bottom: 18px;
-        }
-
-        .events-card h3 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-        }
-
-        .events-card p {
-            color: rgba(255,255,255,.78);
-        }
-
-        /* =========================
-           JOIN US
-        ========================= */
-
-        .join-box {
-            padding: 55px 35px;
-            text-align: center;
-            border-radius: 25px;
-            background: linear-gradient(135deg,#fff7f0,#f2f5ff);
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .join-box h2 {
-            color: var(--primary-navy);
-            font-size: clamp(2rem,4vw,3rem);
-            font-weight: 900;
-            margin-bottom: 15px;
-        }
-
-        .join-box p {
-            max-width: 850px;
-            margin: 0 auto;
-            color: var(--muted-text);
-            line-height: 1.85;
-        }
-
-        .join-box p + p {
-            margin-top: 13px;
-            font-family: 'Poppins',sans-serif;
-            font-size: .87rem;
-        }
-
-        .join-buttons {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 25px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 18px;
-        }
-
-        .contact-card {
-            padding: 27px;
-            border-radius: 18px;
-            background: #fff;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 8px 23px rgba(0,18,84,.06);
-        }
-
-        .contact-card i {
-            color: var(--primary-orange);
-            font-size: 21px;
-            margin-bottom: 10px;
-        }
-
-        .contact-card h3 {
-            color: var(--primary-navy);
-            font-size: 1.1rem;
-            font-weight: 800;
-            margin-bottom: 7px;
-        }
-
-        .contact-card p {
-            color: var(--muted-text);
-            font-size: .94rem;
-            line-height: 1.65;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #001254;
-            color: #fff;
-            padding-top: 65px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1.3fr 1fr 1fr;
-            gap: 45px;
-            padding-bottom: 45px;
-        }
-
-        .footer-logo {
-            width: 105px;
-            height: 105px;
-            object-fit: contain;
-            margin-bottom: 16px;
-            border-radius: 12px;
-            filter: drop-shadow(0 8px 18px rgba(0,0,0,.20));
-            background: #fff;
-        }
-
-        .footer-brand h3 {
-            font-family: 'Poppins',sans-serif;
-            font-weight: 900;
-            font-size: 1.2rem;
-            margin-bottom: 4px;
-        }
-
-        .footer-brand .footer-hi {
-            color: #ff914d;
-            font-weight: 700;
-        }
-
-        .footer-brand .footer-en {
-            color: rgba(255,255,255,.62);
-            font-family: 'Poppins',sans-serif;
-            font-size: .76rem;
-        }
-
-        .footer-title {
-            font-family: 'Poppins',sans-serif;
-            font-size: .9rem;
-            font-weight: 800;
-            margin-bottom: 17px;
-            color: #fff;
-        }
-
-        .socials {
-            display: flex;
-            gap: 9px;
-        }
-
-        .socials a {
-            width: 39px;
-            height: 39px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 11px;
-            background: rgba(255,255,255,.09);
-            color: #fff;
-            transition: .25s ease;
-        }
-
-        .socials a:hover {
-            background: var(--primary-orange);
-            transform: translateY(-3px);
-        }
-
-        .footer-links {
-            display: grid;
-            gap: 8px;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,.70);
-            font-size: .84rem;
-            transition: .2s ease;
-        }
-
-        .footer-links a:hover {
-            color: #ff914d;
-            transform: translateX(3px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255,255,255,.10);
-            padding: 20px 15px;
-            text-align: center;
-            color: rgba(255,255,255,.58);
-            font-family: 'Poppins',sans-serif;
-            font-size: .72rem;
-        }
-
-        .footer-policy {
-            margin-bottom: 7px;
-        }
-
-        .footer-policy a {
-            color: rgba(255,255,255,.80);
-        }
-
-        /* =========================
-           DAILY POPUP
-        ========================= */
-
-        .popup-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 3000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 18px;
-            background: rgba(0,12,55,.72);
-            backdrop-filter: blur(7px);
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s ease;
-        }
-
-        .popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .popup {
-            position: relative;
-            width: min(470px,100%);
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 34px 25px;
-            text-align: center;
-            border-radius: 25px;
-            background: #fff;
-            box-shadow: 0 30px 80px rgba(0,0,0,.30);
-            transform: translateY(20px) scale(.96);
-            transition: .3s ease;
-        }
-
-        .popup-overlay.active .popup {
-            transform: translateY(0) scale(1);
-        }
-
-        .popup-close {
-            position: absolute;
-            top: 12px;
-            right: 13px;
-            width: 34px;
-            height: 34px;
-            border: 0;
-            border-radius: 50%;
-            background: #f2f4f8;
-            color: var(--primary-navy);
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .popup-badge {
-            display: inline-block;
-            padding: 6px 13px;
-            border-radius: 50px;
-            background: #fff1e8;
-            color: var(--deep-orange);
-            font-family: 'Poppins',sans-serif;
-            font-size: .68rem;
-            font-weight: 800;
-        }
-
-        .popup h2 {
-            margin-top: 14px;
-            color: var(--primary-navy);
-            font-family: 'Poppins',sans-serif;
-            font-size: 1.7rem;
-            font-weight: 900;
-        }
-
-        .popup h3 {
-            color: var(--deep-orange);
-            font-family: 'Mukta',sans-serif;
-            font-size: 1.7rem;
-            font-weight: 900;
-            margin-top: 5px;
-        }
-
-        .popup p {
-            color: var(--muted-text);
-            margin-top: 7px;
-        }
-
-        .popup-plans {
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .popup-plan {
-            padding: 15px;
-            border-radius: 14px;
-            background: #f8faff;
-            border: 1px solid var(--border-light);
-        }
-
-        .popup-plan strong {
-            display: block;
-            color: var(--primary-navy);
-            font-family: 'Poppins',sans-serif;
-            font-size: .85rem;
-        }
-
-        .popup-plan span {
-            display: block;
-            color: var(--deep-orange);
-            font-weight: 900;
-            font-size: 1rem;
-        }
-
-        /* =========================
-           BACK TO TOP
-        ========================= */
-
-        .back-top {
-            position: fixed;
-            right: 18px;
-            bottom: 18px;
-            z-index: 900;
-            width: 43px;
-            height: 43px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 0;
-            border-radius: 13px;
-            background: var(--primary-navy);
-            color: #fff;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(0,18,84,.20);
-            opacity: 0;
-            visibility: hidden;
-            transition: .3s ease;
-        }
-
-        .back-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* =========================
-           MOBILE NAV
-        ========================= */
-
-        @media (max-width: 980px) {
-
-            .nav {
-                position: fixed;
-                top: 78px;
-                left: 12px;
-                right: 12px;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                padding: 13px;
-                border-radius: 18px;
-                background: #fff;
-                box-shadow: 0 20px 50px rgba(0,18,84,.16);
-                border: 1px solid var(--border-light);
-            }
-
-            .nav.open {
-                display: flex;
-            }
-
-            .nav a {
-                padding: 12px 14px;
-                border-radius: 10px;
-            }
-
-            .nav a:hover {
-                background: #f7f9ff;
-            }
-
-            .nav-donate {
-                text-align: center;
-                margin-top: 4px;
-            }
-
-            .menu-btn {
-                display: block;
-            }
-
-            .brand-name {
-                font-size: 1rem;
-            }
-
-            .brand-tagline {
-                font-size: .72rem;
-            }
-
-            .work-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .values-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .method-grid {
-                grid-template-columns: repeat(3,1fr);
-            }
-
-            .help-grid {
-                grid-template-columns: repeat(3,1fr);
-            }
-        }
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 700px) {
-
-            .container {
-                width: min(100% - 24px,1180px);
-            }
-
-            .nav-wrap {
-                min-height: 70px;
-            }
-
-            .brand-logo {
-                width: 45px;
-                height: 45px;
-            }
-
-            .brand-name {
-                font-size: clamp(.73rem,3.85vw,.98rem);
-                font-weight: 900;
-                letter-spacing: -.55px;
-                white-space: nowrap;
-            }
-
-            .brand-tagline {
-                font-size: .65rem;
-            }
-
-            .nav {
-                top: 70px;
-            }
-
-            .hero {
-                min-height: 590px;
-            }
-
-            .hero-overlay {
-                background:
-                    linear-gradient(
-                        90deg,
-                        rgba(0,18,84,.91),
-                        rgba(0,18,84,.65)
-                    );
-            }
-
-            .hero-content {
-                padding: 70px 0;
-            }
-
-            .hero h1 {
-                font-size: clamp(3rem,15vw,5rem);
-                letter-spacing: -1.8px;
-            }
-
-            .hero-main-text {
-                font-size: 1.05rem;
-            }
-
-            .hero-sub-text {
-                font-size: .73rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .section-heading {
-                margin-bottom: 32px;
-            }
-
-            .section-heading h2 {
-                font-size: 2rem;
-            }
-
-            .about-card {
-                padding: 25px 20px;
-            }
-
-            .about-card p {
-                font-size: 1rem;
-            }
-
-            .about-card p + p {
-                font-size: .85rem;
-            }
-
-            /* DAILY ₹1 MOBILE */
-
-            .daily-one-section {
-                padding: 58px 12px;
-            }
-
-            .daily-one-heading {
-                margin-bottom: 27px;
-            }
-
-            .daily-mini-label {
-                font-size: .63rem;
-                padding: 6px 12px;
-                margin-bottom: 14px;
-                letter-spacing: .2px;
-            }
-
-            .daily-one-heading h2 {
-                font-size: clamp(2.45rem,12vw,3.6rem);
-                line-height: .98;
-                letter-spacing: -1.4px;
-                font-weight: 900;
-            }
-
-            .daily-one-heading h2 span {
-                display: block;
-                white-space: nowrap;
-            }
-
-            .daily-one-heading h2 span:first-child,
-            .daily-one-heading h2 span:first-child strong {
-                color: #001b5e;
-                font-weight: 900;
-            }
-
-            .daily-one-heading h2 span:last-child,
-            .daily-one-heading h2 span:last-child b {
-                color: #d95700;
-                font-weight: 900;
-            }
-
-            .daily-one-heading h2 span:last-child b::after {
-                height: 5px;
-            }
-
-            .daily-heading-line {
-                width: 65px;
-                height: 4px;
-                margin: 16px auto 10px;
-            }
-
-            .daily-one-heading h3 {
-                font-size: .76rem;
-                line-height: 1.4;
-            }
-
-            .daily-one-content {
-                padding: 23px 18px;
-                border-radius: 21px;
-            }
-
-            .daily-one-content p {
-                font-size: 1rem;
-                line-height: 1.75;
-            }
-
-            .daily-english {
-                font-size: .82rem !important;
-                line-height: 1.65 !important;
-            }
-
-            .daily-choice {
-                padding: 16px 15px;
-            }
-
-            .daily-choice p + p {
-                font-size: .77rem;
-                line-height: 1.6;
-            }
-
-            .daily-plans {
-                grid-template-columns: repeat(2,1fr);
-                gap: 12px;
-                margin-top: 25px;
-            }
-
-            .daily-plan {
-                min-height: 92px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                padding: 19px 10px;
-                border-radius: 17px;
-            }
-
-            .daily-plan::before {
-                left: 20%;
-                right: 20%;
-                height: 2px;
-            }
-
-            .daily-plan span {
-                font-size: .72rem;
-                margin-bottom: 6px;
-            }
-
-            .daily-plan strong {
-                font-size: 1rem;
-            }
-
-            /* OTHER MOBILE GRIDS */
-
-            .mission-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .work-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .values-grid {
-                grid-template-columns: repeat(2,1fr);
-                gap: 11px;
-            }
-
-            .value-card {
-                padding: 20px 10px;
-            }
-
-            .value-card h3 {
-                font-size: .9rem;
-            }
-
-            .method-grid {
-                grid-template-columns: repeat(2,1fr);
-                gap: 11px;
-            }
-
-            .method-card {
-                padding: 21px 9px;
-            }
-
-            .method-card h3 {
-                font-size: .88rem;
-            }
-
-            .help-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-card {
-                padding: 22px;
-            }
-
-            .join-box {
-                padding: 38px 20px;
-            }
-
-            .events-card {
-                padding: 40px 20px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-        }
-
-        @media (max-width: 380px) {
-
-            .brand-name {
-                font-size: .70rem;
-                letter-spacing: -.65px;
-            }
-
-            .brand-tagline {
-                font-size: .59rem;
-            }
-
-            .daily-one-section {
-                padding: 45px 10px;
-            }
-
-            .daily-one-heading h2 {
-                font-size: 2.25rem;
-                letter-spacing: -1.5px;
-            }
-
-            .daily-one-heading h2 span {
-                white-space: nowrap;
-            }
-
-            .daily-one-content {
-                padding: 20px 15px;
-            }
-
-            .daily-one-content p {
-                font-size: .94rem;
-            }
-
-            .daily-plans {
-                gap: 9px;
-            }
-
-            .daily-plan {
-                min-height: 86px;
-                padding: 16px 7px;
-                border-radius: 15px;
-            }
-
-            .daily-plan span {
-                font-size: .68rem;
-            }
-
-            .daily-plan strong {
-                font-size: .92rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>साथ चले हम फाउंडेशन | बदलाव की ओर</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+:root{
+    --navy:#001254;
+    --blue:#073b9b;
+    --orange:#f37021;
+    --red:#d60000;
+    --green:#138a4b;
+    --white:#ffffff;
+    --ink:#111827;
+    --muted:#5c6575;
+    --soft:#f6f8fc;
+    --line:#e5eaf2;
+    --shadow:0 18px 50px rgba(0,18,84,.12);
+    --radius:22px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Mukta,Arial,sans-serif;
+    color:var(--ink);
+    background:#fff;
+    line-height:1.65;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+
+/* ================= HEADER ================= */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid rgba(0,18,84,.08);
+    box-shadow:0 5px 25px rgba(0,0,0,.05);
+}
+
+.navbar{
+    min-height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:22px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:260px;
+}
+
+.logo{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+    border-radius:14px;
+}
+
+.brand-text strong{
+    display:block;
+    font-family:Poppins,sans-serif;
+    font-size:1.28rem;
+    font-weight:800;
+    color:var(--navy);
+    line-height:1.2;
+}
+
+.brand-text span{
+    display:block;
+    color:var(--orange);
+    font-size:.94rem;
+    font-weight:700;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+nav a{
+    font-family:Poppins,sans-serif;
+    font-size:.78rem;
+    font-weight:600;
+    padding:11px 10px;
+    color:#26324d;
+    white-space:nowrap;
+    border-radius:10px;
+}
+
+nav a:hover{
+    color:var(--orange);
+    background:#fff5ef;
+}
+
+.donate{
+    color:#fff!important;
+    background:var(--orange);
+    box-shadow:0 8px 22px rgba(243,112,33,.28);
+    animation:donatePulse 1.5s infinite;
+}
+
+@keyframes donatePulse{
+
+    0%,100%{
+        transform:scale(1);
+        box-shadow:0 8px 22px rgba(243,112,33,.28);
+    }
+
+    50%{
+        transform:scale(1.06);
+        box-shadow:0 10px 30px rgba(243,112,33,.55);
+    }
+
+}
+
+.menu{
+    display:none;
+    border:0;
+    background:var(--navy);
+    color:#fff;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    font-size:1.2rem;
+    cursor:pointer;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+    min-height:650px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+    background:var(--navy);
+}
+
+.slide{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    animation:heroSlide 25s infinite;
+}
+
+.slide:nth-child(1){
+    background-image:url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1800&q=85");
+}
+
+.slide:nth-child(2){
+    background-image:url("https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=1800&q=85");
+    animation-delay:5s;
+}
+
+.slide:nth-child(3){
+    background-image:url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1800&q=85");
+    animation-delay:10s;
+}
+
+.slide:nth-child(4){
+    background-image:url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1800&q=85");
+    animation-delay:15s;
+}
+
+.slide:nth-child(5){
+    background-image:url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=85");
+    animation-delay:20s;
+}
+
+@keyframes heroSlide{
+
+    0%,18%{
+        opacity:1;
+    }
+
+    20%,100%{
+        opacity:0;
+    }
+
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,18,84,.94),
+        rgba(0,18,84,.65),
+        rgba(0,18,84,.18)
+    );
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    color:#fff;
+    max-width:720px;
+    padding:90px 0;
+}
+
+.hero h1{
+    font-size:clamp(3rem,7vw,6.1rem);
+    line-height:.95;
+    font-weight:800;
+}
+
+.hero h1 span{
+    color:#ff9b61;
+}
+
+.hero p{
+    font-size:1.35rem;
+    margin:22px 0 4px;
+    font-weight:600;
+}
+
+.hero .eng{
+    font-family:Poppins,sans-serif;
+    font-size:1rem;
+    font-weight:500;
+    opacity:.92;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding:13px 25px;
+    border-radius:12px;
+    font-family:Poppins,sans-serif;
+    font-size:.9rem;
+    font-weight:700;
+    border:1px solid transparent;
+    cursor:pointer;
+}
+
+.btn-orange{
+    background:var(--orange);
+    color:#fff;
+    animation:donatePulse 1.5s infinite;
+}
+
+.btn-blue{
+    background:var(--blue);
+    color:#fff;
+}
+
+
+/* ================= COMMON SECTIONS ================= */
+
+section{
+    padding:82px 0;
+}
+
+.section-head{
+    text-align:center;
+    margin-bottom:38px;
+}
+
+.section-head h2{
+    font-size:clamp(2rem,4vw,3rem);
+    color:var(--navy);
+    line-height:1.1;
+}
+
+.section-head h2 span{
+    color:var(--orange);
+}
+
+.section-head:after{
+    content:"";
+    display:block;
+    width:75px;
+    height:4px;
+    background:linear-gradient(
+        90deg,
+        var(--navy),
+        var(--orange)
+    );
+    margin:14px auto;
+    border-radius:10px;
+}
+
+.card{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    padding:30px;
+}
+
+.dual{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.dual h3{
+    color:var(--navy);
+    font-size:1.5rem;
+    margin-bottom:10px;
+}
+
+.dual p + p{
+    margin-top:15px;
+}
+
+.info-text{
+    font-size:1.12rem;
+    color:#30394c;
+}
+
+.center{
+    text-align:center;
+}
+
+
+/* ================= ICON CARDS ================= */
+
+.values,
+.areas,
+.team,
+.ways,
+.help{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.icon-card{
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #f7f9ff
+    );
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:23px;
+    box-shadow:0 10px 30px rgba(0,18,84,.07);
+    transition:.25s;
+}
+
+.icon-card:hover{
+    transform:translateY(-5px);
+    box-shadow:var(--shadow);
+}
+
+.icon{
+    width:48px;
+    height:48px;
+    border-radius:14px;
+    display:grid;
+    place-items:center;
+    background:#fff1e9;
+    color:var(--orange);
+    font-size:1.2rem;
+    margin-bottom:13px;
+}
+
+.icon-card h3{
+    font-size:1.15rem;
+    color:var(--navy);
+    line-height:1.4;
+}
+
+
+/* ================= DAILY ₹1 ================= */
+
+.daily{
+    background:
+    linear-gradient(
+        135deg,
+        #fff7f1,
+        #f7f9ff
+    );
+}
+
+.smile{
+    position:relative;
+    overflow:hidden;
+}
+
+.smile:before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    border-radius:50%;
+    background:#ffe8d8;
+    right:-100px;
+    top:-120px;
+}
+
+.smile-title{
+    position:relative;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.smile-title .hi{
+    font-size:clamp(2.5rem,5vw,4.6rem);
+    font-weight:900;
+    color:var(--navy);
+    line-height:1;
+}
+
+.smile-title .hi span{
+    color:var(--orange);
+}
+
+.smile-title .en{
+    font-family:Poppins,sans-serif;
+    font-size:1.05rem;
+    font-weight:700;
+    color:var(--blue);
+    margin-top:10px;
+}
+
+.smile-title .sub{
+    font-size:1.4rem;
+    font-weight:800;
+    color:var(--navy);
+    margin-top:5px;
+}
+
+.daily-copy{
+    position:relative;
+    text-align:center;
+    max-width:1000px;
+    margin:25px auto;
+}
+
+.daily-copy p{
+    font-size:1.08rem;
+    color:#30394c;
+    margin-bottom:16px;
+}
+
+.plans{
+    position:relative;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin:30px 0;
+}
+
+.plan{
+    cursor:pointer;
+    text-align:center;
+    background:var(--red);
+    color:#fff;
+    border-radius:17px;
+    padding:20px 10px;
+    border:3px solid var(--red);
+    transition:.2s;
+    box-shadow:0 10px 25px rgba(214,0,0,.16);
+    user-select:none;
+}
+
+.plan.selected{
+    background:var(--green);
+    border-color:var(--green);
+    box-shadow:0 12px 30px rgba(19,138,75,.25);
+}
+
+.plan strong{
+    display:block;
+    font-family:Poppins,sans-serif;
+    font-size:2rem;
+    font-weight:900;
+}
+
+.plan b{
+    display:block;
+    font-family:Poppins,sans-serif;
+    font-size:.72rem;
+    font-weight:700;
+}
+
+.plan small{
+    font-size:1rem;
+}
+
+
+/* ================= CONTACT ================= */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.contact-item{
+    padding:26px;
+    border-radius:18px;
+    background:
+    linear-gradient(
+        145deg,
+        #001254,
+        #073b9b
+    );
+    color:#fff;
+    box-shadow:var(--shadow);
+}
+
+.contact-item i{
+    font-size:1.6rem;
+    color:#ffb083;
+    margin-bottom:8px;
+}
+
+.contact-item h3{
+    font-size:1.25rem;
+}
+
+.contact-item p{
+    font-size:1rem;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#061033;
+    color:#fff;
+    padding:65px 0 20px;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:1.5fr 1fr 1fr;
+    gap:45px;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.footer-brand img{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    background:#fff;
+    border-radius:14px;
+}
+
+.footer-brand h2{
+    font-family:Poppins,sans-serif;
+    font-size:1.15rem;
+}
+
+footer h3{
+    font-size:1.25rem;
+    margin-bottom:16px;
+}
+
+footer p,
+footer a{
+    color:#cdd5e8;
+}
+
+.social{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.social a{
+    width:42px;
+    height:42px;
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:12px;
+    display:grid;
+    place-items:center;
+    color:#fff;
+    transition:.2s;
+}
+
+.social a:hover{
+    background:var(--orange);
+    border-color:var(--orange);
+}
+
+.quick a{
+    display:block;
+    margin:6px 0;
+}
+
+.footer-legal{
+    margin-top:18px;
+}
+
+.footer-legal a{
+    display:inline;
+}
+
+.copyright{
+    border-top:1px solid rgba(255,255,255,.12);
+    margin-top:40px;
+    padding-top:18px;
+    text-align:center;
+    color:#cdd5e8;
+    font-size:.9rem;
+}
+
+
+/* ================= POPUP ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,10,35,.78);
+    backdrop-filter:blur(8px);
+    display:grid;
+    place-items:center;
+    z-index:2000;
+    padding:18px;
+}
+
+.modal.hidden{
+    display:none !important;
+    visibility:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+}
+
+.modal-box{
+    width:min(900px,100%);
+    max-height:92vh;
+    overflow:auto;
+    background:#fff;
+    border-radius:26px;
+    padding:30px;
+    position:relative;
+    box-shadow:0 30px 90px rgba(0,0,0,.3);
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:12px;
+    z-index:10;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:#f1f3f7;
+    color:var(--navy);
+    font-size:1.3rem;
+    cursor:pointer;
+    display:grid;
+    place-items:center;
+}
+
+.close:hover{
+    background:var(--red);
+    color:#fff;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1050px){
+
+    nav{
+        display:none;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .navbar.open nav{
+        display:flex;
+        position:absolute;
+        top:82px;
+        left:0;
+        right:0;
+        background:#fff;
+        padding:14px 4%;
+        flex-direction:column;
+        align-items:stretch;
+        box-shadow:0 18px 30px rgba(0,0,0,.1);
+    }
+
+    nav a{
+        text-align:center;
+    }
+
+    .values,
+    .areas,
+    .team,
+    .ways,
+    .help{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+
+@media(max-width:760px){
+
+    .brand{
+        min-width:0;
+    }
+
+    .brand-text strong{
+        font-size:.92rem;
+    }
+
+    .brand-text span{
+        font-size:.72rem;
+    }
+
+    .logo{
+        width:50px;
+        height:50px;
+    }
+
+    .hero{
+        min-height:600px;
+    }
+
+    .hero-content{
+        padding:80px 0;
+    }
+
+    .hero h1{
+        font-size:3.4rem;
+    }
+
+    .hero p{
+        font-size:1.12rem;
+    }
+
+    .dual,
+    .contact-grid,
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .values,
+    .areas,
+    .team,
+    .ways,
+    .help{
+        grid-template-columns:1fr;
+    }
+
+    .plans{
+        grid-template-columns:repeat(4,1fr);
+        gap:7px;
+    }
+
+    .plan{
+        padding:15px 4px;
+    }
+
+    .plan strong{
+        font-size:1.35rem;
+    }
+
+    .plan b{
+        font-size:.55rem;
+    }
+
+    .plan small{
+        font-size:.75rem;
+    }
+
+    section{
+        padding:60px 0;
+    }
+
+    .card{
+        padding:22px;
+    }
+
+    .modal-box{
+        padding:24px 15px;
+        max-height:90vh;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .plans{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .hero h1{
+        font-size:3rem;
+    }
+
+    .smile-title .hi{
+        font-size:2.45rem;
+    }
+
+}
+
+
+/* ================= ACCESSIBILITY ================= */
+
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- =========================
-     HEADER
-========================= -->
 
-<header class="header">
+<!-- ================= HEADER ================= -->
 
-    <div class="container nav-wrap">
+<header>
 
-        <a href="#home" class="brand">
+<div class="container navbar" id="navbar">
 
-            <img
-                class="brand-logo"
-                src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-                alt="Sath Chale Hum Foundation Logo"
-            >
+<a class="brand" href="#home">
 
-            <div class="brand-text">
-                <div class="brand-name">
-                    साथ चले हम Foundation
-                </div>
+<img
+class="logo"
+src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+alt="साथ चले हम फाउंडेशन"
+>
 
-                <div class="brand-tagline">
-                    साथ चले हम, बदलाव की ओर
-                </div>
-            </div>
+<div class="brand-text">
 
-        </a>
+<strong>साथ चले हम फाउंडेशन</strong>
 
-        <button class="menu-btn" id="menuBtn" aria-label="Open Menu">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+<span>साथ चले हम, बदलाव की ओर</span>
 
-        <nav class="nav" id="mainNav">
+</div>
 
-            <a href="#home">Home</a>
-            <a href="#about">About Us</a>
-            <a href="#work">Work</a>
-            <a href="#team">Team</a>
-            <a href="#join">Join Us</a>
-            <a href="#events">Events</a>
+</a>
 
-            <a href="#donate" class="nav-donate">
-                Donate Us
-            </a>
 
-        </nav>
+<nav>
 
-    </div>
+<a href="#home">Home</a>
+
+<a href="#about">About Us</a>
+
+<a href="#work">Work</a>
+
+<a href="#team">Team</a>
+
+<a href="#join">Join Us</a>
+
+<a href="#events">Events</a>
+
+<a class="donate" href="#daily">Donate Us</a>
+
+</nav>
+
+
+<button
+class="menu"
+id="menu"
+type="button"
+aria-label="Menu"
+>
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+</div>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
 
-<section class="hero" id="home">
+<!-- ================= HOME ================= -->
 
-    <div class="hero-slides">
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-        <div class="hero-slide"></div>
-    </div>
+<main id="home">
 
-    <div class="hero-overlay"></div>
 
-    <div class="container">
+<!-- HERO -->
 
-        <div class="hero-content">
+<section class="hero">
 
-            <div class="hero-kicker">
-                साथ चले हम Foundation
-            </div>
+<div class="slide"></div>
+<div class="slide"></div>
+<div class="slide"></div>
+<div class="slide"></div>
+<div class="slide"></div>
 
-            <h1>
-                <span>साथ चले हम,</span>
-                <span>बदलाव की ओर</span>
-            </h1>
 
-            <div class="hero-main-text">
-                आपका साथ, किसी की नई शुरुआत।
-            </div>
+<div class="container hero-content">
 
-            <div class="hero-sub-text">
-                Your Support, Someone’s New Beginning.
-            </div>
+<h1>
+साथ चले हम,<br>
+<span>बदलाव की ओर</span>
+</h1>
 
-            <div class="hero-buttons">
+<p>
+आपका साथ, किसी की नई शुरुआत।
+</p>
 
-                <a href="#donate" class="btn btn-primary">
-                    <i class="fa-solid fa-heart"></i>
-                    Donate Us
-                </a>
+<div class="eng">
+Your Support, Someone’s New Beginning.
+</div>
 
-                <a href="#join" class="btn btn-blue">
-                    <i class="fa-solid fa-handshake"></i>
-                    Join Us
-                </a>
 
-            </div>
+<div class="buttons">
 
-        </div>
+<a
+class="btn btn-orange"
+href="#daily"
+>
+Donate Us
+</a>
 
-    </div>
+<a
+class="btn btn-blue"
+href="#join"
+>
+Join Us
+</a>
+
+</div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
-     DAILY ₹1
-========================= -->
 
-<section class="daily-one-section" id="donate">
+<!-- ================= DAILY ₹1 SECTION ================= -->
 
-    <div class="daily-one-inner">
+<section class="daily" id="daily">
 
-        <div class="daily-one-heading">
+<div class="container smile">
 
-            <span class="daily-mini-label">
-                Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
-            </span>
 
-            <h2>
-                <span>
-                    आपका <strong>₹1</strong>,
-                </span>
+<div class="smile-title">
 
-                <span>
-                    किसी की <b>मुस्कान</b> 😊
-                </span>
-            </h2>
+<div class="hi">
+आपका ₹1
+<span>, किसी की मुस्कान</span>
+</div>
 
-            <div class="daily-heading-line"></div>
+<div class="en">
+Your ₹1, Someone’s Smile
+</div>
 
-            <h3>
-                Your ₹1, Someone’s Smile
-            </h3>
-
-        </div>
-
-
-        <div class="daily-one-content">
-
-            <p class="daily-hindi">
-                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
-            </p>
-
-            <p class="daily-english">
-                A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
-            </p>
-
-            <div class="daily-choice">
-
-                <p>
-                    अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
-                </p>
-
-                <p>
-                    Choose a daily contribution that suits you and become part of our efforts to support those in need.
-                </p>
-
-            </div>
-
-
-            <div class="daily-plans">
-
-                <div class="daily-plan">
-                    <span>₹1 Daily</span>
-                    <strong>₹30 / माह</strong>
-                </div>
-
-                <div class="daily-plan">
-                    <span>₹2 Daily</span>
-                    <strong>₹60 / माह</strong>
-                </div>
-
-                <div class="daily-plan">
-                    <span>₹5 Daily</span>
-                    <strong>₹150 / माह</strong>
-                </div>
-
-                <div class="daily-plan">
-                    <span>₹10 Daily</span>
-                    <strong>₹300 / माह</strong>
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT US
-========================= -->
-
-<section class="section" id="about">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                हमारे बारे में <span>| About Us</span>
-            </h2>
-        </div>
-
-        <div class="about-card">
-            <p>
-                साथ चले हम Foundation एक गैर-लाभकारी सामाजिक संस्था है जो समाज के सर्वांगीण विकास के लिए प्रतिबद्ध है। हमारी संस्था शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, ग्रामीण विकास, युवा एवं कौशल विकास, तथा समाज के वंचित और जरूरतमंद वर्गों के उत्थान के लिए निरंतर कार्य करती है। हमारा विश्वास है कि छोटे-छोटे साझा प्रयासों से समाज में बड़ा और स्थायी बदलाव लाया जा सकता है।
-            </p>
-            <p>
-                Sath Chale Hum Foundation is a non-profit social organization committed to the holistic development of society. Our organization continuously works towards education, healthcare, women empowerment, rural development, youth and skill development, and the upliftment of underprivileged communities. We believe that collective small efforts can create a significant and lasting positive change in society.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     MISSION & VISION
-========================= -->
-
-<section class="section alt">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                Mission & Vision
-            </h2>
-        </div>
-
-        <div class="mission-grid">
-
-            <div class="mission-card">
-
-                <div class="card-icon">
-                    <i class="fa-solid fa-bullseye"></i>
-                </div>
-
-                <h3>
-                    Mission | हमारा मिशन
-                </h3>
-
-                <p>
-                    हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
-                </p>
-
-                <p>
-                    Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
-                </p>
-
-            </div>
-
-
-            <div class="mission-card">
-
-                <div class="card-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-
-                <h3>
-                    Vision | हमारा विज़न
-                </h3>
-
-                <p>
-                    हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
-                </p>
-
-                <p>
-                    Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     VALUES
-========================= -->
-
-<section class="section" id="values">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                Our Values <span>| हमारे मूल्य</span>
-            </h2>
-
-            <p>
-                हमारे मूल्यों के आधार पर हमारा हर प्रयास समाज में सकारात्मक बदलाव की ओर बढ़ता है।
-            </p>
-        </div>
-
-
-        <div class="values-grid">
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-                <h3>
-                    सेवा | Service
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                </div>
-                <h3>
-                    समानता | Equality
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-shield-heart"></i>
-                </div>
-                <h3>
-                    ईमानदारी | Integrity
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-                <h3>
-                    पारदर्शिता | Transparency
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-                <h3>
-                    करुणा | Compassion
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-                <h3>
-                    सशक्तिकरण | Empowerment
-                </h3>
-            </div>
-
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fa-solid fa-people-group"></i>
-                </div>
-                <h3>
-                    सामुदायिक भागीदारी | Community Participation
-                </h3>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     OUR WORK
-========================= -->
-
-<section class="section alt" id="work">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                Our Work <span>| हमारे कार्य</span>
-            </h2>
-        </div>
-
-
-        <div class="work-grid">
-
-            <div class="work-card">
-                <i class="fa-solid fa-school"></i>
-                <span>शिक्षा एवं बाल विकास — Education & Child Development</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-person-dress"></i>
-                <span>महिला सशक्तिकरण एवं विकास — Women Empowerment & Development</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-heart-pulse"></i>
-                <span>स्वास्थ्य एवं चिकित्सा — Health & Medical Care</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-hands-holding-child"></i>
-                <span>गरीब एवं जरूरतमंद कल्याण — Welfare of Poor & Needy</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-wheelchair"></i>
-                <span>दिव्यांगजन कल्याण एवं सशक्तिकरण — Disability Welfare & Empowerment</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-person-cane"></i>
-                <span>वृद्धजन कल्याण — Senior Citizen Welfare</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-user-graduate"></i>
-                <span>युवा विकास एवं कौशल विकास — Youth Development & Skill Development</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-briefcase"></i>
-                <span>रोजगार, स्वरोजगार एवं आजीविका — Employment, Self-Employment & Livelihood</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-house-chimney"></i>
-                <span>ग्रामीण विकास एवं ग्राम उत्थान — Rural Development & Village Upliftment</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-wheat-awn"></i>
-                <span>कृषि एवं किसान कल्याण — Agriculture & Farmer Welfare</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-leaf"></i>
-                <span>पर्यावरण एवं जल संरक्षण — Environment & Water Conservation</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-droplet"></i>
-                <span>स्वच्छता, पेयजल एवं पोषण — Sanitation, Drinking Water & Nutrition</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-paw"></i>
-                <span>पशु कल्याण एवं संरक्षण — Animal Welfare & Protection</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-kit-medical"></i>
-                <span>आपदा राहत एवं पुनर्वास — Disaster Relief & Rehabilitation</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-scale-balanced"></i>
-                <span>सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता — Social Justice, Human Rights & Legal Awareness</span>
-            </div>
-
-            <div class="work-card">
-                <i class="fa-solid fa-laptop"></i>
-                <span>डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास — Digital Education, Public Awareness & Social Development</span>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     TEAM
-========================= -->
-
-<section class="section" id="team">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                Our Team <span>| हमारी टीम</span>
-            </h2>
-        </div>
-
-        <div class="team-grid">
-
-            <div class="team-card">
-
-                <div class="team-icon">
-                    <i class="fa-solid fa-building-columns"></i>
-                </div>
-
-                <h3>
-                    Board of Trustees | न्यास मंडल
-                </h3>
-
-            </div>
-
-
-            <div class="team-card">
-
-                <div class="team-icon">
-                    <i class="fa-solid fa-user-tie"></i>
-                </div>
-
-                <h3>
-                    Advisory Board | सलाहकार मंडल
-                </h3>
-
-            </div>
-
-
-            <div class="team-card">
-
-                <div class="team-icon">
-                    <i class="fa-solid fa-people-group"></i>
-                </div>
-
-                <h3>
-                    Program Team | कार्यक्रम संचालन टीम
-                </h3>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     WORKING METHOD
-========================= -->
-
-<section class="section alt">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <h2>
-                हमारा काम करने का तरीका <span>| Our Way of Working</span>
-            </h2>
-
-        </div>
-
-
-        <div class="method-grid">
-
-            <div class="method-card">
-
-                <div class="method-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <h3>
-                    सीधी मदद | Direct Help
-                </h3>
-
-            </div>
-
-
-            <div class="method-card">
-
-                <div class="method-icon">
-                    <i class="fa-solid fa-handshake"></i>
-                </div>
-
-                <h3>
-                    मिलकर काम करना | Working Together
-                </h3>
-
-            </div>
-
-
-            <div class="method-card">
-
-                <div class="method-icon">
-                    <i class="fa-solid fa-file-shield"></i>
-                </div>
-
-                <h3>
-                    ईमानदारी और पारदर्शिता | Honesty & Transparency
-                </h3>
-
-            </div>
-
-
-            <div class="method-card">
-
-                <div class="method-icon">
-                    <i class="fa-solid fa-people-group"></i>
-                </div>
-
-                <h3>
-                    समुदाय की भागीदारी | Community Participation
-                </h3>
-
-            </div>
-
-
-            <div class="method-card">
-
-                <div class="method-icon">
-                    <i class="fa-solid fa-handshake-angle"></i>
-                </div>
-
-                <h3>
-                    समानता और सम्मान | Equality & Respect
-                </h3>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     HOW CAN YOU HELP
-========================= -->
-
-<section class="section" id="help">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <h2>
-                How Can You Help <span>| आप कैसे मदद कर सकते हैं</span>
-            </h2>
-
-        </div>
-
-
-        <div class="help-grid">
-
-            <div class="help-card">
-                <i class="fa-regular fa-clock"></i>
-                <h3>
-                    अपना समय दें | Give Your Time
-                </h3>
-            </div>
-
-            <div class="help-card">
-                <i class="fa-solid fa-heart"></i>
-                <h3>
-                    दान दें | Donate
-                </h3>
-            </div>
-
-            <div class="help-card">
-                <i class="fa-solid fa-handshake"></i>
-                <h3>
-                    सहयोग करें | Support Us
-                </h3>
-            </div>
-
-            <div class="help-card">
-                <i class="fa-solid fa-bullhorn"></i>
-                <h3>
-                    जागरूकता फैलाएँ | Spread Awareness
-                </h3>
-            </div>
-
-            <div class="help-card">
-                <i class="fa-solid fa-microphone"></i>
-                <h3>
-                    अपनी आवाज़ बनें | Be a Voice for Change
-                </h3>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     EVENTS
-========================= -->
-
-<section class="section alt" id="events">
-
-    <div class="container">
-
-        <div class="section-heading">
-            <h2>
-                Events <span>| कार्यक्रम</span>
-            </h2>
-        </div>
-
-        <div class="events-card">
-
-            <i class="fa-solid fa-calendar-days"></i>
-
-            <h3>
-                Events & Social Activities
-            </h3>
-
-            <p>
-                साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     JOIN US
-========================= -->
-
-<section class="section" id="join">
-
-    <div class="container">
-
-        <div class="join-box">
-
-            <h2>
-                हमारे साथ जुड़ें | Join Us
-            </h2>
-
-            <p>
-                हमारे साथ जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें। आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
-            </p>
-
-            <p>
-                Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
-            </p>
-
-            <div class="join-buttons">
-
-                <a href="#donate" class="btn btn-primary">
-                    <i class="fa-solid fa-heart"></i>
-                    Donate Us
-                </a>
-
-                <a href="#contact" class="btn btn-blue">
-                    <i class="fa-solid fa-user-plus"></i>
-                    Join Us
-                </a>
-
-                <button class="btn btn-blue" onclick="downloadNotice()">
-                    <i class="fa-solid fa-download"></i>
-                    Downloads
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
-
-<section class="section alt" id="contact">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <h2>
-                Contact Us <span>| हमसे संपर्क करें</span>
-            </h2>
-
-        </div>
-
-
-        <div class="contact-grid">
-
-            <div class="contact-card">
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                <h3>
-                    📍 पता | Address
-                </h3>
-
-                <p>
-                    भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
-                </p>
-
-            </div>
-
-
-            <div class="contact-card">
-
-                <i class="fa-solid fa-envelope"></i>
-
-                <h3>
-                    📧 ईमेल | Email
-                </h3>
-
-                <p>
-                    sathchaleham@gmail.com
-                </p>
-
-            </div>
-
-
-            <div class="contact-card">
-
-                <i class="fa-solid fa-phone"></i>
-
-                <h3>
-                    ☎️ हेल्पलाइन | Helpline
-                </h3>
-
-                <p>
-                    +91 7011893028
-                </p>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-            <div class="footer-brand">
-
-                <img
-                    class="footer-logo"
-                    src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-                    alt="Sath Chale Hum Foundation Logo"
-                >
-
-                <h3>
-                    Sath Chale Hum Foundation
-                </h3>
-
-                <div class="footer-hi">
-                    साथ चले हम – बदलाव की ओर
-                </div>
-
-                <div class="footer-en">
-                    Step Together Towards Change
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="footer-title">
-                    Our Social Media
-                </div>
-
-                <div class="socials">
-
-                    <a href="#" aria-label="Facebook">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a href="#" aria-label="Instagram">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
-
-                    <a href="#" aria-label="YouTube">
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="footer-title">
-                    Quick Links | महत्वपूर्ण लिंक
-                </div>
-
-                <div class="footer-links">
-
-                    <a href="#home">
-                        Home | होम
-                    </a>
-
-                    <a href="#about">
-                        About Us | हमारे बारे में
-                    </a>
-
-                    <a href="#work">
-                        Our Work | हमारे कार्य
-                    </a>
-
-                    <a href="#team">
-                        Our Team | हमारी टीम
-                    </a>
-
-                    <a href="#donate">
-                        Donate Us | दान करें
-                    </a>
-
-                    <a href="#join">
-                        Join Us | हमारे साथ जुड़ें
-                    </a>
-
-                    <a href="#events">
-                        Events | कार्यक्रम
-                    </a>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <div class="footer-policy">
-
-                <a href="#" onclick="showTerms(event)">
-                    Terms & Conditions
-                </a>
-
-                &nbsp; | &nbsp;
-
-                <a href="#" onclick="showPrivacy(event)">
-                    Privacy Policy
-                </a>
-
-            </div>
-
-            <div>
-                © 2026 Sath Chale Hum Foundation. All Rights Reserved.
-            </div>
-
-            <div>
-                -Sath Chale Hum Foundation-
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================
-     POPUP
-========================= -->
-
-<div class="popup-overlay" id="supportPopup">
-
-    <div class="popup">
-
-        <button class="popup-close" id="popupClose">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-
-        <span class="popup-badge">
-            ₹1 DAILY
-        </span>
-
-        <h2>
-            SUPPORTER CAMPAIGN
-        </h2>
-
-        <h3>
-            आपका ₹1, किसी की मुस्कान
-        </h3>
-
-        <p>
-            रोज़ ₹1 – बदलाव की ओर साथ चले हम!
-        </p>
-
-
-        <div class="popup-plans">
-
-            <div class="popup-plan">
-                <strong>₹1 Daily</strong>
-                <span>₹30 / माह</span>
-            </div>
-
-            <div class="popup-plan">
-                <strong>₹2 Daily</strong>
-                <span>₹60 / माह</span>
-            </div>
-
-            <div class="popup-plan">
-                <strong>₹5 Daily</strong>
-                <span>₹150 / माह</span>
-            </div>
-
-            <div class="popup-plan">
-                <strong>₹10 Daily</strong>
-                <span>₹300 / माह</span>
-            </div>
-
-        </div>
-
-        <div style="margin-top:20px;">
-            <a href="#donate" class="btn btn-primary" onclick="closePopup()">
-                <i class="fa-solid fa-heart"></i>
-                Donate Us
-            </a>
-        </div>
-
-    </div>
+<div class="sub">
+रोज ₹1-<br>
+बदलाव<br>
+की ओर साथ चले हम!
+</div>
 
 </div>
 
 
-<!-- =========================
-     BACK TO TOP
-========================= -->
+<div class="daily-copy">
 
-<button class="back-top" id="backTop" aria-label="Back to Top">
-    <i class="fa-solid fa-arrow-up"></i>
+<p>
+Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+</p>
+
+<p>
+हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
+</p>
+
+<p>
+A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+</p>
+
+<p>
+अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
+</p>
+
+<p>
+Choose a daily contribution that suits you and become part of our efforts to support those in need.
+</p>
+
+</div>
+
+
+<div class="plans">
+
+
+<div
+class="plan selected"
+data-amount="1"
+>
+<strong>₹1</strong>
+<b>DAILY SUPPORTER</b>
+<small>
+₹1 प्रतिदिन<br>
+लगभग ₹30 / माह
+</small>
+</div>
+
+
+<div
+class="plan"
+data-amount="2"
+>
+<strong>₹2</strong>
+<b>DAILY SUPPORTER</b>
+<small>
+₹2 प्रतिदिन<br>
+लगभग ₹60 / माह
+</small>
+</div>
+
+
+<div
+class="plan"
+data-amount="5"
+>
+<strong>₹5</strong>
+<b>DAILY SUPPORTER</b>
+<small>
+₹5 प्रतिदिन<br>
+लगभग ₹150 / माह
+</small>
+</div>
+
+
+<div
+class="plan"
+data-amount="10"
+>
+<strong>₹10</strong>
+<b>DAILY SUPPORTER</b>
+<small>
+₹10 प्रतिदिन<br>
+लगभग ₹300 / माह
+</small>
+</div>
+
+
+</div>
+
+
+<div class="center">
+
+<a
+class="btn btn-orange"
+href="#"
+id="mainDonate"
+>
+DONATE NOW
+</a>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- ================= ABOUT US ================= -->
+
+<section id="about">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+About Us <span>|</span> हमारे बारे में
+</h2>
+
+</div>
+
+
+<div class="card info-text">
+
+साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+
+<br><br>
+
+Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+
+</div>
+
+
+
+<br>
+
+
+<div class="section-head">
+
+<h2>
+Our Mission & Our Vision
+<span>|</span>
+हमारा मिशन और हमारा विज़न
+</h2>
+
+</div>
+
+
+<div class="dual">
+
+
+<div class="card">
+
+<h3>
+Our Mission | हमारा मिशन
+</h3>
+
+<p>
+हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
+</p>
+
+<p>
+Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Our Vision | हमारा विज़न
+</h3>
+
+<p>
+हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
+</p>
+
+<p>
+Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
+</p>
+
+</div>
+
+
+</div>
+
+
+
+<br>
+
+
+<div class="section-head">
+
+<h2>
+Our Values <span>|</span> हमारे मूल्य
+</h2>
+
+</div>
+
+
+<div class="values">
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+<h3>1. सेवा | Service</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+<h3>2. समानता | Equality</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-shield-heart"></i>
+</div>
+<h3>3. ईमानदारी | Integrity</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-eye"></i>
+</div>
+<h3>4. पारदर्शिता | Transparency</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-heart"></i>
+</div>
+<h3>5. करुणा | Compassion</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-bolt"></i>
+</div>
+<h3>6. सशक्तिकरण | Empowerment</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-people-group"></i>
+</div>
+<h3>
+7. सामुदायिक भागीदारी | Community Participation
+</h3>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= OUR WORK ================= -->
+
+<section class="daily" id="work">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+Our Key Areas of Work
+<span>|</span>
+हमारे प्रमुख कार्य क्षेत्र
+</h2>
+
+</div>
+
+
+<div class="areas">
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-book-open"></i></div>
+<h3>
+1. शिक्षा एवं बाल विकास — Education & Child Development
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-person-dress"></i></div>
+<h3>
+2. महिला सशक्तिकरण एवं विकास — Women Empowerment & Development
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
+<h3>
+3. स्वास्थ्य एवं चिकित्सा — Health & Medical Care
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-hands-helping"></i></div>
+<h3>
+4. गरीब एवं जरूरतमंद कल्याण — Welfare of Poor & Needy
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-wheelchair"></i></div>
+<h3>
+5. दिव्यांगजन कल्याण एवं सशक्तिकरण — Disability Welfare & Empowerment
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-person-cane"></i></div>
+<h3>
+6. वृद्धजन कल्याण — Senior Citizen Welfare
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
+<h3>
+7. युवा विकास एवं कौशल विकास — Youth Development & Skill Development
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+<h3>
+8. रोजगार, स्वरोजगार एवं आजीविका — Employment, Self-Employment & Livelihood
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-house"></i></div>
+<h3>
+9. ग्रामीण विकास एवं ग्राम उत्थान — Rural Development & Village Upliftment
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
+<h3>
+10. कृषि एवं किसान कल्याण — Agriculture & Farmer Welfare
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-leaf"></i></div>
+<h3>
+11. पर्यावरण एवं जल संरक्षण — Environment & Water Conservation
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-droplet"></i></div>
+<h3>
+12. स्वच्छता, पेयजल एवं पोषण — Sanitation, Drinking Water & Nutrition
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-paw"></i></div>
+<h3>
+13. पशु कल्याण एवं संरक्षण — Animal Welfare & Protection
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-life-ring"></i></div>
+<h3>
+14. आपदा राहत एवं पुनर्वास — Disaster Relief & Rehabilitation
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-scale-balanced"></i></div>
+<h3>
+15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता — Social Justice, Human Rights & Legal Awareness
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon"><i class="fa-solid fa-laptop"></i></div>
+<h3>
+16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास — Digital Education, Public Awareness & Social Development
+</h3>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= TEAM ================= -->
+
+<section id="team">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+Our Team <span>|</span> हमारी टीम
+</h2>
+
+</div>
+
+
+<div class="team">
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-landmark"></i>
+</div>
+<h3>
+1. Board of Trustees | न्यास मंडल
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-user-tie"></i>
+</div>
+<h3>
+2. Advisory Board | सलाहकार मंडल
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-people-group"></i>
+</div>
+<h3>
+3. Program Team | कार्यक्रम संचालन टीम
+</h3>
+</div>
+
+
+</div>
+
+
+
+<br>
+
+
+<div class="section-head">
+
+<h2>
+Our Way of Working
+<span>|</span>
+हमारा काम करने का तरीका
+</h2>
+
+</div>
+
+
+<div class="ways">
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-hand"></i>
+</div>
+<h3>
+1. सीधी मदद | Direct Help
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-people-arrows"></i>
+</div>
+<h3>
+2. मिलकर काम करना | Working Together
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-lock-open"></i>
+</div>
+<h3>
+3. ईमानदारी और पारदर्शिता | Honesty & Transparency
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-users"></i>
+</div>
+<h3>
+4. समुदाय की भागीदारी | Community Participation
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+<h3>
+5. समानता और सम्मान | Equality & Respect
+</h3>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= HOW YOU CAN HELP ================= -->
+
+<section class="daily">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+How You Can Help
+<span>|</span>
+आप हमारी मदद कैसे कर सकते हैं?
+</h2>
+
+</div>
+
+
+<div class="help">
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-clock"></i>
+</div>
+<h3>
+1. अपना समय दें | Give Your Time
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-hand-holding-dollar"></i>
+</div>
+<h3>
+2. दान दें | Donate
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-handshake"></i>
+</div>
+<h3>
+3. सहयोग करें | Support Us
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-bullhorn"></i>
+</div>
+<h3>
+4. जागरूकता फैलाएँ | Spread Awareness
+</h3>
+</div>
+
+
+<div class="icon-card">
+<div class="icon">
+<i class="fa-solid fa-microphone"></i>
+</div>
+<h3>
+5. अपनी आवाज़ बनें | Be a Voice for Change
+</h3>
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= EVENTS ================= -->
+
+<section id="events">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+Events <span>|</span> कार्यक्रम
+</h2>
+
+</div>
+
+
+<div class="card center">
+
+<h3>
+Events & Social Activities
+</h3>
+
+<p class="info-text">
+
+साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= JOIN US ================= -->
+
+<section id="join" class="daily">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+Join Us <span>|</span> हमारे साथ जुड़ें!
+</h2>
+
+</div>
+
+
+<div class="card center">
+
+
+<p class="info-text">
+
+हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें। आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
+
+</p>
+
+
+<p class="info-text">
+
+Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
+
+</p>
+
+
+<div
+class="buttons"
+style="justify-content:center"
+>
+
+<a
+class="btn btn-orange"
+href="#daily"
+>
+Donate Us
+</a>
+
+<a
+class="btn btn-blue"
+href="#contact"
+>
+Join Us
+</a>
+
+<a
+class="btn btn-blue"
+href="#"
+>
+Downloads
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+<div class="container">
+
+
+<div class="section-head">
+
+<h2>
+📞 Contact Us <span>|</span> हमसे संपर्क करें
+</h2>
+
+</div>
+
+
+<div class="contact-grid">
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-location-dot"></i>
+
+<h3>
+📍 पता | Address
+</h3>
+
+<p>
+भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
+</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-envelope"></i>
+
+<h3>
+📧 ईमेल | Email
+</h3>
+
+<p>
+sathchaleham@gmail.com
+</p>
+
+</div>
+
+
+<div class="contact-item">
+
+<i class="fa-solid fa-phone"></i>
+
+<h3>
+☎️ हेल्पलाइन | Helpline
+</h3>
+
+<p>
++91 7011893028
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div>
+
+
+<div class="footer-brand">
+
+<img
+src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+alt="साथ चले हम फाउंडेशन"
+>
+
+<h2>
+Sath
+<br>
+Chale Hum Foundation
+</h2>
+
+</div>
+
+
+<p>
+साथ चले हम – बदलाव की ओर
+</p>
+
+<p>
+Step Together Towards Change
+</p>
+
+
+<h3 style="margin-top:22px">
+Our Social Media
+</h3>
+
+
+<div class="social">
+
+<a href="#">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-instagram"></i>
+</a>
+
+<a href="#">
+<i class="fa-brands fa-youtube"></i>
+</a>
+
+</div>
+
+
+</div>
+
+
+
+<div class="quick">
+
+<h3>
+Quick Links | महत्वपूर्ण लिंक
+</h3>
+
+
+<a href="#home">
+Home | होम
+</a>
+
+<a href="#about">
+About Us | हमारे बारे में
+</a>
+
+<a href="#work">
+Our Work | हमारे कार्य
+</a>
+
+<a href="#team">
+Our Team | हमारी टीम
+</a>
+
+<a href="#daily">
+Donate Us | दान करें
+</a>
+
+<a href="#join">
+Join Us | हमारे साथ जुड़ें
+</a>
+
+<a href="#events">
+Events | कार्यक्रम
+</a>
+
+<a href="#contact">
+Contact Us | संपर्क करें
+</a>
+
+</div>
+
+
+
+<div>
+
+<a href="#">
+Terms & Conditions
+</a>
+
+<span> | </span>
+
+<a href="#">
+Privacy Policy
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 Sath Chale Hum Foundation. All Rights Reserved.
+
+<br>
+
+-Sath Chale Hum Foundation-
+
+</div>
+
+
+</div>
+
+</footer>
+
+
+
+<!-- ================= POPUP ================= -->
+
+<div
+class="modal"
+id="popup"
+>
+
+<div class="modal-box">
+
+
+<!-- X BUTTON -->
+
+<button
+type="button"
+class="close"
+id="closePopup"
+aria-label="Close"
+>
+<i class="fa-solid fa-xmark"></i>
 </button>
+
+
+<div class="smile-title">
+
+<div class="hi">
+
+आपका ₹1
+<span>
+, किसी की मुस्कान
+</span>
+
+</div>
+
+
+<div class="en">
+
+Your ₹1, Someone’s Smile
+
+</div>
+
+
+<div class="sub">
+
+रोज ₹1-
+<br>
+बदलाव
+<br>
+की ओर साथ चले हम!
+
+</div>
+
+</div>
+
+
+
+<div class="plans">
+
+
+<div
+class="plan selected"
+data-amount="1"
+>
+
+<strong>₹1</strong>
+
+<b>
+DAILY SUPPORTER
+</b>
+
+<small>
+₹1 प्रतिदिन<br>
+लगभग ₹30 / माह
+</small>
+
+</div>
+
+
+<div
+class="plan"
+data-amount="2"
+>
+
+<strong>₹2</strong>
+
+<b>
+DAILY SUPPORTER
+</b>
+
+<small>
+₹2 प्रतिदिन<br>
+लगभग ₹60 / माह
+</small>
+
+</div>
+
+
+<div
+class="plan"
+data-amount="5"
+>
+
+<strong>₹5</strong>
+
+<b>
+DAILY SUPPORTER
+</b>
+
+<small>
+₹5 प्रतिदिन<br>
+लगभग ₹150 / माह
+</small>
+
+</div>
+
+
+<div
+class="plan"
+data-amount="10"
+>
+
+<strong>₹10</strong>
+
+<b>
+DAILY SUPPORTER
+</b>
+
+<small>
+₹10 प्रतिदिन<br>
+लगभग ₹300 / माह
+</small>
+
+</div>
+
+
+</div>
+
+
+
+<div class="center">
+
+<a
+class="btn btn-orange"
+href="#"
+id="popupDonate"
+>
+DONATE NOW
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 
 <script>
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
 
-    const menuBtn = document.getElementById("menuBtn");
-    const mainNav = document.getElementById("mainNav");
+/* ================= MOBILE MENU ================= */
 
-    menuBtn.addEventListener("click", function () {
+const navbar = document.getElementById("navbar");
+const menu = document.getElementById("menu");
 
-        mainNav.classList.toggle("open");
+menu.addEventListener("click", function(){
 
-        const icon = menuBtn.querySelector("i");
+    navbar.classList.toggle("open");
 
-        if (mainNav.classList.contains("open")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-xmark");
-        } else {
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
-        }
+});
+
+
+document.querySelectorAll("nav a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        navbar.classList.remove("open");
 
     });
 
+});
 
-    document.querySelectorAll(".nav a").forEach(function(link) {
 
-        link.addEventListener("click", function() {
 
-            mainNav.classList.remove("open");
+/* ================= ₹1 / ₹2 / ₹5 / ₹10 SELECTION ================= */
 
-            const icon = menuBtn.querySelector("i");
+document.querySelectorAll(".plans").forEach(function(planArea){
 
-            icon.classList.remove("fa-xmark");
-            icon.classList.add("fa-bars");
+    const plans = planArea.querySelectorAll(".plan");
+
+    plans.forEach(function(plan){
+
+        plan.addEventListener("click", function(){
+
+            plans.forEach(function(item){
+
+                item.classList.remove("selected");
+
+            });
+
+            plan.classList.add("selected");
 
         });
 
     });
 
-
-    /* =========================
-       POPUP
-    ========================= */
-
-    const popup = document.getElementById("supportPopup");
-    const popupClose = document.getElementById("popupClose");
-
-    function openPopup() {
-        popup.classList.add("active");
-        document.body.style.overflow = "hidden";
-    }
-
-    function closePopup() {
-        popup.classList.remove("active");
-        document.body.style.overflow = "";
-    }
-
-    popupClose.addEventListener("click", closePopup);
-
-    popup.addEventListener("click", function(e) {
-
-        if (e.target === popup) {
-            closePopup();
-        }
-
-    });
+});
 
 
-    setTimeout(function() {
-        openPopup();
-    }, 1000);
+
+/* ================= POPUP CLOSE ================= */
+
+const popup = document.getElementById("popup");
+
+const closePopup = document.getElementById("closePopup");
 
 
-    /* =========================
-       BACK TO TOP
-    ========================= */
+function hidePopup(){
 
-    const backTop = document.getElementById("backTop");
+    popup.classList.add("hidden");
 
-    window.addEventListener("scroll", function() {
+    popup.style.display = "none";
 
-        if (window.scrollY > 500) {
-            backTop.classList.add("show");
-        } else {
-            backTop.classList.remove("show");
-        }
+    popup.style.visibility = "hidden";
 
-    });
+    popup.style.opacity = "0";
 
-    backTop.addEventListener("click", function() {
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
+    popup.style.pointerEvents = "none";
+
+}
 
 
-    /* =========================
-       TERMS
-    ========================= */
+closePopup.addEventListener("click", function(event){
 
-    function showTerms(event) {
+    event.preventDefault();
 
-        event.preventDefault();
+    event.stopPropagation();
 
-        alert(
-            "Terms & Conditions\n\n" +
-            "Sath Chale Hum Foundation के साथ जुड़ने एवं सहयोग करने के लिए धन्यवाद।"
-        );
+    hidePopup();
+
+});
+
+
+
+/* Popup के बाहर click करने पर भी बंद */
+
+popup.addEventListener("click", function(event){
+
+    if(event.target === popup){
+
+        hidePopup();
 
     }
 
-
-    /* =========================
-       PRIVACY
-    ========================= */
-
-    function showPrivacy(event) {
-
-        event.preventDefault();
-
-        alert(
-            "Privacy Policy\n\n" +
-            "आपकी व्यक्तिगत जानकारी का सम्मान और उचित सुरक्षा हमारे लिए महत्वपूर्ण है।"
-        );
-
-    }
+});
 
 
-    /* =========================
-       DOWNLOADS
-    ========================= */
 
-    function downloadNotice() {
+/*
+IMPORTANT:
+यहाँ कोई setTimeout नहीं है।
+इसलिए X दबाने के बाद popup अपने-आप दोबारा नहीं खुलेगा।
+*/
 
-        alert(
-            "Downloads\n\n" +
-            "Download resources will be available here soon."
-        );
 
-    }
+
+/* ================= DONATE BUTTON ================= */
+
+document.getElementById("mainDonate").addEventListener("click", function(event){
+
+    event.preventDefault();
+
+});
+
+
+document.getElementById("popupDonate").addEventListener("click", function(event){
+
+    event.preventDefault();
+
+});
+
 
 </script>
+
 
 </body>
 </html>
