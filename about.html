@@ -1,1323 +1,1326 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Us | हमारे बारे में - साथ चले हम फाउंडेशन</title>
-
-    <meta name="description" content="साथ चले हम फाउंडेशन - About Us, Mission, Vision और Our Values. साथ चले हम, बदलाव की ओर।">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Mukta', 'Poppins', sans-serif;
-            background: #f8fafc;
-            color: #111827;
-        }
-
-        /* ==============================
-           PREMIUM COLORS
-        ============================== */
 
-        :root {
-            --navy: #001254;
-            --deep-blue: #001b5e;
-            --blue: #073b9b;
-            --orange: #f37021;
-            --deep-orange: #d95700;
-            --red: #d60000;
-            --green: #0d5c2d;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
 
-        /* ==============================
-           PREMIUM DONATE PULSE
-        ============================== */
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        @keyframes donatePulse {
+<title>About Us | हमारे बारे में - साथ चले हम Foundation</title>
 
-            0% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(214, 0, 0, .65);
-            }
+<meta
+name="description"
+content="साथ चले हम Foundation - बदलाव की ओर. Education, Healthcare, Women Empowerment, Rural Development, Skill Development and Social Awareness."
+>
 
-            50% {
-                transform: scale(1.06);
-                box-shadow: 0 0 22px 7px rgba(214, 0, 0, .28);
-            }
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
-            100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(214, 0, 0, 0);
-            }
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        }
+<link
+href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet"
+>
 
-        .donate-pulse {
-            animation: donatePulse 1.8s infinite;
-        }
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
-        /* ==============================
-           HEADER
-        ============================== */
+<style>
 
-        .main-header {
-            position: sticky;
-            top: 0;
-            z-index: 9999;
+/* =========================================================
+   ROOT
+========================================================= */
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(255,255,255,.98),
-                    rgba(248,250,255,.96)
-                );
+:root{
+    --navy:#001254;
+    --deep-blue:#001b5e;
+    --blue:#073b9b;
+    --orange:#f37021;
+    --deep-orange:#d95700;
+    --red:#d60000;
+    --green:#0d7a3b;
+    --light:#f7f9fc;
+    --white:#ffffff;
+    --dark:#111827;
+    --muted:#667085;
+    --border:#e4e8ef;
 
-            backdrop-filter: blur(18px);
+    --shadow:0 12px 35px rgba(0,18,84,.10);
+    --premium-shadow:0 20px 55px rgba(0,18,84,.14);
 
-            border-bottom: 1px solid rgba(243,112,33,.18);
+    --radius:22px;
+}
 
-            box-shadow:
-                0 8px 30px rgba(0,18,84,.08);
-        }
 
-        .header-container {
-            max-width: 1280px;
-            margin: auto;
-            padding: 12px 22px;
+/* =========================================================
+   RESET
+========================================================= */
 
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+html{
+    scroll-behavior:smooth;
+}
 
-            text-decoration: none;
-            min-width: 0;
-        }
+body{
+    font-family:'Mukta',sans-serif;
+    background:#fff;
+    color:var(--dark);
+    line-height:1.7;
+    overflow-x:hidden;
+}
 
-        .brand-logo {
-            width: 58px;
-            height: 58px;
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-            object-fit: contain;
+img{
+    max-width:100%;
+    display:block;
+}
 
-            flex-shrink: 0;
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
 
-            filter:
-                drop-shadow(0 5px 10px rgba(0,18,84,.15));
-        }
 
-        .brand-name {
-            margin: 0;
+/* =========================================================
+   HEADER — SAME STYLE AS HOME
+========================================================= */
 
-            color: var(--navy);
+header{
+    position:sticky;
+    top:0;
+    z-index:9999;
 
-            font-family: 'Poppins', sans-serif;
+    background:rgba(255,255,255,.96);
 
-            font-size: 1.25rem;
-            line-height: 1.1;
+    backdrop-filter:blur(15px);
 
-            font-weight: 900;
+    border-bottom:1px solid rgba(0,18,84,.08);
 
-            letter-spacing: -.4px;
-        }
+    box-shadow:0 5px 25px rgba(0,18,84,.07);
+}
 
-        .brand-tagline {
-            margin: 4px 0 0;
+.header-inner{
+    min-height:82px;
 
-            color: var(--orange);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-            font-size: .84rem;
-            font-weight: 800;
-        }
+    gap:25px;
+}
 
-        /* ==============================
-           DESKTOP NAVIGATION
-        ============================== */
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
 
-        .desktop-nav {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
+    min-width:250px;
+}
 
-        .desktop-nav a {
-            text-decoration: none;
+.logo{
+    width:58px;
+    height:58px;
 
-            color: #1e293b;
+    object-fit:contain;
 
-            font-family: 'Poppins', sans-serif;
+    border-radius:50%;
+}
 
-            font-size: .82rem;
-            font-weight: 700;
+.brand-text{
+    line-height:1.1;
+}
 
-            padding: 10px 12px;
+.brand-name{
+    font-family:'Mukta',sans-serif;
 
-            border-radius: 10px;
+    font-size:1.35rem;
+    font-weight:800;
 
-            transition: .3s ease;
-        }
+    color:var(--navy);
+}
 
-        .desktop-nav a:hover {
-            color: var(--orange);
-            background: #fff7ed;
-        }
+.brand-tagline{
+    font-family:'Mukta',sans-serif;
 
-        .desktop-nav .active {
-            color: var(--orange);
-            background: #fff7ed;
-        }
+    color:var(--orange);
 
-        .desktop-donate {
-            color: white !important;
+    font-size:.9rem;
+    font-weight:700;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #d60000,
-                    #f37021
-                ) !important;
 
-            padding: 11px 19px !important;
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
 
-            border-radius: 999px !important;
+nav{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
 
-            box-shadow:
-                0 8px 22px rgba(214,0,0,.25);
+nav a{
+    position:relative;
 
-            margin-left: 4px;
-        }
+    padding:10px 12px;
 
-        /* ==============================
-           MOBILE BUTTON
-        ============================== */
+    font-family:'Poppins',sans-serif;
 
-        .mobile-menu-button {
-            display: none;
+    font-size:.72rem;
+    font-weight:600;
 
-            border: none;
-            background: transparent;
+    color:#1d2939;
 
-            font-size: 1.7rem;
+    transition:.3s;
 
-            color: var(--navy);
+    white-space:nowrap;
+}
 
-            cursor: pointer;
-        }
+nav a:not(.nav-donate)::after{
+    content:"";
 
-        .mobile-menu {
-            display: none;
+    position:absolute;
 
-            background: #ffffff;
+    left:12px;
+    right:12px;
+    bottom:4px;
 
-            border-top: 1px solid #f1f5f9;
+    height:2px;
 
-            box-shadow:
-                0 15px 30px rgba(0,18,84,.10);
+    background:var(--orange);
 
-            padding: 14px 20px 22px;
-        }
+    transform:scaleX(0);
 
-        .mobile-menu.show {
-            display: block;
-        }
+    transition:.3s;
+}
 
-        .mobile-menu a {
-            display: block;
+nav a:hover{
+    color:var(--orange);
+}
 
-            text-decoration: none;
+nav a:hover::after{
+    transform:scaleX(1);
+}
 
-            color: #1e293b;
 
-            font-family: 'Poppins', sans-serif;
+/* =========================================================
+   DONATE
+========================================================= */
 
-            font-weight: 700;
+.nav-donate{
+    color:#fff !important;
 
-            padding: 12px 8px;
+    background:var(--orange);
 
-            border-bottom: 1px solid #f1f5f9;
-        }
+    border-radius:50px;
 
-        .mobile-menu a:hover {
-            color: var(--orange);
-        }
+    padding:11px 18px !important;
 
-        .mobile-donate {
-            margin-top: 14px;
+    margin-left:5px;
 
-            text-align: center;
+    animation:donatePulse 1.5s infinite;
+}
 
-            color: white !important;
+@keyframes donatePulse{
 
-            background:
-                linear-gradient(
-                    135deg,
-                    #d60000,
-                    #f37021
-                );
+    0%,100%{
+        opacity:1;
 
-            border-radius: 999px;
+        box-shadow:
+        0 0 0 0 rgba(243,112,33,.45);
+    }
 
-            border: none !important;
+    50%{
+        opacity:.82;
 
-            padding: 13px !important;
-        }
+        box-shadow:
+        0 0 0 10px rgba(243,112,33,0);
+    }
+}
 
-        /* ==============================
-           HERO BANNER
-        ============================== */
 
-        .about-hero {
-            position: relative;
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-            overflow: hidden;
+.menu-toggle{
+    display:none;
 
-            padding: 90px 20px;
+    width:45px;
+    height:45px;
 
-            color: white;
+    border:none;
 
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(243,112,33,.35),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 70%,
-                    rgba(7,59,155,.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #001254,
-                    #001b5e,
-                    #111827
-                );
-        }
+    background:var(--navy);
 
-        .about-hero::before {
-            content: "";
+    color:#fff;
 
-            position: absolute;
-            inset: 0;
+    border-radius:10px;
 
-            background-image:
-                radial-gradient(
-                    rgba(255,255,255,.12) 1px,
-                    transparent 1px
-                );
+    cursor:pointer;
 
-            background-size: 22px 22px;
+    font-size:1.3rem;
+}
 
-            opacity: .5;
-        }
+.mobile-menu{
+    display:none;
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
+    background:#fff;
 
-            max-width: 1000px;
+    border-top:1px solid #eef1f5;
 
-            margin: auto;
+    box-shadow:0 15px 30px rgba(0,18,84,.10);
 
-            text-align: center;
-        }
+    padding:15px 20px 20px;
+}
 
-        .hero-badge {
-            display: inline-block;
+.mobile-menu.active{
+    display:block;
+}
 
-            padding: 8px 18px;
+.mobile-menu a{
+    display:block;
 
-            border-radius: 999px;
+    padding:12px 8px;
 
-            background: rgba(243,112,33,.15);
+    color:var(--navy);
 
-            border: 1px solid rgba(243,112,33,.4);
+    font-family:'Poppins',sans-serif;
 
-            color: #fdba74;
+    font-size:.85rem;
 
-            font-family: 'Poppins', sans-serif;
+    font-weight:600;
 
-            font-size: .75rem;
+    border-bottom:1px solid #f1f3f6;
+}
 
-            font-weight: 800;
+.mobile-menu a:hover{
+    color:var(--orange);
+}
 
-            letter-spacing: 1px;
-        }
+.mobile-menu .mobile-donate{
+    margin-top:12px;
 
-        .hero-title {
-            margin: 20px 0 10px;
+    text-align:center;
 
-            font-family: 'Poppins', sans-serif;
+    color:#fff;
 
-            font-size: clamp(2rem, 5vw, 4rem);
+    background:var(--orange);
 
-            line-height: 1.1;
+    border:none;
 
-            font-weight: 900;
-        }
+    border-radius:50px;
+}
 
-        .hero-title span {
-            color: #fb923c;
-        }
 
-        .hero-subtitle {
-            max-width: 750px;
+/* =========================================================
+   PAGE HERO
+========================================================= */
 
-            margin: auto;
+.page-hero{
+    min-height:420px;
 
-            color: #fed7aa;
+    display:flex;
+    align-items:center;
 
-            font-size: 1.1rem;
+    position:relative;
 
-            font-weight: 700;
-        }
+    overflow:hidden;
 
-        /* ==============================
-           MAIN
-        ============================== */
+    color:#fff;
 
-        .main-content {
-            max-width: 1180px;
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,18,84,.97),
+        rgba(0,27,94,.84)
+    );
+}
 
-            margin: auto;
+.page-hero::before{
+    content:"";
 
-            padding: 80px 20px;
-        }
+    position:absolute;
 
-        /* ==============================
-           SECTION TITLES
-        ============================== */
+    width:500px;
+    height:500px;
 
-        .section-title {
-            text-align: center;
+    right:-190px;
+    top:-220px;
 
-            margin-bottom: 45px;
-        }
+    border-radius:50%;
 
-        .section-title h2 {
-            margin: 0;
+    background:rgba(243,112,33,.18);
+}
 
-            font-family: 'Poppins', sans-serif;
+.page-hero::after{
+    content:"";
 
-            font-size: clamp(1.7rem, 4vw, 2.7rem);
+    position:absolute;
 
-            line-height: 1.2;
+    width:320px;
+    height:320px;
 
-            font-weight: 900;
+    left:-160px;
+    bottom:-180px;
 
-            color: var(--navy);
-        }
+    border-radius:50%;
 
-        .section-title p {
-            margin: 8px 0 0;
+    background:rgba(255,255,255,.06);
+}
 
-            color: var(--orange);
+.page-hero-content{
+    position:relative;
 
-            font-weight: 800;
+    z-index:2;
 
-            font-size: .9rem;
-        }
+    max-width:900px;
 
-        .section-line {
-            width: 75px;
-            height: 4px;
+    padding:80px 0;
+}
 
-            margin: 14px auto 0;
+.page-badge{
+    display:inline-flex;
 
-            border-radius: 999px;
+    align-items:center;
+    gap:8px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--navy),
-                    var(--orange)
-                );
-        }
+    padding:8px 18px;
 
-        /* ==============================
-           ABOUT CARD
-        ============================== */
+    border-radius:50px;
 
-        .about-card {
-            position: relative;
+    background:rgba(255,255,255,.12);
 
-            overflow: hidden;
+    border:1px solid rgba(255,255,255,.22);
 
-            background: white;
+    font-family:'Poppins',sans-serif;
 
-            border-radius: 28px;
+    font-size:.75rem;
 
-            padding: 45px;
+    font-weight:700;
 
-            border: 1px solid #e2e8f0;
+    margin-bottom:22px;
+}
 
-            box-shadow:
-                0 20px 55px rgba(0,18,84,.08);
-        }
+.page-hero h1{
+    font-family:'Mukta',sans-serif;
 
-        .about-card::after {
-            content: "";
+    font-size:clamp(3rem,7vw,5.5rem);
 
-            position: absolute;
+    font-weight:800;
 
-            right: -80px;
-            top: -80px;
+    line-height:1;
 
-            width: 220px;
-            height: 220px;
+    margin-bottom:18px;
+}
 
-            border-radius: 50%;
+.page-hero h1 span{
+    color:#ff963e;
+}
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(243,112,33,.12),
-                    rgba(7,59,155,.08)
-                );
-        }
+.page-hero p{
+    font-size:1.15rem;
 
-        .about-heading {
-            display: flex;
+    opacity:.92;
+}
 
-            align-items: center;
+.page-hero p strong{
+    font-family:'Poppins',sans-serif;
 
-            gap: 16px;
+    font-size:.9rem;
+}
 
-            margin-bottom: 30px;
-        }
 
-        .about-icon {
-            width: 58px;
-            height: 58px;
+/* =========================================================
+   SECTIONS
+========================================================= */
 
-            flex-shrink: 0;
+section{
+    padding:90px 0;
+}
 
-            display: flex;
+.section-title{
+    text-align:center;
 
-            align-items: center;
-            justify-content: center;
+    margin-bottom:50px;
+}
 
-            color: white;
+.section-title h2{
+    font-family:'Poppins',sans-serif;
 
-            font-size: 1.5rem;
+    color:var(--navy);
 
-            border-radius: 17px;
+    font-size:clamp(2rem,4vw,3rem);
 
-            background:
-                linear-gradient(
-                    135deg,
-                    var(--orange),
-                    var(--deep-orange)
-                );
+    font-weight:800;
 
-            box-shadow:
-                0 12px 25px rgba(243,112,33,.22);
-        }
+    line-height:1.2;
+}
 
-        .about-heading h2 {
-            margin: 0;
+.section-title h2 span{
+    color:var(--orange);
+}
 
-            color: var(--navy);
+.section-title p{
+    color:var(--muted);
 
-            font-size: 1.8rem;
+    margin-top:12px;
 
-            font-weight: 900;
-        }
+    font-size:1.05rem;
+}
 
-        .heading-line {
-            width: 55px;
-            height: 4px;
+.title-line{
+    width:85px;
+    height:5px;
 
-            margin-top: 5px;
+    border-radius:20px;
 
-            background: var(--orange);
+    margin:18px auto 0;
 
-            border-radius: 999px;
-        }
+    background:
+    linear-gradient(
+        90deg,
+        var(--navy),
+        var(--orange)
+    );
+}
 
-        .about-text {
-            color: #334155;
 
-            font-size: 1.05rem;
+/* =========================================================
+   ABOUT
+========================================================= */
 
-            line-height: 1.9;
-        }
+.about-section{
+    background:#fff;
+}
 
-        .about-text p {
-            margin: 0 0 18px;
-        }
+.about-card{
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff,
+        #f7f9fd
+    );
 
-        .highlight-box {
-            padding: 18px 20px;
+    border:1px solid var(--border);
 
-            border-left: 5px solid var(--orange);
+    border-radius:var(--radius);
 
-            border-radius: 12px;
+    padding:48px;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #fff7ed,
-                    #ffffff
-                );
+    box-shadow:var(--shadow);
 
-            color: #9a3412;
+    position:relative;
 
-            font-weight: 800;
-        }
+    overflow:hidden;
+}
 
-        .english-text {
-            color: #64748b;
+.about-card::before{
+    content:"";
 
-            font-size: .95rem;
+    position:absolute;
 
-            font-style: italic;
-        }
+    left:0;
+    top:0;
+    bottom:0;
 
-        .english-highlight {
-            color: #334155;
+    width:6px;
 
-            font-weight: 700;
+    background:
+    linear-gradient(
+        var(--navy),
+        var(--orange)
+    );
+}
 
-            font-style: normal;
+.about-card p{
+    font-size:1.08rem;
 
-            padding: 18px;
+    color:#475467;
 
-            border-left: 5px solid #94a3b8;
+    margin-bottom:20px;
+}
 
-            background: #f8fafc;
+.about-card p:last-child{
+    margin-bottom:0;
+}
 
-            border-radius: 12px;
-        }
+.about-card strong{
+    color:var(--navy);
 
-        /* ==============================
-           MISSION / VISION
-        ============================== */
+    font-weight:800;
+}
 
-        .mission-vision {
-            margin-top: 90px;
-        }
+.highlight{
+    color:var(--navy);
 
-        .mv-grid {
-            display: grid;
+    font-weight:800;
+}
 
-            grid-template-columns: repeat(2, 1fr);
+.highlight-orange{
+    color:var(--orange);
 
-            gap: 28px;
-        }
+    font-weight:800;
+}
 
-        .mv-card {
-            padding: 38px;
 
-            border-radius: 28px;
+/* =========================================================
+   MISSION & VISION
+========================================================= */
 
-            color: white;
+.mission-section{
+    background:#f7f9fc;
+}
 
-            min-height: 500px;
+.mv-grid{
+    display:grid;
 
-            display: flex;
+    grid-template-columns:repeat(2,1fr);
 
-            flex-direction: column;
+    gap:25px;
+}
 
-            justify-content: space-between;
+.mv-card{
+    padding:42px;
 
-            box-shadow:
-                0 22px 55px rgba(0,18,84,.14);
-        }
+    border-radius:25px;
 
-        .mission-card {
-            background:
-                linear-gradient(
-                    135deg,
-                    #f37021,
-                    #d95700
-                );
-        }
+    color:#fff;
 
-        .vision-card {
-            background:
-                linear-gradient(
-                    135deg,
-                    #001254,
-                    #111827
-                );
-        }
+    box-shadow:var(--premium-shadow);
 
-        .mv-top {
-            display: flex;
+    position:relative;
 
-            align-items: center;
+    overflow:hidden;
+}
 
-            gap: 15px;
+.mv-card::after{
+    content:"";
 
-            margin-bottom: 25px;
-        }
+    position:absolute;
 
-        .mv-icon {
-            width: 55px;
-            height: 55px;
+    width:200px;
+    height:200px;
 
-            border-radius: 16px;
+    right:-80px;
+    bottom:-80px;
 
-            display: flex;
+    border-radius:50%;
 
-            align-items: center;
-            justify-content: center;
+    background:rgba(255,255,255,.09);
+}
 
-            background: rgba(255,255,255,.14);
+.mission-card{
+    background:
+    linear-gradient(
+        135deg,
+        var(--navy),
+        var(--blue)
+    );
+}
 
-            font-size: 1.5rem;
+.vision-card{
+    background:
+    linear-gradient(
+        135deg,
+        var(--deep-orange),
+        var(--orange)
+    );
+}
 
-            border: 1px solid rgba(255,255,255,.18);
-        }
+.mv-icon{
+    font-size:2.3rem;
 
-        .mv-card h3 {
-            margin: 0;
+    margin-bottom:15px;
+}
 
-            font-family: 'Poppins', sans-serif;
+.mv-card h3{
+    font-family:'Poppins',sans-serif;
 
-            font-size: 1.45rem;
+    font-size:1.35rem;
 
-            font-weight: 800;
-        }
+    margin-bottom:15px;
+}
 
-        .mv-main {
-            padding: 20px;
+.mv-card p{
+    font-size:1rem;
 
-            border-radius: 18px;
+    opacity:.95;
+}
 
-            background: rgba(255,255,255,.10);
 
-            border: 1px solid rgba(255,255,255,.16);
+/* =========================================================
+   VALUES
+========================================================= */
 
-            line-height: 1.8;
+.values-section{
+    background:
+    linear-gradient(
+        180deg,
+        #fff,
+        #f8faff
+    );
+}
 
-            font-weight: 700;
-        }
+.values-grid{
+    display:grid;
 
-        .mv-secondary {
-            margin-top: 20px;
+    grid-template-columns:repeat(4,1fr);
 
-            color: rgba(255,255,255,.85);
+    gap:20px;
+}
 
-            line-height: 1.8;
+.value-card{
+    background:#fff;
 
-            font-size: .92rem;
-        }
+    border:1px solid var(--border);
 
-        .mv-english {
-            padding-top: 20px;
+    border-radius:20px;
 
-            margin-top: 25px;
+    padding:30px 22px;
 
-            border-top: 1px solid rgba(255,255,255,.20);
+    text-align:center;
 
-            color: rgba(255,255,255,.75);
+    box-shadow:var(--shadow);
 
-            font-size: .85rem;
+    transition:.35s;
 
-            line-height: 1.8;
+    position:relative;
 
-            font-style: italic;
-        }
+    overflow:hidden;
+}
 
-        /* ==============================
-           VALUES
-        ============================== */
+.value-card::before{
+    content:"";
 
-        .values-section {
-            margin-top: 90px;
-        }
+    position:absolute;
 
-        .values-grid {
-            display: grid;
+    top:0;
+    left:0;
 
-            grid-template-columns:
-                repeat(3, 1fr);
+    width:100%;
+    height:4px;
 
-            gap: 22px;
-        }
+    background:
+    linear-gradient(
+        90deg,
+        var(--navy),
+        var(--orange)
+    );
+}
 
-        .value-card {
-            position: relative;
+.value-card:hover{
+    transform:translateY(-8px);
 
-            background: white;
+    box-shadow:var(--premium-shadow);
+}
 
-            padding: 28px;
+.value-icon{
+    width:65px;
+    height:65px;
 
-            border-radius: 22px;
+    margin:0 auto 18px;
 
-            border: 1px solid #e2e8f0;
+    display:flex;
 
-            box-shadow:
-                0 10px 30px rgba(0,18,84,.06);
+    align-items:center;
+    justify-content:center;
 
-            transition: .35s ease;
+    border-radius:18px;
 
-            overflow: hidden;
-        }
+    background:
+    linear-gradient(
+        135deg,
+        #eef3ff,
+        #fff3eb
+    );
 
-        .value-card::before {
-            content: "";
+    color:var(--orange);
 
-            position: absolute;
+    font-size:1.5rem;
+}
 
-            top: 0;
-            left: 0;
+.value-card h3{
+    color:var(--navy);
 
-            width: 100%;
-            height: 4px;
+    font-size:1.02rem;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    var(--navy),
-                    var(--orange)
-                );
-        }
+    line-height:1.4;
 
-        .value-card:hover {
-            transform: translateY(-7px);
+    margin-bottom:10px;
+}
 
-            box-shadow:
-                0 20px 40px rgba(0,18,84,.12);
+.value-card .hindi{
+    color:#475467;
 
-            border-color: rgba(243,112,33,.35);
-        }
+    font-size:.92rem;
+}
 
-        .value-icon {
-            width: 52px;
-            height: 52px;
+.value-card .english{
+    color:var(--muted);
 
-            display: flex;
+    font-family:'Poppins',sans-serif;
 
-            align-items: center;
-            justify-content: center;
+    font-size:.72rem;
 
-            border-radius: 15px;
+    margin-top:8px;
 
-            background: #fff7ed;
+    line-height:1.5;
+}
 
-            color: var(--orange);
 
-            font-size: 1.3rem;
+/* =========================================================
+   CTA
+========================================================= */
 
-            margin-bottom: 18px;
-        }
+.cta-section{
+    background:
+    linear-gradient(
+        135deg,
+        #fff7f1,
+        #f2f6ff
+    );
+}
 
-        .value-card h3 {
-            margin: 0;
+.cta-box{
+    max-width:950px;
 
-            color: var(--navy);
+    margin:auto;
 
-            font-size: 1.1rem;
+    text-align:center;
 
-            font-weight: 900;
-        }
+    padding:55px 35px;
 
-        .value-card .hindi {
-            margin-top: 8px;
+    background:#fff;
 
-            color: var(--orange);
+    border:1px solid var(--border);
 
-            font-weight: 800;
+    border-radius:28px;
 
-            font-size: .9rem;
+    box-shadow:var(--premium-shadow);
+}
 
-            line-height: 1.6;
-        }
+.cta-box h2{
+    font-family:'Poppins',sans-serif;
 
-        .value-card .english {
-            margin-top: 7px;
+    color:var(--navy);
 
-            color: #64748b;
+    font-size:clamp(1.8rem,4vw,2.8rem);
 
-            font-size: .8rem;
+    font-weight:800;
+}
 
-            font-style: italic;
+.cta-box h2 span{
+    color:var(--orange);
+}
 
-            line-height: 1.6;
-        }
+.cta-box p{
+    max-width:750px;
 
-        .value-seven {
-            grid-column: 1 / -1;
+    margin:15px auto 28px;
 
-            max-width: 600px;
+    color:#475467;
 
-            width: 100%;
+    font-size:1.05rem;
+}
 
-            margin: auto;
-        }
+.cta-buttons{
+    display:flex;
 
-        /* ==============================
-           FOOTER
-        ============================== */
+    justify-content:center;
 
-        .footer {
-            background:
-                linear-gradient(
-                    135deg,
-                    #020617,
-                    #001254
-                );
+    flex-wrap:wrap;
 
-            color: #cbd5e1;
+    gap:13px;
+}
 
-            padding: 65px 20px 20px;
+.btn{
+    display:inline-flex;
 
-            border-top: 3px solid var(--orange);
-        }
+    align-items:center;
+    justify-content:center;
 
-        .footer-container {
-            max-width: 1280px;
+    gap:9px;
 
-            margin: auto;
-        }
+    padding:13px 27px;
 
-        .footer-grid {
-            display: grid;
+    border-radius:50px;
 
-            grid-template-columns:
-                1.3fr 1fr 1.4fr;
+    font-family:'Poppins',sans-serif;
 
-            gap: 50px;
+    font-size:.85rem;
 
-            padding-bottom: 40px;
-        }
+    font-weight:700;
 
-        .footer-brand {
-            display: flex;
+    transition:.3s;
 
-            align-items: center;
+    border:none;
+}
 
-            gap: 13px;
+.btn:hover{
+    transform:translateY(-3px);
+}
 
-            margin-bottom: 14px;
-        }
+.btn-orange{
+    background:var(--orange);
 
-        .footer-logo {
-            width: 60px;
-            height: 60px;
+    color:#fff;
 
-            object-fit: contain;
-        }
+    box-shadow:
+    0 10px 25px rgba(243,112,33,.28);
+}
 
-        .footer-brand-name {
-            color: white;
+.btn-blue{
+    background:var(--blue);
 
-            font-family: 'Poppins', sans-serif;
+    color:#fff;
 
-            font-size: 1.1rem;
+    box-shadow:
+    0 10px 25px rgba(7,59,155,.25);
+}
 
-            font-weight: 900;
-        }
+.pulse{
+    animation:buttonPulse 1.5s infinite;
+}
 
-        .footer-tagline {
-            color: #fb923c;
+@keyframes buttonPulse{
 
-            font-weight: 800;
+    0%,100%{
+        transform:scale(1);
+    }
 
-            margin-bottom: 5px;
-        }
+    50%{
+        transform:scale(1.04);
+    }
+}
 
-        .footer-motto {
-            color: #94a3b8;
 
-            font-size: .85rem;
+/* =========================================================
+   FOOTER — SAME AS HOME
+========================================================= */
 
-            font-style: italic;
-        }
+footer{
+    background:var(--navy);
+    color:#fff;
+}
 
-        .footer-title {
-            color: white;
+.footer-main{
+    padding:70px 0 45px;
+}
 
-            font-family: 'Poppins', sans-serif;
+.footer-grid{
+    display:grid;
 
-            font-size: .85rem;
+    grid-template-columns:1.5fr 1fr 1fr;
 
-            font-weight: 800;
+    gap:45px;
+}
 
-            text-transform: uppercase;
+.footer-brand{
+    max-width:380px;
+}
 
-            letter-spacing: 1px;
+.footer-logo{
+    width:75px;
+    height:75px;
 
-            margin: 0 0 18px;
+    object-fit:contain;
 
-            padding-bottom: 10px;
+    margin-bottom:18px;
 
-            border-bottom: 1px solid rgba(255,255,255,.1);
-        }
+    border-radius:50%;
+}
 
-        /* SOCIAL MEDIA */
+.footer-brand h3{
+    font-family:'Poppins',sans-serif;
 
-        .social-links {
-            display: flex;
+    font-size:1.35rem;
 
-            gap: 12px;
+    margin-bottom:5px;
+}
 
-            margin-top: 20px;
-        }
+.footer-brand .hi-tagline{
+    color:#ff963e;
 
-        .social-link {
-            width: 46px;
-            height: 46px;
+    font-size:1rem;
 
-            display: flex;
+    font-weight:700;
+}
 
-            align-items: center;
-            justify-content: center;
+.footer-brand .en-tagline{
+    opacity:.75;
 
-            color: white;
+    font-family:'Poppins',sans-serif;
 
-            text-decoration: none;
+    font-size:.82rem;
 
-            border-radius: 50%;
+    margin-top:4px;
+}
 
-            background: rgba(255,255,255,.08);
+.footer-column h4{
+    font-family:'Poppins',sans-serif;
 
-            border: 1px solid rgba(255,255,255,.12);
+    font-size:1rem;
 
-            font-size: 1.1rem;
+    margin-bottom:20px;
 
-            transition: .3s ease;
-        }
+    color:#ff963e;
+}
 
-        .social-link:hover {
-            transform: translateY(-5px);
+.footer-column ul{
+    list-style:none;
+}
 
-            background: var(--orange);
+.footer-column li{
+    margin-bottom:9px;
+}
 
-            border-color: var(--orange);
+.footer-column a{
+    color:rgba(255,255,255,.76);
 
-            box-shadow:
-                0 10px 20px rgba(243,112,33,.25);
-        }
+    font-size:.9rem;
 
-        /* QUICK LINKS */
+    transition:.3s;
+}
 
-        .quick-links {
-            display: grid;
+.footer-column a:hover{
+    color:#ff963e;
 
-            grid-template-columns:
-                repeat(2, 1fr);
+    padding-left:4px;
+}
 
-            gap: 10px 20px;
-        }
 
-        .quick-links a {
-            color: #cbd5e1;
+/* SOCIAL */
 
-            text-decoration: none;
+.social-heading{
+    font-family:'Poppins',sans-serif;
 
-            font-size: .82rem;
+    font-size:.95rem;
 
-            transition: .25s ease;
-        }
+    font-weight:700;
 
-        .quick-links a:hover {
-            color: #fb923c;
+    margin-top:25px;
 
-            transform: translateX(3px);
-        }
+    margin-bottom:13px;
+}
 
-        /* COPYRIGHT */
+.social-icons{
+    display:flex;
 
-        .copyright {
-            border-top: 1px solid rgba(255,255,255,.1);
+    gap:11px;
+}
 
-            padding-top: 22px;
+.social-icons a{
+    width:43px;
+    height:43px;
 
-            display: flex;
+    display:flex;
 
-            align-items: center;
+    align-items:center;
+    justify-content:center;
 
-            justify-content: space-between;
+    border-radius:50%;
 
-            gap: 20px;
+    background:rgba(255,255,255,.1);
 
-            font-size: .75rem;
+    color:#fff;
 
-            color: #64748b;
-        }
+    font-size:1rem;
 
-        .policy-links {
-            display: flex;
+    transition:.3s;
+}
 
-            gap: 12px;
+.social-icons a:hover{
+    background:var(--orange);
 
-            flex-wrap: wrap;
-        }
+    transform:translateY(-4px);
 
-        .policy-links a {
-            color: #94a3b8;
+    padding-left:0;
+}
 
-            text-decoration: none;
-        }
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.13);
 
-        .policy-links a:hover {
-            color: #fb923c;
-        }
+    padding:22px 0;
 
-        .footer-bottom-name {
-            text-align: center;
+    text-align:center;
 
-            margin-top: 18px;
+    color:rgba(255,255,255,.72);
 
-            color: #475569;
+    font-size:.82rem;
+}
 
-            font-size: .65rem;
+.footer-bottom strong{
+    color:#fff;
+}
 
-            letter-spacing: 2px;
 
-            font-weight: 700;
-        }
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-        /* ==============================
-           RESPONSIVE
-        ============================== */
+@media(max-width:1000px){
 
-        @media (max-width: 1100px) {
+    nav a{
+        padding:10px 8px;
 
-            .desktop-nav {
-                gap: 0;
-            }
+        font-size:.68rem;
+    }
 
-            .desktop-nav a {
-                padding: 9px 8px;
+    .values-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
 
-                font-size: .76rem;
-            }
 
-        }
+@media(max-width:850px){
 
-        @media (max-width: 900px) {
+    nav{
+        display:none;
+    }
 
-            .desktop-nav {
-                display: none;
-            }
+    .menu-toggle{
+        display:flex;
 
-            .mobile-menu-button {
-                display: block;
-            }
+        align-items:center;
+        justify-content:center;
+    }
 
-            .header-container {
-                padding: 10px 16px;
-            }
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
 
-            .brand-name {
-                font-size: 1rem;
-            }
+    .footer-brand{
+        grid-column:1/-1;
+    }
 
-            .brand-tagline {
-                font-size: .7rem;
-            }
+}
 
-            .brand-logo {
-                width: 50px;
-                height: 50px;
-            }
 
-            .mv-grid {
-                grid-template-columns: 1fr;
-            }
+@media(max-width:700px){
 
-            .values-grid {
-                grid-template-columns:
-                    repeat(2, 1fr);
-            }
+    .mv-grid{
+        grid-template-columns:1fr;
+    }
 
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+    .values-grid{
+        grid-template-columns:1fr;
+    }
 
-        }
+    .about-card{
+        padding:32px 25px;
+    }
 
-        @media (max-width: 640px) {
+    .mv-card{
+        padding:32px 25px;
+    }
 
-            .about-hero {
-                padding: 65px 16px;
-            }
+    section{
+        padding:70px 0;
+    }
 
-            .main-content {
-                padding: 55px 15px;
-            }
+    .page-hero{
+        min-height:360px;
+    }
 
-            .about-card {
-                padding: 25px 20px;
-                border-radius: 22px;
-            }
+}
 
-            .about-heading h2 {
-                font-size: 1.35rem;
-            }
 
-            .about-icon {
-                width: 48px;
-                height: 48px;
+@media(max-width:600px){
 
-                font-size: 1.2rem;
-            }
+    .brand{
+        min-width:0;
+    }
 
-            .about-text {
-                font-size: .98rem;
-            }
+    .logo{
+        width:53px;
+        height:53px;
+    }
 
-            .mv-card {
-                padding: 25px 20px;
+    .brand-name{
+        font-size:1.1rem;
+    }
 
-                min-height: auto;
+    .brand-tagline{
+        font-size:.78rem;
+    }
 
-                border-radius: 22px;
-            }
+    .footer-grid{
+        grid-template-columns:1fr;
 
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
+        gap:30px;
+    }
 
-            .value-seven {
-                grid-column: auto;
-            }
+    .footer-brand{
+        grid-column:auto;
+    }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 35px;
-            }
+    .footer-main{
+        padding:55px 0 35px;
+    }
 
-            .copyright {
-                flex-direction: column;
+    .page-hero-content{
+        padding:60px 0;
+    }
 
-                text-align: center;
-            }
+    .page-hero h1{
+        font-size:3rem;
+    }
 
-            .quick-links {
-                grid-template-columns: 1fr 1fr;
-            }
+    .cta-box{
+        padding:40px 22px;
+    }
 
-        }
+}
 
-    </style>
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:420px){
+
+    .brand-name{
+        font-size:.95rem;
+    }
+
+    .brand-tagline{
+        font-size:.68rem;
+    }
+
+    .logo{
+        width:50px;
+        height:50px;
+    }
+
+    .header-inner{
+        gap:10px;
+    }
+
+    .page-hero h1{
+        font-size:2.5rem;
+    }
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<!-- =========================================================
+
+<!-- =====================================================
      HEADER
-========================================================= -->
+====================================================== -->
 
-<header class="main-header">
+<header>
 
-    <div class="header-container">
+    <div class="container">
 
-        <!-- LOGO + NAME -->
+        <div class="header-inner">
 
-        <a href="index.html" class="brand">
 
-            <img
-                src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-                alt="साथ चले हम फाउंडेशन Logo"
-                class="brand-logo"
+            <!-- BRAND -->
+
+            <a href="index.html" class="brand">
+
+                <img
+                    class="logo"
+                    src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+                    alt="Sath Chale Hum Foundation Logo"
+                >
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        साथ चले हम Foundation
+                    </div>
+
+                    <div class="brand-tagline">
+                        साथ चले हम – बदलाव की ओर
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- DESKTOP NAV -->
+
+            <nav>
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About Us
+                </a>
+
+                <a href="work.html">
+                    Work
+                </a>
+
+                <a href="team.html">
+                    Team
+                </a>
+
+                <a href="join-us.html">
+                    Join Us
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a
+                    href="donate.html"
+                    class="nav-donate"
+                >
+                    Donate Us
+                </a>
+
+            </nav>
+
+
+            <!-- MOBILE BUTTON -->
+
+            <button
+                class="menu-toggle"
+                id="menuToggle"
+                aria-label="Open Menu"
+                aria-expanded="false"
             >
 
-            <div>
+                <i class="fa-solid fa-bars"></i>
 
-                <h1 class="brand-name">
-                    साथ चले हम फाउंडेशन
-                </h1>
+            </button>
 
-                <p class="brand-tagline">
-                    साथ चले हम, बदलाव की ओर
-                </p>
-
-            </div>
-
-        </a>
-
-
-        <!-- DESKTOP NAVIGATION -->
-
-        <nav class="desktop-nav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="about.html" class="active">
-                About Us
-            </a>
-
-            <a href="work.html">
-                Work
-            </a>
-
-            <a href="team.html">
-                Team
-            </a>
-
-            <a href="join-us.html">
-                Join Us
-            </a>
-
-            <a href="events.html">
-                Events
-            </a>
-
-            <a
-                href="donate.html"
-                class="desktop-donate donate-pulse"
-            >
-                Donate Us
-            </a>
-
-        </nav>
-
-
-        <!-- MOBILE HAMBURGER -->
-
-        <button
-            id="menuToggle"
-            class="mobile-menu-button"
-            aria-label="Open Menu"
-            aria-expanded="false"
-        >
-
-            <i class="fa-solid fa-bars"></i>
-
-        </button>
+        </div>
 
     </div>
 
 
-    <!-- MOBILE NAVIGATION -->
+    <!-- MOBILE MENU -->
 
-    <div id="mobileMenu" class="mobile-menu">
+    <div
+        class="mobile-menu"
+        id="mobileMenu"
+    >
 
         <a href="index.html">
             Home
@@ -1345,7 +1348,7 @@
 
         <a
             href="donate.html"
-            class="mobile-donate donate-pulse"
+            class="mobile-donate"
         >
             Donate Us
         </a>
@@ -1355,140 +1358,188 @@
 </header>
 
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- =====================================================
+     PAGE HERO
+====================================================== -->
 
-<section class="about-hero">
+<section class="page-hero">
 
-    <div class="hero-content">
+    <div class="container">
 
-        <span class="hero-badge">
-            WHO WE ARE | हमारी पहचान
-        </span>
+        <div class="page-hero-content">
 
-        <h1 class="hero-title">
-            About Us <span>| हमारे बारे में</span>
-        </h1>
+            <div class="page-badge">
 
-        <p class="hero-subtitle">
-            साथ चले हम – बदलाव की ओर
-            <br>
-            Step Together Towards Change
-        </p>
+                <i class="fa-solid fa-heart"></i>
+
+                WHO WE ARE | हमारी पहचान
+
+            </div>
+
+
+            <h1>
+
+                About Us
+
+                <span>
+                    | हमारे बारे में
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                साथ चले हम – बदलाव की ओर
+
+                <br>
+
+                <strong>
+                    Step Together Towards Change
+                </strong>
+
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
-     MAIN CONTENT
-========================================================= -->
+<!-- =====================================================
+     MAIN
+====================================================== -->
 
-<main class="main-content">
-
-
-    <!-- =====================================================
-         ABOUT US
-    ====================================================== -->
-
-    <section id="about">
-
-        <div class="about-card">
-
-            <div class="about-heading">
-
-                <div class="about-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <div>
-
-                    <h2>
-                        About Us | हमारे बारे में
-                    </h2>
-
-                    <div class="heading-line"></div>
-
-                </div>
-
-            </div>
+<main>
 
 
-            <div class="about-text">
+<!-- =====================================================
+     ABOUT
+====================================================== -->
 
-                <p>
-                    साथ चले हम फाउंडेशन एक सामाजिक संस्था है,
-                    जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण,
-                    गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास,
-                    कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता
-                    जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
-                </p>
+<section class="about-section">
 
-                <p>
-                    हम बच्चों, महिलाओं, युवाओं, बुजुर्गों, दिव्यांगजनों
-                    तथा जरूरतमंद परिवारों के साथ मिलकर कार्य करने का
-                    प्रयास करते हैं। हमारा मानना है कि समाज में स्थायी
-                    बदलाव तभी संभव है जब लोग एक-दूसरे का सहयोग करें
-                    और विकास की प्रक्रिया में स्वयं भागीदार बनें।
-                </p>
-
-                <p class="highlight-box">
-                    हमारा प्रयास जरूरतमंद लोगों तक सहायता, अवसर,
-                    शिक्षा, जागरूकता और आत्मनिर्भरता के साधन पहुँचाना है।
-                </p>
-
-            </div>
-
-
-            <div class="about-text english-text">
-
-                <p>
-                    Sath Chale Hum Foundation is a social organization
-                    committed to bringing positive change in areas such as
-                    education, healthcare, women empowerment, support for
-                    poor and needy people, rural development, skill
-                    development, environmental protection, and social awareness.
-                </p>
-
-                <p>
-                    We strive to work together with children, women, youth,
-                    senior citizens, persons with disabilities, and families
-                    in need. We believe that lasting change in society is
-                    possible when people support one another and actively
-                    participate in the process of development.
-                </p>
-
-                <p class="english-highlight">
-
-                    Our effort is to provide people in need with support,
-                    opportunities, education, awareness, and means to become
-                    self-reliant.
-
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MISSION & VISION
-    ====================================================== -->
-
-    <section class="mission-vision">
+    <div class="container">
 
         <div class="section-title">
 
             <h2>
-                Our Mission & Our Vision |
-                हमारा मिशन और हमारा विज़न
+
+                हमारे बारे में
+
+                <span>
+                    | About Us
+                </span>
+
             </h2>
 
-            <div class="section-line"></div>
+            <p>
+                एक बेहतर और समान समाज की दिशा में सामूहिक प्रयास
+            </p>
+
+            <div class="title-line"></div>
+
+        </div>
+
+
+        <div class="about-card">
+
+            <p>
+
+                <span class="highlight">
+                    साथ चले हम Foundation
+                </span>
+
+                एक सामाजिक संस्था है जिसका उद्देश्य समाज के
+                जरूरतमंद, वंचित और कमजोर वर्गों के जीवन में
+                सकारात्मक बदलाव लाना है।
+
+            </p>
+
+
+            <p>
+
+                हमारा विश्वास है कि समाज में स्थायी बदलाव केवल
+                किसी एक व्यक्ति या संस्था के प्रयास से नहीं,
+                बल्कि
+
+                <span class="highlight-orange">
+                    सामूहिक सहयोग और सहभागिता
+                </span>
+
+                से संभव है।
+
+            </p>
+
+
+            <p>
+
+                इसी विचार के साथ हम
+
+                <strong>
+                    शिक्षा, स्वास्थ्य, महिला सशक्तिकरण,
+                    ग्रामीण विकास, कौशल विकास
+                </strong>
+
+                और सामाजिक जागरूकता जैसे महत्वपूर्ण क्षेत्रों
+                में कार्य करने के लिए प्रतिबद्ध हैं।
+
+            </p>
+
+
+            <p>
+
+                हमारा उद्देश्य लोगों को केवल सहायता देना नहीं,
+                बल्कि उन्हें आत्मनिर्भर, जागरूक और सशक्त बनाना है
+                ताकि वे अपने जीवन और समाज के विकास में सक्रिय
+                भूमिका निभा सकें।
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    साथ चले हम, बदलाव की ओर।
+                </strong>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     MISSION & VISION
+====================================================== -->
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>
+
+                Mission
+
+                <span>
+                    &
+                </span>
+
+                Vision
+
+            </h2>
+
+            <p>
+                हमारा उद्देश्य और भविष्य की दिशा
+            </p>
+
+            <div class="title-line"></div>
 
         </div>
 
@@ -1500,60 +1551,26 @@
 
             <article class="mv-card mission-card">
 
-                <div>
+                <div class="mv-icon">
 
-                    <div class="mv-top">
-
-                        <div class="mv-icon">
-                            <i class="fa-solid fa-bullseye"></i>
-                        </div>
-
-                        <h3>
-                            Our Mission | हमारा मिशन
-                        </h3>
-
-                    </div>
-
-
-                    <div class="mv-main">
-
-                        हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक
-                        शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और
-                        विकास के अवसर पहुँचाना है।
-
-                    </div>
-
-
-                    <p class="mv-secondary">
-
-                        हम विशेष रूप से बच्चों की शिक्षा एवं विकास,
-                        महिलाओं की आत्मनिर्भरता, युवाओं के कौशल एवं
-                        रोजगार, ग्रामीण समुदायों के विकास, जरूरतमंद
-                        परिवारों की सहायता तथा सामाजिक एवं पर्यावरणीय
-                        जागरूकता को बढ़ावा देने के लिए कार्य करना चाहते हैं।
-
-                    </p>
+                    <i class="fa-solid fa-bullseye"></i>
 
                 </div>
 
 
-                <div class="mv-english">
+                <h3>
+                    Our Mission | हमारा मिशन
+                </h3>
 
-                    <strong>English:</strong>
 
-                    Our mission is to provide education, healthcare,
-                    support, skills, awareness, and development opportunities
-                    to people in need and underserved communities.
+                <p>
 
-                    <br><br>
+                    समाज के जरूरतमंद और वंचित लोगों को शिक्षा,
+                    स्वास्थ्य, कौशल विकास और आवश्यक सहयोग के
+                    माध्यम से सशक्त बनाना तथा उन्हें आत्मनिर्भर
+                    बनने के अवसर प्रदान करना।
 
-                    We aim to work especially towards supporting children's
-                    education and development, promoting women's self-reliance,
-                    developing skills and employment opportunities for youth,
-                    supporting rural community development, assisting families
-                    in need, and promoting social and environmental awareness.
-
-                </div>
+                </p>
 
             </article>
 
@@ -1562,88 +1579,61 @@
 
             <article class="mv-card vision-card">
 
-                <div>
+                <div class="mv-icon">
 
-                    <div class="mv-top">
-
-                        <div class="mv-icon">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-
-                        <h3>
-                            Our Vision | हमारा विज़न
-                        </h3>
-
-                    </div>
-
-
-                    <div class="mv-main">
-
-                        हमारा विज़न एक ऐसे समावेशी, जागरूक,
-                        आत्मनिर्भर और सशक्त समाज का निर्माण करना है,
-                        जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने
-                        का अधिकार मिले।
-
-                    </div>
-
-
-                    <p class="mv-secondary">
-
-                        हम ऐसा समाज देखना चाहते हैं जहाँ बच्चे शिक्षा
-                        से जुड़े हों, महिलाएँ आत्मनिर्भर हों, युवा कौशल
-                        और रोजगार से जुड़े हों, बुजुर्गों एवं दिव्यांगजनों
-                        को सम्मान और सहयोग मिले तथा समुदाय मिलकर अपने
-                        विकास की दिशा तय करे।
-
-                    </p>
+                    <i class="fa-solid fa-eye"></i>
 
                 </div>
 
 
-                <div class="mv-english">
+                <h3>
+                    Our Vision | हमारी दृष्टि
+                </h3>
 
-                    <strong>English:</strong>
 
-                    Our vision is to build an inclusive, aware,
-                    self-reliant, and empowered society where every
-                    person has the right to dignity, opportunities,
-                    and the chance to move forward.
+                <p>
 
-                    <br><br>
+                    एक ऐसे समावेशी, जागरूक और आत्मनिर्भर समाज
+                    का निर्माण जहाँ हर व्यक्ति को समान अवसर,
+                    सम्मान और बेहतर जीवन की संभावना प्राप्त हो।
 
-                    We envision a society where children have access to
-                    education, women are self-reliant, youth are connected
-                    with skills and employment opportunities, senior citizens
-                    and persons with disabilities receive respect and support,
-                    and communities work together to shape their own path
-                    of development.
-
-                </div>
+                </p>
 
             </article>
 
+
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =====================================================
-         OUR VALUES
-    ====================================================== -->
+<!-- =====================================================
+     VALUES
+====================================================== -->
 
-    <section class="values-section">
+<section class="values-section">
+
+    <div class="container">
 
         <div class="section-title">
 
             <h2>
-                Our Values | हमारे मूल्य
+
+                Our Values
+
+                <span>
+                    | हमारे मूल्य
+                </span>
+
             </h2>
 
             <p>
-                Core Principles Guiding Our Social Work
+                हमारे कार्य और निर्णय इन्हीं मूल्यों पर आधारित हैं।
             </p>
 
-            <div class="section-line"></div>
+            <div class="title-line"></div>
 
         </div>
 
@@ -1651,58 +1641,68 @@
         <div class="values-grid">
 
 
-            <!-- VALUE 1 -->
+            <!-- 01 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
+
+                    <i class="fa-solid fa-graduation-cap"></i>
+
                 </div>
 
                 <h3>
-                    1. सेवा | Service
+                    1. शिक्षा | Education
                 </h3>
 
                 <div class="hindi">
-                    जरूरतमंद लोगों तक सहायता और सहयोग पहुँचाना।
+                    शिक्षा को सामाजिक और व्यक्तिगत विकास की
+                    मजबूत नींव मानना।
                 </div>
 
                 <div class="english">
-                    Providing support and assistance to people in need.
+                    Promoting education as a foundation for
+                    personal and social development.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 2 -->
+            <!-- 02 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
-                    <i class="fa-solid fa-scale-balanced"></i>
+
+                    <i class="fa-solid fa-people-carry-box"></i>
+
                 </div>
 
                 <h3>
-                    2. समानता | Equality
+                    2. सहयोग | Collaboration
                 </h3>
 
                 <div class="hindi">
-                    हर व्यक्ति के साथ समान और सम्मानजनक व्यवहार करना।
+                    लोगों और समुदायों के साथ मिलकर समाधान
+                    तैयार करना।
                 </div>
 
                 <div class="english">
-                    Treating every person equally and with respect.
+                    Working together with people and communities
+                    to create solutions.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 3 -->
+            <!-- 03 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <i class="fa-solid fa-handshake"></i>
+
                 </div>
 
                 <h3>
@@ -1710,22 +1710,26 @@
                 </h3>
 
                 <div class="hindi">
-                    अपने कार्यों में ईमानदारी और जिम्मेदारी बनाए रखना।
+                    अपने कार्यों में ईमानदारी और जिम्मेदारी
+                    बनाए रखना।
                 </div>
 
                 <div class="english">
-                    Maintaining honesty and responsibility in our work.
+                    Maintaining honesty and responsibility
+                    in our work.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 4 -->
+            <!-- 04 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
+
                     <i class="fa-solid fa-eye"></i>
+
                 </div>
 
                 <h3>
@@ -1733,22 +1737,26 @@
                 </h3>
 
                 <div class="hindi">
-                    अपने कार्यों और गतिविधियों के बारे में स्पष्ट जानकारी साझा करना।
+                    अपने कार्यों और गतिविधियों के बारे में
+                    स्पष्ट जानकारी साझा करना।
                 </div>
 
                 <div class="english">
-                    Sharing clear information about our work and activities.
+                    Sharing clear information about our
+                    work and activities.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 5 -->
+            <!-- 05 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
+
                     <i class="fa-solid fa-heart"></i>
+
                 </div>
 
                 <h3>
@@ -1756,22 +1764,26 @@
                 </h3>
 
                 <div class="hindi">
-                    जरूरतमंद लोगों की परिस्थितियों को समझकर सहयोग करना।
+                    जरूरतमंद लोगों की परिस्थितियों को समझकर
+                    सहयोग करना।
                 </div>
 
                 <div class="english">
-                    Understanding the needs of people and supporting them with compassion.
+                    Understanding the needs of people and
+                    supporting them with compassion.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 6 -->
+            <!-- 06 -->
 
             <article class="value-card">
 
                 <div class="value-icon">
+
                     <i class="fa-solid fa-hand-fist"></i>
+
                 </div>
 
                 <h3>
@@ -1779,19 +1791,21 @@
                 </h3>
 
                 <div class="hindi">
-                    लोगों को आत्मनिर्भर बनने के अवसर और साधन उपलब्ध कराना।
+                    लोगों को आत्मनिर्भर बनने के अवसर और
+                    साधन उपलब्ध कराना।
                 </div>
 
                 <div class="english">
-                    Providing people with opportunities and resources to become self-reliant.
+                    Providing people with opportunities and
+                    resources to become self-reliant.
                 </div>
 
             </article>
 
 
-            <!-- VALUE 7 -->
+            <!-- 07 -->
 
-            <article class="value-card value-seven">
+            <article class="value-card">
 
                 <div class="value-icon">
 
@@ -1800,210 +1814,359 @@
                 </div>
 
                 <h3>
-                    7. सामुदायिक भागीदारी | Community Participation
+                    7. सामुदायिक भागीदारी
                 </h3>
 
                 <div class="hindi">
-                    स्थानीय लोगों को विकास और सामाजिक कार्यों में शामिल करना।
+                    स्थानीय लोगों को विकास और सामाजिक
+                    कार्यों में शामिल करना।
                 </div>
 
                 <div class="english">
-                    Involving local people in development and social activities.
+                    Involving local people in development
+                    and social activities.
                 </div>
 
             </article>
 
+
+            <!-- 08 -->
+
+            <article class="value-card">
+
+                <div class="value-icon">
+
+                    <i class="fa-solid fa-scale-balanced"></i>
+
+                </div>
+
+                <h3>
+                    8. समानता | Equality
+                </h3>
+
+                <div class="hindi">
+                    प्रत्येक व्यक्ति के साथ समान अवसर और
+                    सम्मान का व्यवहार करना।
+                </div>
+
+                <div class="english">
+                    Promoting equal opportunities, dignity
+                    and respect for everyone.
+                </div>
+
+            </article>
+
+
         </div>
 
-    </section>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+
+                आइए
+
+                <span>
+                    साथ चलें
+                </span>
+
+            </h2>
+
+
+            <p>
+
+                आपके सहयोग, समय और सहभागिता से किसी के
+                जीवन में एक नई शुरुआत हो सकती है।
+
+                <br>
+
+                Together, we can move towards meaningful change.
+
+            </p>
+
+
+            <div class="cta-buttons">
+
+                <a
+                    href="donate.html"
+                    class="btn btn-orange pulse"
+                >
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    Donate Us
+
+                </a>
+
+
+                <a
+                    href="join-us.html"
+                    class="btn btn-blue"
+                >
+
+                    <i class="fa-solid fa-handshake"></i>
+
+                    Join Us
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 </main>
 
 
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- =====================================================
+     FOOTER — SAME AS HOME PAGE
+====================================================== -->
 
-<footer class="footer">
+<footer>
 
-    <div class="footer-container">
+    <div class="footer-main">
 
-        <div class="footer-grid">
+        <div class="container">
+
+            <div class="footer-grid">
 
 
-            <!-- BRAND -->
-
-            <div>
+                <!-- BRAND -->
 
                 <div class="footer-brand">
 
                     <img
+                        class="footer-logo"
                         src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
                         alt="Sath Chale Hum Foundation Logo"
-                        class="footer-logo"
                     >
 
-                    <span class="footer-brand-name">
+
+                    <h3>
                         Sath Chale Hum Foundation
-                    </span>
+                    </h3>
+
+
+                    <div class="hi-tagline">
+                        साथ चले हम – बदलाव की ओर
+                    </div>
+
+
+                    <div class="en-tagline">
+                        Step Together Towards Change
+                    </div>
+
+
+                    <div class="social-heading">
+                        Our Social Media
+                    </div>
+
+
+                    <div class="social-icons">
+
+
+                        <!-- FACEBOOK -->
+
+                        <a
+                            href="https://www.facebook.com/share/1PUUzvUfoo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook"
+                        >
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+
+                        <!-- INSTAGRAM -->
+
+                        <a
+                            href="https://www.instagram.com/sathchaleham?stkn=MWFzanhuYjFpcGhrZg=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram"
+                        >
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+
+                        <!-- YOUTUBE -->
+
+                        <a
+                            href="https://youtube.com/@sathchaleham?si=uKH0gC8E7rM_xdpC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="YouTube"
+                        >
+
+                            <i class="fa-brands fa-youtube"></i>
+
+                        </a>
+
+
+                    </div>
 
                 </div>
 
-                <div class="footer-tagline">
-                    साथ चले हम – बदलाव की ओर
-                </div>
 
-                <div class="footer-motto">
-                    Step Together Towards Change
-                </div>
+                <!-- QUICK LINKS -->
 
-            </div>
+                <div class="footer-column">
 
-
-            <!-- SOCIAL MEDIA -->
-
-            <div>
-
-                <h3 class="footer-title">
-                    Our Social Media
-                </h3>
-
-                <div class="social-links">
-
-                    <!-- FACEBOOK -->
-
-                    <a
-                        href="https://www.facebook.com/share/1PUUzvUfoo/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="Facebook"
-                        title="Facebook"
-                    >
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
+                    <h4>
+                        Quick Links | महत्वपूर्ण लिंक
+                    </h4>
 
 
-                    <!-- INSTAGRAM -->
+                    <ul>
 
-                    <a
-                        href="https://www.instagram.com/sathchaleham?stkn=MWFzanhuYjFpcGhrZg=="
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="Instagram"
-                        title="Instagram"
-                    >
-                        <i class="fa-brands fa-instagram"></i>
-                    </a>
+                        <li>
+                            <a href="index.html">
+                                Home | होम
+                            </a>
+                        </li>
 
 
-                    <!-- YOUTUBE -->
-
-                    <a
-                        href="https://youtube.com/@sathchaleham?si=uKH0gC8E7rM_xdpC"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="social-link"
-                        aria-label="YouTube"
-                        title="YouTube"
-                    >
-                        <i class="fa-brands fa-youtube"></i>
-                    </a>
-
-                </div>
-
-            </div>
+                        <li>
+                            <a href="about.html">
+                                About Us | हमारे बारे में
+                            </a>
+                        </li>
 
 
-            <!-- QUICK LINKS -->
+                        <li>
+                            <a href="work.html">
+                                Our Work | हमारे कार्य
+                            </a>
+                        </li>
 
-            <div>
 
-                <h3 class="footer-title">
-                    Quick Links | महत्वपूर्ण लिंक
-                </h3>
+                        <li>
+                            <a href="team.html">
+                                Our Team | हमारी टीम
+                            </a>
+                        </li>
 
-                <div class="quick-links">
 
-                    <a href="index.html">
-                        Home | होम
-                    </a>
+                        <li>
+                            <a href="donate.html">
+                                Donate Us | दान करें
+                            </a>
+                        </li>
 
-                    <a href="about.html">
-                        About Us | हमारे बारे में
-                    </a>
 
-                    <a href="work.html">
-                        Our Work | हमारे कार्य
-                    </a>
+                        <li>
+                            <a href="join-us.html">
+                                Join Us | हमारे साथ जुड़ें
+                            </a>
+                        </li>
 
-                    <a href="team.html">
-                        Our Team | हमारी टीम
-                    </a>
 
-                    <a href="donate.html">
-                        Donate Us | दान करें
-                    </a>
+                        <li>
+                            <a href="events.html">
+                                Events | कार्यक्रम
+                            </a>
+                        </li>
 
-                    <a href="join-us.html">
-                        Join Us | हमारे साथ जुड़ें
-                    </a>
-
-                    <a href="events.html">
-                        Events | कार्यक्रम
-                    </a>
-
-                    <a href="contact.html">
-                        Contact Us | संपर्क करें
-                    </a>
-
-                    <a href="downloads.html">
-                        Downloads | डाउनलोड
-                    </a>
-
-                    <a href="terms-conditions.html">
-                        Terms & Conditions
-                    </a>
-
-                    <a href="privacy-policy.html">
-                        Privacy Policy
-                    </a>
+                    </ul>
 
                 </div>
+
+
+                <!-- MORE LINKS -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        More Links
+                    </h4>
+
+
+                    <ul>
+
+                        <li>
+                            <a href="contact.html">
+                                Contact Us | संपर्क करें
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="downloads.html">
+                                Downloads | डाउनलोड
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="terms-conditions.html">
+                                Terms & Conditions
+                            </a>
+                        </li>
+
+
+                        <li>
+                            <a href="privacy-policy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
 
             </div>
 
         </div>
 
+    </div>
 
-        <!-- COPYRIGHT -->
 
-        <div class="copyright">
+    <!-- COPYRIGHT -->
 
-            <p>
-                © 2026 Sath Chale Hum Foundation. All Rights Reserved.
-            </p>
+    <div class="footer-bottom">
 
-            <div class="policy-links">
+        <div class="container">
 
-                <a href="terms-conditions.html">
-                    Terms & Conditions
-                </a>
+            <div>
 
-                <span>|</span>
+                © 2026
 
-                <a href="privacy-policy.html">
-                    Privacy Policy
-                </a>
+                <strong>
+                    Sath Chale Hum Foundation.
+                </strong>
+
+                All Rights Reserved.
 
             </div>
 
-        </div>
 
+            <div style="margin-top:5px;">
 
-        <div class="footer-bottom-name">
-            -Sath Chale Hum Foundation-
+                -Sath Chale Hum Foundation-
+
+            </div>
+
         </div>
 
     </div>
@@ -2011,80 +2174,91 @@
 </footer>
 
 
-<!-- =========================================================
-     MOBILE MENU SCRIPT
-========================================================= -->
+<!-- =====================================================
+     HEADER / MOBILE MENU SCRIPT
+====================================================== -->
 
 <script>
 
-    const menuToggle =
-        document.getElementById("menuToggle");
+const menuToggle =
+document.getElementById("menuToggle");
 
-    const mobileMenu =
-        document.getElementById("mobileMenu");
+const mobileMenu =
+document.getElementById("mobileMenu");
 
 
-    menuToggle.addEventListener("click", function () {
+menuToggle.addEventListener(
+"click",
+function(){
 
-        mobileMenu.classList.toggle("show");
+    mobileMenu.classList.toggle("active");
 
-        const isOpen =
-            mobileMenu.classList.contains("show");
+
+    const isOpen =
+    mobileMenu.classList.contains("active");
+
+
+    menuToggle.setAttribute(
+        "aria-expanded",
+        isOpen
+    );
+
+
+    const icon =
+    menuToggle.querySelector("i");
+
+
+    if(isOpen){
+
+        icon.classList.remove("fa-bars");
+
+        icon.classList.add("fa-xmark");
+
+    }else{
+
+        icon.classList.remove("fa-xmark");
+
+        icon.classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document
+.querySelectorAll(".mobile-menu a")
+.forEach(function(link){
+
+    link.addEventListener(
+    "click",
+    function(){
+
+        mobileMenu.classList.remove("active");
+
 
         menuToggle.setAttribute(
             "aria-expanded",
-            isOpen
+            "false"
         );
 
 
         const icon =
-            menuToggle.querySelector("i");
+        menuToggle.querySelector("i");
 
 
-        if (isOpen) {
+        icon.classList.remove("fa-xmark");
 
-            icon.classList.remove("fa-bars");
-
-            icon.classList.add("fa-xmark");
-
-        } else {
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-        }
+        icon.classList.add("fa-bars");
 
     });
 
-
-    /* Close mobile menu after clicking a link */
-
-    document
-        .querySelectorAll("#mobileMenu a")
-        .forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                mobileMenu.classList.remove("show");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                const icon =
-                    menuToggle.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
+});
 
 </script>
 
+
 </body>
+
 </html>
