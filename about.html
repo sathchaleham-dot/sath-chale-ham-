@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - साथ चले हम फाउंडेशन | Sath Chale Hum Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+        }
+
+        /* Pulsing/Blinking Animation for Key CTA Buttons */
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.4);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER SECTION (Same As Home Page) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Logo & Title -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
+                        साथ चले हम फाउंडेशन
+                    </h1>
+                    <p class="text-xs text-orange-600 font-semibold tracking-wide">साथ चले हम, बदलाव की ओर</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6 font-semibold text-slate-700">
+                <a href="index.html#home" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="#" class="text-orange-600 font-bold border-b-2 border-orange-500 pb-0.5">About Us</a>
+                <a href="index.html#work" class="hover:text-orange-600 transition-colors">Work</a>
+                <a href="index.html#team" class="hover:text-orange-600 transition-colors">Team</a>
+                <a href="index.html#join" class="hover:text-orange-600 transition-colors">Join Us</a>
+                <a href="index.html#events" class="hover:text-orange-600 transition-colors">Events</a>
+                <a href="index.html#donate" class="btn-pulse bg-red-600 text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-all">
+                    Donate Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button (3-Line Icon) -->
+            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 font-semibold text-slate-700 shadow-lg">
+            <a href="index.html#home" class="block py-1 hover:text-orange-600">Home</a>
+            <a href="#" class="block py-1 text-orange-600 font-bold">About Us</a>
+            <a href="index.html#work" class="block py-1 hover:text-orange-600">Work</a>
+            <a href="index.html#team" class="block py-1 hover:text-orange-600">Team</a>
+            <a href="index.html#join" class="block py-1 hover:text-orange-600">Join Us</a>
+            <a href="index.html#events" class="block py-1 hover:text-orange-600">Events</a>
+            <a href="index.html#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md w-full mt-2">
+                Donate Us
+            </a>
+        </div>
+    </header>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="bg-gradient-to-r from-orange-600 to-amber-600 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <h1 class="text-3xl sm:text-5xl font-extrabold mb-2">About Us | हमारे बारे में</h1>
+            <p class="text-orange-100 font-medium text-lg">साथ चले हम, बदलाव की ओर</p>
+        </div>
+    </section>
+
+    <!-- MAIN ABOUT US CONTENT SECTION -->
+    <section class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            
+            <!-- Introductory Narrative Card -->
+            <div class="bg-orange-50/60 border border-orange-100 rounded-2xl p-6 sm:p-10 shadow-sm mb-12">
+                <div class="space-y-4 text-slate-800 text-base sm:text-lg leading-relaxed">
+                    <p>
+                        साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+                    </p>
+                    <p>
+                        हम बच्चों, महिलाओं, युवाओं, बुजुर्गों, दिव्यांगजनों तथा जरूरतमंद परिवारों के साथ मिलकर कार्य करने का प्रयास करते हैं। हमारा मानना है कि समाज में स्थायी बदलाव तभी संभव है जब लोग एक-दूसरे का सहयोग करें और विकास की प्रक्रिया में स्वयं भागीदार बनें।
+                    </p>
+                    <p class="font-semibold text-orange-700">
+                        हमारा प्रयास जरूरतमंद लोगों तक सहायता, अवसर, शिक्षा, जागरूकता और आत्मनिर्भरता के साधन पहुँचाना है।
+                    </p>
+                </div>
+
+                <div class="border-t border-orange-200 mt-6 pt-6 space-y-4 text-slate-600 text-sm sm:text-base italic leading-relaxed">
+                    <p>
+                        Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+                    </p>
+                    <p>
+                        We strive to work together with children, women, youth, senior citizens, persons with disabilities, and families in need. We believe that lasting change in society is possible when people support one another and actively participate in the process of development.
+                    </p>
+                    <p class="font-medium text-orange-800">
+                        Our effort is to provide people in need with support, opportunities, education, awareness, and means to become self-reliant.
+                    </p>
+                </div>
+            </div>
+
+            <!-- OUR MISSION & OUR VISION SECTION -->
+            <div class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Our Mission & Our Vision | हमारा मिशन और हमारा विज़न</h2>
+                    <div class="w-24 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Our Mission -->
+                    <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white rounded-2xl p-8 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fa-solid fa-bullseye text-3xl text-orange-200"></i>
+                                <h3 class="text-2xl font-bold">Our Mission | हमारा मिशन</h3>
+                            </div>
+                            <p class="text-orange-50 font-semibold mb-3 leading-relaxed">
+                                हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
+                            </p>
+                            <p class="text-orange-100 text-sm leading-relaxed mb-6">
+                                हम विशेष रूप से बच्चों की शिक्षा एवं विकास, महिलाओं की आत्मनिर्भरता, युवाओं के कौशल एवं रोजगार, ग्रामीण समुदायों के विकास, जरूरतमंद परिवारों की सहायता तथा सामाजिक एवं पर्यावरणीय जागरूकता को बढ़ावा देने के लिए कार्य करना चाहते हैं।
+                            </p>
+                        </div>
+                        <div class="border-t border-orange-400/40 pt-4 text-orange-100 text-xs italic space-y-2">
+                            <p>Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.</p>
+                            <p>We aim to work especially towards supporting children's education and development, promoting women's self-reliance, developing skills and employment opportunities for youth, supporting rural community development, assisting families in need, and promoting social and environmental awareness.</p>
+                        </div>
+                    </div>
+
+                    <!-- Our Vision -->
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white rounded-2xl p-8 shadow-lg flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <i class="fa-solid fa-eye text-3xl text-orange-400"></i>
+                                <h3 class="text-2xl font-bold">Our Vision | हमारा विज़न</h3>
+                            </div>
+                            <p class="text-slate-100 font-semibold mb-3 leading-relaxed">
+                                हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
+                            </p>
+                            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                                हम ऐसा समाज देखना चाहते हैं जहाँ बच्चे शिक्षा से जुड़े हों, महिलाएँ आत्मनिर्भर हों, युवा कौशल और रोजगार से जुड़े हों, बुजुर्गों एवं दिव्यांगजनों को सम्मान और सहयोग मिले तथा समुदाय मिलकर अपने विकास की दिशा तय करे।
+                            </p>
+                        </div>
+                        <div class="border-t border-slate-700 pt-4 text-slate-400 text-xs italic space-y-2">
+                            <p>Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.</p>
+                            <p>We envision a society where children have access to education, women are self-reliant, youth are connected with skills and employment opportunities, senior citizens and persons with disabilities receive respect and support, and communities work together to shape their own path of development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- OUR VALUES SECTION -->
+            <div>
+                <div class="text-center mb-10">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">Our Values | हमारे मूल्य</h2>
+                    <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Value 1 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">1. सेवा | Service</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">जरूरतमंद लोगों तक सहायता और सहयोग पहुँचाना।</p>
+                        <p class="text-slate-500 text-xs italic">Providing support and assistance to people in need.</p>
+                    </div>
+
+                    <!-- Value 2 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">2. समानता | Equality</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">हर व्यक्ति के साथ समान और सम्मानजनक व्यवहार करना।</p>
+                        <p class="text-slate-500 text-xs italic">Treating every person equally and with respect.</p>
+                    </div>
+
+                    <!-- Value 3 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">3. ईमानदारी | Integrity</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">अपने कार्यों में ईमानदारी और जिम्मेदारी बनाए रखना।</p>
+                        <p class="text-slate-500 text-xs italic">Maintaining honesty and responsibility in our work.</p>
+                    </div>
+
+                    <!-- Value 4 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">4. पारदर्शिता | Transparency</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">अपने कार्यों और गतिविधियों के बारे में स्पष्ट जानकारी साझा करना।</p>
+                        <p class="text-slate-500 text-xs italic">Sharing clear information about our work and activities.</p>
+                    </div>
+
+                    <!-- Value 5 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">5. करुणा | Compassion</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">जरूरतमंद लोगों की परिस्थितियों को समझकर सहयोग करना।</p>
+                        <p class="text-slate-500 text-xs italic">Understanding the needs of people and supporting them with compassion.</p>
+                    </div>
+
+                    <!-- Value 6 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-hand-fist"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">6. सशक्तिकरण | Empowerment</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">लोगों को आत्मनिर्भर बनने के अवसर और साधन उपलब्ध कराना।</p>
+                        <p class="text-slate-500 text-xs italic">Providing people with opportunities and resources to become self-reliant.</p>
+                    </div>
+
+                    <!-- Value 7 -->
+                    <div class="bg-slate-50 border border-slate-200 p-6 rounded-2xl shadow-sm hover:border-orange-500 transition-colors md:col-span-2 lg:col-span-3">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl font-bold">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-lg">7. सामुदायिक भागीदारी | Community Participation</h4>
+                            </div>
+                        </div>
+                        <p class="text-slate-700 text-sm font-medium mb-1">स्थानीय लोगों को विकास और सामाजिक कार्यों में शामिल करना।</p>
+                        <p class="text-slate-500 text-xs italic">Involving local people in development and social activities.</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Same As Home Page) -->
+    <footer class="bg-slate-950 text-slate-300 pt-12 pb-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
+                        <span class="font-bold text-white text-lg">Chale Hum Foundation</span>
+                    </div>
+                    <p class="text-sm text-orange-400 font-semibold">साथ चले हम – बदलाव की ओर</p>
+                    <p class="text-xs text-slate-400 italic">Step Together Towards Change</p>
+                </div>
+
+                <!-- Col 2: Social Media -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Our Social Media
+                    </h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Quick Links | महत्वपूर्ण लिंक
+                    </h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <a href="index.html#home" class="hover:text-orange-400">Home | होम</a>
+                        <a href="#" class="hover:text-orange-400">About Us | हमारे बारे में</a>
+                        <a href="index.html#work" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
+                        <a href="index.html#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
+                        <a href="index.html#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
+                        <a href="index.html#join" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
+                        <a href="index.html#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
+                        <a href="index.html#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar / Copyright & Policies -->
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                </div>
+            </div>
+            
+            <p class="text-center text-[10px] text-slate-600 mt-4 tracking-widest uppercase">
+                -Sath Chale Hum Foundation-
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
