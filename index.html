@@ -1,2253 +1,839 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>साथ चले हम फाउंडेशन | बदलाव की ओर</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-<style>
-
-:root{
-    --navy:#001254;
-    --blue:#073b9b;
-    --orange:#f37021;
-    --red:#d60000;
-    --green:#138a4b;
-    --white:#ffffff;
-    --ink:#111827;
-    --muted:#5c6575;
-    --soft:#f6f8fc;
-    --line:#e5eaf2;
-    --shadow:0 18px 50px rgba(0,18,84,.12);
-    --radius:22px;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:Mukta,Arial,sans-serif;
-    color:var(--ink);
-    background:#fff;
-    line-height:1.65;
-}
-
-a{
-    text-decoration:none;
-    color:inherit;
-}
-
-.container{
-    width:min(1180px,92%);
-    margin:auto;
-}
-
-
-/* ================= HEADER ================= */
-
-header{
-    position:sticky;
-    top:0;
-    z-index:1000;
-    background:rgba(255,255,255,.96);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(0,18,84,.08);
-    box-shadow:0 5px 25px rgba(0,0,0,.05);
-}
-
-.navbar{
-    min-height:82px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:22px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    min-width:260px;
-}
-
-.logo{
-    width:58px;
-    height:58px;
-    object-fit:contain;
-    border-radius:14px;
-}
-
-.brand-text strong{
-    display:block;
-    font-family:Poppins,sans-serif;
-    font-size:1.28rem;
-    font-weight:800;
-    color:var(--navy);
-    line-height:1.2;
-}
-
-.brand-text span{
-    display:block;
-    color:var(--orange);
-    font-size:.94rem;
-    font-weight:700;
-}
-
-nav{
-    display:flex;
-    align-items:center;
-    gap:5px;
-}
-
-nav a{
-    font-family:Poppins,sans-serif;
-    font-size:.78rem;
-    font-weight:600;
-    padding:11px 10px;
-    color:#26324d;
-    white-space:nowrap;
-    border-radius:10px;
-}
-
-nav a:hover{
-    color:var(--orange);
-    background:#fff5ef;
-}
-
-.donate{
-    color:#fff!important;
-    background:var(--orange);
-    box-shadow:0 8px 22px rgba(243,112,33,.28);
-    animation:donatePulse 1.5s infinite;
-}
-
-@keyframes donatePulse{
-
-    0%,100%{
-        transform:scale(1);
-        box-shadow:0 8px 22px rgba(243,112,33,.28);
-    }
-
-    50%{
-        transform:scale(1.06);
-        box-shadow:0 10px 30px rgba(243,112,33,.55);
-    }
-
-}
-
-.menu{
-    display:none;
-    border:0;
-    background:var(--navy);
-    color:#fff;
-    width:44px;
-    height:44px;
-    border-radius:12px;
-    font-size:1.2rem;
-    cursor:pointer;
-}
-
-
-/* ================= HERO ================= */
-
-.hero{
-    min-height:650px;
-    position:relative;
-    display:flex;
-    align-items:center;
-    overflow:hidden;
-    background:var(--navy);
-}
-
-.slide{
-    position:absolute;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    animation:heroSlide 25s infinite;
-}
-
-.slide:nth-child(1){
-    background-image:url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1800&q=85");
-}
-
-.slide:nth-child(2){
-    background-image:url("https://images.unsplash.com/photo-1494386346843-e12284507169?auto=format&fit=crop&w=1800&q=85");
-    animation-delay:5s;
-}
-
-.slide:nth-child(3){
-    background-image:url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1800&q=85");
-    animation-delay:10s;
-}
-
-.slide:nth-child(4){
-    background-image:url("https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=1800&q=85");
-    animation-delay:15s;
-}
-
-.slide:nth-child(5){
-    background-image:url("https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=85");
-    animation-delay:20s;
-}
-
-@keyframes heroSlide{
-
-    0%,18%{
-        opacity:1;
-    }
-
-    20%,100%{
-        opacity:0;
-    }
-
-}
-
-.hero:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,18,84,.94),
-        rgba(0,18,84,.65),
-        rgba(0,18,84,.18)
-    );
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    color:#fff;
-    max-width:720px;
-    padding:90px 0;
-}
-
-.hero h1{
-    font-size:clamp(3rem,7vw,6.1rem);
-    line-height:.95;
-    font-weight:800;
-}
-
-.hero h1 span{
-    color:#ff9b61;
-}
-
-.hero p{
-    font-size:1.35rem;
-    margin:22px 0 4px;
-    font-weight:600;
-}
-
-.hero .eng{
-    font-family:Poppins,sans-serif;
-    font-size:1rem;
-    font-weight:500;
-    opacity:.92;
-}
-
-.buttons{
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    padding:13px 25px;
-    border-radius:12px;
-    font-family:Poppins,sans-serif;
-    font-size:.9rem;
-    font-weight:700;
-    border:1px solid transparent;
-    cursor:pointer;
-}
-
-.btn-orange{
-    background:var(--orange);
-    color:#fff;
-    animation:donatePulse 1.5s infinite;
-}
-
-.btn-blue{
-    background:var(--blue);
-    color:#fff;
-}
-
-
-/* ================= COMMON SECTIONS ================= */
-
-section{
-    padding:82px 0;
-}
-
-.section-head{
-    text-align:center;
-    margin-bottom:38px;
-}
-
-.section-head h2{
-    font-size:clamp(2rem,4vw,3rem);
-    color:var(--navy);
-    line-height:1.1;
-}
-
-.section-head h2 span{
-    color:var(--orange);
-}
-
-.section-head:after{
-    content:"";
-    display:block;
-    width:75px;
-    height:4px;
-    background:linear-gradient(
-        90deg,
-        var(--navy),
-        var(--orange)
-    );
-    margin:14px auto;
-    border-radius:10px;
-}
-
-.card{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:30px;
-}
-
-.dual{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:22px;
-}
-
-.dual h3{
-    color:var(--navy);
-    font-size:1.5rem;
-    margin-bottom:10px;
-}
-
-.dual p + p{
-    margin-top:15px;
-}
-
-.info-text{
-    font-size:1.12rem;
-    color:#30394c;
-}
-
-.center{
-    text-align:center;
-}
-
-
-/* ================= ICON CARDS ================= */
-
-.values,
-.areas,
-.team,
-.ways,
-.help{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.icon-card{
-    background:
-    linear-gradient(
-        145deg,
-        #ffffff,
-        #f7f9ff
-    );
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:23px;
-    box-shadow:0 10px 30px rgba(0,18,84,.07);
-    transition:.25s;
-}
-
-.icon-card:hover{
-    transform:translateY(-5px);
-    box-shadow:var(--shadow);
-}
-
-.icon{
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    display:grid;
-    place-items:center;
-    background:#fff1e9;
-    color:var(--orange);
-    font-size:1.2rem;
-    margin-bottom:13px;
-}
-
-.icon-card h3{
-    font-size:1.15rem;
-    color:var(--navy);
-    line-height:1.4;
-}
-
-
-/* ================= DAILY ₹1 ================= */
-
-.daily{
-    background:
-    linear-gradient(
-        135deg,
-        #fff7f1,
-        #f7f9ff
-    );
-}
-
-.smile{
-    position:relative;
-    overflow:hidden;
-}
-
-.smile:before{
-    content:"";
-    position:absolute;
-    width:260px;
-    height:260px;
-    border-radius:50%;
-    background:#ffe8d8;
-    right:-100px;
-    top:-120px;
-}
-
-.smile-title{
-    position:relative;
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.smile-title .hi{
-    font-size:clamp(2.5rem,5vw,4.6rem);
-    font-weight:900;
-    color:var(--navy);
-    line-height:1;
-}
-
-.smile-title .hi span{
-    color:var(--orange);
-}
-
-.smile-title .en{
-    font-family:Poppins,sans-serif;
-    font-size:1.05rem;
-    font-weight:700;
-    color:var(--blue);
-    margin-top:10px;
-}
-
-.smile-title .sub{
-    font-size:1.4rem;
-    font-weight:800;
-    color:var(--navy);
-    margin-top:5px;
-}
-
-.daily-copy{
-    position:relative;
-    text-align:center;
-    max-width:1000px;
-    margin:25px auto;
-}
-
-.daily-copy p{
-    font-size:1.08rem;
-    color:#30394c;
-    margin-bottom:16px;
-}
-
-.plans{
-    position:relative;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:14px;
-    margin:30px 0;
-}
-
-.plan{
-    cursor:pointer;
-    text-align:center;
-    background:var(--red);
-    color:#fff;
-    border-radius:17px;
-    padding:20px 10px;
-    border:3px solid var(--red);
-    transition:.2s;
-    box-shadow:0 10px 25px rgba(214,0,0,.16);
-    user-select:none;
-}
-
-.plan.selected{
-    background:var(--green);
-    border-color:var(--green);
-    box-shadow:0 12px 30px rgba(19,138,75,.25);
-}
-
-.plan strong{
-    display:block;
-    font-family:Poppins,sans-serif;
-    font-size:2rem;
-    font-weight:900;
-}
-
-.plan b{
-    display:block;
-    font-family:Poppins,sans-serif;
-    font-size:.72rem;
-    font-weight:700;
-}
-
-.plan small{
-    font-size:1rem;
-}
-
-
-/* ================= CONTACT ================= */
-
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-}
-
-.contact-item{
-    padding:26px;
-    border-radius:18px;
-    background:
-    linear-gradient(
-        145deg,
-        #001254,
-        #073b9b
-    );
-    color:#fff;
-    box-shadow:var(--shadow);
-}
-
-.contact-item i{
-    font-size:1.6rem;
-    color:#ffb083;
-    margin-bottom:8px;
-}
-
-.contact-item h3{
-    font-size:1.25rem;
-}
-
-.contact-item p{
-    font-size:1rem;
-}
-
-
-/* ================= FOOTER ================= */
-
-footer{
-    background:#061033;
-    color:#fff;
-    padding:65px 0 20px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:45px;
-}
-
-.footer-brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:18px;
-}
-
-.footer-brand img{
-    width:65px;
-    height:65px;
-    object-fit:contain;
-    background:#fff;
-    border-radius:14px;
-}
-
-.footer-brand h2{
-    font-family:Poppins,sans-serif;
-    font-size:1.15rem;
-}
-
-footer h3{
-    font-size:1.25rem;
-    margin-bottom:16px;
-}
-
-footer p,
-footer a{
-    color:#cdd5e8;
-}
-
-.social{
-    display:flex;
-    gap:10px;
-    margin-top:12px;
-}
-
-.social a{
-    width:42px;
-    height:42px;
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:12px;
-    display:grid;
-    place-items:center;
-    color:#fff;
-    transition:.2s;
-}
-
-.social a:hover{
-    background:var(--orange);
-    border-color:var(--orange);
-}
-
-.quick a{
-    display:block;
-    margin:6px 0;
-}
-
-.footer-legal{
-    margin-top:18px;
-}
-
-.footer-legal a{
-    display:inline;
-}
-
-.copyright{
-    border-top:1px solid rgba(255,255,255,.12);
-    margin-top:40px;
-    padding-top:18px;
-    text-align:center;
-    color:#cdd5e8;
-    font-size:.9rem;
-}
-
-
-/* ================= POPUP ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(0,10,35,.78);
-    backdrop-filter:blur(8px);
-    display:grid;
-    place-items:center;
-    z-index:2000;
-    padding:18px;
-}
-
-.modal.hidden{
-    display:none !important;
-    visibility:hidden !important;
-    opacity:0 !important;
-    pointer-events:none !important;
-}
-
-.modal-box{
-    width:min(900px,100%);
-    max-height:92vh;
-    overflow:auto;
-    background:#fff;
-    border-radius:26px;
-    padding:30px;
-    position:relative;
-    box-shadow:0 30px 90px rgba(0,0,0,.3);
-}
-
-.close{
-    position:absolute;
-    right:15px;
-    top:12px;
-    z-index:10;
-    width:42px;
-    height:42px;
-    border:0;
-    border-radius:50%;
-    background:#f1f3f7;
-    color:var(--navy);
-    font-size:1.3rem;
-    cursor:pointer;
-    display:grid;
-    place-items:center;
-}
-
-.close:hover{
-    background:var(--red);
-    color:#fff;
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:1050px){
-
-    nav{
-        display:none;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .navbar.open nav{
-        display:flex;
-        position:absolute;
-        top:82px;
-        left:0;
-        right:0;
-        background:#fff;
-        padding:14px 4%;
-        flex-direction:column;
-        align-items:stretch;
-        box-shadow:0 18px 30px rgba(0,0,0,.1);
-    }
-
-    nav a{
-        text-align:center;
-    }
-
-    .values,
-    .areas,
-    .team,
-    .ways,
-    .help{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-}
-
-
-@media(max-width:760px){
-
-    .brand{
-        min-width:0;
-    }
-
-    .brand-text strong{
-        font-size:.92rem;
-    }
-
-    .brand-text span{
-        font-size:.72rem;
-    }
-
-    .logo{
-        width:50px;
-        height:50px;
-    }
-
-    .hero{
-        min-height:600px;
-    }
-
-    .hero-content{
-        padding:80px 0;
-    }
-
-    .hero h1{
-        font-size:3.4rem;
-    }
-
-    .hero p{
-        font-size:1.12rem;
-    }
-
-    .dual,
-    .contact-grid,
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
-
-    .values,
-    .areas,
-    .team,
-    .ways,
-    .help{
-        grid-template-columns:1fr;
-    }
-
-    .plans{
-        grid-template-columns:repeat(4,1fr);
-        gap:7px;
-    }
-
-    .plan{
-        padding:15px 4px;
-    }
-
-    .plan strong{
-        font-size:1.35rem;
-    }
-
-    .plan b{
-        font-size:.55rem;
-    }
-
-    .plan small{
-        font-size:.75rem;
-    }
-
-    section{
-        padding:60px 0;
-    }
-
-    .card{
-        padding:22px;
-    }
-
-    .modal-box{
-        padding:24px 15px;
-        max-height:90vh;
-    }
-
-}
-
-
-@media(max-width:450px){
-
-    .plans{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .hero h1{
-        font-size:3rem;
-    }
-
-    .smile-title .hi{
-        font-size:2.45rem;
-    }
-
-}
-
-
-/* ================= ACCESSIBILITY ================= */
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>साथ चले हम फाउंडेशन - Sath Chale Hum Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+        }
+
+        /* Pulsing/Blinking Animation for Key CTA Buttons */
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.4);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .hero-slide {
+            transition: opacity 1s ease-in-out;
+        }
+
+        .card-selected {
+            background-color: #16a34a !important; /* Green */
+            border-color: #15803d !important;
+            color: #ffffff !important;
+        }
+
+        .card-unselected {
+            background-color: #dc2626 !important; /* Red */
+            border-color: #b91c1c !important;
+            color: #ffffff !important;
+        }
+    </style>
 </head>
-
-<body>
-
-
-<!-- ================= HEADER ================= -->
-
-<header>
-
-<div class="container navbar" id="navbar">
-
-<a class="brand" href="#home">
-
-<img
-class="logo"
-src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-alt="साथ चले हम फाउंडेशन"
->
-
-<div class="brand-text">
-
-<strong>साथ चले हम फाउंडेशन</strong>
-
-<span>साथ चले हम, बदलाव की ओर</span>
-
-</div>
-
-</a>
-
-
-<nav>
-
-<a href="#home">Home</a>
-
-<a href="#about">About Us</a>
-
-<a href="#work">Work</a>
-
-<a href="#team">Team</a>
-
-<a href="#join">Join Us</a>
-
-<a href="#events">Events</a>
-
-<a class="donate" href="#daily">Donate Us</a>
-
-</nav>
-
-
-<button
-class="menu"
-id="menu"
-type="button"
-aria-label="Menu"
->
-
-<i class="fa-solid fa-bars"></i>
-
-</button>
-
-</div>
-
-</header>
-
-
-
-<!-- ================= HOME ================= -->
-
-<main id="home">
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="slide"></div>
-<div class="slide"></div>
-<div class="slide"></div>
-<div class="slide"></div>
-<div class="slide"></div>
-
-
-<div class="container hero-content">
-
-<h1>
-साथ चले हम,<br>
-<span>बदलाव की ओर</span>
-</h1>
-
-<p>
-आपका साथ, किसी की नई शुरुआत।
-</p>
-
-<div class="eng">
-Your Support, Someone’s New Beginning.
-</div>
-
-
-<div class="buttons">
-
-<a
-class="btn btn-orange"
-href="#daily"
->
-Donate Us
-</a>
-
-<a
-class="btn btn-blue"
-href="#join"
->
-Join Us
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= DAILY ₹1 SECTION ================= -->
-
-<section class="daily" id="daily">
-
-<div class="container smile">
-
-
-<div class="smile-title">
-
-<div class="hi">
-आपका ₹1
-<span>, किसी की मुस्कान</span>
-</div>
-
-<div class="en">
-Your ₹1, Someone’s Smile
-</div>
-
-<div class="sub">
-रोज ₹1-<br>
-बदलाव<br>
-की ओर साथ चले हम!
-</div>
-
-</div>
-
-
-<div class="daily-copy">
-
-<p>
-Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
-</p>
-
-<p>
-हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
-</p>
-
-<p>
-A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
-</p>
-
-<p>
-अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
-</p>
-
-<p>
-Choose a daily contribution that suits you and become part of our efforts to support those in need.
-</p>
-
-</div>
-
-
-<div class="plans">
-
-
-<div
-class="plan selected"
-data-amount="1"
->
-<strong>₹1</strong>
-<b>DAILY SUPPORTER</b>
-<small>
-₹1 प्रतिदिन<br>
-लगभग ₹30 / माह
-</small>
-</div>
-
-
-<div
-class="plan"
-data-amount="2"
->
-<strong>₹2</strong>
-<b>DAILY SUPPORTER</b>
-<small>
-₹2 प्रतिदिन<br>
-लगभग ₹60 / माह
-</small>
-</div>
-
-
-<div
-class="plan"
-data-amount="5"
->
-<strong>₹5</strong>
-<b>DAILY SUPPORTER</b>
-<small>
-₹5 प्रतिदिन<br>
-लगभग ₹150 / माह
-</small>
-</div>
-
-
-<div
-class="plan"
-data-amount="10"
->
-<strong>₹10</strong>
-<b>DAILY SUPPORTER</b>
-<small>
-₹10 प्रतिदिन<br>
-लगभग ₹300 / माह
-</small>
-</div>
-
-
-</div>
-
-
-<div class="center">
-
-<a
-class="btn btn-orange"
-href="#"
-id="mainDonate"
->
-DONATE NOW
-</a>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- ================= ABOUT US ================= -->
-
-<section id="about">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-About Us <span>|</span> हमारे बारे में
-</h2>
-
-</div>
-
-
-<div class="card info-text">
-
-साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
-
-<br><br>
-
-Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
-
-</div>
-
-
-
-<br>
-
-
-<div class="section-head">
-
-<h2>
-Our Mission & Our Vision
-<span>|</span>
-हमारा मिशन और हमारा विज़न
-</h2>
-
-</div>
-
-
-<div class="dual">
-
-
-<div class="card">
-
-<h3>
-Our Mission | हमारा मिशन
-</h3>
-
-<p>
-हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
-</p>
-
-<p>
-Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>
-Our Vision | हमारा विज़न
-</h3>
-
-<p>
-हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
-</p>
-
-<p>
-Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
-</p>
-
-</div>
-
-
-</div>
-
-
-
-<br>
-
-
-<div class="section-head">
-
-<h2>
-Our Values <span>|</span> हमारे मूल्य
-</h2>
-
-</div>
-
-
-<div class="values">
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-hand-holding-heart"></i>
-</div>
-<h3>1. सेवा | Service</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-scale-balanced"></i>
-</div>
-<h3>2. समानता | Equality</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-shield-heart"></i>
-</div>
-<h3>3. ईमानदारी | Integrity</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-eye"></i>
-</div>
-<h3>4. पारदर्शिता | Transparency</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-heart"></i>
-</div>
-<h3>5. करुणा | Compassion</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-bolt"></i>
-</div>
-<h3>6. सशक्तिकरण | Empowerment</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-people-group"></i>
-</div>
-<h3>
-7. सामुदायिक भागीदारी | Community Participation
-</h3>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= OUR WORK ================= -->
-
-<section class="daily" id="work">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-Our Key Areas of Work
-<span>|</span>
-हमारे प्रमुख कार्य क्षेत्र
-</h2>
-
-</div>
-
-
-<div class="areas">
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-book-open"></i></div>
-<h3>
-1. शिक्षा एवं बाल विकास — Education & Child Development
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-person-dress"></i></div>
-<h3>
-2. महिला सशक्तिकरण एवं विकास — Women Empowerment & Development
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-heart-pulse"></i></div>
-<h3>
-3. स्वास्थ्य एवं चिकित्सा — Health & Medical Care
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-hands-helping"></i></div>
-<h3>
-4. गरीब एवं जरूरतमंद कल्याण — Welfare of Poor & Needy
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-wheelchair"></i></div>
-<h3>
-5. दिव्यांगजन कल्याण एवं सशक्तिकरण — Disability Welfare & Empowerment
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-person-cane"></i></div>
-<h3>
-6. वृद्धजन कल्याण — Senior Citizen Welfare
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-user-graduate"></i></div>
-<h3>
-7. युवा विकास एवं कौशल विकास — Youth Development & Skill Development
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-briefcase"></i></div>
-<h3>
-8. रोजगार, स्वरोजगार एवं आजीविका — Employment, Self-Employment & Livelihood
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-house"></i></div>
-<h3>
-9. ग्रामीण विकास एवं ग्राम उत्थान — Rural Development & Village Upliftment
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-wheat-awn"></i></div>
-<h3>
-10. कृषि एवं किसान कल्याण — Agriculture & Farmer Welfare
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-leaf"></i></div>
-<h3>
-11. पर्यावरण एवं जल संरक्षण — Environment & Water Conservation
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-droplet"></i></div>
-<h3>
-12. स्वच्छता, पेयजल एवं पोषण — Sanitation, Drinking Water & Nutrition
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-paw"></i></div>
-<h3>
-13. पशु कल्याण एवं संरक्षण — Animal Welfare & Protection
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-life-ring"></i></div>
-<h3>
-14. आपदा राहत एवं पुनर्वास — Disaster Relief & Rehabilitation
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-scale-balanced"></i></div>
-<h3>
-15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता — Social Justice, Human Rights & Legal Awareness
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon"><i class="fa-solid fa-laptop"></i></div>
-<h3>
-16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास — Digital Education, Public Awareness & Social Development
-</h3>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= TEAM ================= -->
-
-<section id="team">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-Our Team <span>|</span> हमारी टीम
-</h2>
-
-</div>
-
-
-<div class="team">
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-landmark"></i>
-</div>
-<h3>
-1. Board of Trustees | न्यास मंडल
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-user-tie"></i>
-</div>
-<h3>
-2. Advisory Board | सलाहकार मंडल
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-people-group"></i>
-</div>
-<h3>
-3. Program Team | कार्यक्रम संचालन टीम
-</h3>
-</div>
-
-
-</div>
-
-
-
-<br>
-
-
-<div class="section-head">
-
-<h2>
-Our Way of Working
-<span>|</span>
-हमारा काम करने का तरीका
-</h2>
-
-</div>
-
-
-<div class="ways">
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-hand"></i>
-</div>
-<h3>
-1. सीधी मदद | Direct Help
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-people-arrows"></i>
-</div>
-<h3>
-2. मिलकर काम करना | Working Together
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-lock-open"></i>
-</div>
-<h3>
-3. ईमानदारी और पारदर्शिता | Honesty & Transparency
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-users"></i>
-</div>
-<h3>
-4. समुदाय की भागीदारी | Community Participation
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-scale-balanced"></i>
-</div>
-<h3>
-5. समानता और सम्मान | Equality & Respect
-</h3>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= HOW YOU CAN HELP ================= -->
-
-<section class="daily">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-How You Can Help
-<span>|</span>
-आप हमारी मदद कैसे कर सकते हैं?
-</h2>
-
-</div>
-
-
-<div class="help">
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-clock"></i>
-</div>
-<h3>
-1. अपना समय दें | Give Your Time
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-hand-holding-dollar"></i>
-</div>
-<h3>
-2. दान दें | Donate
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-handshake"></i>
-</div>
-<h3>
-3. सहयोग करें | Support Us
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-bullhorn"></i>
-</div>
-<h3>
-4. जागरूकता फैलाएँ | Spread Awareness
-</h3>
-</div>
-
-
-<div class="icon-card">
-<div class="icon">
-<i class="fa-solid fa-microphone"></i>
-</div>
-<h3>
-5. अपनी आवाज़ बनें | Be a Voice for Change
-</h3>
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= EVENTS ================= -->
-
-<section id="events">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-Events <span>|</span> कार्यक्रम
-</h2>
-
-</div>
-
-
-<div class="card center">
-
-<h3>
-Events & Social Activities
-</h3>
-
-<p class="info-text">
-
-साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= JOIN US ================= -->
-
-<section id="join" class="daily">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-Join Us <span>|</span> हमारे साथ जुड़ें!
-</h2>
-
-</div>
-
-
-<div class="card center">
-
-
-<p class="info-text">
-
-हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें। आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
-
-</p>
-
-
-<p class="info-text">
-
-Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
-
-</p>
-
-
-<div
-class="buttons"
-style="justify-content:center"
->
-
-<a
-class="btn btn-orange"
-href="#daily"
->
-Donate Us
-</a>
-
-<a
-class="btn btn-blue"
-href="#contact"
->
-Join Us
-</a>
-
-<a
-class="btn btn-blue"
-href="#"
->
-Downloads
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- ================= CONTACT ================= -->
-
-<section id="contact">
-
-<div class="container">
-
-
-<div class="section-head">
-
-<h2>
-📞 Contact Us <span>|</span> हमसे संपर्क करें
-</h2>
-
-</div>
-
-
-<div class="contact-grid">
-
-
-<div class="contact-item">
-
-<i class="fa-solid fa-location-dot"></i>
-
-<h3>
-📍 पता | Address
-</h3>
-
-<p>
-भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
-</p>
-
-</div>
-
-
-<div class="contact-item">
-
-<i class="fa-solid fa-envelope"></i>
-
-<h3>
-📧 ईमेल | Email
-</h3>
-
-<p>
-sathchaleham@gmail.com
-</p>
-
-</div>
-
-
-<div class="contact-item">
-
-<i class="fa-solid fa-phone"></i>
-
-<h3>
-☎️ हेल्पलाइन | Helpline
-</h3>
-
-<p>
-+91 7011893028
-</p>
-
-</div>
-
-
-</div>
-
-</div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- ================= FOOTER ================= -->
-
-<footer>
-
-<div class="container">
-
-<div class="footer-grid">
-
-
-<div>
-
-
-<div class="footer-brand">
-
-<img
-src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-alt="साथ चले हम फाउंडेशन"
->
-
-<h2>
-Sath
-<br>
-Chale Hum Foundation
-</h2>
-
-</div>
-
-
-<p>
-साथ चले हम – बदलाव की ओर
-</p>
-
-<p>
-Step Together Towards Change
-</p>
-
-
-<h3 style="margin-top:22px">
-Our Social Media
-</h3>
-
-
-<div class="social">
-
-<a href="#">
-<i class="fa-brands fa-facebook-f"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-instagram"></i>
-</a>
-
-<a href="#">
-<i class="fa-brands fa-youtube"></i>
-</a>
-
-</div>
-
-
-</div>
-
-
-
-<div class="quick">
-
-<h3>
-Quick Links | महत्वपूर्ण लिंक
-</h3>
-
-
-<a href="#home">
-Home | होम
-</a>
-
-<a href="#about">
-About Us | हमारे बारे में
-</a>
-
-<a href="#work">
-Our Work | हमारे कार्य
-</a>
-
-<a href="#team">
-Our Team | हमारी टीम
-</a>
-
-<a href="#daily">
-Donate Us | दान करें
-</a>
-
-<a href="#join">
-Join Us | हमारे साथ जुड़ें
-</a>
-
-<a href="#events">
-Events | कार्यक्रम
-</a>
-
-<a href="#contact">
-Contact Us | संपर्क करें
-</a>
-
-</div>
-
-
-
-<div>
-
-<a href="#">
-Terms & Conditions
-</a>
-
-<span> | </span>
-
-<a href="#">
-Privacy Policy
-</a>
-
-</div>
-
-
-</div>
-
-
-<div class="copyright">
-
-© 2026 Sath Chale Hum Foundation. All Rights Reserved.
-
-<br>
-
--Sath Chale Hum Foundation-
-
-</div>
-
-
-</div>
-
-</footer>
-
-
-
-<!-- ================= POPUP ================= -->
-
-<div
-class="modal"
-id="popup"
->
-
-<div class="modal-box">
-
-
-<!-- X BUTTON -->
-
-<button
-type="button"
-class="close"
-id="closePopup"
-aria-label="Close"
->
-<i class="fa-solid fa-xmark"></i>
-</button>
-
-
-<div class="smile-title">
-
-<div class="hi">
-
-आपका ₹1
-<span>
-, किसी की मुस्कान
-</span>
-
-</div>
-
-
-<div class="en">
-
-Your ₹1, Someone’s Smile
-
-</div>
-
-
-<div class="sub">
-
-रोज ₹1-
-<br>
-बदलाव
-<br>
-की ओर साथ चले हम!
-
-</div>
-
-</div>
-
-
-
-<div class="plans">
-
-
-<div
-class="plan selected"
-data-amount="1"
->
-
-<strong>₹1</strong>
-
-<b>
-DAILY SUPPORTER
-</b>
-
-<small>
-₹1 प्रतिदिन<br>
-लगभग ₹30 / माह
-</small>
-
-</div>
-
-
-<div
-class="plan"
-data-amount="2"
->
-
-<strong>₹2</strong>
-
-<b>
-DAILY SUPPORTER
-</b>
-
-<small>
-₹2 प्रतिदिन<br>
-लगभग ₹60 / माह
-</small>
-
-</div>
-
-
-<div
-class="plan"
-data-amount="5"
->
-
-<strong>₹5</strong>
-
-<b>
-DAILY SUPPORTER
-</b>
-
-<small>
-₹5 प्रतिदिन<br>
-लगभग ₹150 / माह
-</small>
-
-</div>
-
-
-<div
-class="plan"
-data-amount="10"
->
-
-<strong>₹10</strong>
-
-<b>
-DAILY SUPPORTER
-</b>
-
-<small>
-₹10 प्रतिदिन<br>
-लगभग ₹300 / माह
-</small>
-
-</div>
-
-
-</div>
-
-
-
-<div class="center">
-
-<a
-class="btn btn-orange"
-href="#"
-id="popupDonate"
->
-DONATE NOW
-</a>
-
-</div>
-
-
-</div>
-
-</div>
-
-
-
-<script>
-
-
-/* ================= MOBILE MENU ================= */
-
-const navbar = document.getElementById("navbar");
-const menu = document.getElementById("menu");
-
-menu.addEventListener("click", function(){
-
-    navbar.classList.toggle("open");
-
-});
-
-
-document.querySelectorAll("nav a").forEach(function(link){
-
-    link.addEventListener("click", function(){
-
-        navbar.classList.remove("open");
-
-    });
-
-});
-
-
-
-/* ================= ₹1 / ₹2 / ₹5 / ₹10 SELECTION ================= */
-
-document.querySelectorAll(".plans").forEach(function(planArea){
-
-    const plans = planArea.querySelectorAll(".plan");
-
-    plans.forEach(function(plan){
-
-        plan.addEventListener("click", function(){
-
-            plans.forEach(function(item){
-
-                item.classList.remove("selected");
-
-            });
-
-            plan.classList.add("selected");
-
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER SECTION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Logo & Title -->
+            <a href="#" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
+                        साथ चले हम फाउंडेशन
+                    </h1>
+                    <p class="text-xs text-orange-600 font-semibold tracking-wide">साथ चले हम, बदलाव की ओर</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6 font-semibold text-slate-700">
+                <a href="#home" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="#about" class="hover:text-orange-600 transition-colors">About Us</a>
+                <a href="#work" class="hover:text-orange-600 transition-colors">Work</a>
+                <a href="#team" class="hover:text-orange-600 transition-colors">Team</a>
+                <a href="#join" class="hover:text-orange-600 transition-colors">Join Us</a>
+                <a href="#events" class="hover:text-orange-600 transition-colors">Events</a>
+                <a href="#donate" class="btn-pulse bg-red-600 text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-all">
+                    Donate Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button (3-Line Icon) -->
+            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 font-semibold text-slate-700 shadow-lg">
+            <a href="#home" class="block py-1 hover:text-orange-600">Home</a>
+            <a href="#about" class="block py-1 hover:text-orange-600">About Us</a>
+            <a href="#work" class="block py-1 hover:text-orange-600">Work</a>
+            <a href="#team" class="block py-1 hover:text-orange-600">Team</a>
+            <a href="#join" class="block py-1 hover:text-orange-600">Join Us</a>
+            <a href="#events" class="block py-1 hover:text-orange-600">Events</a>
+            <a href="#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md w-full mt-2">
+                Donate Us
+            </a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION SLIDESHOW -->
+    <section id="home" class="relative bg-slate-900 text-white min-h-[480px] sm:min-h-[560px] flex items-center justify-center overflow-hidden">
+        
+        <!-- Slides -->
+        <div class="absolute inset-0 z-0">
+            <div class="hero-slide absolute inset-0 opacity-100 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=1200&auto=format&fit=crop');"></div>
+            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop');"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4 py-16">
+            <h2 class="text-3xl sm:text-5xl font-extrabold mb-3 tracking-wide drop-shadow-md">
+                साथ चले हम, बदलाव की ओर
+            </h2>
+            <p class="text-xl sm:text-2xl font-medium text-orange-300 mb-2">
+                आपका साथ, किसी की नई शुरुआत।
+            </p>
+            <p class="text-md sm:text-lg text-slate-200 italic mb-8">
+                Your Support, Someone’s New Beginning.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#donate" class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-full shadow-lg transition-all text-lg">
+                    Donate Us
+                </a>
+                <a href="#join" class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-full shadow-lg transition-all text-lg">
+                    Join Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPUP MODAL FOR DAILY DONATION -->
+    <div id="donate-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 hidden">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 relative border-2 border-orange-400">
+            <!-- Close Button -->
+            <button id="close-modal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-2xl font-bold">
+                &times;
+            </button>
+
+            <!-- Header Text -->
+            <div class="text-center mb-6">
+                <h3 class="text-2xl font-extrabold text-orange-600 flex items-center justify-center gap-2">
+                    आपका ₹1, किसी की मुस्कान <i class="fa-solid fa-face-smile text-yellow-500"></i>
+                </h3>
+                <p class="text-sm font-semibold text-slate-600">Your ₹1, Someone’s Smile</p>
+                <p class="text-xs bg-orange-100 text-orange-800 font-bold px-3 py-1 rounded-full inline-block mt-2">
+                    रोज ₹1- बदलाव की ओर साथ चले हम!
+                </p>
+            </div>
+
+            <!-- Single Row Cards (Grid in Desktop/Mobile) -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
+                <div class="border rounded-xl p-3 text-center bg-orange-50 border-orange-200">
+                    <span class="text-xl font-bold text-slate-800 block">₹1</span>
+                    <span class="text-[10px] font-bold tracking-wider text-orange-600 uppercase block">Daily Supporter</span>
+                    <span class="text-xs text-slate-600 block mt-1">₹1 प्रतिदिन</span>
+                    <span class="text-[10px] text-slate-500 block">लगभग ₹30 / माह</span>
+                </div>
+                <div class="border rounded-xl p-3 text-center bg-orange-50 border-orange-200">
+                    <span class="text-xl font-bold text-slate-800 block">₹2</span>
+                    <span class="text-[10px] font-bold tracking-wider text-orange-600 uppercase block">Daily Supporter</span>
+                    <span class="text-xs text-slate-600 block mt-1">₹2 प्रतिदिन</span>
+                    <span class="text-[10px] text-slate-500 block">लगभग ₹60 / माह</span>
+                </div>
+                <div class="border rounded-xl p-3 text-center bg-orange-50 border-orange-200">
+                    <span class="text-xl font-bold text-slate-800 block">₹5</span>
+                    <span class="text-[10px] font-bold tracking-wider text-orange-600 uppercase block">Daily Supporter</span>
+                    <span class="text-xs text-slate-600 block mt-1">₹5 प्रतिदिन</span>
+                    <span class="text-[10px] text-slate-500 block">लगभग ₹150 / माह</span>
+                </div>
+                <div class="border rounded-xl p-3 text-center bg-orange-50 border-orange-200">
+                    <span class="text-xl font-bold text-slate-800 block">₹10</span>
+                    <span class="text-[10px] font-bold tracking-wider text-orange-600 uppercase block">Daily Supporter</span>
+                    <span class="text-xs text-slate-600 block mt-1">₹10 प्रतिदिन</span>
+                    <span class="text-[10px] text-slate-500 block">लगभग ₹300 / माह</span>
+                </div>
+            </div>
+
+            <!-- Donate Action Button -->
+            <a href="#donate" id="popup-donate-btn" class="btn-pulse block w-full text-center bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-xl shadow-lg transition-all text-lg">
+                DONATE NOW
+            </a>
+        </div>
+    </div>
+
+    <!-- DAILY DONATION SECTION -->
+    <section id="donate" class="py-16 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6">
+            
+            <!-- Headline Header -->
+            <div class="text-center mb-8">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight flex items-center justify-center gap-2">
+                    आपका ₹1, किसी की मुस्कान <i class="fa-solid fa-face-smile text-yellow-500 text-3xl"></i>
+                </h2>
+                <p class="text-lg font-bold text-orange-600">Your ₹1, Someone’s Smile</p>
+                <span class="inline-block mt-2 bg-gradient-to-r from-orange-500 to-red-500 text-white font-extrabold px-4 py-1.5 rounded-full text-sm sm:text-base shadow-sm">
+                    रोज ₹1- बदलाव की ओर साथ चले हम!
+                </span>
+            </div>
+
+            <!-- Detailed Explanation Card -->
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 mb-10 shadow-sm">
+                <h3 class="text-xl font-bold text-orange-600 mb-2 border-b border-slate-200 pb-2">
+                    Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+                </h3>
+                <p class="text-slate-700 mb-4 leading-relaxed">
+                    हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed mb-6 italic">
+                    A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+                </p>
+                <div class="p-4 bg-orange-100/60 border-l-4 border-orange-500 rounded-r-lg text-slate-800 font-medium">
+                    अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
+                    <span class="block text-sm text-slate-600 font-normal mt-1">Choose a daily contribution that suits you and become part of our efforts to support those in need.</span>
+                </div>
+            </div>
+
+            <!-- Interactive Selection Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+                <!-- Card 1 -->
+                <div onclick="selectDonation(1)" id="card-1" class="card-selected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1">
+                    <span class="text-3xl font-extrabold block">₹1</span>
+                    <span class="text-xs font-bold tracking-wider uppercase block my-1">DAILY SUPPORTER</span>
+                    <span class="text-sm font-semibold block">₹1 प्रतिदिन</span>
+                    <span class="text-xs opacity-90 block">लगभग ₹30 / माह</span>
+                </div>
+
+                <!-- Card 2 -->
+                <div onclick="selectDonation(2)" id="card-2" class="card-unselected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1">
+                    <span class="text-3xl font-extrabold block">₹2</span>
+                    <span class="text-xs font-bold tracking-wider uppercase block my-1">DAILY SUPPORTER</span>
+                    <span class="text-sm font-semibold block">₹2 प्रतिदिन</span>
+                    <span class="text-xs opacity-90 block">लगभग ₹60 / माह</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div onclick="selectDonation(5)" id="card-5" class="card-unselected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1">
+                    <span class="text-3xl font-extrabold block">₹5</span>
+                    <span class="text-xs font-bold tracking-wider uppercase block my-1">DAILY SUPPORTER</span>
+                    <span class="text-sm font-semibold block">₹5 प्रतिदिन</span>
+                    <span class="text-xs opacity-90 block">लगभग ₹150 / माह</span>
+                </div>
+
+                <!-- Card 4 -->
+                <div onclick="selectDonation(10)" id="card-10" class="card-unselected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1">
+                    <span class="text-3xl font-extrabold block">₹10</span>
+                    <span class="text-xs font-bold tracking-wider uppercase block my-1">DAILY SUPPORTER</span>
+                    <span class="text-sm font-semibold block">₹10 प्रतिदिन</span>
+                    <span class="text-xs opacity-90 block">लगभग ₹300 / माह</span>
+                </div>
+            </div>
+
+            <!-- Single Donate Action -->
+            <div class="text-center">
+                <button class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-bold px-12 py-4 rounded-full shadow-lg text-xl tracking-wide transition-all">
+                    DONATE NOW
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about" class="py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900">About Us | हमारे बारे में</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-md border border-slate-200/80 mb-12">
+                <p class="text-slate-800 text-lg leading-relaxed mb-4">
+                    साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+                </p>
+                <p class="text-slate-600 leading-relaxed italic border-t border-slate-100 pt-4">
+                    Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+                </p>
+            </div>
+
+            <!-- Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <!-- Mission -->
+                <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-bullseye text-3xl text-orange-200"></i>
+                        <h3 class="text-2xl font-bold">Our Mission | हमारा मिशन</h3>
+                    </div>
+                    <p class="text-orange-50 font-medium mb-3">
+                        हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
+                    </p>
+                    <p class="text-orange-100 text-sm italic">
+                        Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
+                    </p>
+                </div>
+
+                <!-- Vision -->
+                <div class="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center gap-3 mb-4">
+                        <i class="fa-solid fa-eye text-3xl text-orange-400"></i>
+                        <h3 class="text-2xl font-bold">Our Vision | हमारा विज़न</h3>
+                    </div>
+                    <p class="text-slate-200 font-medium mb-3">
+                        हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
+                    </p>
+                    <p class="text-slate-400 text-sm italic">
+                        Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Values -->
+            <div>
+                <h3 class="text-2xl font-bold text-center text-slate-900 mb-6">Our Values | हमारे मूल्य</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">1. सेवा</span>
+                        <span class="block text-[10px] text-slate-500">Service</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-scale-balanced text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">2. समानता</span>
+                        <span class="block text-[10px] text-slate-500">Equality</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-shield-halved text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">3. ईमानदारी</span>
+                        <span class="block text-[10px] text-slate-500">Integrity</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-eye text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">4. पारदर्शिता</span>
+                        <span class="block text-[10px] text-slate-500">Transparency</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-heart text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">5. करुणा</span>
+                        <span class="block text-[10px] text-slate-500">Compassion</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors">
+                        <i class="fa-solid fa-hand-fist text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">6. सशक्तिकरण</span>
+                        <span class="block text-[10px] text-slate-500">Empowerment</span>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl text-center border border-slate-200 shadow-sm hover:border-orange-500 transition-colors col-span-2 sm:col-span-2 lg:col-span-1">
+                        <i class="fa-solid fa-people-group text-2xl text-orange-500 mb-2"></i>
+                        <span class="block font-bold text-xs sm:text-sm text-slate-800">7. सामुदायिक भागीदारी</span>
+                        <span class="block text-[10px] text-slate-500">Community Participation</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- KEY AREAS OF WORK SECTION -->
+    <section id="work" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Our Key Areas of Work | हमारे प्रमुख कार्य क्षेत्र</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                
+                <!-- 1 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-graduation-cap text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">1. शिक्षा एवं बाल विकास</h4>
+                        <p class="text-xs text-slate-500">Education & Child Development</p>
+                    </div>
+                </div>
+
+                <!-- 2 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-person-dress text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">2. महिला सशक्तिकरण एवं विकास</h4>
+                        <p class="text-xs text-slate-500">Women Empowerment & Development</p>
+                    </div>
+                </div>
+
+                <!-- 3 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-user-doctor text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">3. स्वास्थ्य एवं चिकित्सा</h4>
+                        <p class="text-xs text-slate-500">Health & Medical Care</p>
+                    </div>
+                </div>
+
+                <!-- 4 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-hands-holding-child text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">4. गरीब एवं जरूरतमंद कल्याण</h4>
+                        <p class="text-xs text-slate-500">Welfare of Poor & Needy</p>
+                    </div>
+                </div>
+
+                <!-- 5 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-wheelchair text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">5. दिव्यांगजन कल्याण एवं सशक्तिकरण</h4>
+                        <p class="text-xs text-slate-500">Disability Welfare & Empowerment</p>
+                    </div>
+                </div>
+
+                <!-- 6 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-person-cane text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">6. वृद्धजन कल्याण</h4>
+                        <p class="text-xs text-slate-500">Senior Citizen Welfare</p>
+                    </div>
+                </div>
+
+                <!-- 7 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-laptop-code text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">7. युवा विकास एवं कौशल विकास</h4>
+                        <p class="text-xs text-slate-500">Youth Development & Skill Development</p>
+                    </div>
+                </div>
+
+                <!-- 8 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-briefcase text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">8. रोजगार, स्वरोजगार एवं आजीविका</h4>
+                        <p class="text-xs text-slate-500">Employment & Livelihood</p>
+                    </div>
+                </div>
+
+                <!-- 9 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-house-chimney text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">9. ग्रामीण विकास एवं ग्राम उत्थान</h4>
+                        <p class="text-xs text-slate-500">Rural Development & Village Upliftment</p>
+                    </div>
+                </div>
+
+                <!-- 10 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-wheat-awn text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">10. कृषि एवं किसान कल्याण</h4>
+                        <p class="text-xs text-slate-500">Agriculture & Farmer Welfare</p>
+                    </div>
+                </div>
+
+                <!-- 11 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-seedling text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">11. पर्यावरण एवं जल संरक्षण</h4>
+                        <p class="text-xs text-slate-500">Environment & Water Conservation</p>
+                    </div>
+                </div>
+
+                <!-- 12 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-faucet-drip text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">12. स्वच्छता, पेयजल एवं पोषण</h4>
+                        <p class="text-xs text-slate-500">Sanitation, Drinking Water & Nutrition</p>
+                    </div>
+                </div>
+
+                <!-- 13 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-paw text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">13. पशु कल्याण एवं संरक्षण</h4>
+                        <p class="text-xs text-slate-500">Animal Welfare & Protection</p>
+                    </div>
+                </div>
+
+                <!-- 14 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-kit-medical text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">14. आपदा राहत एवं पुनर्वास</h4>
+                        <p class="text-xs text-slate-500">Disaster Relief & Rehabilitation</p>
+                    </div>
+                </div>
+
+                <!-- 15 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-gavel text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">15. सामाजिक न्याय & कानूनी जागरूकता</h4>
+                        <p class="text-xs text-slate-500">Social Justice & Legal Awareness</p>
+                    </div>
+                </div>
+
+                <!-- 16 -->
+                <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start gap-3 hover:shadow-md transition-shadow">
+                    <i class="fa-solid fa-mobile-screen-button text-orange-600 text-xl mt-1"></i>
+                    <div>
+                        <h4 class="font-bold text-slate-800 text-sm">16. डिजिटल शिक्षा एवं जन-जागरूकता</h4>
+                        <p class="text-xs text-slate-500">Digital Education & Public Awareness</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM SECTION -->
+    <section id="team" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Our Team | हमारी टीम</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-1">1. Board of Trustees</h3>
+                    <p class="text-sm font-semibold text-orange-600">न्याय मंडल</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-1">2. Advisory Board</h3>
+                    <p class="text-sm font-semibold text-orange-600">सलाहकार मंडल</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fa-solid fa-sitemap"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-slate-800 mb-1">3. Program Team</h3>
+                    <p class="text-sm font-semibold text-orange-600">कार्यक्रम संचालन टीम</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WAY OF WORKING SECTION -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">Our Way of Working | हमारा काम करने का तरीका</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-200">
+                    <i class="fa-solid fa-hand-holding-heart text-2xl text-orange-500 mb-2"></i>
+                    <h4 class="font-bold text-sm text-slate-800">1. सीधी मदद</h4>
+                    <p class="text-[11px] text-slate-500">Direct Help</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-200">
+                    <i class="fa-solid fa-handshake text-2xl text-orange-500 mb-2"></i>
+                    <h4 class="font-bold text-sm text-slate-800">2. मिलकर काम करना</h4>
+                    <p class="text-[11px] text-slate-500">Working Together</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-200">
+                    <i class="fa-solid fa-shield text-2xl text-orange-500 mb-2"></i>
+                    <h4 class="font-bold text-sm text-slate-800">3. ईमानदारी & पारदर्शिता</h4>
+                    <p class="text-[11px] text-slate-500">Honesty & Transparency</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-200">
+                    <i class="fa-solid fa-users text-2xl text-orange-500 mb-2"></i>
+                    <h4 class="font-bold text-sm text-slate-800">4. समुदाय की भागीदारी</h4>
+                    <p class="text-[11px] text-slate-500">Community Participation</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl text-center border border-slate-200 col-span-2 sm:col-span-1">
+                    <i class="fa-solid fa-scale-balanced text-2xl text-orange-500 mb-2"></i>
+                    <h4 class="font-bold text-sm text-slate-800">5. समानता और सम्मान</h4>
+                    <p class="text-[11px] text-slate-500">Equality & Respect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW YOU CAN HELP -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">How You Can Help | आप हमारी मदद कैसे कर सकते हैं?</h2>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="bg-white p-5 rounded-xl text-center border border-slate-200 shadow-sm">
+                    <i class="fa-regular fa-clock text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-sm text-slate-800">1. अपना समय दें</h4>
+                    <p class="text-[11px] text-slate-500">Give Your Time</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl text-center border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-donate text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-sm text-slate-800">2. दान दें</h4>
+                    <p class="text-[11px] text-slate-500">Donate</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl text-center border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-hands-holding text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-sm text-slate-800">3. सहयोग करें</h4>
+                    <p class="text-[11px] text-slate-500">Support Us</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl text-center border border-slate-200 shadow-sm">
+                    <i class="fa-solid fa-bullhorn text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-sm text-slate-800">4. जागरूकता फैलाएँ</h4>
+                    <p class="text-[11px] text-slate-500">Spread Awareness</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl text-center border border-slate-200 shadow-sm col-span-2 sm:col-span-1">
+                    <i class="fa-solid fa-comment-dots text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-sm text-slate-800">5. अपनी आवाज़ बनें</h4>
+                    <p class="text-[11px] text-slate-500">Be a Voice for Change</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENTS SECTION -->
+    <section id="events" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-900">Events | कार्यक्रम</h2>
+                <p class="text-orange-600 font-semibold mt-1">Events & Social Activities</p>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-2xl p-8 text-center shadow-lg">
+                <i class="fa-solid fa-calendar-days text-4xl text-orange-200 mb-4"></i>
+                <p class="text-lg font-medium max-w-2xl mx-auto">
+                    साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOIN US SECTION -->
+    <section id="join" class="py-16 bg-slate-900 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4">Join Us | हमारे साथ जुड़ें!</h2>
+            <p class="text-lg text-slate-300 mb-2">
+                हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।
+            </p>
+            <p class="text-slate-400 mb-4">
+                आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
+            </p>
+            <p class="text-xs text-slate-500 italic mb-8">
+                Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#donate" class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-3 rounded-full shadow-lg transition-all">
+                    Donate Us
+                </a>
+                <a href="#join" class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-full shadow-lg transition-all">
+                    Join Us
+                </a>
+                <a href="#" class="btn-pulse bg-slate-700 hover:bg-slate-600 text-white font-bold px-8 py-3 rounded-full shadow-lg transition-all">
+                    Downloads
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section class="py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900">📞 Contact Us | हमसे संपर्क करें</h2>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Address -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center">
+                    <i class="fa-solid fa-location-dot text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-slate-800 mb-2">📍 पता | Address</h4>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
+                    </p>
+                </div>
+
+                <!-- Email -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center">
+                    <i class="fa-solid fa-envelope text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-slate-800 mb-2">📧 ईमेल | Email</h4>
+                    <a href="mailto:sathchaleham@gmail.com" class="text-xs text-orange-600 hover:underline font-semibold">
+                        sathchaleham@gmail.com
+                    </a>
+                </div>
+
+                <!-- Phone -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm text-center">
+                    <i class="fa-solid fa-phone-volume text-3xl text-orange-500 mb-3"></i>
+                    <h4 class="font-bold text-slate-800 mb-2">☎️ हेल्पलाइन | Helpline</h4>
+                    <a href="tel:+917011893028" class="text-xs text-orange-600 hover:underline font-semibold">
+                        +91 7011893028
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-slate-950 text-slate-300 pt-12 pb-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
+                        <span class="font-bold text-white text-lg">Chale Hum Foundation</span>
+                    </div>
+                    <p class="text-sm text-orange-400 font-semibold">साथ चले हम – बदलाव की ओर</p>
+                    <p class="text-xs text-slate-400 italic">Step Together Towards Change</p>
+                </div>
+
+                <!-- Col 2: Social Media -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Our Social Media
+                    </h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Quick Links | महत्वपूर्ण लिंक
+                    </h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <a href="#home" class="hover:text-orange-400">Home | होम</a>
+                        <a href="#about" class="hover:text-orange-400">About Us | हमारे बारे में</a>
+                        <a href="#work" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
+                        <a href="#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
+                        <a href="#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
+                        <a href="#join" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
+                        <a href="#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
+                        <a href="#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar / Copyright & Policies -->
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                </div>
+            </div>
+            
+            <p class="text-center text-[10px] text-slate-600 mt-4 tracking-widest uppercase">
+                -Sath Chale Hum Foundation-
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-    });
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
 
-});
+        setInterval(() => {
+            slides[currentSlide].style.opacity = '0';
+            currentSlide = (currentSlide + 1) % slides.length;
+            slides[currentSlide].style.opacity = '1';
+        }, 4000);
 
+        // Daily Donation Box Interactive Toggle
+        function selectDonation(amount) {
+            const cardIds = [1, 2, 5, 10];
+            cardIds.forEach(id => {
+                const el = document.getElementById(`card-${id}`);
+                if (id === amount) {
+                    el.className = 'card-selected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1';
+                } else {
+                    el.className = 'card-unselected cursor-pointer border-2 rounded-2xl p-4 text-center transition-all shadow-md transform hover:-translate-y-1';
+                }
+            });
+        }
 
+        // Auto Popup Logic
+        const modal = document.getElementById('donate-modal');
+        const closeModal = document.getElementById('close-modal');
+        const popupBtn = document.getElementById('popup-donate-btn');
 
-/* ================= POPUP CLOSE ================= */
+        // Show popup after 2 seconds
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                modal.classList.remove('hidden');
+            }, 2000);
+        });
 
-const popup = document.getElementById("popup");
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
 
-const closePopup = document.getElementById("closePopup");
-
-
-function hidePopup(){
-
-    popup.classList.add("hidden");
-
-    popup.style.display = "none";
-
-    popup.style.visibility = "hidden";
-
-    popup.style.opacity = "0";
-
-    popup.style.pointerEvents = "none";
-
-}
-
-
-closePopup.addEventListener("click", function(event){
-
-    event.preventDefault();
-
-    event.stopPropagation();
-
-    hidePopup();
-
-});
-
-
-
-/* Popup के बाहर click करने पर भी बंद */
-
-popup.addEventListener("click", function(event){
-
-    if(event.target === popup){
-
-        hidePopup();
-
-    }
-
-});
-
-
-
-/*
-IMPORTANT:
-यहाँ कोई setTimeout नहीं है।
-इसलिए X दबाने के बाद popup अपने-आप दोबारा नहीं खुलेगा।
-*/
-
-
-
-/* ================= DONATE BUTTON ================= */
-
-document.getElementById("mainDonate").addEventListener("click", function(event){
-
-    event.preventDefault();
-
-});
-
-
-document.getElementById("popupDonate").addEventListener("click", function(event){
-
-    event.preventDefault();
-
-});
-
-
-</script>
-
-
+        popupBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+    </script>
 </body>
 </html>
