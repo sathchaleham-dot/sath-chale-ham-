@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Key Areas of Work - साथ चले हम फाउंडेशन | Sath Chale Hum Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+        }
+
+        /* Pulsing/Blinking Animation for CTA Buttons */
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.4);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Accordion transition styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 1200px;
+        }
+
+        .accordion-item.active .icon-chevron {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- HEADER SECTION (Same As Home Page) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Logo & Title -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
+                        साथ चले हम फाउंडेशन
+                    </h1>
+                    <p class="text-xs text-orange-600 font-semibold tracking-wide">साथ चले हम, बदलाव की ओर</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6 font-semibold text-slate-700">
+                <a href="index.html#home" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="about.html" class="hover:text-orange-600 transition-colors">About Us</a>
+                <a href="#" class="text-orange-600 font-bold border-b-2 border-orange-500 pb-0.5">Work</a>
+                <a href="index.html#team" class="hover:text-orange-600 transition-colors">Team</a>
+                <a href="index.html#join" class="hover:text-orange-600 transition-colors">Join Us</a>
+                <a href="index.html#events" class="hover:text-orange-600 transition-colors">Events</a>
+                <a href="index.html#donate" class="btn-pulse bg-red-600 text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-all">
+                    Donate Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button (3-Line Icon) -->
+            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 font-semibold text-slate-700 shadow-lg">
+            <a href="index.html#home" class="block py-1 hover:text-orange-600">Home</a>
+            <a href="about.html" class="block py-1 hover:text-orange-600">About Us</a>
+            <a href="#" class="block py-1 text-orange-600 font-bold">Work</a>
+            <a href="index.html#team" class="block py-1 hover:text-orange-600">Team</a>
+            <a href="index.html#join" class="block py-1 hover:text-orange-600">Join Us</a>
+            <a href="index.html#events" class="block py-1 hover:text-orange-600">Events</a>
+            <a href="index.html#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md w-full mt-2">
+                Donate Us
+            </a>
+        </div>
+    </header>
+
+    <!-- PAGE HERO BANNER -->
+    <section class="bg-gradient-to-r from-orange-600 via-amber-600 to-orange-700 text-white py-12 shadow-inner">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+            <h1 class="text-3xl sm:text-5xl font-extrabold mb-3 drop-shadow">Our Key Areas of Work | हमारे प्रमुख कार्य क्षेत्र</h1>
+            <p class="text-orange-100 font-medium text-base sm:text-lg max-w-2xl mx-auto">
+                समाज में सकारात्मक बदलाव और समग्र विकास के लिए हमारे 16 समर्पित आयाम
+            </p>
+        </div>
+    </section>
+
+    <!-- MAIN WORK AREAS GRID WITH DROPDOWNS -->
+    <section class="py-16 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <div class="text-center mb-10">
+                <span class="bg-orange-100 text-orange-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider inline-block mb-2">Detailed Initiatives</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">कार्य क्षेत्रों का संपूर्ण विवरण</h2>
+                <p class="text-slate-500 text-sm mt-1">किसी भी विषय पर क्लिक करके उससे जुड़ी सभी प्रमुख गतिविधियों को देखें</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Accordion Grid Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+
+                <!-- 1. Education & Child Development -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">1. शिक्षा एवं बाल विकास</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Education & Child Development</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>गरीब बच्चों की शिक्षा में सहायता</strong> — Educational assistance for underprivileged children</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्कूल से बाहर बच्चों को शिक्षा से जोड़ना</strong> — Connecting out-of-school children with education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>निःशुल्क शिक्षा एवं कोचिंग</strong> — Free education and coaching</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किताब-कॉपी एवं शैक्षणिक सामग्री वितरण</strong> — Distribution of books, notebooks and educational materials</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>छात्रवृत्ति एवं शैक्षणिक सहायता</strong> — Scholarships and educational assistance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल एवं कंप्यूटर शिक्षा</strong> — Digital and computer education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पुस्तकालय एवं ज्ञान केंद्र</strong> — Libraries and knowledge centers</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल प्रतिभा विकास</strong> — Child talent development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>करियर एवं शिक्षा मार्गदर्शन</strong> — Career and educational guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्कूल ड्रॉपआउट रोकथाम</strong> — Prevention of school dropouts</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल श्रम से बच्चों को शिक्षा की ओर जोड़ना</strong> — Connecting children engaged in child labour with education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वयस्क एवं निरक्षरता उन्मूलन</strong> — Adult education and eradication of illiteracy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण एवं वंचित क्षेत्रों में शिक्षा</strong> — Education in rural and underserved areas</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>व्यावसायिक एवं कौशल शिक्षा</strong> — Vocational and skill education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल अधिकारों के प्रति जागरूकता</strong> — Awareness of child rights</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>शिक्षा के प्रति जन-जागरूकता अभियान</strong> — Public awareness campaigns for education</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2. Women Empowerment & Development -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-person-dress"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">2. महिला सशक्तिकरण एवं विकास</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Women Empowerment & Development</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला शिक्षा एवं साक्षरता</strong> — Women’s education and literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला कौशल विकास</strong> — Women’s skill development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार एवं स्वरोजगार प्रशिक्षण</strong> — Employment and self-employment training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला उद्यमिता विकास</strong> — Women entrepreneurship development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वयं सहायता समूहों को सहयोग</strong> — Support to Self-Help Groups</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सिलाई-कढ़ाई एवं हस्तकला प्रशिक्षण</strong> — Tailoring, embroidery and handicraft training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल एवं कंप्यूटर शिक्षा</strong> — Digital and computer education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला अधिकारों की जानकारी</strong> — Awareness of women’s rights</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>घरेलू हिंसा के विरुद्ध जागरूकता</strong> — Awareness against domestic violence</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दहेज प्रथा के विरुद्ध अभियान</strong> — Campaigns against the dowry system</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल विवाह रोकथाम</strong> — Prevention of child marriage</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिलाओं की आर्थिक आत्मनिर्भरता</strong> — Economic self-reliance of women</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य एवं पोषण जागरूकता</strong> — Health and nutrition awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>नेतृत्व एवं व्यक्तित्व विकास</strong> — Leadership and personality development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी योजनाओं की जानकारी</strong> — Awareness of government schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला सुरक्षा एवं सम्मान के प्रति जागरूकता</strong> — Awareness for women’s safety and dignity</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Health & Medical Care -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">3. स्वास्थ्य एवं चिकित्सा</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Health & Medical Care</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>निःशुल्क स्वास्थ्य जांच शिविर</strong> — Free health check-up camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण स्वास्थ्य जागरूकता</strong> — Rural health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>नेत्र जांच एवं सहायता शिविर</strong> — Eye check-up and assistance camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दंत स्वास्थ्य जांच शिविर</strong> — Dental health check-up camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामान्य स्वास्थ्य जागरूकता</strong> — General health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>मातृ स्वास्थ्य जागरूकता</strong> — Maternal health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किशोर स्वास्थ्य जागरूकता</strong> — Adolescent health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पोषण एवं संतुलित आहार जागरूकता</strong> — Nutrition and balanced diet awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छता एवं व्यक्तिगत स्वास्थ्य शिक्षा</strong> — Hygiene and personal health education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जरूरतमंद मरीजों को सहायता</strong> — Assistance to needy patients</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य सेवाओं तक पहुंच का मार्गदर्शन</strong> — Guidance for accessing healthcare services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रक्तदान जागरूकता</strong> — Blood donation awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोगों की रोकथाम संबंधी जागरूकता</strong> — Awareness about disease prevention</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य विशेषज्ञों के साथ जागरूकता कार्यक्रम</strong> — Awareness programs with health professionals</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दूरदराज क्षेत्रों में स्वास्थ्य कार्यक्रम</strong> — Health programs in remote areas</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वस्थ जीवनशैली के प्रति जागरूकता</strong> — Awareness for a healthy lifestyle</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4. Welfare of Poor & Needy -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-hands-holding-child"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">4. गरीब एवं जरूरतमंद कल्याण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Welfare of Poor & Needy</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>गरीब परिवारों की सहायता</strong> — Assistance to poor families</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>राशन एवं खाद्य सामग्री वितरण</strong> — Distribution of ration and food materials</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कपड़े वितरण</strong> — Distribution of clothing</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कंबल एवं मौसमी सामग्री वितरण</strong> — Distribution of blankets and seasonal essentials</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जूते-चप्पल एवं आवश्यक वस्तु सहायता</strong> — Assistance with footwear and essential items</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>गरीब बच्चों की शिक्षा सहायता</strong> — Educational assistance for poor children</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जरूरतमंद परिवारों की पहचान</strong> — Identification of needy families</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामुदायिक भोजन कार्यक्रम</strong> — Community meal programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बेघर लोगों की सहायता</strong> — Assistance to homeless people</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आर्थिक रूप से कमजोर लोगों को सहायता</strong> — Assistance to economically weaker people</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जरूरतमंदों को सरकारी योजनाओं से जोड़ना</strong> — Connecting needy people with government schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दैनिक जीवन की आवश्यक वस्तुओं की सहायता</strong> — Assistance with daily essential items</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>संकटग्रस्त परिवारों की सहायता</strong> — Assistance to families in distress</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>गरीब बस्तियों में सेवा कार्यक्रम</strong> — Service programs in underprivileged communities</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामुदायिक सहायता केंद्र</strong> — Community assistance centers</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जरूरतमंदों के लिए जन-सहयोग अभियान</strong> — Public support campaigns for needy people</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Disability Welfare & Empowerment -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-wheelchair"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">5. दिव्यांगजन कल्याण एवं सशक्तिकरण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Disability Welfare & Empowerment</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दिव्यांगजनों की सहायता</strong> — Assistance to persons with disabilities</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सहायक उपकरण उपलब्ध कराने में सहयोग</strong> — Support in providing assistive devices</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>व्हीलचेयर एवं आवश्यक उपकरण सहायता</strong> — Wheelchair and essential equipment assistance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दिव्यांग बच्चों की शिक्षा</strong> — Education for children with disabilities</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कौशल विकास प्रशिक्षण</strong> — Skill development training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार एवं स्वरोजगार मार्गदर्शन</strong> — Employment and self-employment guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी योजनाओं की जानकारी</strong> — Awareness of government schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दिव्यांग अधिकार जागरूकता</strong> — Disability rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल शिक्षा</strong> — Digital education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक समावेशन</strong> — Social inclusion</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्रतिभा एवं खेल विकास</strong> — Talent and sports development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>परिवारों को मार्गदर्शन</strong> — Guidance for families</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य एवं पुनर्वास सेवाओं तक पहुंच में सहयोग</strong> — Support in accessing healthcare and rehabilitation services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगारदाताओं के साथ अवसरों के लिए समन्वय</strong> — Coordination with employers for opportunities</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दिव्यांगजनों के लिए जागरूकता अभियान</strong> — Awareness campaigns for persons with disabilities</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सम्मानजनक एवं आत्मनिर्भर जीवन के लिए सहयोग</strong> — Support for a dignified and self-reliant life</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6. Senior Citizen Welfare -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-person-cane"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">6. वृद्धजन कल्याण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Senior Citizen Welfare</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जरूरतमंद बुजुर्गों की सहायता</strong> — Assistance to needy senior citizens</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>भोजन सहायता</strong> — Food assistance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कपड़े एवं कंबल सहायता</strong> — Clothing and blanket assistance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य जांच शिविर</strong> — Health check-up camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य एवं दवा संबंधी मार्गदर्शन</strong> — Health and medication guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>अकेले रहने वाले बुजुर्गों की सामुदायिक सहायता</strong> — Community support for elderly people living alone</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी पेंशन एवं योजनाओं की जानकारी</strong> — Awareness of government pensions and schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वरिष्ठ नागरिक अधिकार जागरूकता</strong> — Senior citizen rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक सुरक्षा जागरूकता</strong> — Social security awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वृद्धाश्रमों में सहयोग</strong> — Support to old-age homes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>मानसिक एवं सामाजिक सहयोग</strong> — Emotional and social support</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आवश्यक वस्तुओं की सहायता</strong> — Assistance with essential items</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल साक्षरता</strong> — Digital literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>परिवार एवं समुदाय में सम्मान के प्रति जागरूकता</strong> — Awareness for dignity and respect in family and community</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वरिष्ठ नागरिक मिलन एवं सामुदायिक कार्यक्रम</strong> — Senior citizen gatherings and community programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वृद्धजन सहायता एवं जन-जागरूकता अभियान</strong> — Senior citizen assistance and public awareness campaigns</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7. Youth Development & Skill Development -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">7. युवा विकास एवं कौशल विकास</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Youth Development & Skill Development</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>युवाओं के लिए कौशल प्रशिक्षण</strong> — Skill training for youth</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कंप्यूटर एवं डिजिटल शिक्षा</strong> — Computer and digital education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>करियर मार्गदर्शन</strong> — Career guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार मार्गदर्शन</strong> — Employment guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्रतियोगी परीक्षा मार्गदर्शन</strong> — Competitive examination guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>व्यक्तित्व विकास</strong> — Personality development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>संचार कौशल विकास</strong> — Communication skill development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>नेतृत्व विकास</strong> — Leadership development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>उद्यमिता प्रशिक्षण</strong> — Entrepreneurship training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वरोजगार मार्गदर्शन</strong> — Self-employment guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>व्यावसायिक प्रशिक्षण</strong> — Vocational training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>खेल एवं प्रतिभा विकास</strong> — Sports and talent development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>युवा स्वयंसेवक कार्यक्रम</strong> — Youth volunteer programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वित्तीय एवं डिजिटल साक्षरता</strong> — Financial and digital literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक नेतृत्व एवं जिम्मेदारी</strong> — Social leadership and responsibility</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>युवा जागरूकता एवं विकास अभियान</strong> — Youth awareness and development campaigns</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 8. Employment, Self-Employment & Livelihood -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">8. रोजगार, स्वरोजगार एवं आजीविका</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Employment, Self-Employment & Livelihood</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार मार्गदर्शन</strong> — Employment guidance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कौशल प्रशिक्षण</strong> — Skill training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वरोजगार प्रशिक्षण</strong> — Self-employment training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>छोटे व्यवसाय के लिए मार्गदर्शन</strong> — Guidance for small businesses</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>उद्यमिता विकास</strong> — Entrepreneurship development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार मेले एवं अवसरों की जानकारी</strong> — Job fairs and employment opportunity awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल कौशल प्रशिक्षण</strong> — Digital skill training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वित्तीय साक्षरता</strong> — Financial literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बैंकिंग एवं डिजिटल भुगतान जागरूकता</strong> — Banking and digital payment awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वयं सहायता समूहों को सहयोग</strong> — Support to Self-Help Groups</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>घरेलू उद्योग को बढ़ावा</strong> — Promotion of home-based industries</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>हस्तशिल्प एवं कुटीर उद्योग प्रशिक्षण</strong> — Handicraft and cottage industry training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण आजीविका विकास</strong> — Rural livelihood development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला स्वरोजगार कार्यक्रम</strong> — Women’s self-employment programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>युवा उद्यमिता कार्यक्रम</strong> — Youth entrepreneurship programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार एवं आत्मनिर्भरता जागरूकता</strong> — Employment and self-reliance awareness</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 9. Rural Development & Village Upliftment -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">9. ग्रामीण विकास एवं ग्राम उत्थान</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Rural Development & Village Upliftment</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण शिक्षा विकास</strong> — Rural education development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण स्वास्थ्य कार्यक्रम</strong> — Rural health programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छता अभियान</strong> — Sanitation campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पेयजल जागरूकता</strong> — Drinking water awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला सशक्तिकरण</strong> — Women empowerment</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>युवा विकास</strong> — Youth development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कौशल प्रशिक्षण</strong> — Skill training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>रोजगार एवं आजीविका विकास</strong> — Employment and livelihood development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल साक्षरता</strong> — Digital literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किसान जागरूकता</strong> — Farmer awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पर्यावरण संरक्षण</strong> — Environmental protection</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जल संरक्षण</strong> — Water conservation</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी योजनाओं की जानकारी</strong> — Awareness of government schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामुदायिक विकास कार्यक्रम</strong> — Community development programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्राम स्तर पर जन-जागरूकता</strong> — Village-level public awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण आत्मनिर्भरता को बढ़ावा</strong> — Promotion of rural self-reliance</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 10. Agriculture & Farmer Welfare -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-wheat-awn"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">10. कृषि एवं किसान कल्याण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Agriculture & Farmer Welfare</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किसानों को कृषि संबंधी जानकारी</strong> — Agricultural information for farmers</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आधुनिक कृषि तकनीक की जानकारी</strong> — Awareness of modern agricultural techniques</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्राकृतिक खेती जागरूकता</strong> — Natural farming awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जैविक खेती जागरूकता</strong> — Organic farming awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बीज एवं कृषि सामग्री संबंधी जानकारी</strong> — Information on seeds and agricultural inputs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>मृदा स्वास्थ्य जागरूकता</strong> — Soil health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जल संरक्षण आधारित कृषि</strong> — Water-conservation-based agriculture</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बागवानी एवं फल-सब्जी उत्पादन</strong> — Horticulture and fruit and vegetable production</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशुपालन संबंधी प्रशिक्षण</strong> — Livestock management training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किसान कौशल विकास</strong> — Farmer skill development</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किसान समूहों को सहयोग</strong> — Support to farmer groups</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कृषि आधारित स्वरोजगार</strong> — Agriculture-based self-employment</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कृषि बाजार संबंधी जागरूकता</strong> — Agricultural market awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी कृषि योजनाओं की जानकारी</strong> — Awareness of government agricultural schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कृषि नवाचार एवं तकनीकी जागरूकता</strong> — Agricultural innovation and technology awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>किसान आत्मनिर्भरता एवं आय-विविधीकरण जागरूकता</strong> — Farmer self-reliance and income diversification awareness</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 11. Environment & Water Conservation -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-seedling"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">11. पर्यावरण एवं जल संरक्षण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Environment & Water Conservation</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वृक्षारोपण अभियान</strong> — Tree plantation campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पौध वितरण</strong> — Distribution of saplings</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वन संरक्षण जागरूकता</strong> — Forest conservation awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जल संरक्षण अभियान</strong> — Water conservation campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वर्षा जल संचयन जागरूकता</strong> — Rainwater harvesting awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>तालाब एवं जल स्रोत संरक्षण</strong> — Protection of ponds and water sources</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्लास्टिक प्रदूषण के विरुद्ध अभियान</strong> — Campaigns against plastic pollution</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कचरा प्रबंधन जागरूकता</strong> — Waste management awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जैव विविधता संरक्षण</strong> — Biodiversity conservation</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जलवायु परिवर्तन जागरूकता</strong> — Climate change awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ऊर्जा बचत जागरूकता</strong> — Energy conservation awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पर्यावरण शिक्षा</strong> — Environmental education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्कूल पर्यावरण कार्यक्रम</strong> — School environmental programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>हरित एवं स्वच्छ गांव अभियान</strong> — Green and clean village campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जल प्रदूषण रोकथाम जागरूकता</strong> — Water pollution prevention awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पर्यावरण संरक्षण में जनभागीदारी</strong> — Public participation in environmental protection</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 12. Sanitation, Drinking Water & Nutrition -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-faucet-drip"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">12. स्वच्छता, पेयजल एवं पोषण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Sanitation, Drinking Water & Nutrition</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छता जागरूकता अभियान</strong> — Sanitation awareness campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छ गांव अभियान</strong> — Clean village campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>व्यक्तिगत स्वच्छता शिक्षा</strong> — Personal hygiene education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>हाथ धोने की जागरूकता</strong> — Handwashing awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>शौचालय उपयोग जागरूकता</strong> — Toilet-use awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छ पेयजल जागरूकता</strong> — Safe drinking water awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जल स्रोतों की स्वच्छता</strong> — Cleanliness of water sources</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कचरा पृथक्करण जागरूकता</strong> — Waste segregation awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्लास्टिक कम करने का अभियान</strong> — Campaigns to reduce plastic use</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बच्चों में स्वच्छता शिक्षा</strong> — Hygiene education for children</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पोषण जागरूकता</strong> — Nutrition awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कुपोषण के प्रति जागरूकता</strong> — Awareness about malnutrition</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>संतुलित आहार संबंधी शिक्षा</strong> — Education on balanced diets</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बच्चों के पोषण कार्यक्रम</strong> — Nutrition programs for children</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिलाओं एवं माताओं में पोषण जागरूकता</strong> — Nutrition awareness among women and mothers</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वच्छता एवं पोषण जन-जागरूकता अभियान</strong> — Public awareness campaigns on sanitation and nutrition</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 13. Animal Welfare & Protection -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-paw"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">13. पशु कल्याण एवं संरक्षण</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Animal Welfare & Protection</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बेसहारा पशुओं की सहायता</strong> — Assistance to stray and abandoned animals</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु स्वास्थ्य जागरूकता</strong> — Animal health awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु चिकित्सा शिविरों में सहयोग</strong> — Support for veterinary camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु संरक्षण अभियान</strong> — Animal protection campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु क्रूरता के विरुद्ध जागरूकता</strong> — Awareness against animal cruelty</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशुपालकों को जागरूक करना</strong> — Awareness among livestock owners</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशुओं के लिए भोजन एवं पानी की व्यवस्था में सहयोग</strong> — Support for providing food and water to animals</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पक्षी संरक्षण</strong> — Bird conservation</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>घायल पशुओं को सहायता सेवाओं तक पहुंचाने में सहयोग</strong> — Support in connecting injured animals with appropriate care services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु-पक्षी संरक्षण शिक्षा</strong> — Animal and bird conservation education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ग्रामीण पशुपालन जागरूकता</strong> — Rural livestock awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु टीकाकरण संबंधी जागरूकता</strong> — Awareness about animal vaccination</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जिम्मेदार पशुपालन के प्रति जागरूकता</strong> — Awareness of responsible animal care</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>जैव विविधता संरक्षण</strong> — Biodiversity conservation</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु कल्याण स्वयंसेवक कार्यक्रम</strong> — Animal welfare volunteer programs</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पशु-पक्षी संरक्षण जन-जागरूकता अभियान</strong> — Public awareness campaigns for animal and bird protection</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 14. Disaster Relief & Rehabilitation -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-kit-medical"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">14. आपदा राहत एवं पुनर्वास</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Disaster Relief & Rehabilitation</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाढ़ राहत कार्य</strong> — Flood relief work</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सूखा प्रभावित क्षेत्रों में सहायता</strong> — Assistance in drought-affected areas</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>चक्रवात एवं तूफान राहत</strong> — Cyclone and storm relief</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>भूकंप जैसी आपदाओं में सहायता</strong> — Assistance during disasters such as earthquakes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>राहत सामग्री वितरण</strong> — Distribution of relief materials</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>खाद्य सामग्री वितरण</strong> — Distribution of food supplies</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कपड़े एवं कंबल वितरण</strong> — Distribution of clothing and blankets</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आवश्यक वस्तुओं की सहायता</strong> — Assistance with essential items</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>राहत शिविरों में सहयोग</strong> — Support at relief camps</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>प्रभावित परिवारों की सहायता</strong> — Assistance to affected families</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बच्चों एवं बुजुर्गों की विशेष सहायता</strong> — Special assistance to children and senior citizens</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य एवं स्वच्छता सहायता</strong> — Health and sanitation assistance</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आपदा पूर्व जागरूकता</strong> — Pre-disaster awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आपदा प्रबंधन प्रशिक्षण</strong> — Disaster management training</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पुनर्वास एवं पुनर्स्थापन में सहयोग</strong> — Support for rehabilitation and resettlement</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>आपदा प्रभावित क्षेत्रों में जन-सहयोग अभियान</strong> — Public support campaigns in disaster-affected areas</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 15. Social Justice, Human Rights & Legal Awareness -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-gavel"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">15. सामाजिक न्याय & कानूनी जागरूकता</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Social Justice, Human Rights & Legal Awareness</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>मानव अधिकार जागरूकता</strong> — Human rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>समानता एवं सामाजिक न्याय</strong> — Equality and social justice</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>भेदभाव के विरुद्ध अभियान</strong> — Campaigns against discrimination</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कमजोर वर्गों के अधिकारों की जानकारी</strong> — Awareness of the rights of vulnerable groups</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>महिला अधिकार जागरूकता</strong> — Women’s rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल अधिकार जागरूकता</strong> — Child rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>दिव्यांग अधिकार जागरूकता</strong> — Disability rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>वरिष्ठ नागरिक अधिकार जागरूकता</strong> — Senior citizen rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>श्रमिक अधिकार जागरूकता</strong> — Workers’ rights awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>नागरिक अधिकारों की जानकारी</strong> — Awareness of citizens’ rights</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सरकारी योजनाओं की जानकारी</strong> — Awareness of government schemes</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कानूनी अधिकारों की सामान्य जानकारी</strong> — General awareness of legal rights</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>उपलब्ध विधिक सहायता सेवाओं तक मार्गदर्शन</strong> — Guidance on accessing available legal aid services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक कुरीतियों के विरुद्ध अभियान</strong> — Campaigns against social evils</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>बाल विवाह एवं दहेज के विरुद्ध जागरूकता</strong> — Awareness against child marriage and dowry</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक समानता एवं सद्भाव को बढ़ावा देना</strong> — Promotion of social equality and harmony</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 16. Digital Education & Public Awareness -->
+                <div class="accordion-item bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-md transition-all overflow-hidden">
+                    <button onclick="toggleAccordion(this)" class="w-full text-left p-5 flex items-center justify-between bg-white hover:bg-orange-50/50 transition-colors focus:outline-none">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-orange-100 text-orange-600 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-900 text-base sm:text-lg leading-tight">16. डिजिटल शिक्षा एवं जन-जागरूकता</h3>
+                                <p class="text-xs text-slate-500 font-medium mt-0.5">Digital Education, Public Awareness & Social Development</p>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-down icon-chevron text-slate-400 transition-transform duration-300 ml-2"></i>
+                    </button>
+                    <div class="accordion-content bg-slate-50/80 border-t border-slate-100 px-5">
+                        <ul class="py-4 space-y-2.5 text-xs sm:text-sm text-slate-700">
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>कंप्यूटर शिक्षा</strong> — Computer education</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल साक्षरता</strong> — Digital literacy</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>इंटरनेट के सुरक्षित उपयोग की जागरूकता</strong> — Awareness of safe internet use</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>साइबर सुरक्षा जागरूकता</strong> — Cybersecurity awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ऑनलाइन सरकारी सेवाओं की जानकारी</strong> — Awareness of online government services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल भुगतान की जानकारी</strong> — Digital payment awareness</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>ऑनलाइन आवेदन एवं सेवाओं की जानकारी</strong> — Awareness of online applications and services</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>डिजिटल दस्तावेज संबंधी जागरूकता</strong> — Awareness of digital documents</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सोशल मीडिया का जिम्मेदार उपयोग</strong> — Responsible use of social media</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वास्थ्य जागरूकता अभियान</strong> — Health awareness campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>शिक्षा जागरूकता अभियान</strong> — Education awareness campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>पर्यावरण जागरूकता अभियान</strong> — Environmental awareness campaigns</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक कुरीतियों के विरुद्ध अभियान</strong> — Campaigns against social evils</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>नागरिक जिम्मेदारी एवं कर्तव्य जागरूकता</strong> — Awareness of civic responsibilities and duties</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>स्वयंसेवा एवं सामाजिक भागीदारी</strong> — Volunteering and social participation</span></li>
+                            <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-orange-500 mt-1 shrink-0"></i> <span><strong>सामाजिक एकता, सद्भाव एवं सामुदायिक विकास</strong> — Social unity, harmony and community development</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION (Same As Home Page) -->
+    <footer class="bg-slate-950 text-slate-300 pt-12 pb-6 border-t border-slate-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                
+                <!-- Col 1: Brand -->
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
+                        <span class="font-bold text-white text-lg">Chale Hum Foundation</span>
+                    </div>
+                    <p class="text-sm text-orange-400 font-semibold">साथ चले हम – बदलाव की ओर</p>
+                    <p class="text-xs text-slate-400 italic">Step Together Towards Change</p>
+                </div>
+
+                <!-- Col 2: Social Media -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Our Social Media
+                    </h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Quick Links -->
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Quick Links | महत्वपूर्ण लिंक
+                    </h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <a href="index.html#home" class="hover:text-orange-400">Home | होम</a>
+                        <a href="about.html" class="hover:text-orange-400">About Us | हमारे बारे में</a>
+                        <a href="#" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
+                        <a href="index.html#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
+                        <a href="index.html#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
+                        <a href="index.html#join" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
+                        <a href="index.html#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
+                        <a href="index.html#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar / Copyright & Policies -->
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                </div>
+            </div>
+            
+            <p class="text-center text-[10px] text-slate-600 mt-4 tracking-widest uppercase">
+                -Sath Chale Hum Foundation-
+            </p>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Accordion Dropdown Functionality
+        function toggleAccordion(button) {
+            const currentItem = button.parentElement;
+            const isOpen = currentItem.classList.contains('active');
+
+            // Close all items first
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+            });
+
+            // Open clicked item if it wasn't open
+            if (!isOpen) {
+                currentItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
