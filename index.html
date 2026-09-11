@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>साथ चले हम फाउंडेशन - Sath Chale Hum Foundation</title>
-    <!-- Tailwind CSS CDN -->
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap"
+          rel="stylesheet">
 
     <style>
+
         body {
             font-family: Arial, 'Tiro Devanagari Hindi', sans-serif;
             background-color: #f8fafc;
             color: #0f172a;
         }
 
+        /* ===============================
+           DONATE BUTTON PULSE
+        =============================== */
+
         @keyframes pulse-glow {
+
             0%, 100% {
                 transform: scale(1);
                 box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
             }
+
             50% {
                 transform: scale(1.03);
                 box-shadow: 0 0 30px 10px rgba(239, 68, 68, 0.35);
@@ -33,32 +46,68 @@
             animation: pulse-glow 2s infinite;
         }
 
+        /* ===============================
+           HERO SLIDER
+        =============================== */
+
         .hero-slide {
             transition: opacity 1.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Card Styling */
+        /* ===============================
+           DONATION CARDS
+        =============================== */
+
         .card-base {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             background: #ffffff;
             border: 2px solid #cbd5e1;
         }
+
         .card-base:hover {
             transform: translateY(-4px);
             box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
         }
 
-        .card-1 { border-color: #16a34a; }
-        .card-1 .card-btn { background-color: #16a34a; color: #fff; }
+        .card-1 {
+            border-color: #16a34a;
+        }
 
-        .card-2 { border-color: #2563eb; }
-        .card-2 .card-btn { background-color: #2563eb; color: #fff; }
+        .card-1 .card-btn {
+            background-color: #16a34a;
+            color: #fff;
+        }
 
-        .card-5 { border-color: #f97316; }
-        .card-5 .card-btn { background-color: #f97316; color: #fff; }
+        .card-2 {
+            border-color: #2563eb;
+        }
 
-        .card-10 { border-color: #db2777; }
-        .card-10 .card-btn { background-color: #db2777; color: #fff; }
+        .card-2 .card-btn {
+            background-color: #2563eb;
+            color: #fff;
+        }
+
+        .card-5 {
+            border-color: #f97316;
+        }
+
+        .card-5 .card-btn {
+            background-color: #f97316;
+            color: #fff;
+        }
+
+        .card-10 {
+            border-color: #db2777;
+        }
+
+        .card-10 .card-btn {
+            background-color: #db2777;
+            color: #fff;
+        }
+
+        /* ===============================
+           GLASS CARD
+        =============================== */
 
         .glass-card {
             background: rgba(255, 255, 255, 0.9);
@@ -66,745 +115,2021 @@
             border: 1px solid rgba(226, 232, 240, 0.8);
         }
 
-        /* Yellow Smiley Animation Next to Muskan */
+        /* ===============================
+           SMILEY
+        =============================== */
+
         @keyframes bounce-rotate {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-6px) rotate(10deg); }
+
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-6px) rotate(10deg);
+            }
         }
+
         .smiley-anim {
             display: inline-block;
             animation: bounce-rotate 1.8s ease-in-out infinite;
         }
+
     </style>
 </head>
+
+
 <body class="flex flex-col min-h-screen selection:bg-orange-500 selection:text-white">
 
-    <!-- HEADER SECTION -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3.5 group">
-                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-[900] text-slate-900 tracking-tight leading-tight">
-                        साथ चले हम फाउंडेशन
-                    </h1>
-                    <p class="text-xs text-orange-600 font-[800] tracking-wider">साथ चले हम, बदलाव की ओर</p>
-                </div>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-lg">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+
+        <!-- LOGO -->
+        <a href="index.html"
+           class="flex items-center gap-3.5 group">
+
+            <img
+                src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+                alt="Sath Chale Hum Foundation Logo"
+                class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+
+            <div>
+
+                <h1 class="text-xl sm:text-2xl font-[900] text-slate-900 tracking-tight leading-tight">
+                    साथ चले हम फाउंडेशन
+                </h1>
+
+                <p class="text-xs text-orange-600 font-[800] tracking-wider">
+                    साथ चले हम, बदलाव की ओर
+                </p>
+
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAVIGATION -->
+
+        <nav class="hidden md:flex items-center gap-6 font-[800] text-slate-700 text-sm">
+
+            <a href="index.html"
+               class="hover:text-orange-600 transition-colors">
+                Home
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-6 font-[800] text-slate-700 text-sm">
-                <a href="#home" class="hover:text-orange-600 transition-colors">Home</a>
-                <a href="#about" class="hover:text-orange-600 transition-colors">About Us</a>
-                <a href="#work" class="hover:text-orange-600 transition-colors">Work</a>
-                <a href="#team" class="hover:text-orange-600 transition-colors">Team</a>
-                <a href="join-us.html" class="hover:text-orange-600 transition-colors font-[900] text-orange-600">Join Us</a>
-                <a href="#events" class="hover:text-orange-600 transition-colors">Events</a>
-                <a href="#donate" class="btn-pulse bg-red-600 text-white px-6 py-2.5 rounded-full font-[900] shadow-lg hover:bg-red-700 transition-all text-xs tracking-wider uppercase">
-                    Donate Us
-                </a>
-            </nav>
+            <a href="about.html"
+               class="hover:text-orange-600 transition-colors">
+                About Us
+            </a>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+            <a href="work.html"
+               class="hover:text-orange-600 transition-colors">
+                Work
+            </a>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-2xl border-t border-slate-100 px-6 pt-5 pb-6 space-y-3.5 font-[800] text-slate-700 shadow-2xl">
-            <a href="#home" class="block py-1 hover:text-orange-600">Home</a>
-            <a href="#about" class="block py-1 hover:text-orange-600">About Us</a>
-            <a href="#work" class="block py-1 hover:text-orange-600">Work</a>
-            <a href="#team" class="block py-1 hover:text-orange-600">Team</a>
-            <a href="join-us.html" class="block py-1 text-orange-600 font-[900]">Join Us</a>
-            <a href="#events" class="block py-1 hover:text-orange-600">Events</a>
-            <a href="#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-3 rounded-2xl font-[900] shadow-lg w-full mt-2 uppercase text-xs tracking-wider">
+            <a href="team.html"
+               class="hover:text-orange-600 transition-colors">
+                Team
+            </a>
+
+            <a href="join-us.html"
+               class="hover:text-orange-600 transition-colors">
+                Join Us
+            </a>
+
+            <a href="donate.html"
+               class="btn-pulse bg-red-600 text-white px-6 py-2.5 rounded-full font-[900] shadow-lg hover:bg-red-700 transition-all text-xs tracking-wider uppercase">
                 Donate Us
             </a>
-        </div>
-    </header>
 
-    <!-- HERO SECTION (5 NGO AI Images Slideshow) -->
-    <section id="home" class="relative bg-slate-950 text-white min-h-[560px] sm:min-h-[640px] flex items-center justify-center overflow-hidden">
-        <div class="absolute inset-0 z-0">
-            <div class="hero-slide absolute inset-0 opacity-100 bg-cover bg-center scale-105" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop');"></div>
-            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)), url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop');"></div>
-            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)), url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop');"></div>
-            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)), url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=1200&auto=format&fit=crop');"></div>
-            <div class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105" style="background-image: linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)), url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop');"></div>
-        </div>
+        </nav>
 
-        <div class="relative z-10 text-center max-w-4xl mx-auto px-4 py-16">
-            <span class="bg-orange-500/20 text-orange-400 text-xs font-[900] px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block border border-orange-500/30 backdrop-blur-md">
-                Sath Chale Hum Foundation
-            </span>
-            <h2 class="text-4xl sm:text-6xl font-[900] mb-4 tracking-tight drop-shadow-lg">
-                साथ चले हम,<br>बदलाव की ओर
-            </h2>
-            <p class="text-xl sm:text-3xl font-[800] text-orange-300 mb-2">
-                आपका साथ, किसी की नई शुरुआत।
-            </p>
-            <p class="text-md sm:text-lg text-slate-300 italic mb-10 font-[700]">
-                Your Support, Someone’s New Beginning.
-            </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#donate" class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all text-base tracking-wide">
-                    Donate Us
-                </a>
-                <a href="join-us.html" class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all text-base tracking-wide">
-                    Join Us
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- POPUP MODAL WITH YELLOW SMILEY ANIMATION NEXT TO MUSKAN -->
-    <div id="donate-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-md p-4 hidden">
-        <div class="bg-white rounded-[2rem] shadow-2xl max-w-lg w-full p-6 sm:p-8 relative border-2 border-blue-900">
-            <button id="close-modal" class="absolute top-4 right-5 text-slate-400 hover:text-slate-800 text-2xl font-[900] transition-colors">
-                &times;
-            </button>
+        <!-- MOBILE MENU BUTTON -->
 
-            <!-- Popup Header Box -->
-            <div class="border-2 border-blue-900 rounded-xl p-3 sm:p-4 text-center mb-4 bg-white shadow-xs">
-                <h3 class="text-lg sm:text-2xl font-[900] flex items-center justify-center gap-1.5 flex-wrap">
-                    <span class="text-red-600">आपका ₹1,</span>
-                    <span class="text-blue-900">किसी की मुस्कान</span>
-                    <span class="smiley-anim text-2xl">😊</span>
-                </h3>
-                <p class="text-[10px] sm:text-xs font-[700] text-slate-600 mt-1">Your ₹1, Someone’s Smile</p>
-            </div>
+        <button
+            id="menu-toggle"
+            class="md:hidden text-slate-800 text-2xl focus:outline-none p-1"
+            aria-label="Open Menu">
 
-            <!-- Popup Sub-banner -->
-            <div class="bg-blue-950 text-white text-center py-2.5 px-4 rounded-lg font-[900] text-xs sm:text-sm mb-5 shadow-sm">
-                रोज़ ₹1 – बदलाव की ओर साथ चले हम!
-            </div>
+            <i class="fa-solid fa-bars"></i>
 
-            <!-- Popup 4 Cards Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
-                <div class="border-2 border-green-600 rounded-xl p-3 text-center bg-white shadow-xs">
-                    <span class="text-xl font-[900] text-green-700 block">₹1</span>
-                    <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">DAILY SUPPORTER</span>
-                    <span class="text-[10px] font-[800] text-slate-800 block">₹ 1 प्रति दिन</span>
-                    <span class="text-[9px] font-[700] text-white bg-green-700 rounded py-0.5 px-1 block mt-1">लगभग ₹ 30/माह</span>
-                </div>
-                <div class="border-2 border-blue-600 rounded-xl p-3 text-center bg-white shadow-xs">
-                    <span class="text-xl font-[900] text-blue-700 block">₹2</span>
-                    <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">DAILY SUPPORTER</span>
-                    <span class="text-[10px] font-[800] text-slate-800 block">₹ 2 प्रति दिन</span>
-                    <span class="text-[9px] font-[700] text-white bg-blue-600 rounded py-0.5 px-1 block mt-1">लगभग ₹ 60/माह</span>
-                </div>
-                <div class="border-2 border-orange-500 rounded-xl p-3 text-center bg-white shadow-xs">
-                    <span class="text-xl font-[900] text-orange-600 block">₹5</span>
-                    <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">DAILY SUPPORTER</span>
-                    <span class="text-[10px] font-[800] text-slate-800 block">₹ 5 प्रति दिन</span>
-                    <span class="text-[9px] font-[700] text-white bg-orange-500 rounded py-0.5 px-1 block mt-1">लगभग ₹ 150/माह</span>
-                </div>
-                <div class="border-2 border-pink-600 rounded-xl p-3 text-center bg-white shadow-xs">
-                    <span class="text-xl font-[900] text-pink-600 block">₹10</span>
-                    <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">DAILY SUPPORTER</span>
-                    <span class="text-[10px] font-[800] text-slate-800 block">₹ 10 प्रति दिन</span>
-                    <span class="text-[9px] font-[700] text-white bg-pink-600 rounded py-0.5 px-1 block mt-1">लगभग ₹ 300/माह</span>
-                </div>
-            </div>
+        </button>
 
-            <a href="#donate" id="popup-donate-btn" class="btn-pulse block w-full text-center bg-red-600 hover:bg-red-700 text-white font-[900] py-3.5 rounded-xl shadow-lg transition-all text-sm tracking-wide uppercase">
-                <i class="fa-solid fa-heart mr-1"></i> DONATE NOW
-            </a>
-        </div>
     </div>
 
-    <!-- MAIN DONATION SECTION (YELLOW SMILEY ANIMATION NEXT TO MUSKAN) -->
-    <section id="donate" class="py-24 bg-gradient-to-b from-slate-50 via-orange-50/30 to-white relative overflow-hidden">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-400/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-            
-            <!-- Main Title Box with Yellow Smiley Animation Next to Muskan -->
-            <div class="bg-white border-2 border-blue-900 rounded-2xl p-6 sm:p-8 text-center mb-6 shadow-md">
-                <h2 class="font-[900] tracking-tight flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-2xl sm:text-4xl md:text-5xl">
-                    <span class="text-red-600">आपका ₹1,</span>
-                    <span class="text-blue-900">किसी की मुस्कान</span>
-                    <span class="smiley-anim text-3xl sm:text-4xl md:text-5xl">😊</span>
-                </h2>
-                <p class="text-xs sm:text-sm font-[800] text-slate-600 mt-2">Your ₹1, Someone’s Smile</p>
+    <!-- MOBILE MENU -->
+
+    <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white/95 backdrop-blur-2xl border-t border-slate-100 px-6 pt-5 pb-6 space-y-3.5 font-[800] text-slate-700 shadow-2xl">
+
+        <a href="index.html"
+           class="block py-1 hover:text-orange-600">
+            Home
+        </a>
+
+        <a href="about.html"
+           class="block py-1 hover:text-orange-600">
+            About Us
+        </a>
+
+        <a href="work.html"
+           class="block py-1 hover:text-orange-600">
+            Work
+        </a>
+
+        <a href="team.html"
+           class="block py-1 hover:text-orange-600">
+            Team
+        </a>
+
+        <a href="join-us.html"
+           class="block py-1 hover:text-orange-600">
+            Join Us
+        </a>
+
+        <a href="donate.html"
+           class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-3 rounded-2xl font-[900] shadow-lg w-full mt-2 uppercase text-xs tracking-wider">
+            Donate Us
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     HERO SECTION
+========================================================= -->
+
+<section
+    id="home"
+    class="relative bg-slate-950 text-white min-h-[560px] sm:min-h-[640px] flex items-center justify-center overflow-hidden">
+
+
+    <!-- HERO SLIDES -->
+
+    <div class="absolute inset-0 z-0">
+
+        <div
+            class="hero-slide absolute inset-0 opacity-100 bg-cover bg-center scale-105"
+            style="background-image:
+            linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+            url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1200&auto=format&fit=crop');">
+        </div>
+
+
+        <div
+            class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105"
+            style="background-image:
+            linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+            url('https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1200&auto=format&fit=crop');">
+        </div>
+
+
+        <div
+            class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105"
+            style="background-image:
+            linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+            url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?q=80&w=1200&auto=format&fit=crop');">
+        </div>
+
+
+        <div
+            class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105"
+            style="background-image:
+            linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+            url('https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=1200&auto=format&fit=crop');">
+        </div>
+
+
+        <div
+            class="hero-slide absolute inset-0 opacity-0 bg-cover bg-center scale-105"
+            style="background-image:
+            linear-gradient(to bottom, rgba(2,6,23,0.7), rgba(2,6,23,0.9)),
+            url('https://images.unsplash.com/photo-1593113598332-cd288d649433?q=80&w=1200&auto=format&fit=crop');">
+        </div>
+
+    </div>
+
+
+    <!-- HERO CONTENT -->
+
+    <div class="relative z-10 text-center max-w-4xl mx-auto px-4 py-16">
+
+        <span
+            class="bg-orange-500/20 text-orange-400 text-xs font-[900] px-4 py-1.5 rounded-full uppercase tracking-widest mb-4 inline-block border border-orange-500/30 backdrop-blur-md">
+
+            Sath Chale Hum Foundation
+
+        </span>
+
+
+        <h2
+            class="text-4xl sm:text-6xl font-[900] mb-4 tracking-tight drop-shadow-lg">
+
+            साथ चले हम,<br>
+            बदलाव की ओर
+
+        </h2>
+
+
+        <p
+            class="text-xl sm:text-3xl font-[800] text-orange-300 mb-2">
+
+            आपका साथ, किसी की नई शुरुआत।
+
+        </p>
+
+
+        <p
+            class="text-md sm:text-lg text-slate-300 italic mb-10 font-[700]">
+
+            Your Support, Someone’s New Beginning.
+
+        </p>
+
+
+        <div class="flex flex-wrap justify-center gap-4">
+
+            <!-- DONATE -->
+
+            <a
+                href="donate.html"
+                class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all text-base tracking-wide">
+
+                Donate Us
+
+            </a>
+
+
+            <!-- JOIN -->
+
+            <a
+                href="join-us.html"
+                class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all text-base tracking-wide">
+
+                Join Us
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     DAILY ₹1 POPUP
+========================================================= -->
+
+<div
+    id="donate-modal"
+    class="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 backdrop-blur-md p-4 hidden">
+
+    <div
+        class="bg-white rounded-[2rem] shadow-2xl max-w-lg w-full p-6 sm:p-8 relative border-2 border-blue-900">
+
+
+        <!-- CLOSE -->
+
+        <button
+            id="close-modal"
+            class="absolute top-4 right-5 text-slate-400 hover:text-slate-800 text-2xl font-[900] transition-colors">
+
+            &times;
+
+        </button>
+
+
+        <!-- POPUP TITLE -->
+
+        <div
+            class="border-2 border-blue-900 rounded-xl p-3 sm:p-4 text-center mb-4 bg-white shadow-xs">
+
+            <h3
+                class="text-lg sm:text-2xl font-[900] flex items-center justify-center gap-1.5 flex-wrap">
+
+                <span class="text-red-600">
+                    आपका ₹1,
+                </span>
+
+                <span class="text-blue-900">
+                    किसी की मुस्कान
+                </span>
+
+                <span class="smiley-anim text-2xl">
+                    😊
+                </span>
+
+            </h3>
+
+            <p class="text-[10px] sm:text-xs font-[700] text-slate-600 mt-1">
+                Your ₹1, Someone’s Smile
+            </p>
+
+        </div>
+
+
+        <!-- SUB BANNER -->
+
+        <div
+            class="bg-blue-950 text-white text-center py-2.5 px-4 rounded-lg font-[900] text-xs sm:text-sm mb-5 shadow-sm">
+
+            रोज़ ₹1 – बदलाव की ओर साथ चले हम!
+
+        </div>
+
+
+        <!-- DONATION CARDS -->
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+
+
+            <div class="border-2 border-green-600 rounded-xl p-3 text-center bg-white shadow-xs">
+
+                <span class="text-xl font-[900] text-green-700 block">
+                    ₹1
+                </span>
+
+                <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">
+                    DAILY SUPPORTER
+                </span>
+
+                <span class="text-[10px] font-[800] text-slate-800 block">
+                    ₹ 1 प्रति दिन
+                </span>
+
+                <span class="text-[9px] font-[700] text-white bg-green-700 rounded py-0.5 px-1 block mt-1">
+                    लगभग ₹ 30/माह
+                </span>
+
             </div>
 
-            <!-- Sub-banner -->
-            <div class="bg-blue-950 text-white text-center py-3.5 px-6 rounded-xl font-[900] text-sm sm:text-lg mb-8 shadow-md">
-                रोज़ ₹1 – बदलाव की ओर साथ चले हम!
+
+            <div class="border-2 border-blue-600 rounded-xl p-3 text-center bg-white shadow-xs">
+
+                <span class="text-xl font-[900] text-blue-700 block">
+                    ₹2
+                </span>
+
+                <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">
+                    DAILY SUPPORTER
+                </span>
+
+                <span class="text-[10px] font-[800] text-slate-800 block">
+                    ₹ 2 प्रति दिन
+                </span>
+
+                <span class="text-[9px] font-[700] text-white bg-blue-600 rounded py-0.5 px-1 block mt-1">
+                    लगभग ₹ 60/माह
+                </span>
+
             </div>
 
-            <!-- Description Glass Box -->
-            <div class="glass-card rounded-[2.5rem] p-6 sm:p-10 mb-10 shadow-xl border border-slate-200/80 relative">
-                <h3 class="text-xl sm:text-2xl font-[900] text-slate-900 mb-4 flex items-center gap-3">
-                    <span class="w-3 h-8 bg-orange-600 rounded-full"></span>
-                    Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+
+            <div class="border-2 border-orange-500 rounded-xl p-3 text-center bg-white shadow-xs">
+
+                <span class="text-xl font-[900] text-orange-600 block">
+                    ₹5
+                </span>
+
+                <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">
+                    DAILY SUPPORTER
+                </span>
+
+                <span class="text-[10px] font-[800] text-slate-800 block">
+                    ₹ 5 प्रति दिन
+                </span>
+
+                <span class="text-[9px] font-[700] text-white bg-orange-500 rounded py-0.5 px-1 block mt-1">
+                    लगभग ₹ 150/माह
+                </span>
+
+            </div>
+
+
+            <div class="border-2 border-pink-600 rounded-xl p-3 text-center bg-white shadow-xs">
+
+                <span class="text-xl font-[900] text-pink-600 block">
+                    ₹10
+                </span>
+
+                <span class="text-[8px] font-[900] tracking-wider text-slate-800 uppercase block border-t border-b border-slate-300 py-0.5 my-1">
+                    DAILY SUPPORTER
+                </span>
+
+                <span class="text-[10px] font-[800] text-slate-800 block">
+                    ₹ 10 प्रति दिन
+                </span>
+
+                <span class="text-[9px] font-[700] text-white bg-pink-600 rounded py-0.5 px-1 block mt-1">
+                    लगभग ₹ 300/माह
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- POPUP DONATE -->
+
+        <a
+            href="donate.html"
+            id="popup-donate-btn"
+            class="btn-pulse block w-full text-center bg-red-600 hover:bg-red-700 text-white font-[900] py-3.5 rounded-xl shadow-lg transition-all text-sm tracking-wide uppercase">
+
+            <i class="fa-solid fa-heart mr-1"></i>
+
+            DONATE NOW
+
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MAIN DONATION SECTION
+========================================================= -->
+
+<section
+    id="donate"
+    class="py-24 bg-gradient-to-b from-slate-50 via-orange-50/30 to-white relative overflow-hidden">
+
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-400/10 rounded-full blur-3xl pointer-events-none">
+    </div>
+
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+
+
+        <!-- TITLE -->
+
+        <div
+            class="bg-white border-2 border-blue-900 rounded-2xl p-6 sm:p-8 text-center mb-6 shadow-md">
+
+            <h2
+                class="font-[900] tracking-tight flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-2xl sm:text-4xl md:text-5xl">
+
+                <span class="text-red-600">
+                    आपका ₹1,
+                </span>
+
+                <span class="text-blue-900">
+                    किसी की मुस्कान
+                </span>
+
+                <span class="smiley-anim text-3xl sm:text-4xl md:text-5xl">
+                    😊
+                </span>
+
+            </h2>
+
+            <p class="text-xs sm:text-sm font-[800] text-slate-600 mt-2">
+                Your ₹1, Someone’s Smile
+            </p>
+
+        </div>
+
+
+        <!-- SUB BANNER -->
+
+        <div
+            class="bg-blue-950 text-white text-center py-3.5 px-6 rounded-xl font-[900] text-sm sm:text-lg mb-8 shadow-md">
+
+            रोज़ ₹1 – बदलाव की ओर साथ चले हम!
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div
+            class="glass-card rounded-[2.5rem] p-6 sm:p-10 mb-10 shadow-xl border border-slate-200/80 relative">
+
+            <h3
+                class="text-xl sm:text-2xl font-[900] text-slate-900 mb-4 flex items-center gap-3">
+
+                <span class="w-3 h-8 bg-orange-600 rounded-full"></span>
+
+                Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+
+            </h3>
+
+
+            <p
+                class="text-slate-700 mb-4 leading-relaxed text-base font-[700]">
+
+                हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
+
+            </p>
+
+
+            <p
+                class="text-slate-500 text-sm leading-relaxed mb-6 font-[700] italic">
+
+                A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+
+            </p>
+
+
+            <div
+                class="p-4 bg-orange-500/10 border-l-4 border-orange-500 rounded-r-2xl text-slate-800 text-sm font-[800]">
+
+                अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
+
+                <span class="block text-xs text-slate-600 font-[700] mt-1">
+
+                    Choose a daily contribution that suits you and become part of our efforts to support those in need.
+
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- DONATION PLANS -->
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+
+
+            <div class="card-base card-1 rounded-2xl p-5 text-center shadow-md">
+
+                <span class="text-3xl sm:text-4xl font-[900] text-green-700 block mb-1">
+                    ₹1
+                </span>
+
+                <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">
+                    DAILY SUPPORTER
+                </div>
+
+                <span class="text-xs font-[800] text-slate-900 block mb-2">
+                    ₹ 1 प्रति दिन
+                </span>
+
+                <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">
+                    लगभग ₹ 30/माह
+                </div>
+
+            </div>
+
+
+            <div class="card-base card-2 rounded-2xl p-5 text-center shadow-md">
+
+                <span class="text-3xl sm:text-4xl font-[900] text-blue-700 block mb-1">
+                    ₹2
+                </span>
+
+                <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">
+                    DAILY SUPPORTER
+                </div>
+
+                <span class="text-xs font-[800] text-slate-900 block mb-2">
+                    ₹ 2 प्रति दिन
+                </span>
+
+                <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">
+                    लगभग ₹ 60/माह
+                </div>
+
+            </div>
+
+
+            <div class="card-base card-5 rounded-2xl p-5 text-center shadow-md">
+
+                <span class="text-3xl sm:text-4xl font-[900] text-orange-600 block mb-1">
+                    ₹5
+                </span>
+
+                <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">
+                    DAILY SUPPORTER
+                </div>
+
+                <span class="text-xs font-[800] text-slate-900 block mb-2">
+                    ₹ 5 प्रति दिन
+                </span>
+
+                <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">
+                    लगभग ₹ 150/माह
+                </div>
+
+            </div>
+
+
+            <div class="card-base card-10 rounded-2xl p-5 text-center shadow-md">
+
+                <span class="text-3xl sm:text-4xl font-[900] text-pink-600 block mb-1">
+                    ₹10
+                </span>
+
+                <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">
+                    DAILY SUPPORTER
+                </div>
+
+                <span class="text-xs font-[800] text-slate-900 block mb-2">
+                    ₹ 10 प्रति दिन
+                </span>
+
+                <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">
+                    लगभग ₹ 300/माह
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN DONATE BUTTON -->
+
+        <div class="text-center">
+
+            <a
+                href="donate.html"
+                class="btn-pulse inline-block bg-red-600 hover:bg-red-700 text-white font-[900] px-16 py-5 rounded-2xl shadow-2xl text-lg tracking-wider uppercase transition-all transform hover:scale-105">
+
+                <i class="fa-solid fa-heart text-white mr-2"></i>
+
+                DONATE NOW
+
+                <i class="fa-solid fa-arrow-right ml-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ABOUT US
+========================================================= -->
+
+<section
+    id="about"
+    class="py-20 bg-slate-100/80 border-t border-slate-200/80">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+                About Us | हमारे बारे में
+            </h2>
+
+            <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
+        </div>
+
+
+        <div
+            class="bg-white rounded-[2.5rem] p-6 sm:p-12 shadow-sm border border-slate-200/80 mb-12">
+
+            <p
+                class="text-slate-800 text-base sm:text-xl leading-relaxed mb-5 font-[700]">
+
+                साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+
+            </p>
+
+
+            <p
+                class="text-slate-500 text-sm sm:text-base leading-relaxed font-[700] italic border-t border-slate-100 pt-5">
+
+                Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+
+            </p>
+
+        </div>
+
+
+        <div class="text-center mb-8">
+
+            <h3 class="text-2xl sm:text-3xl font-[900] text-slate-900">
+
+                Our Mission & Our Vision |
+                हमारा मिशन और हमारा विज़न
+
+            </h3>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-2 gap-8 mb-16">
+
+
+            <div
+                class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-8 sm:p-10 rounded-[2.5rem] shadow-xl">
+
+                <div class="flex items-center gap-3.5 mb-4">
+
+                    <i class="fa-solid fa-bullseye text-3xl text-orange-200"></i>
+
+                    <h4 class="text-2xl font-[900]">
+                        Our Mission | हमारा मिशन
+                    </h4>
+
+                </div>
+
+                <p class="text-orange-50 font-[700] mb-3 text-sm sm:text-base">
+
+                    हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
+
+                </p>
+
+                <p class="text-orange-100 text-xs sm:text-sm font-[700] italic">
+
+                    Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
+
+                </p>
+
+            </div>
+
+
+            <div
+                class="bg-gradient-to-br from-slate-900 to-slate-950 text-white p-8 sm:p-10 rounded-[2.5rem] shadow-xl">
+
+                <div class="flex items-center gap-3.5 mb-4">
+
+                    <i class="fa-solid fa-eye text-3xl text-orange-400"></i>
+
+                    <h4 class="text-2xl font-[900]">
+                        Our Vision | हमारा विज़न
+                    </h4>
+
+                </div>
+
+                <p class="text-slate-200 font-[700] mb-3 text-sm sm:text-base">
+
+                    हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
+
+                </p>
+
+                <p class="text-slate-400 text-xs sm:text-sm font-[700] italic">
+
+                    Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- VALUES -->
+
+        <div class="mb-16">
+
+            <h3
+                class="text-2xl font-[900] text-center text-slate-900 mb-8">
+
+                Our Values | हमारे मूल्य
+
+            </h3>
+
+
+            <div
+                class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3.5">
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-hand-holding-heart text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">1. सेवा</span>
+                    <span class="block text-[10px] text-slate-500">Service</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-scale-balanced text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">2. समानता</span>
+                    <span class="block text-[10px] text-slate-500">Equality</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-shield-halved text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">3. ईमानदारी</span>
+                    <span class="block text-[10px] text-slate-500">Integrity</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-eye text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">4. पारदर्शिता</span>
+                    <span class="block text-[10px] text-slate-500">Transparency</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-heart text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">5. करुणा</span>
+                    <span class="block text-[10px] text-slate-500">Compassion</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
+                    <i class="fa-solid fa-hand-fist text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">6. सशक्तिकरण</span>
+                    <span class="block text-[10px] text-slate-500">Empowerment</span>
+                </div>
+
+
+                <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors col-span-2 sm:col-span-2 lg:col-span-1">
+                    <i class="fa-solid fa-people-group text-2xl text-orange-500 mb-2.5"></i>
+                    <span class="block font-[900] text-xs text-slate-800">7. सामुदायिक भागीदारी</span>
+                    <span class="block text-[10px] text-slate-500">Community Part.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WORK
+========================================================= -->
+
+<section
+    id="work"
+    class="py-20 bg-white">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-14">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+
+                Our Key Areas of Work |
+                हमारे प्रमुख कार्य क्षेत्र
+
+            </h2>
+
+            <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
+        </div>
+
+
+        <div
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+
+
+            <!-- WORK ITEM -->
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-graduation-cap text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        1. शिक्षा एवं बाल विकास
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Education & Child Development
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-person-dress text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        2. महिला सशक्तिकरण एवं विकास
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Women Empowerment
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-user-doctor text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        3. स्वास्थ्य एवं चिकित्सा
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Health & Medical Care
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-hands-holding-child text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        4. गरीब एवं जरूरतमंद कल्याण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Welfare of Poor & Needy
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-wheelchair text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        5. दिव्यांगजन कल्याण एवं सशक्तिकरण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Disability Welfare
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-person-cane text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        6. वृद्धजन कल्याण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Senior Citizen Welfare
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-laptop-code text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        7. युवा विकास एवं कौशल विकास
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Youth & Skill Development
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-briefcase text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        8. रोजगार, स्वरोजगार एवं आजीविका
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Employment & Livelihood
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-house-chimney text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        9. ग्रामीण विकास एवं ग्राम उत्थान
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Rural Development
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-wheat-awn text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        10. कृषि एवं किसान कल्याण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Agriculture & Farmer Welfare
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-seedling text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        11. पर्यावरण एवं जल संरक्षण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Environment Conservation
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-faucet-drip text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        12. स्वच्छता, पेयजल एवं पोषण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Sanitation & Nutrition
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-paw text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        13. पशु कल्याण एवं संरक्षण
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Animal Welfare
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-kit-medical text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        14. आपदा राहत एवं पुनर्वास
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Disaster Relief
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-gavel text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Social Justice, Human Rights & Legal Awareness
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
+
+                <i class="fa-solid fa-mobile-screen-button text-orange-600 text-xl mt-0.5"></i>
+
+                <div>
+                    <h4 class="font-[900] text-slate-900 text-sm">
+                        16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास
+                    </h4>
+                    <p class="text-xs font-[700] text-slate-500 mt-0.5">
+                        Digital Education, Public Awareness & Social Development
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     TEAM
+========================================================= -->
+
+<section
+    id="team"
+    class="py-20 bg-slate-100/80 border-t border-slate-200/80">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+                Our Team | हमारी टीम
+            </h2>
+
+            <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
+
+                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-users-gear"></i>
+
+                </div>
+
+                <h3 class="font-[900] text-lg text-slate-800 mb-1">
+                    1. Board of Trustees
                 </h3>
-                
-                <p class="text-slate-700 mb-4 leading-relaxed text-base font-[700]">
-                    हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
-                </p>
-                
-                <p class="text-slate-500 text-sm leading-relaxed mb-6 font-[700] italic">
-                    A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+
+                <p class="text-sm font-[800] text-orange-600">
+                    न्यास मंडल
                 </p>
 
-                <div class="p-4 bg-orange-500/10 border-l-4 border-orange-500 rounded-r-2xl text-slate-800 text-sm font-[800]">
-                    अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
-                    <span class="block text-xs text-slate-600 font-[700] mt-1">Choose a daily contribution that suits you and become part of our efforts to support those in need.</span>
-                </div>
             </div>
 
-            <!-- 4 Separate Cards Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
-                
-                <div class="card-base card-1 rounded-2xl p-5 text-center shadow-md bg-white">
-                    <span class="text-3xl sm:text-4xl font-[900] text-green-700 block mb-1">₹1</span>
-                    <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">DAILY SUPPORTER</div>
-                    <span class="text-xs font-[800] text-slate-900 block mb-2">₹ 1 प्रति दिन</span>
-                    <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">लगभग ₹ 30/माह</div>
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
+
+                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-user-tie"></i>
+
                 </div>
 
-                <div class="card-base card-2 rounded-2xl p-5 text-center shadow-md bg-white">
-                    <span class="text-3xl sm:text-4xl font-[900] text-blue-700 block mb-1">₹2</span>
-                    <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">DAILY SUPPORTER</div>
-                    <span class="text-xs font-[800] text-slate-900 block mb-2">₹ 2 प्रति दिन</span>
-                    <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">लगभग ₹ 60/माह</div>
-                </div>
+                <h3 class="font-[900] text-lg text-slate-800 mb-1">
+                    2. Advisory Board
+                </h3>
 
-                <div class="card-base card-5 rounded-2xl p-5 text-center shadow-md bg-white">
-                    <span class="text-3xl sm:text-4xl font-[900] text-orange-600 block mb-1">₹5</span>
-                    <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">DAILY SUPPORTER</div>
-                    <span class="text-xs font-[800] text-slate-900 block mb-2">₹ 5 प्रति दिन</span>
-                    <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">लगभग ₹ 150/माह</div>
-                </div>
-
-                <div class="card-base card-10 rounded-2xl p-5 text-center shadow-md bg-white">
-                    <span class="text-3xl sm:text-4xl font-[900] text-pink-600 block mb-1">₹10</span>
-                    <div class="text-[9px] font-[900] tracking-widest uppercase py-1 border-t border-b border-slate-200 my-2 text-slate-800">DAILY SUPPORTER</div>
-                    <span class="text-xs font-[800] text-slate-900 block mb-2">₹ 10 प्रति दिन</span>
-                    <div class="card-btn text-[11px] font-[800] py-1.5 px-2 rounded-lg">लगभग ₹ 300/माह</div>
-                </div>
-
-            </div>
-
-            <!-- Big Impact Donate Button -->
-            <div class="text-center">
-                <button class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-[900] px-16 py-5 rounded-2xl shadow-2xl text-lg tracking-wider uppercase transition-all transform hover:scale-105">
-                    <i class="fa-solid fa-heart text-white mr-2"></i> DONATE NOW <i class="fa-solid fa-arrow-right ml-2"></i>
-                </button>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- ABOUT US SECTION -->
-    <section id="about" class="py-20 bg-slate-100/80 border-t border-slate-200/80">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">About Us | हमारे बारे में</h2>
-                <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
-            
-            <div class="bg-white rounded-[2.5rem] p-6 sm:p-12 shadow-sm border border-slate-200/80 mb-12">
-                <p class="text-slate-800 text-base sm:text-xl leading-relaxed mb-5 font-[700]">
-                    साथ चले हम फाउंडेशन एक सामाजिक संस्था है, जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण, गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास, कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
+                <p class="text-sm font-[800] text-orange-600">
+                    सलाहकार मंडल
                 </p>
-                <p class="text-slate-500 text-sm sm:text-base leading-relaxed font-[700] italic border-t border-slate-100 pt-5">
-                    Sath Chale Hum Foundation is a social organization committed to bringing positive change in areas such as education, healthcare, women empowerment, support for poor and needy people, rural development, skill development, environmental protection, and social awareness.
+
+            </div>
+
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
+
+                <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
+
+                    <i class="fa-solid fa-sitemap"></i>
+
+                </div>
+
+                <h3 class="font-[900] text-lg text-slate-800 mb-1">
+                    3. Program Team
+                </h3>
+
+                <p class="text-sm font-[800] text-orange-600">
+                    कार्यक्रम संचालन टीम
                 </p>
-            </div>
 
-            <!-- Mission & Vision -->
-            <div class="text-center mb-8">
-                <h3 class="text-2xl sm:text-3xl font-[900] text-slate-900">Our Mission & Our Vision | हमारा मिशन और हमारा विज़न</h3>
-            </div>
-            <div class="grid md:grid-cols-2 gap-8 mb-16">
-                <div class="bg-gradient-to-br from-orange-500 to-amber-600 text-white p-8 sm:p-10 rounded-[2.5rem] shadow-xl">
-                    <div class="flex items-center gap-3.5 mb-4">
-                        <i class="fa-solid fa-bullseye text-3xl text-orange-200"></i>
-                        <h4 class="text-2xl font-[900]">Our Mission | हमारा मिशन</h4>
-                    </div>
-                    <p class="text-orange-50 font-[700] mb-3 text-sm sm:text-base">
-                        हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और विकास के अवसर पहुँचाना है।
-                    </p>
-                    <p class="text-orange-100 text-xs sm:text-sm font-[700] italic">
-                        Our mission is to provide education, healthcare, support, skills, awareness, and development opportunities to people in need and underserved communities.
-                    </p>
-                </div>
-
-                <div class="bg-gradient-to-br from-slate-900 to-slate-950 text-white p-8 sm:p-10 rounded-[2.5rem] shadow-xl">
-                    <div class="flex items-center gap-3.5 mb-4">
-                        <i class="fa-solid fa-eye text-3xl text-orange-400"></i>
-                        <h4 class="text-2xl font-[900]">Our Vision | हमारा विज़न</h4>
-                    </div>
-                    <p class="text-slate-200 font-[700] mb-3 text-sm sm:text-base">
-                        हमारा विज़न एक ऐसे समावेशी, जागरूक, आत्मनिर्भर और सशक्त समाज का निर्माण करना है, जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने का अधिकार मिले।
-                    </p>
-                    <p class="text-slate-400 text-xs sm:text-sm font-[700] italic">
-                        Our vision is to build an inclusive, aware, self-reliant, and empowered society where every person has the right to dignity, opportunities, and the chance to move forward.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Our Values -->
-            <div class="mb-16">
-                <h3 class="text-2xl font-[900] text-center text-slate-900 mb-8">Our Values | हमारे मूल्य</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3.5">
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-hand-holding-heart text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">1. सेवा</span>
-                        <span class="block text-[10px] text-slate-500">Service</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-scale-balanced text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">2. समानता</span>
-                        <span class="block text-[10px] text-slate-500">Equality</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-shield-halved text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">3. ईमानदारी</span>
-                        <span class="block text-[10px] text-slate-500">Integrity</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-eye text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">4. पारदर्शिता</span>
-                        <span class="block text-[10px] text-slate-500">Transparency</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-heart text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">5. करुणा</span>
-                        <span class="block text-[10px] text-slate-500">Compassion</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors">
-                        <i class="fa-solid fa-hand-fist text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">6. सशक्तिकरण</span>
-                        <span class="block text-[10px] text-slate-500">Empowerment</span>
-                    </div>
-                    <div class="bg-white p-5 rounded-2xl text-center border border-slate-200 shadow-xs hover:border-orange-500 transition-colors col-span-2 sm:col-span-2 lg:col-span-1">
-                        <i class="fa-solid fa-people-group text-2xl text-orange-500 mb-2.5"></i>
-                        <span class="block font-[900] text-xs text-slate-800">7. सामुदायिक भागीदारी</span>
-                        <span class="block text-[10px] text-slate-500">Community Part.</span>
-                    </div>
-                </div>
             </div>
 
         </div>
-    </section>
 
-    <!-- KEY AREAS OF WORK SECTION -->
-    <section id="work" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-14">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">Our Key Areas of Work | हमारे प्रमुख कार्य क्षेत्र</h2>
-                <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
+    </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-graduation-cap text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">1. शिक्षा एवं बाल विकास</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Education & Child Development</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-person-dress text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">2. महिला सशक्तिकरण एवं विकास</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Women Empowerment</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-user-doctor text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">3. स्वास्थ्य एवं चिकित्सा</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Health & Medical Care</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-hands-holding-child text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">4. गरीब एवं जरूरतमंद कल्याण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Welfare of Poor & Needy</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-wheelchair text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">5. दिव्यांगजन कल्याण एवं सशक्तिकरण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Disability Welfare</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-person-cane text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">6. वृद्धजन कल्याण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Senior Citizen Welfare</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-laptop-code text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">7. युवा विकास एवं कौशल विकास</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Youth & Skill Development</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-briefcase text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">8. रोजगार, स्वरोजगार एवं आजीविका</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Employment & Livelihood</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-house-chimney text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">9. ग्रामीण विकास एवं ग्राम उत्थान</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Rural Development</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-wheat-awn text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">10. कृषि एवं किसान कल्याण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Agriculture & Farmer Welfare</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-seedling text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">11. पर्यावरण एवं जल संरक्षण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Environment Conservation</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-faucet-drip text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">12. स्वच्छता, पेयजल एवं पोषण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Sanitation & Nutrition</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-paw text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">13. पशु कल्याण एवं संरक्षण</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Animal Welfare</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-kit-medical text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">14. आपदा राहत एवं पुनर्वास</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Disaster Relief</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-gavel text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">15. सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Social Justice, Human Rights & Legal Awareness</p>
-                    </div>
-                </div>
-                <div class="p-5 bg-slate-50 hover:bg-orange-50/40 border border-slate-200/80 rounded-2xl flex items-start gap-3.5 transition-all shadow-xs">
-                    <i class="fa-solid fa-mobile-screen-button text-orange-600 text-xl mt-0.5"></i>
-                    <div>
-                        <h4 class="font-[900] text-slate-900 text-sm">16. डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास</h4>
-                        <p class="text-xs font-[700] text-slate-500 mt-0.5">Digital Education, Public Awareness & Social Development</p>
-                    </div>
-                </div>
-            </div>
+</section>
+
+
+
+<!-- =========================================================
+     WAY OF WORKING
+========================================================= -->
+
+<section class="py-20 bg-white">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-14">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+                Our Way of Working |
+                हमारा काम करने का तरीका
+            </h2>
+
+            <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
         </div>
-    </section>
 
-    <!-- OUR TEAM SECTION -->
-    <section id="team" class="py-20 bg-slate-100/80 border-t border-slate-200/80">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">Our Team | हमारी टीम</h2>
-                <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
-                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-users-gear"></i>
-                    </div>
-                    <h3 class="font-[900] text-lg text-slate-800 mb-1">1. Board of Trustees</h3>
-                    <p class="text-sm font-[800] text-orange-600">न्यास मंडल</p>
-                </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
-                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    <h3 class="font-[900] text-lg text-slate-800 mb-1">2. Advisory Board</h3>
-                    <p class="text-sm font-[800] text-orange-600">सलाहकार मंडल</p>
-                </div>
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-xs">
-                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">
-                        <i class="fa-solid fa-sitemap"></i>
-                    </div>
-                    <h3 class="font-[900] text-lg text-slate-800 mb-1">3. Program Team</h3>
-                    <p class="text-sm font-[800] text-orange-600">कार्यक्रम संचालन टीम</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
 
-    <!-- WAY OF WORKING SECTION -->
-    <section class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-14">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">Our Way of Working | हमारा काम करने का तरीका</h2>
-                <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
+                <i class="fa-solid fa-hand-holding-heart text-3xl text-orange-500 mb-3.5"></i>
 
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-                <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
-                    <i class="fa-solid fa-hand-holding-heart text-3xl text-orange-500 mb-3.5"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">1. सीधी मदद</h4>
-                    <p class="text-xs font-[700] text-slate-500">Direct Help</p>
-                </div>
-                <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
-                    <i class="fa-solid fa-handshake text-3xl text-orange-500 mb-3.5"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">2. मिलकर काम करना</h4>
-                    <p class="text-xs font-[700] text-slate-500">Working Together</p>
-                </div>
-                <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
-                    <i class="fa-solid fa-shield text-3xl text-orange-500 mb-3.5"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">3. ईमानदारी और पारदर्शिता</h4>
-                    <p class="text-xs font-[700] text-slate-500">Honesty & Transparency</p>
-                </div>
-                <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
-                    <i class="fa-solid fa-users text-3xl text-orange-500 mb-3.5"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">4. समुदाय की भागीदारी</h4>
-                    <p class="text-xs font-[700] text-slate-500">Community Participation</p>
-                </div>
-                <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1">
-                    <i class="fa-solid fa-scale-balanced text-3xl text-orange-500 mb-3.5"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">5. समानता और सम्मान</h4>
-                    <p class="text-xs font-[700] text-slate-500">Equality & Respect</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    1. सीधी मदद
+                </h4>
 
-    <!-- HOW YOU CAN HELP -->
-    <section class="py-20 bg-slate-100/80 border-t border-slate-200/80">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-14">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">How You Can Help | आप हमारी मदद कैसे कर सकते हैं?</h2>
-                <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
-
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-                <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
-                    <i class="fa-regular fa-clock text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">1. अपना समय दें</h4>
-                    <p class="text-xs font-[700] text-slate-500">Give Your Time</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
-                    <i class="fa-solid fa-donate text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">2. दान दें</h4>
-                    <p class="text-xs font-[700] text-slate-500">Donate</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
-                    <i class="fa-solid fa-hands-holding text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">3. सहयोग करें</h4>
-                    <p class="text-xs font-[700] text-slate-500">Support Us</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
-                    <i class="fa-solid fa-bullhorn text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">4. जागरूकता फैलाएँ</h4>
-                    <p class="text-xs font-[700] text-slate-500">Spread Awareness</p>
-                </div>
-                <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs col-span-2 sm:col-span-1">
-                    <i class="fa-solid fa-comment-dots text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-sm text-slate-800 mb-1">5. अपनी आवाज़ बनें</h4>
-                    <p class="text-xs font-[700] text-slate-500">Be a Voice for Change</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EVENTS SECTION -->
-    <section id="events" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">Events | कार्यक्रम</h2>
-                <p class="text-orange-600 font-[800] mt-1">Events & Social Activities</p>
-                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
-            </div>
-
-            <div class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-[2.5rem] p-10 text-center shadow-xl">
-                <i class="fa-solid fa-calendar-days text-4xl text-orange-200 mb-4"></i>
-                <p class="text-base sm:text-xl font-[700] max-w-2xl mx-auto leading-relaxed">
-                    साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
+                <p class="text-xs font-[700] text-slate-500">
+                    Direct Help
                 </p>
-            </div>
-        </div>
-    </section>
 
-    <!-- JOIN US SECTION -->
-    <section class="py-20 bg-slate-950 text-white relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
-            <h2 class="text-3xl sm:text-5xl font-[900] mb-4">Join Us | हमारे साथ जुड़ें!</h2>
-            <p class="text-base sm:text-lg text-slate-300 mb-2 font-[700]">
-                हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।
-            </p>
-            <p class="text-slate-400 mb-2 text-sm font-[700]">
-                आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
-            </p>
-            <p class="text-xs text-slate-500 italic mb-10 font-[700]">
-                Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
+            </div>
+
+
+            <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
+
+                <i class="fa-solid fa-handshake text-3xl text-orange-500 mb-3.5"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    2. मिलकर काम करना
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Working Together
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
+
+                <i class="fa-solid fa-shield text-3xl text-orange-500 mb-3.5"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    3. ईमानदारी और पारदर्शिता
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Honesty & Transparency
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs">
+
+                <i class="fa-solid fa-users text-3xl text-orange-500 mb-3.5"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    4. समुदाय की भागीदारी
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Community Participation
+                </p>
+
+            </div>
+
+
+            <div class="bg-slate-50 p-6 rounded-3xl text-center border border-slate-200/80 shadow-xs col-span-2 sm:col-span-1">
+
+                <i class="fa-solid fa-scale-balanced text-3xl text-orange-500 mb-3.5"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    5. समानता और सम्मान
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Equality & Respect
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOW YOU CAN HELP
+========================================================= -->
+
+<section class="py-20 bg-slate-100/80 border-t border-slate-200/80">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-14">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+
+                How You Can Help |
+                आप हमारी मदद कैसे कर सकते हैं?
+
+            </h2>
+
+            <div class="w-24 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
+        </div>
+
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+
+
+            <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
+
+                <i class="fa-regular fa-clock text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    1. अपना समय दें
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Give Your Time
+                </p>
+
+            </div>
+
+
+            <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
+
+                <i class="fa-solid fa-donate text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    2. दान दें
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Donate
+                </p>
+
+            </div>
+
+
+            <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
+
+                <i class="fa-solid fa-hands-holding text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    3. सहयोग करें
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Support Us
+                </p>
+
+            </div>
+
+
+            <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs">
+
+                <i class="fa-solid fa-bullhorn text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    4. जागरूकता फैलाएँ
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Spread Awareness
+                </p>
+
+            </div>
+
+
+            <div class="bg-white p-6 rounded-3xl text-center border border-slate-200 shadow-xs col-span-2 sm:col-span-1">
+
+                <i class="fa-solid fa-comment-dots text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-sm text-slate-800 mb-1">
+                    5. अपनी आवाज़ बनें
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-500">
+                    Be a Voice for Change
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EVENTS
+========================================================= -->
+
+<section
+    id="events"
+    class="py-20 bg-white">
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-10">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+                Events | कार्यक्रम
+            </h2>
+
+            <p class="text-orange-600 font-[800] mt-1">
+                Events & Social Activities
             </p>
 
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#donate" class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
-                    Donate Us
-                </a>
-                <a href="join-us.html" class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
-                    Join Us
-                </a>
-                <a href="#" class="btn-pulse bg-blue-600 hover:bg-blue-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
-                    Downloads
-                </a>
-            </div>
+            <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+
         </div>
-    </section>
 
-    <!-- CONTACT US SECTION -->
-    <section class="py-20 bg-slate-100/80 border-t border-slate-200/80">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">📞 Contact Us | हमसे संपर्क करें</h2>
-                <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
-            </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
-                    <i class="fa-solid fa-location-dot text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-slate-800 mb-2">📍 पता | Address</h4>
-                    <p class="text-xs font-[700] text-slate-600 leading-relaxed">
-                        भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
-                    </p>
-                </div>
+        <div
+            class="bg-gradient-to-r from-orange-500 to-amber-600 text-white rounded-[2.5rem] p-10 text-center shadow-xl">
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
-                    <i class="fa-solid fa-envelope text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-slate-800 mb-2">📧 ईमेल | Email</h4>
-                    <a href="mailto:sathchaleham@gmail.com" class="text-xs font-[800] text-orange-600 hover:underline">
-                        sathchaleham@gmail.com
-                    </a>
-                </div>
+            <i class="fa-solid fa-calendar-days text-4xl text-orange-200 mb-4"></i>
 
-                <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
-                    <i class="fa-solid fa-phone-volume text-3xl text-orange-500 mb-4"></i>
-                    <h4 class="font-[900] text-slate-800 mb-2">☎️ हेल्पलाइन | Helpline</h4>
-                    <a href="tel:+917011893028" class="text-xs font-[800] text-orange-600 hover:underline">
-                        +91 7011893028
-                    </a>
-                </div>
-            </div>
+            <p
+                class="text-base sm:text-xl font-[700] max-w-2xl mx-auto leading-relaxed">
+
+                साथ चले हम Foundation द्वारा समाज के विभिन्न क्षेत्रों में सकारात्मक बदलाव के लिए कार्यक्रम और सामाजिक गतिविधियाँ आयोजित की जाती हैं।
+
+            </p>
+
         </div>
-    </section>
 
-    <!-- FOOTER SECTION -->
-    <footer class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
-                        <span class="font-[900] text-white text-lg">Chale Hum Foundation</span>
-                    </div>
-                    <p class="text-sm font-[800] text-orange-400">साथ चले हम – बदलाव की ओर</p>
-                    <p class="text-xs font-[700] text-slate-400 italic">Step Together Towards Change</p>
-                </div>
+    </div>
 
-                <div>
-                    <h4 class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
-                        Our Social Media
-                    </h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="Facebook">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="Instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="YouTube">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
+</section>
 
-                <div>
-                    <h4 class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
-                        Quick Links | महत्वपूर्ण लिंक
-                    </h4>
-                    <div class="grid grid-cols-2 gap-2 text-xs font-[700]">
-                        <a href="#home" class="hover:text-orange-400">Home | होम</a>
-                        <a href="#about" class="hover:text-orange-400">About Us | हमारे बारे में</a>
-                        <a href="#work" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
-                        <a href="#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
-                        <a href="#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
-                        <a href="join-us.html" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
-                        <a href="#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
-                        <a href="#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
-                    </div>
-                </div>
+
+
+<!-- =========================================================
+     JOIN US
+========================================================= -->
+
+<section
+    class="py-20 bg-slate-950 text-white relative overflow-hidden">
+
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+
+        <h2 class="text-3xl sm:text-5xl font-[900] mb-4">
+            Join Us | हमारे साथ जुड़ें!
+        </h2>
+
+
+        <p class="text-base sm:text-lg text-slate-300 mb-2 font-[700]">
+
+            हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।
+
+        </p>
+
+
+        <p class="text-slate-400 mb-2 text-sm font-[700]">
+
+            आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।
+
+        </p>
+
+
+        <p class="text-xs text-slate-500 italic mb-10 font-[700]">
+
+            Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.
+
+        </p>
+
+
+        <div class="flex flex-wrap justify-center gap-4">
+
+
+            <!-- DONATE -->
+
+            <a
+                href="donate.html"
+                class="btn-pulse bg-red-600 hover:bg-red-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
+
+                Donate Us
+
+            </a>
+
+
+            <!-- JOIN -->
+
+            <a
+                href="join-us.html"
+                class="btn-pulse bg-orange-500 hover:bg-orange-600 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
+
+                Join Us
+
+            </a>
+
+
+            <!-- DOWNLOADS -->
+
+            <a
+                href="#"
+                class="btn-pulse bg-blue-600 hover:bg-blue-700 text-white font-[900] px-8 py-4 rounded-2xl shadow-xl transition-all">
+
+                Downloads
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section
+    id="contact"
+    class="py-20 bg-slate-100/80 border-t border-slate-200/80">
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+
+        <div class="text-center mb-12">
+
+            <h2 class="text-3xl sm:text-4xl font-[900] text-slate-900">
+
+                📞 Contact Us | हमसे संपर्क करें
+
+            </h2>
+
+            <div class="w-20 h-1 bg-orange-500 mx-auto mt-3 rounded-full"></div>
+
+        </div>
+
+
+        <div class="grid md:grid-cols-3 gap-6">
+
+
+            <!-- ADDRESS -->
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
+
+                <i class="fa-solid fa-location-dot text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-slate-800 mb-2">
+                    📍 पता | Address
+                </h4>
+
+                <p class="text-xs font-[700] text-slate-600 leading-relaxed">
+
+                    भारतीय नगर, वार्ड नं. 26/35, नजदीक रेलवे वाशिंग पिट, सिमरी-बख्तियारपुर रोड, सहरसा, बिहार, भारत – 852201
+
+                </p>
+
             </div>
 
-            <!-- Terms & Conditions / Privacy Policy right above Copyright Section -->
-            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-[700] text-slate-500">
+
+            <!-- EMAIL -->
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
+
+                <i class="fa-solid fa-envelope text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-slate-800 mb-2">
+                    📧 ईमेल | Email
+                </h4>
+
+                <a
+                    href="mailto:sathchaleham@gmail.com"
+                    class="text-xs font-[800] text-orange-600 hover:underline">
+
+                    sathchaleham@gmail.com
+
+                </a>
+
+            </div>
+
+
+            <!-- PHONE -->
+
+            <div class="bg-white p-8 rounded-3xl border border-slate-200 shadow-xs text-center">
+
+                <i class="fa-solid fa-phone-volume text-3xl text-orange-500 mb-4"></i>
+
+                <h4 class="font-[900] text-slate-800 mb-2">
+                    ☎️ हेल्पलाइन | Helpline
+                </h4>
+
+                <a
+                    href="tel:+917011893028"
+                    class="text-xs font-[800] text-orange-600 hover:underline">
+
+                    +91 7011893028
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer
+    class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+
+
+            <!-- BRAND -->
+
+            <div class="space-y-3">
+
+                <div class="flex items-center gap-3">
+
+                    <img
+                        src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+                        alt="Sath Chale Hum Logo"
+                        class="h-10 w-auto">
+
+                    <span class="font-[900] text-white text-lg">
+                        Chale Hum Foundation
+                    </span>
+
+                </div>
+
+
+                <p class="text-sm font-[800] text-orange-400">
+                    साथ चले हम – बदलाव की ओर
+                </p>
+
+
+                <p class="text-xs font-[700] text-slate-400 italic">
+                    Step Together Towards Change
+                </p>
+
+            </div>
+
+
+            <!-- SOCIAL -->
+
+            <div>
+
+                <h4
+                    class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+
+                    Our Social Media
+
+                </h4>
+
+
                 <div class="flex gap-4">
-                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
-                    <span>|</span>
-                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800"
+                        title="Facebook">
+
+                        <i class="fa-brands fa-facebook-f"></i>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800"
+                        title="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <a
+                        href="#"
+                        class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800"
+                        title="YouTube">
+
+                        <i class="fa-brands fa-youtube"></i>
+
+                    </a>
+
                 </div>
-                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+
             </div>
+
+
+            <!-- QUICK LINKS -->
+
+            <div>
+
+                <h4
+                    class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+
+                    Quick Links | महत्वपूर्ण लिंक
+
+                </h4>
+
+
+                <div class="grid grid-cols-2 gap-2 text-xs font-[700]">
+
+
+                    <a
+                        href="index.html"
+                        class="hover:text-orange-400">
+
+                        Home | होम
+
+                    </a>
+
+
+                    <a
+                        href="about.html"
+                        class="hover:text-orange-400">
+
+                        About Us | हमारे बारे में
+
+                    </a>
+
+
+                    <a
+                        href="work.html"
+                        class="hover:text-orange-400">
+
+                        Our Work | हमारे कार्य
+
+                    </a>
+
+
+                    <a
+                        href="team.html"
+                        class="hover:text-orange-400">
+
+                        Our Team | हमारी टीम
+
+                    </a>
+
+
+                    <a
+                        href="donate.html"
+                        class="hover:text-orange-400">
+
+                        Donate Us | दान करें
+
+                    </a>
+
+
+                    <a
+                        href="join-us.html"
+                        class="hover:text-orange-400">
+
+                        Join Us | हमारे साथ जुड़ें
+
+                    </a>
+
+
+                    <a
+                        href="#events"
+                        class="hover:text-orange-400">
+
+                        Events | कार्यक्रम
+
+                    </a>
+
+
+                    <a
+                        href="contact.html"
+                        class="hover:text-orange-400">
+
+                        Contact Us | संपर्क करें
+
+                    </a>
+
+                </div>
+
+            </div>
+
         </div>
-    </footer>
 
-    <!-- INTERACTIVE JAVASCRIPT -->
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+        <!-- COPYRIGHT -->
+
+        <div
+            class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-[700] text-slate-500">
+
+            <div class="flex gap-4">
+
+                <a
+                    href="#"
+                    class="hover:text-slate-300">
+
+                    Terms & Conditions
+
+                </a>
+
+                <span>|</span>
+
+                <a
+                    href="#"
+                    class="hover:text-slate-300">
+
+                    Privacy Policy
+
+                </a>
+
+            </div>
+
+
+            <p>
+                © 2026 Sath Chale Hum Foundation. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+    /* ============================
+       MOBILE MENU
+    ============================ */
+
+    const menuToggle =
+        document.getElementById('menu-toggle');
+
+    const mobileMenu =
+        document.getElementById('mobile-menu');
+
+
+    menuToggle.addEventListener('click', () => {
+
+        mobileMenu.classList.toggle('hidden');
+
+    });
+
+
+    /* ============================
+       CLOSE MOBILE MENU
+       AFTER CLICKING LINK
+    ============================ */
+
+    const mobileLinks =
+        mobileMenu.querySelectorAll('a');
+
+
+    mobileLinks.forEach(link => {
+
+        link.addEventListener('click', () => {
+
+            mobileMenu.classList.add('hidden');
+
         });
 
-        // Hero Slideshow (5 NGO AI Images)
-        const slides = document.querySelectorAll('.hero-slide');
-        let currentSlide = 0;
-        setInterval(() => {
-            if(slides.length > 0) {
-                slides[currentSlide].style.opacity = '0';
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].style.opacity = '1';
+    });
+
+
+    /* ============================
+       HERO SLIDESHOW
+    ============================ */
+
+    const slides =
+        document.querySelectorAll('.hero-slide');
+
+    let currentSlide = 0;
+
+
+    setInterval(() => {
+
+        if (slides.length > 0) {
+
+            slides[currentSlide].style.opacity = '0';
+
+            currentSlide =
+                (currentSlide + 1) % slides.length;
+
+            slides[currentSlide].style.opacity = '1';
+
+        }
+
+    }, 4500);
+
+
+    /* ============================
+       DONATION POPUP
+    ============================ */
+
+    const modal =
+        document.getElementById('donate-modal');
+
+    const closeModal =
+        document.getElementById('close-modal');
+
+
+    window.addEventListener('load', () => {
+
+        setTimeout(() => {
+
+            if (modal) {
+
+                modal.classList.remove('hidden');
+
             }
-        }, 4500);
 
-        // Auto Popup Logic
-        const modal = document.getElementById('donate-modal');
-        const closeModal = document.getElementById('close-modal');
-        const popupBtn = document.getElementById('popup-donate-btn');
+        }, 2000);
 
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                if(modal) modal.classList.remove('hidden');
-            }, 2000);
+    });
+
+
+    /* CLOSE POPUP */
+
+    if (closeModal) {
+
+        closeModal.addEventListener('click', () => {
+
+            modal.classList.add('hidden');
+
         });
 
-        if(closeModal) closeModal.addEventListener('click', () => modal.classList.add('hidden'));
-        if(popupBtn) popupBtn.addEventListener('click', () => modal.classList.add('hidden'));
-    </script>
+    }
+
+
+    /* CLOSE POPUP WHEN CLICKING OUTSIDE */
+
+    if (modal) {
+
+        modal.addEventListener('click', (event) => {
+
+            if (event.target === modal) {
+
+                modal.classList.add('hidden');
+
+            }
+
+        });
+
+    }
+
+</script>
+
+
 </body>
 </html>
