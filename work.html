@@ -1,758 +1,4232 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Key Areas of Work | हमारे प्रमुख कार्य क्षेत्र - साथ चले हम फाउंडेशन</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Our Key Areas of Work | हमारे प्रमुख कार्य क्षेत्र - साथ चले हम फाउंडेशन
+    </title>
+
+    <meta name="description"
+          content="साथ चले हम Foundation के प्रमुख कार्य क्षेत्र - Education, Women Empowerment, Healthcare, Rural Development, Skill Development, Environment, Social Justice और अन्य सामाजिक पहल।">
+
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 
     <style>
-        body {
-            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root{
+
+            --navy:#001254;
+            --deep-blue:#001b5e;
+            --blue:#073b9b;
+
+            --orange:#f37021;
+            --deep-orange:#d95700;
+
+            --red:#d60000;
+            --green:#0d7a3b;
+
+            --light:#f7f9fc;
+            --white:#ffffff;
+
+            --dark:#111827;
+            --muted:#667085;
+
+            --border:#e4e8ef;
+
+            --shadow:
+                0 12px 35px rgba(0,18,84,.10);
+
+            --premium-shadow:
+                0 20px 55px rgba(0,18,84,.14);
+
+            --radius:22px;
         }
 
-        /* Pulsing/Blinking Animation for Key CTA Buttons */
-        @keyframes pulse-glow {
-            0%, 100% {
-                transform: scale(1);
-                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+            font-family:'Mukta',sans-serif;
+            background:#f7f9fc;
+            color:var(--dark);
+            line-height:1.7;
+            overflow-x:hidden;
+        }
+
+        a{
+            text-decoration:none;
+            color:inherit;
+        }
+
+        img{
+            max-width:100%;
+            display:block;
+        }
+
+        .container{
+            width:min(1180px,92%);
+            margin:auto;
+        }
+
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        header{
+
+            position:sticky;
+            top:0;
+            z-index:9999;
+
+            background:rgba(255,255,255,.96);
+
+            backdrop-filter:blur(15px);
+
+            border-bottom:
+                1px solid rgba(0,18,84,.08);
+
+            box-shadow:
+                0 5px 25px rgba(0,18,84,.07);
+        }
+
+
+        .header-inner{
+
+            min-height:82px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            gap:25px;
+        }
+
+
+        .brand{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:12px;
+
+            min-width:250px;
+        }
+
+
+        .logo{
+
+            width:58px;
+
+            height:58px;
+
+            object-fit:contain;
+
+            border-radius:50%;
+        }
+
+
+        .brand-text{
+
+            line-height:1.1;
+        }
+
+
+        .brand-name{
+
+            font-family:'Mukta',sans-serif;
+
+            font-size:1.35rem;
+
+            font-weight:800;
+
+            color:var(--navy);
+        }
+
+
+        .brand-tagline{
+
+            font-family:'Mukta',sans-serif;
+
+            color:var(--orange);
+
+            font-size:.9rem;
+
+            font-weight:700;
+        }
+
+
+        /* =========================================================
+           DESKTOP NAV
+        ========================================================= */
+
+        nav{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:5px;
+        }
+
+
+        nav a{
+
+            position:relative;
+
+            padding:10px 12px;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.72rem;
+
+            font-weight:600;
+
+            color:#1d2939;
+
+            transition:.3s;
+
+            white-space:nowrap;
+        }
+
+
+        nav a:not(.nav-donate)::after{
+
+            content:"";
+
+            position:absolute;
+
+            left:12px;
+
+            right:12px;
+
+            bottom:4px;
+
+            height:2px;
+
+            background:var(--orange);
+
+            transform:scaleX(0);
+
+            transition:.3s;
+        }
+
+
+        nav a:hover{
+
+            color:var(--orange);
+        }
+
+
+        nav a:hover::after{
+
+            transform:scaleX(1);
+        }
+
+
+        /* ACTIVE WORK */
+
+        nav a.active{
+
+            color:var(--orange);
+            font-weight:800;
+        }
+
+
+        nav a.active::after{
+
+            transform:scaleX(1);
+        }
+
+
+        /* =========================================================
+           DONATE NAV
+        ========================================================= */
+
+        .nav-donate{
+
+            color:#fff !important;
+
+            background:var(--orange);
+
+            border-radius:50px;
+
+            padding:11px 18px !important;
+
+            margin-left:5px;
+
+            animation:donateBlink 1.5s infinite;
+        }
+
+
+        @keyframes donateBlink{
+
+            0%,100%{
+
+                opacity:1;
+
+                box-shadow:
+                    0 0 0 0 rgba(243,112,33,.45);
             }
-            50% {
-                transform: scale(1.04);
-                box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.4);
+
+            50%{
+
+                opacity:.82;
+
+                box-shadow:
+                    0 0 0 10px rgba(243,112,33,0);
             }
         }
 
-        .btn-pulse {
-            animation: pulse-glow 2s infinite;
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .menu-toggle{
+
+            display:none;
+
+            width:45px;
+
+            height:45px;
+
+            border:none;
+
+            background:var(--navy);
+
+            color:#fff;
+
+            border-radius:10px;
+
+            cursor:pointer;
+
+            font-size:1.3rem;
         }
 
-        /* Smooth Accordion Expansion */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+
+        .mobile-menu{
+
+            display:none;
         }
 
-        .accordion-content.open {
-            max-height: 2000px; /* Arbitrary high value to allow expansion */
-            transition: max-height 0.5s ease-in-out;
+
+        /* =========================================================
+           HERO / WORK BANNER
+        ========================================================= */
+
+        .work-hero{
+
+            position:relative;
+
+            overflow:hidden;
+
+            color:#fff;
+
+            padding:95px 20px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(0,18,84,.98),
+                    rgba(7,59,155,.92),
+                    rgba(217,87,0,.88)
+                );
         }
 
-        .chevron-icon {
-            transition: transform 0.3s ease;
+
+        .work-hero::before{
+
+            content:"";
+
+            position:absolute;
+
+            inset:0;
+
+            background-image:
+                radial-gradient(
+                    rgba(255,255,255,.13) 1px,
+                    transparent 1px
+                );
+
+            background-size:22px 22px;
+
+            opacity:.35;
         }
 
-        .chevron-icon.rotate {
-            transform: rotate(180deg);
+
+        .work-hero-content{
+
+            position:relative;
+
+            z-index:2;
+
+            max-width:900px;
+
+            margin:auto;
+
+            text-align:center;
         }
+
+
+        .hero-badge{
+
+            display:inline-flex;
+
+            align-items:center;
+
+            gap:8px;
+
+            padding:9px 18px;
+
+            border-radius:50px;
+
+            background:
+                rgba(255,255,255,.12);
+
+            border:
+                1px solid rgba(255,255,255,.25);
+
+            backdrop-filter:blur(10px);
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.76rem;
+
+            font-weight:600;
+
+            margin-bottom:22px;
+
+            text-transform:uppercase;
+
+            letter-spacing:.5px;
+        }
+
+
+        .work-hero h1{
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:
+                clamp(2.4rem,6vw,4.8rem);
+
+            line-height:1.1;
+
+            font-weight:900;
+
+            margin-bottom:12px;
+        }
+
+
+        .work-hero h2{
+
+            font-family:'Mukta',sans-serif;
+
+            color:#ff963e;
+
+            font-size:
+                clamp(1.7rem,4vw,3rem);
+
+            line-height:1.2;
+
+            font-weight:800;
+        }
+
+
+        .work-hero p{
+
+            max-width:720px;
+
+            margin:20px auto 0;
+
+            color:rgba(255,255,255,.86);
+
+            font-size:1.05rem;
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        main{
+
+            width:min(1100px,92%);
+
+            margin:auto;
+
+            padding:60px 0 80px;
+        }
+
+
+        /* =========================================================
+           SEARCH BAR
+        ========================================================= */
+
+        .control-bar{
+
+            background:#fff;
+
+            border:1px solid var(--border);
+
+            border-radius:22px;
+
+            padding:22px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            gap:20px;
+
+            margin-bottom:30px;
+
+            box-shadow:var(--shadow);
+        }
+
+
+        .search-box{
+
+            position:relative;
+
+            width:100%;
+
+            max-width:430px;
+        }
+
+
+        .search-box i{
+
+            position:absolute;
+
+            left:15px;
+
+            top:50%;
+
+            transform:translateY(-50%);
+
+            color:#98a2b3;
+        }
+
+
+        .search-box input{
+
+            width:100%;
+
+            border:1px solid var(--border);
+
+            background:#f8fafc;
+
+            border-radius:14px;
+
+            padding:13px 15px 13px 43px;
+
+            outline:none;
+
+            font-family:'Mukta',sans-serif;
+
+            font-size:.98rem;
+
+            transition:.3s;
+        }
+
+
+        .search-box input:focus{
+
+            background:#fff;
+
+            border-color:var(--orange);
+
+            box-shadow:
+                0 0 0 4px rgba(243,112,33,.10);
+        }
+
+
+        .control-buttons{
+
+            display:flex;
+
+            gap:10px;
+
+            flex-wrap:wrap;
+
+            justify-content:flex-end;
+        }
+
+
+        .control-btn{
+
+            border:none;
+
+            cursor:pointer;
+
+            border-radius:12px;
+
+            padding:11px 16px;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.72rem;
+
+            font-weight:700;
+
+            transition:.3s;
+        }
+
+
+        .expand-btn{
+
+            background:#fff1e8;
+
+            color:#c2410c;
+        }
+
+
+        .collapse-btn{
+
+            background:#eef2f7;
+
+            color:#475467;
+        }
+
+
+        .control-btn:hover{
+
+            transform:translateY(-2px);
+        }
+
+
+        /* =========================================================
+           ACCORDION
+        ========================================================= */
+
+        #work-accordion-container{
+
+            display:flex;
+
+            flex-direction:column;
+
+            gap:16px;
+        }
+
+
+        .work-card{
+
+            background:#fff;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:20px;
+
+            overflow:hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,18,84,.06);
+
+            transition:.3s ease;
+        }
+
+
+        .work-card:hover{
+
+            border-color:
+                rgba(243,112,33,.35);
+
+            box-shadow:
+                0 15px 35px rgba(0,18,84,.10);
+        }
+
+
+        .accordion-button{
+
+            width:100%;
+
+            border:none;
+
+            background:#fff;
+
+            cursor:pointer;
+
+            padding:20px;
+
+            text-align:left;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            gap:20px;
+        }
+
+
+        .accordion-button:hover{
+
+            background:#fafcff;
+        }
+
+
+        .work-heading{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:16px;
+
+            min-width:0;
+        }
+
+
+        .work-icon{
+
+            width:58px;
+
+            height:58px;
+
+            border-radius:17px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            color:#fff;
+
+            font-size:1.35rem;
+
+            flex-shrink:0;
+
+            box-shadow:
+                0 8px 18px rgba(0,0,0,.12);
+        }
+
+
+        .category-label{
+
+            color:var(--orange);
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.66rem;
+
+            font-weight:800;
+
+            letter-spacing:.7px;
+
+            text-transform:uppercase;
+
+            margin-bottom:3px;
+        }
+
+
+        .work-title-hi{
+
+            color:var(--navy);
+
+            font-family:'Mukta',sans-serif;
+
+            font-size:1.2rem;
+
+            line-height:1.3;
+
+            font-weight:800;
+        }
+
+
+        .work-title-en{
+
+            color:var(--muted);
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.72rem;
+
+            margin-top:3px;
+        }
+
+
+        .accordion-right{
+
+            display:flex;
+
+            align-items:center;
+
+            gap:12px;
+
+            flex-shrink:0;
+        }
+
+
+        .initiative-count{
+
+            background:#f1f5f9;
+
+            color:#667085;
+
+            border-radius:50px;
+
+            padding:6px 11px;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.65rem;
+
+            font-weight:700;
+        }
+
+
+        .chevron{
+
+            width:36px;
+
+            height:36px;
+
+            border-radius:50%;
+
+            background:#f1f5f9;
+
+            color:#475467;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            transition:.3s;
+        }
+
+
+        .chevron.rotate{
+
+            transform:rotate(180deg);
+
+            background:#fff1e8;
+
+            color:var(--orange);
+        }
+
+
+        .accordion-content{
+
+            max-height:0;
+
+            overflow:hidden;
+
+            transition:
+                max-height .5s ease-in-out;
+        }
+
+
+        .accordion-content.open{
+
+            max-height:2200px;
+        }
+
+
+        .accordion-inner{
+
+            padding:22px;
+
+            border-top:
+                1px solid #edf0f5;
+
+            background:#fbfcfe;
+        }
+
+
+        .activity-heading{
+
+            color:#667085;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.67rem;
+
+            font-weight:800;
+
+            text-transform:uppercase;
+
+            letter-spacing:.6px;
+
+            margin-bottom:13px;
+        }
+
+
+        .activity-grid{
+
+            display:grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap:8px;
+        }
+
+
+        .activity-item{
+
+            display:flex;
+
+            align-items:flex-start;
+
+            gap:10px;
+
+            padding:10px;
+
+            border-radius:11px;
+
+            border-bottom:
+                1px solid #edf0f5;
+
+            transition:.2s;
+        }
+
+
+        .activity-item:hover{
+
+            background:#fff;
+
+            box-shadow:
+                0 5px 15px rgba(0,18,84,.05);
+        }
+
+
+        .activity-number{
+
+            width:25px;
+
+            height:25px;
+
+            border-radius:50%;
+
+            background:#fff1e8;
+
+            color:var(--orange);
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            flex-shrink:0;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.65rem;
+
+            font-weight:800;
+        }
+
+
+        .activity-hi{
+
+            color:#1d2939;
+
+            font-family:'Mukta',sans-serif;
+
+            font-size:.92rem;
+
+            line-height:1.4;
+
+            font-weight:700;
+        }
+
+
+        .activity-en{
+
+            color:#667085;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.66rem;
+
+            line-height:1.45;
+
+            margin-top:2px;
+
+            font-style:italic;
+        }
+
+
+        /* =========================================================
+           NO RESULT
+        ========================================================= */
+
+        .no-result{
+
+            display:none;
+
+            text-align:center;
+
+            padding:50px 20px;
+
+            background:#fff;
+
+            border:1px solid var(--border);
+
+            border-radius:20px;
+        }
+
+
+        .no-result i{
+
+            font-size:2.8rem;
+
+            color:#cbd5e1;
+
+            margin-bottom:12px;
+        }
+
+
+        .no-result h3{
+
+            color:var(--navy);
+
+            font-size:1.2rem;
+        }
+
+
+        .no-result p{
+
+            color:var(--muted);
+
+            font-size:.9rem;
+
+            margin-top:4px;
+        }
+
+
+        /* =========================================================
+           FOOTER — SAME AS HOME PAGE
+        ========================================================= */
+
+        footer{
+
+            background:var(--navy);
+
+            color:#fff;
+        }
+
+
+        .footer-main{
+
+            padding:70px 0 45px;
+        }
+
+
+        .footer-grid{
+
+            display:grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr;
+
+            gap:45px;
+        }
+
+
+        .footer-brand{
+
+            max-width:380px;
+        }
+
+
+        .footer-logo{
+
+            width:75px;
+
+            height:75px;
+
+            object-fit:contain;
+
+            margin-bottom:18px;
+
+            border-radius:50%;
+        }
+
+
+        .footer-brand h3{
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:1.35rem;
+
+            margin-bottom:5px;
+        }
+
+
+        .footer-brand .hi-tagline{
+
+            color:#ff963e;
+
+            font-size:1rem;
+
+            font-weight:700;
+        }
+
+
+        .footer-brand .en-tagline{
+
+            opacity:.75;
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.82rem;
+
+            margin-top:4px;
+        }
+
+
+        .footer-column h4{
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:1rem;
+
+            margin-bottom:20px;
+
+            color:#ff963e;
+        }
+
+
+        .footer-column ul{
+
+            list-style:none;
+        }
+
+
+        .footer-column li{
+
+            margin-bottom:9px;
+        }
+
+
+        .footer-column a{
+
+            color:rgba(255,255,255,.76);
+
+            font-size:.9rem;
+
+            transition:.3s;
+        }
+
+
+        .footer-column a:hover{
+
+            color:#ff963e;
+
+            padding-left:4px;
+        }
+
+
+        /* SOCIAL */
+
+        .social-heading{
+
+            font-family:'Poppins',sans-serif;
+
+            font-size:.95rem;
+
+            font-weight:700;
+
+            margin-top:25px;
+
+            margin-bottom:13px;
+        }
+
+
+        .social-icons{
+
+            display:flex;
+
+            gap:11px;
+        }
+
+
+        .social-icons a{
+
+            width:43px;
+
+            height:43px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            border-radius:50%;
+
+            background:
+                rgba(255,255,255,.1);
+
+            color:#fff;
+
+            font-size:1rem;
+
+            transition:.3s;
+        }
+
+
+        .social-icons a:hover{
+
+            background:var(--orange);
+
+            transform:translateY(-4px);
+
+            padding-left:0;
+        }
+
+
+        .footer-bottom{
+
+            border-top:
+                1px solid rgba(255,255,255,.13);
+
+            padding:22px 0;
+
+            text-align:center;
+
+            color:rgba(255,255,255,.72);
+
+            font-size:.82rem;
+        }
+
+
+        .footer-bottom strong{
+
+            color:#fff;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media(max-width:1050px){
+
+            nav a{
+
+                padding:9px 8px;
+
+                font-size:.67rem;
+            }
+        }
+
+
+        @media(max-width:850px){
+
+            .header-inner{
+
+                min-height:75px;
+            }
+
+
+            nav{
+
+                display:none;
+            }
+
+
+            .menu-toggle{
+
+                display:block;
+            }
+
+
+            .mobile-menu{
+
+                display:none;
+
+                padding:12px 4%;
+
+                background:#fff;
+
+                border-top:
+                    1px solid var(--border);
+
+                box-shadow:
+                    0 10px 20px rgba(0,18,84,.08);
+            }
+
+
+            .mobile-menu.active{
+
+                display:block;
+            }
+
+
+            .mobile-menu a{
+
+                display:block;
+
+                padding:13px 10px;
+
+                border-bottom:
+                    1px solid #edf0f5;
+
+                font-family:'Poppins',sans-serif;
+
+                font-size:.82rem;
+
+                font-weight:600;
+
+                color:var(--navy);
+            }
+
+
+            .mobile-menu a.active{
+
+                color:var(--orange);
+
+                font-weight:800;
+            }
+
+
+            .mobile-menu .mobile-donate{
+
+                color:#fff;
+
+                background:var(--orange);
+
+                border-radius:10px;
+
+                margin-top:8px;
+
+                text-align:center;
+
+                animation:donateBlink 1.5s infinite;
+            }
+
+
+            .control-bar{
+
+                flex-direction:column;
+
+                align-items:stretch;
+            }
+
+
+            .search-box{
+
+                max-width:none;
+            }
+
+
+            .control-buttons{
+
+                justify-content:flex-start;
+            }
+
+
+            .footer-grid{
+
+                grid-template-columns:1fr 1fr;
+            }
+
+
+            .footer-brand{
+
+                grid-column:1/-1;
+            }
+        }
+
+
+        @media(max-width:600px){
+
+            .brand{
+
+                min-width:0;
+            }
+
+
+            .logo{
+
+                width:48px;
+
+                height:48px;
+            }
+
+
+            .brand-name{
+
+                font-size:1.05rem;
+            }
+
+
+            .brand-tagline{
+
+                font-size:.72rem;
+            }
+
+
+            .work-hero{
+
+                padding:70px 18px;
+            }
+
+
+            .work-hero h1{
+
+                font-size:2.35rem;
+            }
+
+
+            .work-hero h2{
+
+                font-size:1.65rem;
+            }
+
+
+            main{
+
+                width:94%;
+
+                padding:40px 0 60px;
+            }
+
+
+            .accordion-button{
+
+                padding:16px;
+            }
+
+
+            .work-heading{
+
+                gap:11px;
+            }
+
+
+            .work-icon{
+
+                width:48px;
+
+                height:48px;
+
+                border-radius:14px;
+
+                font-size:1.05rem;
+            }
+
+
+            .work-title-hi{
+
+                font-size:1rem;
+            }
+
+
+            .work-title-en{
+
+                font-size:.62rem;
+            }
+
+
+            .initiative-count{
+
+                display:none;
+            }
+
+
+            .accordion-inner{
+
+                padding:16px;
+            }
+
+
+            .activity-grid{
+
+                grid-template-columns:1fr;
+            }
+
+
+            .footer-grid{
+
+                grid-template-columns:1fr;
+
+                gap:30px;
+            }
+
+
+            .footer-brand{
+
+                grid-column:auto;
+            }
+        }
+
+
+        @media(max-width:400px){
+
+            .brand-name{
+
+                font-size:.93rem;
+            }
+
+
+            .brand-tagline{
+
+                font-size:.66rem;
+            }
+
+
+            .work-hero h1{
+
+                font-size:2rem;
+            }
+        }
+
     </style>
+
 </head>
-<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
 
-    <!-- HEADER SECTION (Same as Home Page) -->
-    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-orange-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-            
-            <!-- Logo & Title -->
-            <a href="index.html" class="flex items-center gap-3">
-                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain">
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
-                        साथ चले हम फाउंडेशन
-                    </h1>
-                    <p class="text-xs text-orange-600 font-semibold tracking-wide">साथ चले हम, बदलाव की ओर</p>
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+====================================================== -->
+
+<header>
+
+    <div class="container header-inner">
+
+
+        <!-- BRAND -->
+
+        <a href="index.html"
+           class="brand">
+
+            <img
+                class="logo"
+                src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+                alt="Sath Chale Hum Foundation Logo">
+
+            <div class="brand-text">
+
+                <div class="brand-name">
+                    साथ चले हम फाउंडेशन
                 </div>
+
+                <div class="brand-tagline">
+                    साथ चले हम, बदलाव की ओर
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- DESKTOP NAV -->
+
+        <nav>
+
+            <a href="index.html">
+                Home
             </a>
 
-            <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center gap-6 font-semibold text-slate-700">
-                <a href="index.html#home" class="hover:text-orange-600 transition-colors">Home</a>
-                <a href="index.html#about" class="hover:text-orange-600 transition-colors">About Us</a>
-                <a href="#work" class="text-orange-600 font-bold transition-colors">Work</a>
-                <a href="index.html#team" class="hover:text-orange-600 transition-colors">Team</a>
-                <a href="index.html#join" class="hover:text-orange-600 transition-colors">Join Us</a>
-                <a href="index.html#events" class="hover:text-orange-600 transition-colors">Events</a>
-                <a href="index.html#donate" class="btn-pulse bg-red-600 text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-all">
-                    Donate Us
-                </a>
-            </nav>
+            <a href="about.html">
+                About Us
+            </a>
 
-            <!-- Mobile Menu Toggle Button -->
-            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+            <a href="work.html"
+               class="active">
+                Work
+            </a>
 
-        <!-- Mobile Drawer Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 font-semibold text-slate-700 shadow-lg">
-            <a href="index.html#home" class="block py-1 hover:text-orange-600">Home</a>
-            <a href="index.html#about" class="block py-1 hover:text-orange-600">About Us</a>
-            <a href="#work" class="block py-1 text-orange-600 font-bold">Work</a>
-            <a href="index.html#team" class="block py-1 hover:text-orange-600">Team</a>
-            <a href="index.html#join" class="block py-1 hover:text-orange-600">Join Us</a>
-            <a href="index.html#events" class="block py-1 hover:text-orange-600">Events</a>
-            <a href="index.html#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md w-full mt-2">
+            <a href="team.html">
+                Team
+            </a>
+
+            <a href="join-us.html">
+                Join Us
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="donate.html"
+               class="nav-donate">
+
                 Donate Us
+
             </a>
+
+        </nav>
+
+
+        <!-- MOBILE MENU BUTTON -->
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open Menu"
+            aria-expanded="false">
+
+            <i class="fa-solid fa-bars"></i>
+
+        </button>
+
+    </div>
+
+
+    <!-- MOBILE NAV -->
+
+    <div
+        class="mobile-menu"
+        id="mobileMenu">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About Us
+        </a>
+
+        <a href="work.html"
+           class="active">
+            Work
+        </a>
+
+        <a href="team.html">
+            Team
+        </a>
+
+        <a href="join-us.html">
+            Join Us
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+        <a href="donate.html"
+           class="mobile-donate">
+
+            Donate Us
+
+        </a>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section class="work-hero">
+
+    <div class="work-hero-content">
+
+        <div class="hero-badge">
+
+            <i class="fa-solid fa-heart"></i>
+
+            Comprehensive Social Initiatives
+            |
+            व्यापक सामाजिक पहल
+
         </div>
-    </header>
 
-    <!-- HERO / BANNER SECTION -->
-    <section class="relative bg-gradient-to-r from-slate-900 via-orange-950 to-slate-900 text-white py-16 px-4 overflow-hidden border-b border-orange-500/20">
-        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#f97316_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        <div class="max-w-5xl mx-auto text-center relative z-10">
-            <span class="inline-block bg-orange-500/20 text-orange-400 font-semibold text-xs sm:text-sm px-4 py-1.5 rounded-full border border-orange-500/30 mb-4 uppercase tracking-wider">
-                Comprehensive Social Initiatives | व्यापक सामाजिक पहल
-            </span>
-            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-3">
-                Our Key Areas of Work
-            </h1>
-            <h2 class="text-xl sm:text-3xl font-bold text-orange-400">
-                हमारे प्रमुख कार्य क्षेत्र
-            </h2>
-            <p class="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto mt-4">
-                नीचे दिए गए प्रत्येक कार्य क्षेत्र पर क्लिक (Dropdown) करके विस्तृत गतिविधियों की जानकारी प्राप्त करें।
-            </p>
+
+        <h1>
+            Our Key Areas of Work
+        </h1>
+
+
+        <h2>
+            हमारे प्रमुख कार्य क्षेत्र
+        </h2>
+
+
+        <p>
+
+            नीचे दिए गए प्रत्येक कार्य क्षेत्र पर क्लिक
+            करके विस्तृत गतिविधियों और सामाजिक पहलों
+            की जानकारी प्राप्त करें।
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MAIN WORK CONTENT
+====================================================== -->
+
+<main>
+
+
+    <!-- SEARCH + CONTROLS -->
+
+    <div class="control-bar">
+
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="work-search"
+                oninput="searchWork()"
+                placeholder="Search initiative or keyword / खोजें...">
+
         </div>
-    </section>
 
-    <!-- MAIN CONTENT SECTION -->
-    <main class="flex-grow py-12 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto w-full space-y-8">
 
-        <!-- SEARCH AND CONTROL BAR -->
-        <div class="bg-white rounded-2xl p-4 sm:p-6 shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4">
-            <div class="relative w-full md:w-96">
-                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                <input type="text" id="work-search" onkeyup="searchWork()" placeholder="Search initiative or keyword / खोजें..." class="w-full pl-9 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-orange-500 focus:bg-white transition-colors">
-            </div>
-            
-            <div class="flex gap-2 w-full md:w-auto justify-end">
-                <button onclick="expandAll()" class="text-xs bg-orange-100 hover:bg-orange-200 text-orange-800 font-bold py-2 px-4 rounded-xl transition-colors">
-                    Expand All | सभी खोलें
-                </button>
-                <button onclick="collapseAll()" class="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-2 px-4 rounded-xl transition-colors">
-                    Collapse All | सभी बंद करें
-                </button>
-            </div>
+        <div class="control-buttons">
+
+            <button
+                onclick="expandAll()"
+                class="control-btn expand-btn">
+
+                <i class="fa-solid fa-plus"></i>
+
+                Expand All | सभी खोलें
+
+            </button>
+
+
+            <button
+                onclick="collapseAll()"
+                class="control-btn collapse-btn">
+
+                <i class="fa-solid fa-minus"></i>
+
+                Collapse All | सभी बंद करें
+
+            </button>
+
         </div>
 
-        <!-- WORK AREAS DROPDOWN GRID -->
-        <div class="space-y-4" id="work-accordion-container">
-            <!-- Dynamic Accordions will be rendered by JS below for maximum cleanliness and searchability -->
-        </div>
+    </div>
 
-    </main>
 
-    <!-- FOOTER SECTION (Same as Home Page) -->
-    <footer class="bg-slate-950 text-slate-300 pt-12 pb-6 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                
-                <!-- Col 1: Brand -->
-                <div class="space-y-3">
-                    <div class="flex items-center gap-3">
-                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
-                        <span class="font-bold text-white text-lg">Chale Hum Foundation</span>
+    <!-- ACCORDION -->
+
+    <div id="work-accordion-container"></div>
+
+
+    <!-- NO RESULT -->
+
+    <div
+        id="no-result"
+        class="no-result">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <h3>
+            No matching initiative found
+        </h3>
+
+        <p>
+            कृपया कोई दूसरा keyword खोजें।
+        </p>
+
+    </div>
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER — SAME AS HOME PAGE
+====================================================== -->
+
+<footer>
+
+
+    <div class="footer-main">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+
+                <!-- BRAND -->
+
+                <div class="footer-brand">
+
+                    <img
+                        class="footer-logo"
+                        src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
+                        alt="Sath Chale Hum Foundation Logo">
+
+
+                    <h3>
+                        Sath Chale Hum Foundation
+                    </h3>
+
+
+                    <div class="hi-tagline">
+                        साथ चले हम – बदलाव की ओर
                     </div>
-                    <p class="text-sm text-orange-400 font-semibold">साथ चले हम – बदलाव की ओर</p>
-                    <p class="text-xs text-slate-400 italic">Step Together Towards Change</p>
-                </div>
 
-                <!-- Col 2: Social Media -->
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+
+                    <div class="en-tagline">
+                        Step Together Towards Change
+                    </div>
+
+
+                    <div class="social-heading">
                         Our Social Media
-                    </h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors">
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
                     </div>
+
+
+                    <div class="social-icons">
+
+
+                        <!-- FACEBOOK -->
+
+                        <a
+                            href="https://www.facebook.com/share/1PUUzvUfoo/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Facebook">
+
+                            <i class="fa-brands fa-facebook-f"></i>
+
+                        </a>
+
+
+                        <!-- INSTAGRAM -->
+
+                        <a
+                            href="https://www.instagram.com/sathchaleham?stkn=MWFzanhuYjFpcGhrZg=="
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="Instagram">
+
+                            <i class="fa-brands fa-instagram"></i>
+
+                        </a>
+
+
+                        <!-- YOUTUBE -->
+
+                        <a
+                            href="https://youtube.com/@sathchaleham?si=uKH0gC8E7rM_xdpC"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="YouTube">
+
+                            <i class="fa-brands fa-youtube"></i>
+
+                        </a>
+
+                    </div>
+
                 </div>
 
-                <!-- Col 3: Quick Links -->
-                <div>
-                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+
+
+                <!-- QUICK LINKS -->
+
+                <div class="footer-column">
+
+                    <h4>
                         Quick Links | महत्वपूर्ण लिंक
                     </h4>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <a href="index.html#home" class="hover:text-orange-400">Home | होम</a>
-                        <a href="index.html#about" class="hover:text-orange-400">About Us | हमारे बारे में</a>
-                        <a href="#work" class="text-orange-400 font-semibold">Our Work | हमारे कार्य</a>
-                        <a href="index.html#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
-                        <a href="index.html#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
-                        <a href="index.html#join" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
-                        <a href="index.html#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
-                        <a href="index.html#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
-                    </div>
+
+
+                    <ul>
+
+
+                        <li>
+
+                            <a href="index.html">
+                                Home | होम
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="about.html">
+                                About Us | हमारे बारे में
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="work.html">
+                                Our Work | हमारे कार्य
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="team.html">
+                                Our Team | हमारी टीम
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="donate.html">
+                                Donate Us | दान करें
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="join-us.html">
+                                Join Us | हमारे साथ जुड़ें
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="events.html">
+                                Events | कार्यक्रम
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
                 </div>
+
+
+
+                <!-- MORE LINKS -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        More Links
+                    </h4>
+
+
+                    <ul>
+
+
+                        <li>
+
+                            <a href="contact.html">
+                                Contact Us | संपर्क करें
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="downloads.html">
+                                Downloads | डाउनलोड
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="terms-conditions.html">
+                                Terms & Conditions
+                            </a>
+
+                        </li>
+
+
+                        <li>
+
+                            <a href="privacy-policy.html">
+                                Privacy Policy
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+
+                </div>
+
 
             </div>
 
-            <!-- Bottom Bar / Copyright & Policies -->
-            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
-                <div class="flex gap-4">
-                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
-                    <span>|</span>
-                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
-                </div>
-            </div>
-            
-            <p class="text-center text-[10px] text-slate-600 mt-4 tracking-widest uppercase">
-                -Sath Chale Hum Foundation-
-            </p>
         </div>
-    </footer>
 
-    <!-- INTERACTIVE DATA AND DROPDOWN SCRIPT -->
-    <script>
-        // Data for all 16 Key Areas
-        const workData = [
+    </div>
+
+
+
+    <!-- COPYRIGHT -->
+
+    <div class="footer-bottom">
+
+        <div class="container">
+
+            <div>
+
+                © 2026
+
+                <strong>
+                    Sath Chale Hum Foundation.
+                </strong>
+
+                All Rights Reserved.
+
+            </div>
+
+
+            <div style="margin-top:5px;">
+
+                -Sath Chale Hum Foundation-
+
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     WORK DATA + JAVASCRIPT
+====================================================== -->
+
+<script>
+
+
+/* =====================================================
+   16 KEY AREAS OF WORK
+====================================================== */
+
+const workData = [
+
+
+    /* =====================================================
+       1. EDUCATION
+    ====================================================== */
+
+    {
+        id:1,
+
+        titleHi:"शिक्षा एवं बाल विकास",
+
+        titleEn:"Education & Child Development",
+
+        icon:"fa-graduation-cap",
+
+        color:"linear-gradient(135deg,#f59e0b,#ea580c)",
+
+        points:[
+
             {
-                id: 1,
-                titleHi: "शिक्षा एवं बाल विकास",
-                titleEn: "Education & Child Development",
-                icon: "fa-graduation-cap",
-                color: "from-amber-500 to-orange-600",
-                points: [
-                    { hi: "गरीब बच्चों की शिक्षा में सहायता", en: "Educational assistance for underprivileged children" },
-                    { hi: "स्कूल से बाहर बच्चों को शिक्षा से जोड़ना", en: "Connecting out-of-school children with education" },
-                    { hi: "निःशुल्क शिक्षा एवं कोचिंग", en: "Free education and coaching" },
-                    { hi: "किताब-कॉपी एवं शैक्षणिक सामग्री वितरण", en: "Distribution of books, notebooks and educational materials" },
-                    { hi: "छात्रवृत्ति एवं शैक्षणिक सहायता", en: "Scholarships and educational assistance" },
-                    { hi: "डिजिटल एवं कंप्यूटर शिक्षा", en: "Digital and computer education" },
-                    { hi: "पुस्तकालय एवं ज्ञान केंद्र", en: "Libraries and knowledge centers" },
-                    { hi: "बाल प्रतिभा विकास", en: "Child talent development" },
-                    { hi: "करियर एवं शिक्षा मार्गदर्शन", en: "Career and educational guidance" },
-                    { hi: "स्कूल ड्रॉपआउट रोकथाम", en: "Prevention of school dropouts" },
-                    { hi: "बाल श्रम से बच्चों को शिक्षा की ओर जोड़ना", en: "Connecting children engaged in child labour with education" },
-                    { hi: "वयस्क एवं निरक्षरता उन्मूलन", en: "Adult education and eradication of illiteracy" },
-                    { hi: "ग्रामीण एवं वंचित क्षेत्रों में शिक्षा", en: "Education in rural and underserved areas" },
-                    { hi: "व्यावसायिक एवं कौशल शिक्षा", en: "Vocational and skill education" },
-                    { hi: "बाल अधिकारों के प्रति जागरूकता", en: "Awareness of child rights" },
-                    { hi: "शिक्षा के प्रति जन-जागरूकता अभियान", en: "Public awareness campaigns for education" }
-                ]
+                hi:"गरीब बच्चों की शिक्षा में सहायता",
+                en:"Educational assistance for underprivileged children"
             },
+
             {
-                id: 2,
-                titleHi: "महिला सशक्तिकरण एवं विकास",
-                titleEn: "Women Empowerment & Development",
-                icon: "fa-person-dress",
-                color: "from-pink-500 to-rose-600",
-                points: [
-                    { hi: "महिला शिक्षा एवं साक्षरता", en: "Women’s education and literacy" },
-                    { hi: "महिला कौशल विकास", en: "Women’s skill development" },
-                    { hi: "रोजगार एवं स्वरोजगार प्रशिक्षण", en: "Employment and self-employment training" },
-                    { hi: "महिला उद्यमिता विकास", en: "Women entrepreneurship development" },
-                    { hi: "स्वयं सहायता समूहों को सहयोग", en: "Support to Self-Help Groups" },
-                    { hi: "सिलाई-कढ़ाई एवं हस्तकला प्रशिक्षण", en: "Tailoring, embroidery and handicraft training" },
-                    { hi: "डिजिटल एवं कंप्यूटर शिक्षा", en: "Digital and computer education" },
-                    { hi: "महिला अधिकारों की जानकारी", en: "Awareness of women’s rights" },
-                    { hi: "घरेलू हिंसा के विरुद्ध जागरूकता", en: "Awareness against domestic violence" },
-                    { hi: "दहेज प्रथा के विरुद्ध अभियान", en: "Campaigns against the dowry system" },
-                    { hi: "बाल विवाह रोकथाम", en: "Prevention of child marriage" },
-                    { hi: "महिलाओं की आर्थिक आत्मनिर्भरता", en: "Economic self-reliance of women" },
-                    { hi: "स्वास्थ्य एवं पोषण जागरूकता", en: "Health and nutrition awareness" },
-                    { hi: "नेतृत्व एवं व्यक्तित्व विकास", en: "Leadership and personality development" },
-                    { hi: "सरकारी योजनाओं की जानकारी", en: "Awareness of government schemes" },
-                    { hi: "महिला सुरक्षा एवं सम्मान के प्रति जागरूकता", en: "Awareness for women’s safety and dignity" }
-                ]
+                hi:"स्कूल से बाहर बच्चों को शिक्षा से जोड़ना",
+                en:"Connecting out-of-school children with education"
             },
+
             {
-                id: 3,
-                titleHi: "स्वास्थ्य एवं चिकित्सा",
-                titleEn: "Health & Medical Care",
-                icon: "fa-heart-pulse",
-                color: "from-red-500 to-rose-700",
-                points: [
-                    { hi: "निःशुल्क स्वास्थ्य जांच शिविर", en: "Free health check-up camps" },
-                    { hi: "ग्रामीण स्वास्थ्य जागरूकता", en: "Rural health awareness" },
-                    { hi: "नेत्र जांच एवं सहायता शिविर", en: "Eye check-up and assistance camps" },
-                    { hi: "दंत स्वास्थ्य जांच शिविर", en: "Dental health check-up camps" },
-                    { hi: "सामान्य स्वास्थ्य जागरूकता", en: "General health awareness" },
-                    { hi: "मातृ स्वास्थ्य जागरूकता", en: "Maternal health awareness" },
-                    { hi: "किशोर स्वास्थ्य जागरूकता", en: "Adolescent health awareness" },
-                    { hi: "पोषण एवं संतुलित आहार जागरूकता", en: "Nutrition and balanced diet awareness" },
-                    { hi: "स्वच्छता एवं व्यक्तिगत स्वास्थ्य शिक्षा", en: "Hygiene and personal health education" },
-                    { hi: "जरूरतमंद मरीजों को सहायता", en: "Assistance to needy patients" },
-                    { hi: "स्वास्थ्य सेवाओं तक पहुंच का मार्गदर्शन", en: "Guidance for accessing healthcare services" },
-                    { hi: "रक्तदान जागरूकता", en: "Blood donation awareness" },
-                    { hi: "रोगों की रोकथाम संबंधी जागरूकता", en: "Awareness about disease prevention" },
-                    { hi: "स्वास्थ्य विशेषज्ञों के साथ जागरूकता कार्यक्रम", en: "Awareness programs with health professionals" },
-                    { hi: "दूरदराज क्षेत्रों में स्वास्थ्य कार्यक्रम", en: "Health programs in remote areas" },
-                    { hi: "स्वस्थ जीवनशैली के प्रति जागरूकता", en: "Awareness for a healthy lifestyle" }
-                ]
+                hi:"निःशुल्क शिक्षा एवं कोचिंग",
+                en:"Free education and coaching"
             },
+
             {
-                id: 4,
-                titleHi: "गरीब एवं जरूरतमंद कल्याण",
-                titleEn: "Welfare of Poor & Needy",
-                icon: "fa-hand-holding-dollar",
-                color: "from-emerald-500 to-teal-700",
-                points: [
-                    { hi: "गरीब परिवारों की सहायता", en: "Assistance to poor families" },
-                    { hi: "राशन एवं खाद्य सामग्री वितरण", en: "Distribution of ration and food materials" },
-                    { hi: "कपड़े वितरण", en: "Distribution of clothing" },
-                    { hi: "कंबल एवं मौसमी सामग्री वितरण", en: "Distribution of blankets and seasonal essentials" },
-                    { hi: "जूते-चप्पल एवं आवश्यक वस्तु सहायता", en: "Assistance with footwear and essential items" },
-                    { hi: "गरीब बच्चों की शिक्षा सहायता", en: "Educational assistance for poor children" },
-                    { hi: "जरूरतमंद परिवारों की पहचान", en: "Identification of needy families" },
-                    { hi: "सामुदायिक भोजन कार्यक्रम", en: "Community meal programs" },
-                    { hi: "बेघर लोगों की सहायता", en: "Assistance to homeless people" },
-                    { hi: "आर्थिक रूप से कमजोर लोगों को सहायता", en: "Assistance to economically weaker people" },
-                    { hi: "जरूरतमंदों को सरकारी योजनाओं से जोड़ना", en: "Connecting needy people with government schemes" },
-                    { hi: "दैनिक जीवन की आवश्यक वस्तुओं की सहायता", en: "Assistance with daily essential items" },
-                    { hi: "संकटग्रस्त परिवारों की सहायता", en: "Assistance to families in distress" },
-                    { hi: "गरीब बस्तियों में सेवा कार्यक्रम", en: "Service programs in underprivileged communities" },
-                    { hi: "सामुदायिक सहायता केंद्र", en: "Community assistance centers" },
-                    { hi: "जरूरतमंदों के लिए जन-सहयोग अभियान", en: "Public support campaigns for needy people" }
-                ]
+                hi:"किताब-कॉपी एवं शैक्षणिक सामग्री वितरण",
+                en:"Distribution of books, notebooks and educational materials"
             },
+
             {
-                id: 5,
-                titleHi: "दिव्यांगजन कल्याण एवं सशक्तिकरण",
-                titleEn: "Disability Welfare & Empowerment",
-                icon: "fa-wheelchair",
-                color: "from-blue-500 to-indigo-700",
-                points: [
-                    { hi: "दिव्यांगजनों की सहायता", en: "Assistance to persons with disabilities" },
-                    { hi: "सहायक उपकरण उपलब्ध कराने में सहयोग", en: "Support in providing assistive devices" },
-                    { hi: "व्हीलचेयर एवं आवश्यक उपकरण सहायता", en: "Wheelchair and essential equipment assistance" },
-                    { hi: "दिव्यांग बच्चों की शिक्षा", en: "Education for children with disabilities" },
-                    { hi: "कौशल विकास प्रशिक्षण", en: "Skill development training" },
-                    { hi: "रोजगार एवं स्वरोजगार मार्गदर्शन", en: "Employment and self-employment guidance" },
-                    { hi: "सरकारी योजनाओं की जानकारी", en: "Awareness of government schemes" },
-                    { hi: "दिव्यांग अधिकार जागरूकता", en: "Disability rights awareness" },
-                    { hi: "डिजिटल शिक्षा", en: "Digital education" },
-                    { hi: "सामाजिक समावेशन", en: "Social inclusion" },
-                    { hi: "प्रतिभा एवं खेल विकास", en: "Talent and sports development" },
-                    { hi: "परिवारों को मार्गदर्शन", en: "Guidance for families" },
-                    { hi: "स्वास्थ्य एवं पुनर्वास सेवाओं तक पहुंच में सहयोग", en: "Support in accessing healthcare and rehabilitation services" },
-                    { hi: "रोजगारदाताओं के साथ अवसरों के लिए समन्वय", en: "Coordination with employers for opportunities" },
-                    { hi: "दिव्यांगजनों के लिए जागरूकता अभियान", en: "Awareness campaigns for persons with disabilities" },
-                    { hi: "सम्मानजनक एवं आत्मनिर्भर जीवन के लिए सहयोग", en: "Support for a dignified and self-reliant life" }
-                ]
+                hi:"छात्रवृत्ति एवं शैक्षणिक सहायता",
+                en:"Scholarships and educational assistance"
             },
+
             {
-                id: 6,
-                titleHi: "वृद्धजन कल्याण",
-                titleEn: "Senior Citizen Welfare",
-                icon: "fa-person-cane",
-                color: "from-purple-500 to-indigo-800",
-                points: [
-                    { hi: "जरूरतमंद बुजुर्गों की सहायता", en: "Assistance to needy senior citizens" },
-                    { hi: "भोजन सहायता", en: "Food assistance" },
-                    { hi: "कपड़े एवं कंबल सहायता", en: "Clothing and blanket assistance" },
-                    { hi: "स्वास्थ्य जांच शिविर", en: "Health check-up camps" },
-                    { hi: "स्वास्थ्य एवं दवा संबंधी मार्गदर्शन", en: "Health and medication guidance" },
-                    { hi: "अकेले रहने वाले बुजुर्गों की सामुदायिक सहायता", en: "Community support for elderly people living alone" },
-                    { hi: "सरकारी पेंशन एवं योजनाओं की जानकारी", en: "Awareness of government pensions and schemes" },
-                    { hi: "वरिष्ठ नागरिक अधिकार जागरूकता", en: "Senior citizen rights awareness" },
-                    { hi: "सामाजिक सुरक्षा जागरूकता", en: "Social security awareness" },
-                    { hi: "वृद्धाश्रमों में सहयोग", en: "Support to old-age homes" },
-                    { hi: "मानसिक एवं सामाजिक सहयोग", en: "Emotional and social support" },
-                    { hi: "आवश्यक वस्तुओं की सहायता", en: "Assistance with essential items" },
-                    { hi: "डिजिटल साक्षरता", en: "Digital literacy" },
-                    { hi: "परिवार एवं समुदाय में सम्मान के प्रति जागरूकता", en: "Awareness for dignity and respect in family and community" },
-                    { hi: "वरिष्ठ नागरिक मिलन एवं सामुदायिक कार्यक्रम", en: "Senior citizen gatherings and community programs" },
-                    { hi: "वृद्धजन सहायता एवं जन-जागरूकता अभियान", en: "Senior citizen assistance and public awareness campaigns" }
-                ]
+                hi:"डिजिटल एवं कंप्यूटर शिक्षा",
+                en:"Digital and computer education"
             },
+
             {
-                id: 7,
-                titleHi: "युवा विकास एवं कौशल विकास",
-                titleEn: "Youth Development & Skill Development",
-                icon: "fa-user-graduate",
-                color: "from-cyan-500 to-blue-700",
-                points: [
-                    { hi: "युवाओं के लिए कौशल प्रशिक्षण", en: "Skill training for youth" },
-                    { hi: "कंप्यूटर एवं डिजिटल शिक्षा", en: "Computer and digital education" },
-                    { hi: "करियर मार्गदर्शन", en: "Career guidance" },
-                    { hi: "रोजगार मार्गदर्शन", en: "Employment guidance" },
-                    { hi: "प्रतियोगी परीक्षा मार्गदर्शन", en: "Competitive examination guidance" },
-                    { hi: "व्यक्तित्व विकास", en: "Personality development" },
-                    { hi: "संचार कौशल विकास", en: "Communication skill development" },
-                    { hi: "नेतृत्व विकास", en: "Leadership development" },
-                    { hi: "उद्यमिता प्रशिक्षण", en: "Entrepreneurship training" },
-                    { hi: "स्वरोजगार मार्गदर्शन", en: "Self-employment guidance" },
-                    { hi: "व्यावसायिक प्रशिक्षण", en: "Vocational training" },
-                    { hi: "खेल एवं प्रतिभा विकास", en: "Sports and talent development" },
-                    { hi: "युवा स्वयंसेवक कार्यक्रम", en: "Youth volunteer programs" },
-                    { hi: "वित्तीय एवं डिजिटल साक्षरता", en: "Financial and digital literacy" },
-                    { hi: "सामाजिक नेतृत्व एवं जिम्मेदारी", en: "Social leadership and responsibility" },
-                    { hi: "युवा जागरूकता एवं विकास अभियान", en: "Youth awareness and development campaigns" }
-                ]
+                hi:"पुस्तकालय एवं ज्ञान केंद्र",
+                en:"Libraries and knowledge centers"
             },
+
             {
-                id: 8,
-                titleHi: "रोजगार, स्वरोजगार एवं आजीविका",
-                titleEn: "Employment, Self-Employment & Livelihood",
-                icon: "fa-briefcase",
-                color: "from-amber-600 to-yellow-700",
-                points: [
-                    { hi: "रोजगार मार्गदर्शन", en: "Employment guidance" },
-                    { hi: "कौशल प्रशिक्षण", en: "Skill training" },
-                    { hi: "स्वरोजगार प्रशिक्षण", en: "Self-employment training" },
-                    { hi: "छोटे व्यवसाय के लिए मार्गदर्शन", en: "Guidance for small businesses" },
-                    { hi: "उद्यमिता विकास", en: "Entrepreneurship development" },
-                    { hi: "रोजगार मेले एवं अवसरों की जानकारी", en: "Job fairs and employment opportunity awareness" },
-                    { hi: "डिजिटल कौशल प्रशिक्षण", en: "Digital skill training" },
-                    { hi: "वित्तीय साक्षरता", en: "Financial literacy" },
-                    { hi: "बैंकिंग एवं डिजिटल भुगतान जागरूकता", en: "Banking and digital payment awareness" },
-                    { hi: "स्वयं सहायता समूहों को सहयोग", en: "Support to Self-Help Groups" },
-                    { hi: "घरेलू उद्योग को बढ़ावा", en: "Promotion of home-based industries" },
-                    { hi: "हस्तशिल्प एवं कुटीर उद्योग प्रशिक्षण", en: "Handicraft and cottage industry training" },
-                    { hi: "ग्रामीण आजीविका विकास", en: "Rural livelihood development" },
-                    { hi: "महिला स्वरोजगार कार्यक्रम", en: "Women’s self-employment programs" },
-                    { hi: "युवा उद्यमिता कार्यक्रम", en: "Youth entrepreneurship programs" },
-                    { hi: "रोजगार एवं आत्मनिर्भरता जागरूकता", en: "Employment and self-reliance awareness" }
-                ]
+                hi:"बाल प्रतिभा विकास",
+                en:"Child talent development"
             },
+
             {
-                id: 9,
-                titleHi: "ग्रामीण विकास एवं ग्राम उत्थान",
-                titleEn: "Rural Development & Village Upliftment",
-                icon: "fa-house-chimney-window",
-                color: "from-green-600 to-emerald-800",
-                points: [
-                    { hi: "ग्रामीण शिक्षा विकास", en: "Rural education development" },
-                    { hi: "ग्रामीण स्वास्थ्य कार्यक्रम", en: "Rural health programs" },
-                    { hi: "स्वच्छता अभियान", en: "Sanitation campaigns" },
-                    { hi: "पेयजल जागरूकता", en: "Drinking water awareness" },
-                    { hi: "महिला सशक्तिकरण", en: "Women empowerment" },
-                    { hi: "युवा विकास", en: "Youth development" },
-                    { hi: "कौशल प्रशिक्षण", en: "Skill training" },
-                    { hi: "रोजगार एवं आजीविका विकास", en: "Employment and livelihood development" },
-                    { hi: "डिजिटल साक्षरता", en: "Digital literacy" },
-                    { hi: "किसान जागरूकता", en: "Farmer awareness" },
-                    { hi: "पर्यावरण संरक्षण", en: "Environmental protection" },
-                    { hi: "जल संरक्षण", en: "Water conservation" },
-                    { hi: "सरकारी योजनाओं की जानकारी", en: "Awareness of government schemes" },
-                    { hi: "सामुदायिक विकास कार्यक्रम", en: "Community development programs" },
-                    { hi: "ग्राम स्तर पर जन-जागरूकता", en: "Village-level public awareness" },
-                    { hi: "ग्रामीण आत्मनिर्भरता को बढ़ावा", en: "Promotion of rural self-reliance" }
-                ]
+                hi:"करियर एवं शिक्षा मार्गदर्शन",
+                en:"Career and educational guidance"
             },
+
             {
-                id: 10,
-                titleHi: "कृषि एवं किसान कल्याण",
-                titleEn: "Agriculture & Farmer Welfare",
-                icon: "fa-wheat-awn",
-                color: "from-lime-600 to-green-700",
-                points: [
-                    { hi: "किसानों को कृषि संबंधी जानकारी", en: "Agricultural information for farmers" },
-                    { hi: "आधुनिक कृषि तकनीक की जानकारी", en: "Awareness of modern agricultural techniques" },
-                    { hi: "प्राकृतिक खेती जागरूकता", en: "Natural farming awareness" },
-                    { hi: "जैविक खेती जागरूकता", en: "Organic farming awareness" },
-                    { hi: "बीज एवं कृषि सामग्री संबंधी जानकारी", en: "Information on seeds and agricultural inputs" },
-                    { hi: "मृदा स्वास्थ्य जागरूकता", en: "Soil health awareness" },
-                    { hi: "जल संरक्षण आधारित कृषि", en: "Water-conservation-based agriculture" },
-                    { hi: "बागवानी एवं फल-सब्जी उत्पादन", en: "Horticulture and fruit and vegetable production" },
-                    { hi: "पशुपालन संबंधी प्रशिक्षण", en: "Livestock management training" },
-                    { hi: "किसान कौशल विकास", en: "Farmer skill development" },
-                    { hi: "किसान समूहों को सहयोग", en: "Support to farmer groups" },
-                    { hi: "कृषि आधारित स्वरोजगार", en: "Agriculture-based self-employment" },
-                    { hi: "कृषि बाजार संबंधी जागरूकता", en: "Agricultural market awareness" },
-                    { hi: "सरकारी कृषि योजनाओं की जानकारी", en: "Awareness of government agricultural schemes" },
-                    { hi: "कृषि नवाचार एवं तकनीकी जागरूकता", en: "Agricultural innovation and technology awareness" },
-                    { hi: "किसान आत्मनिर्भरता एवं आय-विविधीकरण जागरूकता", en: "Farmer self-reliance and income diversification awareness" }
-                ]
+                hi:"स्कूल ड्रॉपआउट रोकथाम",
+                en:"Prevention of school dropouts"
             },
+
             {
-                id: 11,
-                titleHi: "पर्यावरण एवं जल संरक्षण",
-                titleEn: "Environment & Water Conservation",
-                icon: "fa-tree",
-                color: "from-teal-600 to-green-800",
-                points: [
-                    { hi: "वृक्षारोपण अभियान", en: "Tree plantation campaigns" },
-                    { hi: "पौध वितरण", en: "Distribution of saplings" },
-                    { hi: "वन संरक्षण जागरूकता", en: "Forest conservation awareness" },
-                    { hi: "जल संरक्षण अभियान", en: "Water conservation campaigns" },
-                    { hi: "वर्षा जल संचयन जागरूकता", en: "Rainwater harvesting awareness" },
-                    { hi: "तालाब एवं जल स्रोत संरक्षण", en: "Protection of ponds and water sources" },
-                    { hi: "प्लास्टिक प्रदूषण के विरुद्ध अभियान", en: "Campaigns against plastic pollution" },
-                    { hi: "कचरा प्रबंधन जागरूकता", en: "Waste management awareness" },
-                    { hi: "जैव विविधता संरक्षण", en: "Biodiversity conservation" },
-                    { hi: "जलवायु परिवर्तन जागरूकता", en: "Climate change awareness" },
-                    { hi: "ऊर्जा बचत जागरूकता", en: "Energy conservation awareness" },
-                    { hi: "पर्यावरण शिक्षा", en: "Environmental education" },
-                    { hi: "स्कूल पर्यावरण कार्यक्रम", en: "School environmental programs" },
-                    { hi: "हरित एवं स्वच्छ गांव अभियान", en: "Green and clean village campaigns" },
-                    { hi: "जल प्रदूषण रोकथाम जागरूकता", en: "Water pollution prevention awareness" },
-                    { hi: "पर्यावरण संरक्षण में जनभागीदारी", en: "Public participation in environmental protection" }
-                ]
+                hi:"बाल श्रम से बच्चों को शिक्षा की ओर जोड़ना",
+                en:"Connecting children engaged in child labour with education"
             },
+
             {
-                id: 12,
-                titleHi: "स्वच्छता, पेयजल एवं पोषण",
-                titleEn: "Sanitation, Drinking Water & Nutrition",
-                icon: "fa-faucet-drip",
-                color: "from-sky-500 to-blue-700",
-                points: [
-                    { hi: "स्वच्छता जागरूकता अभियान", en: "Sanitation awareness campaigns" },
-                    { hi: "स्वच्छ गांव अभियान", en: "Clean village campaigns" },
-                    { hi: "व्यक्तिगत स्वच्छता शिक्षा", en: "Personal hygiene education" },
-                    { hi: "हाथ धोने की जागरूकता", en: "Handwashing awareness" },
-                    { hi: "शौचालय उपयोग जागरूकता", en: "Toilet-use awareness" },
-                    { hi: "स्वच्छ पेयजल जागरूकता", en: "Safe drinking water awareness" },
-                    { hi: "जल स्रोतों की स्वच्छता", en: "Cleanliness of water sources" },
-                    { hi: "कचरा पृथक्करण जागरूकता", en: "Waste segregation awareness" },
-                    { hi: "प्लास्टिक कम करने का अभियान", en: "Campaigns to reduce plastic use" },
-                    { hi: "बच्चों में स्वच्छता शिक्षा", en: "Hygiene education for children" },
-                    { hi: "पोषण जागरूकता", en: "Nutrition awareness" },
-                    { hi: "कुपोषण के प्रति जागरूकता", en: "Awareness about malnutrition" },
-                    { hi: "संतुलित आहार संबंधी शिक्षा", en: "Education on balanced diets" },
-                    { hi: "बच्चों के पोषण कार्यक्रम", en: "Nutrition programs for children" },
-                    { hi: "महिलाओं एवं माताओं में पोषण जागरूकता", en: "Nutrition awareness among women and mothers" },
-                    { hi: "स्वच्छता एवं पोषण जन-जागरूकता अभियान", en: "Public awareness campaigns on sanitation and nutrition" }
-                ]
+                hi:"वयस्क एवं निरक्षरता उन्मूलन",
+                en:"Adult education and eradication of illiteracy"
             },
+
             {
-                id: 13,
-                titleHi: "पशु कल्याण एवं संरक्षण",
-                titleEn: "Animal Welfare & Protection",
-                icon: "fa-paw",
-                color: "from-amber-700 to-orange-900",
-                points: [
-                    { hi: "बेसहारा पशुओं की सहायता", en: "Assistance to stray and abandoned animals" },
-                    { hi: "पशु स्वास्थ्य जागरूकता", en: "Animal health awareness" },
-                    { hi: "पशु चिकित्सा शिविरों में सहयोग", en: "Support for veterinary camps" },
-                    { hi: "पशु संरक्षण अभियान", en: "Animal protection campaigns" },
-                    { hi: "पशु क्रूरता के विरुद्ध जागरूकता", en: "Awareness against animal cruelty" },
-                    { hi: "पशुपालकों को जागरूक करना", en: "Awareness among livestock owners" },
-                    { hi: "पशुओं के लिए भोजन एवं पानी की व्यवस्था में सहयोग", en: "Support for providing food and water to animals" },
-                    { hi: "पक्षी संरक्षण", en: "Bird conservation" },
-                    { hi: "घायल पशुओं को सहायता सेवाओं तक पहुंचाने में सहयोग", en: "Support in connecting injured animals with appropriate care services" },
-                    { hi: "पशु-पक्षी संरक्षण शिक्षा", en: "Animal and bird conservation education" },
-                    { hi: "ग्रामीण पशुपालन जागरूकता", en: "Rural livestock awareness" },
-                    { hi: "पशु टीकाकरण संबंधी जागरूकता", en: "Awareness about animal vaccination" },
-                    { hi: "जिम्मेदार पशुपालन के प्रति जागरूकता", en: "Awareness of responsible animal care" },
-                    { hi: "जैव विविधता संरक्षण", en: "Biodiversity conservation" },
-                    { hi: "पशु कल्याण स्वयंसेवक कार्यक्रम", en: "Animal welfare volunteer programs" },
-                    { hi: "पशु-पक्षी संरक्षण जन-जागरूकता अभियान", en: "Public awareness campaigns for animal and bird protection" }
-                ]
+                hi:"ग्रामीण एवं वंचित क्षेत्रों में शिक्षा",
+                en:"Education in rural and underserved areas"
             },
+
             {
-                id: 14,
-                titleHi: "आपदा राहत एवं पुनर्वास",
-                titleEn: "Disaster Relief & Rehabilitation",
-                icon: "fa-hand-holding-hand",
-                color: "from-red-600 to-stone-800",
-                points: [
-                    { hi: "बाढ़ राहत कार्य", en: "Flood relief work" },
-                    { hi: "सूखा प्रभावित क्षेत्रों में सहायता", en: "Assistance in drought-affected areas" },
-                    { hi: "चक्रवात एवं तूफान राहत", en: "Cyclone and storm relief" },
-                    { hi: "भूकंप जैसी आपदाओं में सहायता", en: "Assistance during disasters such as earthquakes" },
-                    { hi: "राहत सामग्री वितरण", en: "Distribution of relief materials" },
-                    { hi: "खाद्य सामग्री वितरण", en: "Distribution of food supplies" },
-                    { hi: "कपड़े एवं कंबल वितरण", en: "Distribution of clothing and blankets" },
-                    { hi: "आवश्यक वस्तुओं की सहायता", en: "Assistance with essential items" },
-                    { hi: "राहत शिविरों में सहयोग", en: "Support at relief camps" },
-                    { hi: "प्रभावित परिवारों की सहायता", en: "Assistance to affected families" },
-                    { hi: "बच्चों एवं बुजुर्गों की विशेष सहायता", en: "Special assistance to children and senior citizens" },
-                    { hi: "स्वास्थ्य एवं स्वच्छता सहायता", en: "Health and sanitation assistance" },
-                    { hi: "आपदा पूर्व जागरूकता", en: "Pre-disaster awareness" },
-                    { hi: "आपदा प्रबंधन प्रशिक्षण", en: "Disaster management training" },
-                    { hi: "पुनर्वास एवं पुनर्स्थापन में सहयोग", en: "Support for rehabilitation and resettlement" },
-                    { hi: "आपदा प्रभावित क्षेत्रों में जन-सहयोग अभियान", en: "Public support campaigns in disaster-affected areas" }
-                ]
+                hi:"व्यावसायिक एवं कौशल शिक्षा",
+                en:"Vocational and skill education"
             },
+
             {
-                id: 15,
-                titleHi: "सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता",
-                titleEn: "Social Justice, Human Rights & Legal Awareness",
-                icon: "fa-scale-balanced",
-                color: "from-slate-700 to-slate-900",
-                points: [
-                    { hi: "मानव अधिकार जागरूकता", en: "Human rights awareness" },
-                    { hi: "समानता एवं सामाजिक न्याय", en: "Equality and social justice" },
-                    { hi: "भेदभाव के विरुद्ध अभियान", en: "Campaigns against discrimination" },
-                    { hi: "कमजोर वर्गों के अधिकारों की जानकारी", en: "Awareness of the rights of vulnerable groups" },
-                    { hi: "महिला अधिकार जागरूकता", en: "Women’s rights awareness" },
-                    { hi: "बाल अधिकार जागरूकता", en: "Child rights awareness" },
-                    { hi: "दिव्यांग अधिकार जागरूकता", en: "Disability rights awareness" },
-                    { hi: "वरिष्ठ नागरिक अधिकार जागरूकता", en: "Senior citizen rights awareness" },
-                    { hi: "श्रमिक अधिकार जागरूकता", en: "Workers’ rights awareness" },
-                    { hi: "नागरिक अधिकारों की जानकारी", en: "Awareness of citizens’ rights" },
-                    { hi: "सरकारी योजनाओं की जानकारी", en: "Awareness of government schemes" },
-                    { hi: "कानूनी अधिकारों की सामान्य जानकारी", en: "General awareness of legal rights" },
-                    { hi: "उपलब्ध विधिक सहायता सेवाओं तक मार्गदर्शन", en: "Guidance on accessing available legal aid services" },
-                    { hi: "सामाजिक कुरीतियों के विरुद्ध अभियान", en: "Campaigns against social evils" },
-                    { hi: "बाल विवाह एवं दहेज के विरुद्ध जागरूकता", en: "Awareness against child marriage and dowry" },
-                    { hi: "सामाजिक समानता एवं सद्भाव को बढ़ावा देना", en: "Promotion of social equality and harmony" }
-                ]
+                hi:"बाल अधिकारों के प्रति जागरूकता",
+                en:"Awareness of child rights"
             },
+
             {
-                id: 16,
-                titleHi: "डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास",
-                titleEn: "Digital Education, Public Awareness & Social Development",
-                icon: "fa-laptop-code",
-                color: "from-indigo-600 to-violet-800",
-                points: [
-                    { hi: "कंप्यूटर शिक्षा", en: "Computer education" },
-                    { hi: "डिजिटल साक्षरता", en: "Digital literacy" },
-                    { hi: "इंटरनेट के सुरक्षित उपयोग की जागरूकता", en: "Awareness of safe internet use" },
-                    { hi: "साइबर सुरक्षा जागरूकता", en: "Cybersecurity awareness" },
-                    { hi: "ऑनलाइन सरकारी सेवाओं की जानकारी", en: "Awareness of online government services" },
-                    { hi: "डिजिटल भुगतान की जानकारी", en: "Digital payment awareness" },
-                    { hi: "ऑनलाइन आवेदन एवं सेवाओं की जानकारी", en: "Awareness of online applications and services" },
-                    { hi: "डिजिटल दस्तावेज संबंधी जागरूकता", en: "Awareness of digital documents" },
-                    { hi: "सोशल मीडिया का जिम्मेदार उपयोग", en: "Responsible use of social media" },
-                    { hi: "स्वास्थ्य जागरूकता अभियान", en: "Health awareness campaigns" },
-                    { hi: "शिक्षा जागरूकता अभियान", en: "Education awareness campaigns" },
-                    { hi: "पर्यावरण जागरूकता अभियान", en: "Environmental awareness campaigns" },
-                    { hi: "सामाजिक कुरीतियों के विरुद्ध अभियान", en: "Campaigns against social evils" },
-                    { hi: "नागरिक जिम्मेदारी एवं कर्तव्य जागरूकता", en: "Awareness of civic responsibilities and duties" },
-                    { hi: "स्वयंसेवा एवं सामाजिक भागीदारी", en: "Volunteering and social participation" },
-                    { hi: "सामाजिक एकता, सद्भाव एवं सामुदायिक विकास", en: "Social unity, harmony and community development" }
-                ]
+                hi:"शिक्षा के प्रति जन-जागरूकता अभियान",
+                en:"Public awareness campaigns for education"
             }
-        ];
 
-        // Render Accordion Cards
-        function renderAccordion() {
-            const container = document.getElementById('work-accordion-container');
-            container.innerHTML = '';
+        ]
+    },
 
-            workData.forEach((item) => {
-                const pointsHTML = item.points.map((p, idx) => `
-                    <li class="flex items-start gap-3 p-2 rounded-lg hover:bg-slate-50 transition-colors border-b border-slate-100 last:border-none">
-                        <span class="w-6 h-6 rounded-full bg-orange-100 text-orange-600 font-bold text-xs flex items-center justify-center flex-shrink-0 mt-0.5">
-                            ${idx + 1}
-                        </span>
-                        <div>
-                            <p class="text-sm font-semibold text-slate-800 leading-snug">${p.hi}</p>
-                            <p class="text-xs text-slate-500 italic mt-0.5">${p.en}</p>
+
+    /* =====================================================
+       2. WOMEN
+    ====================================================== */
+
+    {
+        id:2,
+
+        titleHi:"महिला सशक्तिकरण एवं विकास",
+
+        titleEn:"Women Empowerment & Development",
+
+        icon:"fa-person-dress",
+
+        color:"linear-gradient(135deg,#ec4899,#e11d48)",
+
+        points:[
+
+            {
+                hi:"महिला शिक्षा एवं साक्षरता",
+                en:"Women’s education and literacy"
+            },
+
+            {
+                hi:"महिला कौशल विकास",
+                en:"Women’s skill development"
+            },
+
+            {
+                hi:"रोजगार एवं स्वरोजगार प्रशिक्षण",
+                en:"Employment and self-employment training"
+            },
+
+            {
+                hi:"महिला उद्यमिता विकास",
+                en:"Women entrepreneurship development"
+            },
+
+            {
+                hi:"स्वयं सहायता समूहों को सहयोग",
+                en:"Support to Self-Help Groups"
+            },
+
+            {
+                hi:"सिलाई-कढ़ाई एवं हस्तकला प्रशिक्षण",
+                en:"Tailoring, embroidery and handicraft training"
+            },
+
+            {
+                hi:"डिजिटल एवं कंप्यूटर शिक्षा",
+                en:"Digital and computer education"
+            },
+
+            {
+                hi:"महिला अधिकारों की जानकारी",
+                en:"Awareness of women’s rights"
+            },
+
+            {
+                hi:"घरेलू हिंसा के विरुद्ध जागरूकता",
+                en:"Awareness against domestic violence"
+            },
+
+            {
+                hi:"दहेज प्रथा के विरुद्ध अभियान",
+                en:"Campaigns against the dowry system"
+            },
+
+            {
+                hi:"बाल विवाह रोकथाम",
+                en:"Prevention of child marriage"
+            },
+
+            {
+                hi:"महिलाओं की आर्थिक आत्मनिर्भरता",
+                en:"Economic self-reliance of women"
+            },
+
+            {
+                hi:"स्वास्थ्य एवं पोषण जागरूकता",
+                en:"Health and nutrition awareness"
+            },
+
+            {
+                hi:"नेतृत्व एवं व्यक्तित्व विकास",
+                en:"Leadership and personality development"
+            },
+
+            {
+                hi:"सरकारी योजनाओं की जानकारी",
+                en:"Awareness of government schemes"
+            },
+
+            {
+                hi:"महिला सुरक्षा एवं सम्मान के प्रति जागरूकता",
+                en:"Awareness for women’s safety and dignity"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       3. HEALTH
+    ====================================================== */
+
+    {
+        id:3,
+
+        titleHi:"स्वास्थ्य एवं चिकित्सा",
+
+        titleEn:"Health & Medical Care",
+
+        icon:"fa-heart-pulse",
+
+        color:"linear-gradient(135deg,#ef4444,#be123c)",
+
+        points:[
+
+            {
+                hi:"निःशुल्क स्वास्थ्य जांच शिविर",
+                en:"Free health check-up camps"
+            },
+
+            {
+                hi:"ग्रामीण स्वास्थ्य जागरूकता",
+                en:"Rural health awareness"
+            },
+
+            {
+                hi:"नेत्र जांच एवं सहायता शिविर",
+                en:"Eye check-up and assistance camps"
+            },
+
+            {
+                hi:"दंत स्वास्थ्य जांच शिविर",
+                en:"Dental health check-up camps"
+            },
+
+            {
+                hi:"सामान्य स्वास्थ्य जागरूकता",
+                en:"General health awareness"
+            },
+
+            {
+                hi:"मातृ स्वास्थ्य जागरूकता",
+                en:"Maternal health awareness"
+            },
+
+            {
+                hi:"किशोर स्वास्थ्य जागरूकता",
+                en:"Adolescent health awareness"
+            },
+
+            {
+                hi:"पोषण एवं संतुलित आहार जागरूकता",
+                en:"Nutrition and balanced diet awareness"
+            },
+
+            {
+                hi:"स्वच्छता एवं व्यक्तिगत स्वास्थ्य शिक्षा",
+                en:"Hygiene and personal health education"
+            },
+
+            {
+                hi:"जरूरतमंद मरीजों को सहायता",
+                en:"Assistance to needy patients"
+            },
+
+            {
+                hi:"स्वास्थ्य सेवाओं तक पहुंच का मार्गदर्शन",
+                en:"Guidance for accessing healthcare services"
+            },
+
+            {
+                hi:"रक्तदान जागरूकता",
+                en:"Blood donation awareness"
+            },
+
+            {
+                hi:"रोगों की रोकथाम संबंधी जागरूकता",
+                en:"Awareness about disease prevention"
+            },
+
+            {
+                hi:"स्वास्थ्य विशेषज्ञों के साथ जागरूकता कार्यक्रम",
+                en:"Awareness programs with health professionals"
+            },
+
+            {
+                hi:"दूरदराज क्षेत्रों में स्वास्थ्य कार्यक्रम",
+                en:"Health programs in remote areas"
+            },
+
+            {
+                hi:"स्वस्थ जीवनशैली के प्रति जागरूकता",
+                en:"Awareness for a healthy lifestyle"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       4. POOR & NEEDY
+    ====================================================== */
+
+    {
+        id:4,
+
+        titleHi:"गरीब एवं जरूरतमंद कल्याण",
+
+        titleEn:"Welfare of Poor & Needy",
+
+        icon:"fa-hand-holding-dollar",
+
+        color:"linear-gradient(135deg,#10b981,#0f766e)",
+
+        points:[
+
+            {
+                hi:"गरीब परिवारों की सहायता",
+                en:"Assistance to poor families"
+            },
+
+            {
+                hi:"राशन एवं खाद्य सामग्री वितरण",
+                en:"Distribution of ration and food materials"
+            },
+
+            {
+                hi:"कपड़े वितरण",
+                en:"Distribution of clothing"
+            },
+
+            {
+                hi:"कंबल एवं मौसमी सामग्री वितरण",
+                en:"Distribution of blankets and seasonal essentials"
+            },
+
+            {
+                hi:"जूते-चप्पल एवं आवश्यक वस्तु सहायता",
+                en:"Assistance with footwear and essential items"
+            },
+
+            {
+                hi:"गरीब बच्चों की शिक्षा सहायता",
+                en:"Educational assistance for poor children"
+            },
+
+            {
+                hi:"जरूरतमंद परिवारों की पहचान",
+                en:"Identification of needy families"
+            },
+
+            {
+                hi:"सामुदायिक भोजन कार्यक्रम",
+                en:"Community meal programs"
+            },
+
+            {
+                hi:"बेघर लोगों की सहायता",
+                en:"Assistance to homeless people"
+            },
+
+            {
+                hi:"आर्थिक रूप से कमजोर लोगों को सहायता",
+                en:"Assistance to economically weaker people"
+            },
+
+            {
+                hi:"जरूरतमंदों को सरकारी योजनाओं से जोड़ना",
+                en:"Connecting needy people with government schemes"
+            },
+
+            {
+                hi:"दैनिक जीवन की आवश्यक वस्तुओं की सहायता",
+                en:"Assistance with daily essential items"
+            },
+
+            {
+                hi:"संकटग्रस्त परिवारों की सहायता",
+                en:"Assistance to families in distress"
+            },
+
+            {
+                hi:"गरीब बस्तियों में सेवा कार्यक्रम",
+                en:"Service programs in underprivileged communities"
+            },
+
+            {
+                hi:"सामुदायिक सहायता केंद्र",
+                en:"Community assistance centers"
+            },
+
+            {
+                hi:"जरूरतमंदों के लिए जन-सहयोग अभियान",
+                en:"Public support campaigns for needy people"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       5. DISABILITY
+    ====================================================== */
+
+    {
+        id:5,
+
+        titleHi:"दिव्यांगजन कल्याण एवं सशक्तिकरण",
+
+        titleEn:"Disability Welfare & Empowerment",
+
+        icon:"fa-wheelchair",
+
+        color:"linear-gradient(135deg,#3b82f6,#4338ca)",
+
+        points:[
+
+            {
+                hi:"दिव्यांगजनों की सहायता",
+                en:"Assistance to persons with disabilities"
+            },
+
+            {
+                hi:"सहायक उपकरण उपलब्ध कराने में सहयोग",
+                en:"Support in providing assistive devices"
+            },
+
+            {
+                hi:"व्हीलचेयर एवं आवश्यक उपकरण सहायता",
+                en:"Wheelchair and essential equipment assistance"
+            },
+
+            {
+                hi:"दिव्यांग बच्चों की शिक्षा",
+                en:"Education for children with disabilities"
+            },
+
+            {
+                hi:"कौशल विकास प्रशिक्षण",
+                en:"Skill development training"
+            },
+
+            {
+                hi:"रोजगार एवं स्वरोजगार मार्गदर्शन",
+                en:"Employment and self-employment guidance"
+            },
+
+            {
+                hi:"सरकारी योजनाओं की जानकारी",
+                en:"Awareness of government schemes"
+            },
+
+            {
+                hi:"दिव्यांग अधिकार जागरूकता",
+                en:"Disability rights awareness"
+            },
+
+            {
+                hi:"डिजिटल शिक्षा",
+                en:"Digital education"
+            },
+
+            {
+                hi:"सामाजिक समावेशन",
+                en:"Social inclusion"
+            },
+
+            {
+                hi:"प्रतिभा एवं खेल विकास",
+                en:"Talent and sports development"
+            },
+
+            {
+                hi:"परिवारों को मार्गदर्शन",
+                en:"Guidance for families"
+            },
+
+            {
+                hi:"स्वास्थ्य एवं पुनर्वास सेवाओं तक पहुंच में सहयोग",
+                en:"Support in accessing healthcare and rehabilitation services"
+            },
+
+            {
+                hi:"रोजगारदाताओं के साथ अवसरों के लिए समन्वय",
+                en:"Coordination with employers for opportunities"
+            },
+
+            {
+                hi:"दिव्यांगजनों के लिए जागरूकता अभियान",
+                en:"Awareness campaigns for persons with disabilities"
+            },
+
+            {
+                hi:"सम्मानजनक एवं आत्मनिर्भर जीवन के लिए सहयोग",
+                en:"Support for a dignified and self-reliant life"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       6. SENIOR CITIZEN
+    ====================================================== */
+
+    {
+        id:6,
+
+        titleHi:"वृद्धजन कल्याण",
+
+        titleEn:"Senior Citizen Welfare",
+
+        icon:"fa-person-cane",
+
+        color:"linear-gradient(135deg,#a855f7,#3730a3)",
+
+        points:[
+
+            {
+                hi:"जरूरतमंद बुजुर्गों की सहायता",
+                en:"Assistance to needy senior citizens"
+            },
+
+            {
+                hi:"भोजन सहायता",
+                en:"Food assistance"
+            },
+
+            {
+                hi:"कपड़े एवं कंबल सहायता",
+                en:"Clothing and blanket assistance"
+            },
+
+            {
+                hi:"स्वास्थ्य जांच शिविर",
+                en:"Health check-up camps"
+            },
+
+            {
+                hi:"स्वास्थ्य एवं दवा संबंधी मार्गदर्शन",
+                en:"Health and medication guidance"
+            },
+
+            {
+                hi:"अकेले रहने वाले बुजुर्गों की सामुदायिक सहायता",
+                en:"Community support for elderly people living alone"
+            },
+
+            {
+                hi:"सरकारी पेंशन एवं योजनाओं की जानकारी",
+                en:"Awareness of government pensions and schemes"
+            },
+
+            {
+                hi:"वरिष्ठ नागरिक अधिकार जागरूकता",
+                en:"Senior citizen rights awareness"
+            },
+
+            {
+                hi:"सामाजिक सुरक्षा जागरूकता",
+                en:"Social security awareness"
+            },
+
+            {
+                hi:"वृद्धाश्रमों में सहयोग",
+                en:"Support to old-age homes"
+            },
+
+            {
+                hi:"मानसिक एवं सामाजिक सहयोग",
+                en:"Emotional and social support"
+            },
+
+            {
+                hi:"आवश्यक वस्तुओं की सहायता",
+                en:"Assistance with essential items"
+            },
+
+            {
+                hi:"डिजिटल साक्षरता",
+                en:"Digital literacy"
+            },
+
+            {
+                hi:"परिवार एवं समुदाय में सम्मान के प्रति जागरूकता",
+                en:"Awareness for dignity and respect in family and community"
+            },
+
+            {
+                hi:"वरिष्ठ नागरिक मिलन एवं सामुदायिक कार्यक्रम",
+                en:"Senior citizen gatherings and community programs"
+            },
+
+            {
+                hi:"वृद्धजन सहायता एवं जन-जागरूकता अभियान",
+                en:"Senior citizen assistance and public awareness campaigns"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       7. YOUTH & SKILL
+    ====================================================== */
+
+    {
+        id:7,
+
+        titleHi:"युवा विकास एवं कौशल विकास",
+
+        titleEn:"Youth Development & Skill Development",
+
+        icon:"fa-user-graduate",
+
+        color:"linear-gradient(135deg,#06b6d4,#1d4ed8)",
+
+        points:[
+
+            {
+                hi:"युवाओं के लिए कौशल प्रशिक्षण",
+                en:"Skill training for youth"
+            },
+
+            {
+                hi:"कंप्यूटर एवं डिजिटल शिक्षा",
+                en:"Computer and digital education"
+            },
+
+            {
+                hi:"करियर मार्गदर्शन",
+                en:"Career guidance"
+            },
+
+            {
+                hi:"रोजगार मार्गदर्शन",
+                en:"Employment guidance"
+            },
+
+            {
+                hi:"प्रतियोगी परीक्षा मार्गदर्शन",
+                en:"Competitive examination guidance"
+            },
+
+            {
+                hi:"व्यक्तित्व विकास",
+                en:"Personality development"
+            },
+
+            {
+                hi:"संचार कौशल विकास",
+                en:"Communication skill development"
+            },
+
+            {
+                hi:"नेतृत्व विकास",
+                en:"Leadership development"
+            },
+
+            {
+                hi:"उद्यमिता प्रशिक्षण",
+                en:"Entrepreneurship training"
+            },
+
+            {
+                hi:"स्वरोजगार मार्गदर्शन",
+                en:"Self-employment guidance"
+            },
+
+            {
+                hi:"व्यावसायिक प्रशिक्षण",
+                en:"Vocational training"
+            },
+
+            {
+                hi:"खेल एवं प्रतिभा विकास",
+                en:"Sports and talent development"
+            },
+
+            {
+                hi:"युवा स्वयंसेवक कार्यक्रम",
+                en:"Youth volunteer programs"
+            },
+
+            {
+                hi:"वित्तीय एवं डिजिटल साक्षरता",
+                en:"Financial and digital literacy"
+            },
+
+            {
+                hi:"सामाजिक नेतृत्व एवं जिम्मेदारी",
+                en:"Social leadership and responsibility"
+            },
+
+            {
+                hi:"युवा जागरूकता एवं विकास अभियान",
+                en:"Youth awareness and development campaigns"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       8. EMPLOYMENT
+    ====================================================== */
+
+    {
+        id:8,
+
+        titleHi:"रोजगार, स्वरोजगार एवं आजीविका",
+
+        titleEn:"Employment, Self-Employment & Livelihood",
+
+        icon:"fa-briefcase",
+
+        color:"linear-gradient(135deg,#d97706,#a16207)",
+
+        points:[
+
+            {
+                hi:"रोजगार मार्गदर्शन",
+                en:"Employment guidance"
+            },
+
+            {
+                hi:"कौशल प्रशिक्षण",
+                en:"Skill training"
+            },
+
+            {
+                hi:"स्वरोजगार प्रशिक्षण",
+                en:"Self-employment training"
+            },
+
+            {
+                hi:"छोटे व्यवसाय के लिए मार्गदर्शन",
+                en:"Guidance for small businesses"
+            },
+
+            {
+                hi:"उद्यमिता विकास",
+                en:"Entrepreneurship development"
+            },
+
+            {
+                hi:"रोजगार मेले एवं अवसरों की जानकारी",
+                en:"Job fairs and employment opportunity awareness"
+            },
+
+            {
+                hi:"डिजिटल कौशल प्रशिक्षण",
+                en:"Digital skill training"
+            },
+
+            {
+                hi:"वित्तीय साक्षरता",
+                en:"Financial literacy"
+            },
+
+            {
+                hi:"बैंकिंग एवं डिजिटल भुगतान जागरूकता",
+                en:"Banking and digital payment awareness"
+            },
+
+            {
+                hi:"स्वयं सहायता समूहों को सहयोग",
+                en:"Support to Self-Help Groups"
+            },
+
+            {
+                hi:"घरेलू उद्योग को बढ़ावा",
+                en:"Promotion of home-based industries"
+            },
+
+            {
+                hi:"हस्तशिल्प एवं कुटीर उद्योग प्रशिक्षण",
+                en:"Handicraft and cottage industry training"
+            },
+
+            {
+                hi:"ग्रामीण आजीविका विकास",
+                en:"Rural livelihood development"
+            },
+
+            {
+                hi:"महिला स्वरोजगार कार्यक्रम",
+                en:"Women’s self-employment programs"
+            },
+
+            {
+                hi:"युवा उद्यमिता कार्यक्रम",
+                en:"Youth entrepreneurship programs"
+            },
+
+            {
+                hi:"रोजगार एवं आत्मनिर्भरता जागरूकता",
+                en:"Employment and self-reliance awareness"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       9. RURAL DEVELOPMENT
+    ====================================================== */
+
+    {
+        id:9,
+
+        titleHi:"ग्रामीण विकास एवं ग्राम उत्थान",
+
+        titleEn:"Rural Development & Village Upliftment",
+
+        icon:"fa-house-chimney-window",
+
+        color:"linear-gradient(135deg,#16a34a,#065f46)",
+
+        points:[
+
+            {
+                hi:"ग्रामीण शिक्षा विकास",
+                en:"Rural education development"
+            },
+
+            {
+                hi:"ग्रामीण स्वास्थ्य कार्यक्रम",
+                en:"Rural health programs"
+            },
+
+            {
+                hi:"स्वच्छता अभियान",
+                en:"Sanitation campaigns"
+            },
+
+            {
+                hi:"पेयजल जागरूकता",
+                en:"Drinking water awareness"
+            },
+
+            {
+                hi:"महिला सशक्तिकरण",
+                en:"Women empowerment"
+            },
+
+            {
+                hi:"युवा विकास",
+                en:"Youth development"
+            },
+
+            {
+                hi:"कौशल प्रशिक्षण",
+                en:"Skill training"
+            },
+
+            {
+                hi:"रोजगार एवं आजीविका विकास",
+                en:"Employment and livelihood development"
+            },
+
+            {
+                hi:"डिजिटल साक्षरता",
+                en:"Digital literacy"
+            },
+
+            {
+                hi:"किसान जागरूकता",
+                en:"Farmer awareness"
+            },
+
+            {
+                hi:"पर्यावरण संरक्षण",
+                en:"Environmental protection"
+            },
+
+            {
+                hi:"जल संरक्षण",
+                en:"Water conservation"
+            },
+
+            {
+                hi:"सरकारी योजनाओं की जानकारी",
+                en:"Awareness of government schemes"
+            },
+
+            {
+                hi:"सामुदायिक विकास कार्यक्रम",
+                en:"Community development programs"
+            },
+
+            {
+                hi:"ग्राम स्तर पर जन-जागरूकता",
+                en:"Village-level public awareness"
+            },
+
+            {
+                hi:"ग्रामीण आत्मनिर्भरता को बढ़ावा",
+                en:"Promotion of rural self-reliance"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       10. AGRICULTURE
+    ====================================================== */
+
+    {
+        id:10,
+
+        titleHi:"कृषि एवं किसान कल्याण",
+
+        titleEn:"Agriculture & Farmer Welfare",
+
+        icon:"fa-wheat-awn",
+
+        color:"linear-gradient(135deg,#65a30d,#15803d)",
+
+        points:[
+
+            {
+                hi:"किसानों को कृषि संबंधी जानकारी",
+                en:"Agricultural information for farmers"
+            },
+
+            {
+                hi:"आधुनिक कृषि तकनीक की जानकारी",
+                en:"Awareness of modern agricultural techniques"
+            },
+
+            {
+                hi:"प्राकृतिक खेती जागरूकता",
+                en:"Natural farming awareness"
+            },
+
+            {
+                hi:"जैविक खेती जागरूकता",
+                en:"Organic farming awareness"
+            },
+
+            {
+                hi:"बीज एवं कृषि सामग्री संबंधी जानकारी",
+                en:"Information on seeds and agricultural inputs"
+            },
+
+            {
+                hi:"मृदा स्वास्थ्य जागरूकता",
+                en:"Soil health awareness"
+            },
+
+            {
+                hi:"जल संरक्षण आधारित कृषि",
+                en:"Water-conservation-based agriculture"
+            },
+
+            {
+                hi:"बागवानी एवं फल-सब्जी उत्पादन",
+                en:"Horticulture and fruit and vegetable production"
+            },
+
+            {
+                hi:"पशुपालन संबंधी प्रशिक्षण",
+                en:"Livestock management training"
+            },
+
+            {
+                hi:"किसान कौशल विकास",
+                en:"Farmer skill development"
+            },
+
+            {
+                hi:"किसान समूहों को सहयोग",
+                en:"Support to farmer groups"
+            },
+
+            {
+                hi:"कृषि आधारित स्वरोजगार",
+                en:"Agriculture-based self-employment"
+            },
+
+            {
+                hi:"कृषि बाजार संबंधी जागरूकता",
+                en:"Agricultural market awareness"
+            },
+
+            {
+                hi:"सरकारी कृषि योजनाओं की जानकारी",
+                en:"Awareness of government agricultural schemes"
+            },
+
+            {
+                hi:"कृषि नवाचार एवं तकनीकी जागरूकता",
+                en:"Agricultural innovation and technology awareness"
+            },
+
+            {
+                hi:"किसान आत्मनिर्भरता एवं आय-विविधीकरण जागरूकता",
+                en:"Farmer self-reliance and income diversification awareness"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       11. ENVIRONMENT
+    ====================================================== */
+
+    {
+        id:11,
+
+        titleHi:"पर्यावरण एवं जल संरक्षण",
+
+        titleEn:"Environment & Water Conservation",
+
+        icon:"fa-tree",
+
+        color:"linear-gradient(135deg,#0d9488,#166534)",
+
+        points:[
+
+            {
+                hi:"वृक्षारोपण अभियान",
+                en:"Tree plantation campaigns"
+            },
+
+            {
+                hi:"पौध वितरण",
+                en:"Distribution of saplings"
+            },
+
+            {
+                hi:"वन संरक्षण जागरूकता",
+                en:"Forest conservation awareness"
+            },
+
+            {
+                hi:"जल संरक्षण अभियान",
+                en:"Water conservation campaigns"
+            },
+
+            {
+                hi:"वर्षा जल संचयन जागरूकता",
+                en:"Rainwater harvesting awareness"
+            },
+
+            {
+                hi:"तालाब एवं जल स्रोत संरक्षण",
+                en:"Protection of ponds and water sources"
+            },
+
+            {
+                hi:"प्लास्टिक प्रदूषण के विरुद्ध अभियान",
+                en:"Campaigns against plastic pollution"
+            },
+
+            {
+                hi:"कचरा प्रबंधन जागरूकता",
+                en:"Waste management awareness"
+            },
+
+            {
+                hi:"जैव विविधता संरक्षण",
+                en:"Biodiversity conservation"
+            },
+
+            {
+                hi:"जलवायु परिवर्तन जागरूकता",
+                en:"Climate change awareness"
+            },
+
+            {
+                hi:"ऊर्जा बचत जागरूकता",
+                en:"Energy conservation awareness"
+            },
+
+            {
+                hi:"पर्यावरण शिक्षा",
+                en:"Environmental education"
+            },
+
+            {
+                hi:"स्कूल पर्यावरण कार्यक्रम",
+                en:"School environmental programs"
+            },
+
+            {
+                hi:"हरित एवं स्वच्छ गांव अभियान",
+                en:"Green and clean village campaigns"
+            },
+
+            {
+                hi:"जल प्रदूषण रोकथाम जागरूकता",
+                en:"Water pollution prevention awareness"
+            },
+
+            {
+                hi:"पर्यावरण संरक्षण में जनभागीदारी",
+                en:"Public participation in environmental protection"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       12. SANITATION
+    ====================================================== */
+
+    {
+        id:12,
+
+        titleHi:"स्वच्छता, पेयजल एवं पोषण",
+
+        titleEn:"Sanitation, Drinking Water & Nutrition",
+
+        icon:"fa-faucet-drip",
+
+        color:"linear-gradient(135deg,#0ea5e9,#1d4ed8)",
+
+        points:[
+
+            {
+                hi:"स्वच्छता जागरूकता अभियान",
+                en:"Sanitation awareness campaigns"
+            },
+
+            {
+                hi:"स्वच्छ गांव अभियान",
+                en:"Clean village campaigns"
+            },
+
+            {
+                hi:"व्यक्तिगत स्वच्छता शिक्षा",
+                en:"Personal hygiene education"
+            },
+
+            {
+                hi:"हाथ धोने की जागरूकता",
+                en:"Handwashing awareness"
+            },
+
+            {
+                hi:"शौचालय उपयोग जागरूकता",
+                en:"Toilet-use awareness"
+            },
+
+            {
+                hi:"स्वच्छ पेयजल जागरूकता",
+                en:"Safe drinking water awareness"
+            },
+
+            {
+                hi:"जल स्रोतों की स्वच्छता",
+                en:"Cleanliness of water sources"
+            },
+
+            {
+                hi:"कचरा पृथक्करण जागरूकता",
+                en:"Waste segregation awareness"
+            },
+
+            {
+                hi:"प्लास्टिक कम करने का अभियान",
+                en:"Campaigns to reduce plastic use"
+            },
+
+            {
+                hi:"बच्चों में स्वच्छता शिक्षा",
+                en:"Hygiene education for children"
+            },
+
+            {
+                hi:"पोषण जागरूकता",
+                en:"Nutrition awareness"
+            },
+
+            {
+                hi:"कुपोषण के प्रति जागरूकता",
+                en:"Awareness about malnutrition"
+            },
+
+            {
+                hi:"संतुलित आहार संबंधी शिक्षा",
+                en:"Education on balanced diets"
+            },
+
+            {
+                hi:"बच्चों के पोषण कार्यक्रम",
+                en:"Nutrition programs for children"
+            },
+
+            {
+                hi:"महिलाओं एवं माताओं में पोषण जागरूकता",
+                en:"Nutrition awareness among women and mothers"
+            },
+
+            {
+                hi:"स्वच्छता एवं पोषण जन-जागरूकता अभियान",
+                en:"Public awareness campaigns on sanitation and nutrition"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       13. ANIMAL WELFARE
+    ====================================================== */
+
+    {
+        id:13,
+
+        titleHi:"पशु कल्याण एवं संरक्षण",
+
+        titleEn:"Animal Welfare & Protection",
+
+        icon:"fa-paw",
+
+        color:"linear-gradient(135deg,#b45309,#9a3412)",
+
+        points:[
+
+            {
+                hi:"बेसहारा पशुओं की सहायता",
+                en:"Assistance to stray and abandoned animals"
+            },
+
+            {
+                hi:"पशु स्वास्थ्य जागरूकता",
+                en:"Animal health awareness"
+            },
+
+            {
+                hi:"पशु चिकित्सा शिविरों में सहयोग",
+                en:"Support for veterinary camps"
+            },
+
+            {
+                hi:"पशु संरक्षण अभियान",
+                en:"Animal protection campaigns"
+            },
+
+            {
+                hi:"पशु क्रूरता के विरुद्ध जागरूकता",
+                en:"Awareness against animal cruelty"
+            },
+
+            {
+                hi:"पशुपालकों को जागरूक करना",
+                en:"Awareness among livestock owners"
+            },
+
+            {
+                hi:"पशुओं के लिए भोजन एवं पानी की व्यवस्था में सहयोग",
+                en:"Support for providing food and water to animals"
+            },
+
+            {
+                hi:"पक्षी संरक्षण",
+                en:"Bird conservation"
+            },
+
+            {
+                hi:"घायल पशुओं को सहायता सेवाओं तक पहुंचाने में सहयोग",
+                en:"Support in connecting injured animals with appropriate care services"
+            },
+
+            {
+                hi:"पशु-पक्षी संरक्षण शिक्षा",
+                en:"Animal and bird conservation education"
+            },
+
+            {
+                hi:"ग्रामीण पशुपालन जागरूकता",
+                en:"Rural livestock awareness"
+            },
+
+            {
+                hi:"पशु टीकाकरण संबंधी जागरूकता",
+                en:"Awareness about animal vaccination"
+            },
+
+            {
+                hi:"जिम्मेदार पशुपालन के प्रति जागरूकता",
+                en:"Awareness of responsible animal care"
+            },
+
+            {
+                hi:"जैव विविधता संरक्षण",
+                en:"Biodiversity conservation"
+            },
+
+            {
+                hi:"पशु कल्याण स्वयंसेवक कार्यक्रम",
+                en:"Animal welfare volunteer programs"
+            },
+
+            {
+                hi:"पशु-पक्षी संरक्षण जन-जागरूकता अभियान",
+                en:"Public awareness campaigns for animal and bird protection"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       14. DISASTER RELIEF
+    ====================================================== */
+
+    {
+        id:14,
+
+        titleHi:"आपदा राहत एवं पुनर्वास",
+
+        titleEn:"Disaster Relief & Rehabilitation",
+
+        icon:"fa-hand-holding-hand",
+
+        color:"linear-gradient(135deg,#dc2626,#44403c)",
+
+        points:[
+
+            {
+                hi:"बाढ़ राहत कार्य",
+                en:"Flood relief work"
+            },
+
+            {
+                hi:"सूखा प्रभावित क्षेत्रों में सहायता",
+                en:"Assistance in drought-affected areas"
+            },
+
+            {
+                hi:"चक्रवात एवं तूफान राहत",
+                en:"Cyclone and storm relief"
+            },
+
+            {
+                hi:"भूकंप जैसी आपदाओं में सहायता",
+                en:"Assistance during disasters such as earthquakes"
+            },
+
+            {
+                hi:"राहत सामग्री वितरण",
+                en:"Distribution of relief materials"
+            },
+
+            {
+                hi:"खाद्य सामग्री वितरण",
+                en:"Distribution of food supplies"
+            },
+
+            {
+                hi:"कपड़े एवं कंबल वितरण",
+                en:"Distribution of clothing and blankets"
+            },
+
+            {
+                hi:"आवश्यक वस्तुओं की सहायता",
+                en:"Assistance with essential items"
+            },
+
+            {
+                hi:"राहत शिविरों में सहयोग",
+                en:"Support at relief camps"
+            },
+
+            {
+                hi:"प्रभावित परिवारों की सहायता",
+                en:"Assistance to affected families"
+            },
+
+            {
+                hi:"बच्चों एवं बुजुर्गों की विशेष सहायता",
+                en:"Special assistance to children and senior citizens"
+            },
+
+            {
+                hi:"स्वास्थ्य एवं स्वच्छता सहायता",
+                en:"Health and sanitation assistance"
+            },
+
+            {
+                hi:"आपदा पूर्व जागरूकता",
+                en:"Pre-disaster awareness"
+            },
+
+            {
+                hi:"आपदा प्रबंधन प्रशिक्षण",
+                en:"Disaster management training"
+            },
+
+            {
+                hi:"पुनर्वास एवं पुनर्स्थापन में सहयोग",
+                en:"Support for rehabilitation and resettlement"
+            },
+
+            {
+                hi:"आपदा प्रभावित क्षेत्रों में जन-सहयोग अभियान",
+                en:"Public support campaigns in disaster-affected areas"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       15. SOCIAL JUSTICE
+    ====================================================== */
+
+    {
+        id:15,
+
+        titleHi:"सामाजिक न्याय, मानव अधिकार एवं कानूनी जागरूकता",
+
+        titleEn:"Social Justice, Human Rights & Legal Awareness",
+
+        icon:"fa-scale-balanced",
+
+        color:"linear-gradient(135deg,#334155,#0f172a)",
+
+        points:[
+
+            {
+                hi:"मानव अधिकार जागरूकता",
+                en:"Human rights awareness"
+            },
+
+            {
+                hi:"समानता एवं सामाजिक न्याय",
+                en:"Equality and social justice"
+            },
+
+            {
+                hi:"भेदभाव के विरुद्ध अभियान",
+                en:"Campaigns against discrimination"
+            },
+
+            {
+                hi:"कमजोर वर्गों के अधिकारों की जानकारी",
+                en:"Awareness of the rights of vulnerable groups"
+            },
+
+            {
+                hi:"महिला अधिकार जागरूकता",
+                en:"Women’s rights awareness"
+            },
+
+            {
+                hi:"बाल अधिकार जागरूकता",
+                en:"Child rights awareness"
+            },
+
+            {
+                hi:"दिव्यांग अधिकार जागरूकता",
+                en:"Disability rights awareness"
+            },
+
+            {
+                hi:"वरिष्ठ नागरिक अधिकार जागरूकता",
+                en:"Senior citizen rights awareness"
+            },
+
+            {
+                hi:"श्रमिक अधिकार जागरूकता",
+                en:"Workers’ rights awareness"
+            },
+
+            {
+                hi:"नागरिक अधिकारों की जानकारी",
+                en:"Awareness of citizens’ rights"
+            },
+
+            {
+                hi:"सरकारी योजनाओं की जानकारी",
+                en:"Awareness of government schemes"
+            },
+
+            {
+                hi:"कानूनी अधिकारों की सामान्य जानकारी",
+                en:"General awareness of legal rights"
+            },
+
+            {
+                hi:"उपलब्ध विधिक सहायता सेवाओं तक मार्गदर्शन",
+                en:"Guidance on accessing available legal aid services"
+            },
+
+            {
+                hi:"सामाजिक कुरीतियों के विरुद्ध अभियान",
+                en:"Campaigns against social evils"
+            },
+
+            {
+                hi:"बाल विवाह एवं दहेज के विरुद्ध जागरूकता",
+                en:"Awareness against child marriage and dowry"
+            },
+
+            {
+                hi:"सामाजिक समानता एवं सद्भाव को बढ़ावा देना",
+                en:"Promotion of social equality and harmony"
+            }
+
+        ]
+    },
+
+
+    /* =====================================================
+       16. DIGITAL EDUCATION
+    ====================================================== */
+
+    {
+        id:16,
+
+        titleHi:"डिजिटल शिक्षा, जन-जागरूकता एवं सामाजिक विकास",
+
+        titleEn:"Digital Education, Public Awareness & Social Development",
+
+        icon:"fa-laptop-code",
+
+        color:"linear-gradient(135deg,#4f46e5,#6d28d9)",
+
+        points:[
+
+            {
+                hi:"कंप्यूटर शिक्षा",
+                en:"Computer education"
+            },
+
+            {
+                hi:"डिजिटल साक्षरता",
+                en:"Digital literacy"
+            },
+
+            {
+                hi:"इंटरनेट के सुरक्षित उपयोग की जागरूकता",
+                en:"Awareness of safe internet use"
+            },
+
+            {
+                hi:"साइबर सुरक्षा जागरूकता",
+                en:"Cybersecurity awareness"
+            },
+
+            {
+                hi:"ऑनलाइन सरकारी सेवाओं की जानकारी",
+                en:"Awareness of online government services"
+            },
+
+            {
+                hi:"डिजिटल भुगतान की जानकारी",
+                en:"Digital payment awareness"
+            },
+
+            {
+                hi:"ऑनलाइन आवेदन एवं सेवाओं की जानकारी",
+                en:"Awareness of online applications and services"
+            },
+
+            {
+                hi:"डिजिटल दस्तावेज संबंधी जागरूकता",
+                en:"Awareness of digital documents"
+            },
+
+            {
+                hi:"सोशल मीडिया का जिम्मेदार उपयोग",
+                en:"Responsible use of social media"
+            },
+
+            {
+                hi:"स्वास्थ्य जागरूकता अभियान",
+                en:"Health awareness campaigns"
+            },
+
+            {
+                hi:"शिक्षा जागरूकता अभियान",
+                en:"Education awareness campaigns"
+            },
+
+            {
+                hi:"पर्यावरण जागरूकता अभियान",
+                en:"Environmental awareness campaigns"
+            },
+
+            {
+                hi:"सामाजिक कुरीतियों के विरुद्ध अभियान",
+                en:"Campaigns against social evils"
+            },
+
+            {
+                hi:"नागरिक जिम्मेदारी एवं कर्तव्य जागरूकता",
+                en:"Awareness of civic responsibilities and duties"
+            },
+
+            {
+                hi:"स्वयंसेवा एवं सामाजिक भागीदारी",
+                en:"Volunteering and social participation"
+            },
+
+            {
+                hi:"सामाजिक एकता, सद्भाव एवं सामुदायिक विकास",
+                en:"Social unity, harmony and community development"
+            }
+
+        ]
+    }
+
+];
+
+
+
+/* =====================================================
+   RENDER ACCORDION
+====================================================== */
+
+function renderAccordion(){
+
+    const container =
+        document.getElementById(
+            "work-accordion-container"
+        );
+
+    container.innerHTML="";
+
+
+    workData.forEach(function(item){
+
+        const card =
+            document.createElement("div");
+
+        card.className="work-card";
+
+        card.id="card-"+item.id;
+
+
+        let pointsHTML="";
+
+
+        item.points.forEach(function(point,index){
+
+            pointsHTML += `
+
+                <div class="activity-item">
+
+                    <span class="activity-number">
+                        ${index+1}
+                    </span>
+
+                    <div>
+
+                        <div class="activity-hi">
+                            ${point.hi}
                         </div>
-                    </li>
-                `).join('');
 
-                const cardHTML = `
-                    <div class="work-card bg-white rounded-2xl border border-slate-200/90 shadow-sm overflow-hidden transition-all duration-300" id="card-${item.id}">
-                        
-                        <!-- Accordion Header Button -->
-                        <button onclick="toggleAccordion(${item.id})" class="w-full p-4 sm:p-6 text-left flex items-center justify-between gap-4 bg-white hover:bg-slate-50 transition-colors focus:outline-none">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center text-xl shadow-md flex-shrink-0">
-                                    <i class="fa-solid ${item.icon}"></i>
-                                </div>
-                                <div>
-                                    <span class="text-xs font-bold text-orange-600 uppercase tracking-wide">Category ${item.id}</span>
-                                    <h3 class="text-base sm:text-lg font-bold text-slate-900 leading-tight">
-                                        ${item.id}. ${item.titleHi}
-                                    </h3>
-                                    <p class="text-xs text-slate-500 font-medium">${item.titleEn}</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center gap-2">
-                                <span class="hidden sm:inline-block text-xs font-semibold text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
-                                    ${item.points.length} Initiatives
-                                </span>
-                                <div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-600">
-                                    <i class="fa-solid fa-chevron-down chevron-icon text-xs" id="chevron-${item.id}"></i>
-                                </div>
-                            </div>
-                        </button>
-
-                        <!-- Accordion Content -->
-                        <div class="accordion-content" id="content-${item.id}">
-                            <div class="p-4 sm:p-6 bg-slate-50/50 border-t border-slate-100">
-                                <p class="text-xs font-bold text-slate-500 mb-3 uppercase tracking-wider">Key Activities & Initiatives | प्रमुख कार्य एवं पहल</p>
-                                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                    ${pointsHTML}
-                                </ul>
-                            </div>
+                        <div class="activity-en">
+                            ${point.en}
                         </div>
 
                     </div>
-                `;
 
-                container.innerHTML += cardHTML;
-            });
-        }
+                </div>
 
-        // Accordion Toggle
-        function toggleAccordion(id) {
-            const content = document.getElementById(`content-${id}`);
-            const chevron = document.getElementById(`chevron-${id}`);
+            `;
 
-            if (content.classList.contains('open')) {
-                content.classList.remove('open');
-                chevron.classList.remove('rotate');
-            } else {
-                content.classList.add('open');
-                chevron.classList.add('rotate');
+        });
+
+
+        card.innerHTML = `
+
+            <button
+                class="accordion-button"
+                onclick="toggleAccordion(${item.id})"
+                aria-expanded="false"
+                id="button-${item.id}">
+
+
+                <div class="work-heading">
+
+
+                    <div
+                        class="work-icon"
+                        style="background:${item.color};">
+
+                        <i class="fa-solid ${item.icon}"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="category-label">
+
+                            Category ${item.id}
+
+                        </div>
+
+
+                        <div class="work-title-hi">
+
+                            ${item.id}.
+                            ${item.titleHi}
+
+                        </div>
+
+
+                        <div class="work-title-en">
+
+                            ${item.titleEn}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="accordion-right">
+
+
+                    <span class="initiative-count">
+
+                        ${item.points.length}
+                        Initiatives
+
+                    </span>
+
+
+                    <span
+                        class="chevron"
+                        id="chevron-${item.id}">
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </span>
+
+                </div>
+
+            </button>
+
+
+            <div
+                class="accordion-content"
+                id="content-${item.id}">
+
+
+                <div class="accordion-inner">
+
+
+                    <div class="activity-heading">
+
+                        Key Activities & Initiatives
+                        |
+                        प्रमुख कार्य एवं पहल
+
+                    </div>
+
+
+                    <div class="activity-grid">
+
+                        ${pointsHTML}
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
+
+}
+
+
+
+/* =====================================================
+   TOGGLE ACCORDION
+====================================================== */
+
+function toggleAccordion(id){
+
+    const content =
+        document.getElementById(
+            "content-"+id
+        );
+
+    const chevron =
+        document.getElementById(
+            "chevron-"+id
+        );
+
+    const button =
+        document.getElementById(
+            "button-"+id
+        );
+
+
+    const isOpen =
+        content.classList.contains("open");
+
+
+    if(isOpen){
+
+        content.classList.remove("open");
+
+        chevron.classList.remove("rotate");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }else{
+
+        content.classList.add("open");
+
+        chevron.classList.add("rotate");
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    }
+
+}
+
+
+
+/* =====================================================
+   EXPAND ALL
+====================================================== */
+
+function expandAll(){
+
+    workData.forEach(function(item){
+
+        const content =
+            document.getElementById(
+                "content-"+item.id
+            );
+
+        const chevron =
+            document.getElementById(
+                "chevron-"+item.id
+            );
+
+        const button =
+            document.getElementById(
+                "button-"+item.id
+            );
+
+
+        content.classList.add("open");
+
+        chevron.classList.add("rotate");
+
+        button.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   COLLAPSE ALL
+====================================================== */
+
+function collapseAll(){
+
+    workData.forEach(function(item){
+
+        const content =
+            document.getElementById(
+                "content-"+item.id
+            );
+
+        const chevron =
+            document.getElementById(
+                "chevron-"+item.id
+            );
+
+        const button =
+            document.getElementById(
+                "button-"+item.id
+            );
+
+
+        content.classList.remove("open");
+
+        chevron.classList.remove("rotate");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+}
+
+
+
+/* =====================================================
+   SEARCH
+====================================================== */
+
+function searchWork(){
+
+    const query =
+        document.getElementById(
+            "work-search"
+        ).value
+        .trim()
+        .toLowerCase();
+
+
+    let found=0;
+
+
+    workData.forEach(function(item){
+
+        const card =
+            document.getElementById(
+                "card-"+item.id
+            );
+
+        const content =
+            document.getElementById(
+                "content-"+item.id
+            );
+
+        const chevron =
+            document.getElementById(
+                "chevron-"+item.id
+            );
+
+        const button =
+            document.getElementById(
+                "button-"+item.id
+            );
+
+
+        const searchableText = (
+
+            item.titleHi
+            + " "
+            + item.titleEn
+            + " "
+            + item.points
+                .map(function(point){
+
+                    return point.hi
+                        + " "
+                        + point.en;
+
+                })
+                .join(" ")
+
+        ).toLowerCase();
+
+
+        if(
+            query === ""
+            ||
+            searchableText.includes(query)
+        ){
+
+            card.style.display="block";
+
+            found++;
+
+
+            if(query !== ""){
+
+                content.classList.add("open");
+
+                chevron.classList.add("rotate");
+
+                button.setAttribute(
+                    "aria-expanded",
+                    "true"
+                );
+
             }
+
+        }else{
+
+            card.style.display="none";
+
         }
 
-        function expandAll() {
-            workData.forEach(item => {
-                const content = document.getElementById(`content-${item.id}`);
-                const chevron = document.getElementById(`chevron-${item.id}`);
-                content.classList.add('open');
-                chevron.classList.add('rotate');
-            });
+    });
+
+
+    const noResult =
+        document.getElementById(
+            "no-result"
+        );
+
+
+    if(found===0){
+
+        noResult.style.display="block";
+
+    }else{
+
+        noResult.style.display="none";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   MOBILE MENU
+====================================================== */
+
+const menuToggle =
+    document.getElementById(
+        "menuToggle"
+    );
+
+
+const mobileMenu =
+    document.getElementById(
+        "mobileMenu"
+    );
+
+
+menuToggle.addEventListener(
+    "click",
+    function(){
+
+        mobileMenu.classList.toggle(
+            "active"
+        );
+
+
+        const isOpen =
+            mobileMenu.classList.contains(
+                "active"
+            );
+
+
+        menuToggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
+
+        const icon =
+            menuToggle.querySelector("i");
+
+
+        if(isOpen){
+
+            icon.classList.remove(
+                "fa-bars"
+            );
+
+            icon.classList.add(
+                "fa-xmark"
+            );
+
+        }else{
+
+            icon.classList.remove(
+                "fa-xmark"
+            );
+
+            icon.classList.add(
+                "fa-bars"
+            );
+
         }
 
-        function collapseAll() {
-            workData.forEach(item => {
-                const content = document.getElementById(`content-${item.id}`);
-                const chevron = document.getElementById(`chevron-${item.id}`);
-                content.classList.remove('open');
-                chevron.classList.remove('rotate');
-            });
-        }
+    }
+);
 
-        // Live Search Filter
-        function searchWork() {
-            const query = document.getElementById('work-search').value.toLowerCase();
 
-            workData.forEach(item => {
-                const card = document.getElementById(`card-${item.id}`);
-                const content = document.getElementById(`content-${item.id}`);
-                const chevron = document.getElementById(`chevron-${item.id}`);
 
-                const fullText = (item.titleHi + " " + item.titleEn + " " + JSON.stringify(item.points)).toLowerCase();
+/* =====================================================
+   CLOSE MOBILE MENU
+====================================================== */
 
-                if (fullText.includes(query)) {
-                    card.style.display = 'block';
-                    if (query.trim() !== '') {
-                        content.classList.add('open');
-                        chevron.classList.add('rotate');
-                    }
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
+document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(function(link){
 
-        // Mobile Menu Drawer Toggle
-        const menuToggle = document.getElementById('menu-toggle');
-        const mobileMenu = document.getElementById('mobile-menu');
+        link.addEventListener(
+            "click",
+            function(){
 
-        menuToggle.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+                mobileMenu.classList.remove(
+                    "active"
+                );
 
-        // Initialize on load
-        window.addEventListener('DOMContentLoaded', () => {
-            renderAccordion();
-        });
-    </script>
+
+                menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+
+                const icon =
+                    menuToggle.querySelector("i");
+
+
+                icon.classList.remove(
+                    "fa-xmark"
+                );
+
+                icon.classList.add(
+                    "fa-bars"
+                );
+
+            }
+        );
+
+    });
+
+
+
+/* =====================================================
+   INITIALIZE
+====================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        renderAccordion();
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
