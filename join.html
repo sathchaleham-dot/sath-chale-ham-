@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>साथ चले हम फाउंडेशन - हमारे साथ जुड़ें | Join Us</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', 'Tiro Devanagari Hindi', sans-serif;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+            }
+            50% {
+                transform: scale(1.04);
+                box-shadow: 0 0 15px 5px rgba(239, 68, 68, 0.4);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Form & Component Custom Styles */
+        .membership-box.selected {
+            border-color: #16a34a !important;
+            background-color: #f0fdf4 !important;
+            color: #16a34a !important;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.15);
+        }
+
+        .checkbox-grid .cb-item.checked {
+            border-color: #16a34a !important;
+            background-color: #f0fdf4 !important;
+        }
+
+        .hide { display: none !important; }
+        .lang-hi .en-only { display: none !important; }
+        .lang-en .hi-only { display: none !important; }
+
+        .country-other-input, .state-other-input, .district-text-input { display: none; }
+        .country-other-input.active, .state-other-input.active, .district-text-input.active { display: block; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen lang-hi">
+
+    <!-- HEADER SECTION (Exact as Home Page) -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-md border-b border-orange-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
+            
+            <!-- Logo & Title -->
+            <a href="index.html" class="flex items-center gap-3">
+                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-tight">
+                        साथ चले हम फाउंडेशन
+                    </h1>
+                    <p class="text-xs text-orange-600 font-semibold tracking-wide">साथ चले हम, बदलाव की ओर</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6 font-semibold text-slate-700">
+                <a href="index.html" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="index.html#about" class="hover:text-orange-600 transition-colors">About Us</a>
+                <a href="index.html#work" class="hover:text-orange-600 transition-colors">Work</a>
+                <a href="index.html#team" class="hover:text-orange-600 transition-colors">Team</a>
+                <a href="join-us.html" class="text-orange-600 border-b-2 border-orange-600 pb-0.5 transition-colors">Join Us</a>
+                <a href="index.html#events" class="hover:text-orange-600 transition-colors">Events</a>
+                <a href="index.html#donate" class="btn-pulse bg-red-600 text-white px-5 py-2 rounded-full font-bold shadow-md hover:bg-red-700 transition-all">
+                    Donate Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-3 pb-6 space-y-3 font-semibold text-slate-700 shadow-lg">
+            <a href="index.html" class="block py-1 hover:text-orange-600">Home</a>
+            <a href="index.html#about" class="block py-1 hover:text-orange-600">About Us</a>
+            <a href="index.html#work" class="block py-1 hover:text-orange-600">Work</a>
+            <a href="index.html#team" class="block py-1 hover:text-orange-600">Team</a>
+            <a href="join-us.html" class="block py-1 text-orange-600 font-bold">Join Us</a>
+            <a href="index.html#events" class="block py-1 hover:text-orange-600">Events</a>
+            <a href="index.html#donate" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-2 rounded-full font-bold shadow-md w-full mt-2">
+                Donate Us
+            </a>
+        </div>
+    </header>
+
+    <!-- WELCOME MODAL OVERLAY -->
+    <div class="welcome-overlay fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4" id="welcomeOverlay">
+        <div class="welcome-card bg-white rounded-2xl p-6 sm:p-8 max-w-md w-full text-center relative shadow-2xl border-2 border-orange-400">
+            <button class="close-btn absolute top-4 right-4 text-slate-400 hover:text-slate-800 text-2xl font-bold" onclick="closeWelcome()">✕</button>
+            <div class="icon text-5xl mb-2">🎉</div>
+            <h2 id="welcomeTitle" class="text-2xl font-extrabold text-slate-900 mb-2">स्वागत है!</h2>
+            <div class="user-name text-lg font-bold text-red-600 my-1" id="welcomeName">राहुल कुमार</div>
+            <div class="user-email text-xs font-semibold text-slate-700 bg-slate-100 py-1 px-3 rounded-md inline-block my-1" id="welcomeEmail">📧 rahul@email.com</div>
+            <div class="user-id text-sm font-bold text-green-700 bg-green-50 py-1.5 px-4 rounded-md inline-block my-2 tracking-wide" id="welcomeID">🆔 SCH-M-2609001</div>
+            <div class="msg text-sm text-slate-600 my-3 leading-relaxed" id="welcomeMsg">आपका पंजीकरण सफलतापूर्वक हो गया है।<br>साथ चले हम परिवार में आपका हार्दिक स्वागत है! ❤️</div>
+            <button class="btn-ok mt-4 bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 px-8 rounded-full shadow-md transition-all" onclick="closeWelcome()">✅ ठीक है</button>
+        </div>
+    </div>
+
+    <!-- JOIN US BANNER -->
+    <section class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-12 px-4 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl sm:text-4xl font-extrabold mb-3">Join Us | हमारे साथ जुड़ें</h2>
+            <p class="text-base sm:text-lg text-slate-300 mb-2">हमसे जुड़ें और समाज में सकारात्मक बदलाव लाने की इस यात्रा का हिस्सा बनें।</p>
+            <p class="text-sm sm:text-base text-orange-300 mb-4">आपका समय, सहयोग और प्रयास किसी के जीवन में नई उम्मीद जगा सकता है।</p>
+            <p class="text-xs text-slate-400 italic">Join us and be part of our journey towards positive change in society. Your time, support, and efforts can bring new hope into someone’s life.</p>
+        </div>
+    </section>
+
+    <!-- WAY OF WORKING & HELP SECTION -->
+    <section class="py-12 bg-white border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-slate-900">Our Way of Working | हमारा काम करने का तरीका</h3>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+                    <span class="font-bold text-orange-600 text-sm">1. सीधी मदद | Direct Help</span>
+                    <p class="text-xs text-slate-600 mt-1">ज़रूरतमंद लोगों तक सीधे और समय पर मदद पहुँचाना।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Providing direct and timely support to people in need.</p>
+                </div>
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+                    <span class="font-bold text-orange-600 text-sm">2. मिलकर काम करना | Working Together</span>
+                    <p class="text-xs text-slate-600 mt-1">स्वयंसेवकों और समुदाय के लोगों के साथ मिलकर काम करना।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Working together with volunteers and the community.</p>
+                </div>
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+                    <span class="font-bold text-orange-600 text-sm">3. ईमानदारी और पारदर्शिता | Honesty</span>
+                    <p class="text-xs text-slate-600 mt-1">अपने कार्यों में ईमानदारी रखना और स्पष्ट जानकारी साझा करना।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Working honestly and sharing clear and accurate information.</p>
+                </div>
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100">
+                    <span class="font-bold text-orange-600 text-sm">4. समुदाय की भागीदारी | Participation</span>
+                    <p class="text-xs text-slate-600 mt-1">लोगों को साथ जोड़कर समाज में सकारात्मक और स्थायी बदलाव लाना।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Bringing people together to create positive change.</p>
+                </div>
+                <div class="bg-orange-50/60 p-4 rounded-xl border border-orange-100 sm:col-span-2 lg:col-span-1">
+                    <span class="font-bold text-orange-600 text-sm">5. समानता और सम्मान | Equality & Respect</span>
+                    <p class="text-xs text-slate-600 mt-1">हर व्यक्ति के साथ सम्मान और समानता का व्यवहार करना।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Treating everyone with dignity and equality.</p>
+                </div>
+            </div>
+
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-slate-900">How You Can Help | आप हमारी मदद कैसे कर सकते हैं?</h3>
+                <div class="w-20 h-1 bg-orange-500 mx-auto mt-2 rounded-full"></div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-900 text-sm">1. अपना समय दें | Give Your Time</span>
+                    <p class="text-xs text-slate-600 mt-1">स्वयंसेवक बनें और जरूरतमंद लोगों की मदद करें।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Volunteer your time to help people in need.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-900 text-sm">2. दान दें | Donate</span>
+                    <p class="text-xs text-slate-600 mt-1">अपनी क्षमता के अनुसार जरूरतमंदों की मदद के लिए योगदान दें।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Donate according to your wish and ability.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-900 text-sm">3. सहयोग करें | Support Us</span>
+                    <p class="text-xs text-slate-600 mt-1">अपनी क्षमता, कौशल या संसाधनों के माध्यम से सहयोग करें।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Support our work through your skills and resources.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <span class="font-bold text-slate-900 text-sm">4. जागरूकता फैलाएँ | Spread Awareness</span>
+                    <p class="text-xs text-slate-600 mt-1">सही जानकारी दूसरों तक पहुँचाएँ और लोगों को जागरूक करें।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Share useful information and help spread awareness.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 sm:col-span-2 lg:col-span-1">
+                    <span class="font-bold text-slate-900 text-sm">5. अपनी आवाज़ बनें | Be a Voice for Change</span>
+                    <p class="text-xs text-slate-600 mt-1">अच्छे बदलाव की पहल का हिस्सा बनें और आवाज़ को आगे बढ़ाएँ।</p>
+                    <p class="text-[11px] text-slate-500 italic mt-0.5">Be part of positive change and help amplify voices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REGISTRATION FORM SECTION -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-10">
+        <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 border border-slate-200">
+
+            <div class="text-center mb-8 pb-4 border-b-2 border-slate-900">
+                <div class="text-xl sm:text-2xl font-bold text-slate-900">
+                    <span class="hi-only">📝 सदस्य एवं स्वयंसेवक पंजीकरण फॉर्म</span>
+                    <span class="en-only">📝 Member & Volunteer Registration Form</span>
+                </div>
+                <div class="lang-switch mt-3">
+                    <button type="button" class="bg-slate-900 text-white px-5 py-1.5 rounded-full font-semibold text-xs mx-1 transition-colors active" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+                    <button type="button" class="bg-slate-900 text-white px-5 py-1.5 rounded-full font-semibold text-xs mx-1 transition-colors" onclick="setLang('en')">🇬🇧 English</button>
+                </div>
+            </div>
+
+            <form id="registrationForm" class="space-y-6">
+
+                <!-- MEMBERSHIP TYPE -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-2 text-sm">
+                        <span class="hi-only">आप किस रूप में "साथ चले हम" से जुड़ना चाहते हैं? <span class="text-red-600">*</span></span>
+                        <span class="en-only">How would you like to join "Sath Chale Hum"? <span class="text-red-600">*</span></span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3" id="membershipBoxGrid">
+                        <label class="membership-box selected p-3 text-center border-2 border-slate-200 rounded-xl cursor-pointer font-semibold text-slate-800 bg-slate-50 transition-all">
+                            <input type="radio" name="membershipType" value="सदस्य" checked class="hidden">
+                            <span class="text-xl block mb-1">👤</span>
+                            <span class="hi-only text-sm">सदस्य</span><span class="en-only text-sm">Member</span>
+                            <span class="block text-[11px] text-slate-500 font-normal hi-only">संस्था का सदस्य</span>
+                            <span class="block text-[11px] text-slate-500 font-normal en-only">Organization Member</span>
+                        </label>
+                        <label class="membership-box p-3 text-center border-2 border-slate-200 rounded-xl cursor-pointer font-semibold text-slate-800 bg-slate-50 transition-all">
+                            <input type="radio" name="membershipType" value="स्वयंसेवक" class="hidden">
+                            <span class="text-xl block mb-1">🤝</span>
+                            <span class="hi-only text-sm">स्वयंसेवक</span><span class="en-only text-sm">Volunteer</span>
+                            <span class="block text-[11px] text-slate-500 font-normal hi-only">सेवा में सहयोगी</span>
+                            <span class="block text-[11px] text-slate-500 font-normal en-only">Service Collaborator</span>
+                        </label>
+                        <label class="membership-box p-3 text-center border-2 border-slate-200 rounded-xl cursor-pointer font-semibold text-slate-800 bg-slate-50 transition-all">
+                            <input type="radio" name="membershipType" value="सदस्य एवं स्वयंसेवक दोनों" class="hidden">
+                            <span class="text-xl block mb-1">🌟</span>
+                            <span class="hi-only text-sm">दोनों</span><span class="en-only text-sm">Both</span>
+                            <span class="block text-[11px] text-slate-500 font-normal hi-only">सदस्य + स्वयंसेवक</span>
+                            <span class="block text-[11px] text-slate-500 font-normal en-only">Member + Volunteer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- WHY JOIN -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-1 text-sm">
+                        <span class="hi-only">आप हमारे साथ क्यों जुड़ना चाहते हैं? <span class="text-red-600">*</span></span>
+                        <span class="en-only">Why would you like to join us? <span class="text-red-600">*</span></span>
+                    </label>
+                    <textarea id="whyJoin" rows="2" class="hi-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-slate-900 text-sm" placeholder="अपनी प्रेरणा साझा करें..." required></textarea>
+                    <textarea id="whyJoinEn" rows="2" class="en-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 focus:outline-none focus:border-slate-900 text-sm" placeholder="Share your motivation..." required style="display:none;"></textarea>
+                </div>
+
+                <!-- NAME SECTION -->
+                <div>
+                    <div class="bg-slate-100 p-2.5 rounded-lg font-bold text-slate-900 text-sm mb-3 border-l-4 border-amber-500">
+                        <span class="hi-only">👤 नाम</span><span class="en-only">👤 Name</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">पहला नाम *</span><span class="en-only">First Name *</span></label>
+                            <input type="text" id="firstName" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="First" required>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">मध्य नाम</span><span class="en-only">Middle Name</span></label>
+                            <input type="text" id="middleName" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="Middle">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">अंतिम नाम *</span><span class="en-only">Last Name *</span></label>
+                            <input type="text" id="lastName" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="Last" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GUARDIAN NAME -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-1 text-sm">
+                        <span class="hi-only">पिता / माता / अभिभावक का नाम <span class="text-red-600">*</span></span>
+                        <span class="en-only">Father's / Mother's / Guardian's Name <span class="text-red-600">*</span></span>
+                    </label>
+                    <input type="text" id="guardianName" class="hi-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="अभिभावक का पूरा नाम" required>
+                    <input type="text" id="guardianNameEn" class="en-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="Full name of guardian" required style="display:none;">
+                </div>
+
+                <!-- DOB + GENDER -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">जन्म तिथि *</span><span class="en-only">Date of Birth *</span></label>
+                        <input type="date" id="dob" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">लिंग *</span><span class="en-only">Gender *</span></label>
+                        <select id="gender" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- <span class="hi-only">चुनें</span><span class="en-only">Select</span> --</option>
+                            <option value="पुरुष" class="hi-only">पुरुष</option><option value="Male" class="en-only">Male</option>
+                            <option value="महिला" class="hi-only">महिला</option><option value="Female" class="en-only">Female</option>
+                            <option value="अन्य" class="hi-only">अन्य</option><option value="Other" class="en-only">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- MOBILE + EMAIL -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">मोबाइल नंबर * (10 अंक)</span><span class="en-only">Mobile Number * (10 digits)</span></label>
+                        <input type="tel" id="mobile" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="9876543210" maxlength="10" required>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">ईमेल पता</span><span class="en-only">Email Address</span></label>
+                        <input type="email" id="email" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="example@email.com">
+                    </div>
+                </div>
+
+                <!-- ADDRESS SECTION -->
+                <div>
+                    <div class="bg-slate-100 p-2.5 rounded-lg font-bold text-slate-900 text-sm mb-3 border-l-4 border-amber-500">
+                        <span class="hi-only">📍 पता</span><span class="en-only">📍 Address</span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">पूरा पता *</span><span class="en-only">Full Address *</span></label>
+                        <textarea id="address" rows="2" class="hi-only w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="घर का नंबर, गली, मोहल्ला..." required></textarea>
+                        <textarea id="addressEn" rows="2" class="en-only w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="House no, street, locality..." required style="display:none;"></textarea>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">देश *</span><span class="en-only">Country *</span></label>
+                            <select id="country" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                                <option value="India" selected>India</option>
+                                <option value="Other" class="hi-only">अन्य</option><option value="Other" class="en-only">Other</option>
+                            </select>
+                            <input type="text" id="countryOther" class="country-other-input w-full mt-2 p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="Country Name">
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">राज्य *</span><span class="en-only">State *</span></label>
+                            <select id="state" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                                <option value="Bihar" selected>Bihar</option>
+                                <option value="Other" class="hi-only">अन्य</option><option value="Other" class="en-only">Other</option>
+                            </select>
+                            <input type="text" id="stateOther" class="state-other-input w-full mt-2 p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="State Name">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">जिला</span><span class="en-only">District</span></label>
+                            <select id="districtSelect" class="district-select w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                                <option value="">-- <span class="hi-only">जिला चुनें</span><span class="en-only">Select District</span> --</option>
+                                <option value="अररिया">अररिया / Araria</option><option value="अरवल">अरवल / Arwal</option><option value="औरंगाबाद">औरंगाबाद / Aurangabad</option>
+                                <option value="बाँका">बाँका / Banka</option><option value="बेगूसराय">बेगूसराय / Begusarai</option><option value="भागलपुर">भागलपुर / Bhagalpur</option>
+                                <option value="भोजपुर">भोजपुर / Bhojpur</option><option value="बक्सर">बक्सर / Buxar</option><option value="दरभंगा">दरभंगा / Darbhanga</option>
+                                <option value="पूर्वी चम्पारण">पूर्वी चम्पारण / East Champaran</option><option value="गया">गया / Gaya</option><option value="गोपालगंज">गोपालगंज / Gopalganj</option>
+                                <option value="जमुई">जमुई / Jamui</option><option value="जहानाबाद">जहानाबाद / Jehanabad</option><option value="कैमूर">कैमूर / Kaimur</option>
+                                <option value="कटिहार">कटिहार / Katihar</option><option value="खगड़िया">खगड़िया / Khagaria</option><option value="किशनगंज">किशनगंज / Kishanganj</option>
+                                <option value="लखीसराय">लखीसराय / Lakhisarai</option><option value="मधेपुरा">मधेपुरा / Madhepura</option><option value="मधुबनी">मधुबनी / Madhubani</option>
+                                <option value="मुंगेर">मुंगेर / Munger</option><option value="मुजफ्फरपुर">मुजफ्फरपुर / Muzaffarpur</option><option value="नालंदा">नालंदा / Nalanda</option>
+                                <option value="नवादा">नवादा / Nawada</option><option value="पटना">पटना / Patna</option><option value="पूर्णिया">पूर्णिया / Purnia</option>
+                                <option value="रोहतास">रोहतास / Rohtas</option><option value="सहरसा">सहरसा / Saharsa</option><option value="समस्तीपुर">समस्तीपुर / Samastipur</option>
+                                <option value="सारण">सारण / Saran</option><option value="शिवहर">शिवहर / Sheohar</option><option value="शेखपुरा">शेखपुरा / Sheikhpura</option>
+                                <option value="सीतामढ़ी">सीतामढ़ी / Sitamarhi</option><option value="सिवान">सिवान / Siwan</option><option value="सुपौल">सुपौल / Supaul</option>
+                                <option value="वैशाली">वैशाली / Vaishali</option><option value="पश्चिमी चम्पारण">पश्चिमी चम्पारण / West Champaran</option>
+                            </select>
+                            <input type="text" id="districtText" class="district-text-input w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="District">
+                        </div>
+                        <div id="pincodeGroup">
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">पिन कोड * (6 अंक)</span><span class="en-only">PIN Code * (6 digits)</span></label>
+                            <input type="text" id="pincode" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="110001" maxlength="6">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- EDUCATION & PROFESSION -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">शैक्षणिक योग्यता *</span><span class="en-only">Educational Qualification *</span></label>
+                        <select id="education" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- <span class="hi-only">चुनें</span><span class="en-only">Select</span> --</option>
+                            <option value="10वीं से कम" class="hi-only">10वीं से कम</option><option value="Below 10th" class="en-only">Below 10th</option>
+                            <option value="10वीं उत्तीर्ण" class="hi-only">10वीं उत्तीर्ण</option><option value="10th Pass" class="en-only">10th Pass</option>
+                            <option value="12वीं उत्तीर्ण" class="hi-only">12वीं उत्तीर्ण</option><option value="12th Pass" class="en-only">12th Pass</option>
+                            <option value="स्नातकोत्तर" class="hi-only">स्नातकोत्तर</option><option value="Post Graduate" class="en-only">Post Graduate</option>
+                            <option value="व्यावसायिक / तकनीकी" class="hi-only">व्यावसायिक / तकनीकी</option><option value="Professional / Technical" class="en-only">Professional / Technical</option>
+                            <option value="अन्य" class="hi-only">अन्य</option><option value="Other" class="en-only">Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">व्यवसाय / पेशा</span><span class="en-only">Profession / Occupation</span></label>
+                        <input type="text" id="profession" class="hi-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="जैसे: शिक्षक, डॉक्टर, छात्र...">
+                        <input type="text" id="professionEn" class="en-only w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="e.g., Teacher, Doctor, Student..." style="display:none;">
+                    </div>
+                </div>
+
+                <!-- SKILLS CHECKBOX -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-2 text-sm"><span class="hi-only">आपके पास कौन-कौन से कौशल हैं? *</span><span class="en-only">What skills do you have? *</span></label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 checkbox-grid" id="skillsGrid">
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="शिक्षण"> 📖 <span class="hi-only">शिक्षण</span><span class="en-only">Teaching</span></label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="लेखन"> ✍️ <span class="hi-only">लेखन</span><span class="en-only">Writing</span></label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="फंड जुटाना"> 🤝 <span class="hi-only">फंड जुटाना</span><span class="en-only">Fundraising</span></label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="स्वास्थ्य सेवा"> 🏥 <span class="hi-only">स्वास्थ्य सेवा</span><span class="en-only">Healthcare</span></label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="सामाजिक मीडिया"> 📱 <span class="hi-only">सामाजिक मीडिया</span><span class="en-only">Social Media</span></label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="कंप्यूटर"> 💻 <span class="hi-only">कंप्यूटर</span><span class="en-only">Computer</span></label>
+                    </div>
+                </div>
+
+                <!-- LANGUAGES -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-2 text-sm"><span class="hi-only">आप किन भाषाओं में सहज हैं? *</span><span class="en-only">Which languages are you comfortable with? *</span></label>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 checkbox-grid" id="languagesGrid">
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="हिन्दी"> 🇮🇳 हिन्दी</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="English"> 🇬🇧 English</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="उर्दू"> 🕌 उर्दू</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="मैथिली"> 📜 मैथिली</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="भोजपुरी"> 🎵 भोजपुरी</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="अन्य"> 🔹 अन्य</label>
+                    </div>
+                </div>
+
+                <!-- WORK AREAS -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-2 text-sm"><span class="hi-only">आप किन क्षेत्रों में सहयोग करना चाहते हैं? *</span><span class="en-only">Which areas of work? *</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 checkbox-grid" id="workAreasGrid">
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="शिक्षा एवं बाल विकास"> 📚 शिक्षा एवं बाल विकास</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="महिला सशक्तिकरण एवं विकास"> 💪 महिला सशक्तिकरण एवं विकास</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="स्वास्थ्य एवं चिकित्सा"> 🏥 स्वास्थ्य एवं चिकित्सा</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="गरीब एवं जरूरतमंद कल्याण"> 🤲 गरीब एवं जरूरतमंद कल्याण</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="युवा विकास एवं कौशल विकास"> 🧑‍🎓 युवा विकास एवं कौशल विकास</label>
+                        <label class="cb-item p-2.5 border-2 border-slate-200 rounded-xl cursor-pointer flex items-center gap-2 text-xs font-semibold bg-slate-50"><input type="checkbox" value="पर्यावरण एवं जल संरक्षण"> 🌳 पर्यावरण एवं जल संरक्षण</label>
+                    </div>
+                </div>
+
+                <!-- TIME & CONTRIBUTION -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">सप्ताह में समय *</span><span class="en-only">Time per week *</span></label>
+                        <select id="timeCommitment" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- चुनें --</option>
+                            <option value="1-2 घंटे">1-2 घंटे / 1-2 hours</option>
+                            <option value="3-5 घंटे">3-5 घंटे / 3-5 hours</option>
+                            <option value="6-10 घंटे">6-10 घंटे / 6-10 hours</option>
+                            <option value="10+ घंटे">10+ घंटे / 10+ hours</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">योगदान का प्रकार *</span><span class="en-only">Contribution Type *</span></label>
+                        <select id="contributionType" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- चुनें --</option>
+                            <option value="ऑनलाइन">ऑनलाइन / Online</option>
+                            <option value="ऑफलाइन">ऑफलाइन / Offline</option>
+                            <option value="दोनों">दोनों / Both</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- HEARD & EXPERIENCE -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">कैसे पता चला? *</span><span class="en-only">How did you hear? *</span></label>
+                        <select id="heardFrom" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- चुनें --</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="WhatsApp">WhatsApp</option>
+                            <option value="YouTube">YouTube</option>
+                            <option value="मित्र">मित्र / Friend</option>
+                            <option value="अन्य">अन्य / Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">पूर्व अनुभव? *</span><span class="en-only">Previous Experience? *</span></label>
+                        <select id="previousExperience" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                            <option value="">-- चुनें --</option>
+                            <option value="हाँ">हाँ / Yes</option>
+                            <option value="नहीं">नहीं / No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- EMERGENCY CONTACT -->
+                <div>
+                    <div class="bg-slate-100 p-2.5 rounded-lg font-bold text-slate-900 text-sm mb-3 border-l-4 border-amber-500">
+                        <span class="hi-only">🚨 आपातकालीन संपर्क</span><span class="en-only">🚨 Emergency Contact</span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">संपर्क नाम *</span><span class="en-only">Contact Name *</span></label>
+                            <input type="text" id="emergencyName" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">संपर्क नंबर *</span><span class="en-only">Contact Number *</span></label>
+                            <input type="tel" id="emergencyPhone" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">संबंध *</span><span class="en-only">Relationship *</span></label>
+                            <input type="text" id="relationship" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" placeholder="पिता/माता..." required>
+                        </div>
+                        <div>
+                            <label class="block font-bold text-slate-900 mb-1 text-xs"><span class="hi-only">ईमेल</span><span class="en-only">Email</span></label>
+                            <input type="email" id="emergencyEmail" class="w-full p-2.5 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DECLARATION -->
+                <div>
+                    <label class="block font-bold text-slate-900 mb-1 text-sm"><span class="hi-only">घोषणा एवं सहमति *</span><span class="en-only">Declaration *</span></label>
+                    <select id="declaration" class="w-full p-3 border-2 border-slate-200 rounded-xl bg-slate-50 text-sm" required>
+                        <option value="">-- <span class="hi-only">चुनें</span><span class="en-only">Select</span> --</option>
+                        <option value="सहमत" class="hi-only">✅ मैं उद्देश्यों से सहमत हूँ और दी गई जानकारी सत्य है।</option>
+                        <option value="सहमत" class="en-only">✅ I agree with objectives and confirm info is correct.</option>
+                    </select>
+                </div>
+
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" id="submitBtn" class="btn-pulse w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-lg tracking-wide">
+                    <span class="hi-only">✅ पंजीकरण करें</span>
+                    <span class="en-only">✅ Register Now</span>
+                </button>
+            </form>
+
+            <div id="messageBox" class="mt-4 p-3 rounded-xl hidden text-sm font-semibold"></div>
+
+            <div class="text-center mt-6 pt-4 border-t border-slate-100 text-xs text-slate-500">
+                🔒 <span class="hi-only">आपकी जानकारी सुरक्षित है</span><span class="en-only">Your information is secure</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION (Exact as Home Page) -->
+    <footer class="bg-slate-950 text-slate-300 pt-12 pb-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
+                        <span class="font-bold text-white text-lg">Chale Hum Foundation</span>
+                    </div>
+                    <p class="text-sm text-orange-400 font-semibold">साथ चले हम – बदलाव की ओर</p>
+                    <p class="text-xs text-slate-400 italic">Step Together Towards Change</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">Our Social Media</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">Quick Links | महत्वपूर्ण लिंक</h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <a href="index.html" class="hover:text-orange-400">Home | होम</a>
+                        <a href="index.html#about" class="hover:text-orange-400">About Us | हमारे बारे में</a>
+                        <a href="index.html#work" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
+                        <a href="index.html#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
+                        <a href="index.html#donate" class="hover:text-orange-400">Donate Us | दान करें</a>
+                        <a href="join-us.html" class="hover:text-orange-400 text-orange-400 font-bold">Join Us | जुड़ें</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+                <div class="flex gap-4"><a href="#" class="hover:text-slate-300">Terms & Conditions</a><span>|</span><a href="#" class="hover:text-slate-300">Privacy Policy</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Mobile Drawer Toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', () => { mobileMenu.classList.toggle('hidden'); });
+
+        // Language Toggle Function
+        function setLang(lang) {
+            document.body.className = document.body.className.replace(/lang-(hi|en)/, 'lang-' + lang);
+            document.documentElement.lang = lang;
+            document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('bg-orange-600'));
+            // Styling switcher buttons active state
+            updateVisibility();
+        }
+
+        // Membership Box Click Handling
+        document.querySelectorAll('.membership-box').forEach(box => {
+            box.addEventListener('click', function() {
+                document.querySelectorAll('.membership-box').forEach(b => b.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input[type="radio"]').checked = true;
+            });
+        });
+
+        // Checkbox Item Toggling
+        document.querySelectorAll('.checkbox-grid .cb-item').forEach(item => {
+            const cb = item.querySelector('input[type="checkbox"]');
+            cb.addEventListener('change', () => {
+                if(cb.checked) item.classList.add('checked');
+                else item.classList.remove('checked');
+            });
+        });
+
+        // Country / State Logic
+        const countrySelect = document.getElementById('country');
+        const countryOther = document.getElementById('countryOther');
+        const stateSelect = document.getElementById('state');
+        const stateOther = document.getElementById('stateOther');
+        const districtSelect = document.getElementById('districtSelect');
+        const districtText = document.getElementById('districtText');
+
+        countrySelect.addEventListener('change', function() {
+            if(this.value === 'Other') {
+                countryOther.classList.add('active');
+                stateSelect.value = 'Other';
+                stateOther.classList.add('active');
+                districtSelect.classList.add('hide');
+                districtText.classList.add('active');
+            } else {
+                countryOther.classList.remove('active');
+                stateOther.classList.remove('active');
+                districtSelect.classList.remove('hide');
+                districtText.classList.remove('active');
+            }
+        });
+
+        // Generate Member ID
+        function generateMemberID(type) {
+            const date = new Date();
+            const yr = String(date.getFullYear()).slice(-2);
+            const mo = String(date.getMonth() + 1).padStart(2, '0');
+            const code = (type.includes('सदस्य') && type.includes('स्वयंसेवक')) ? 'B' : (type.includes('स्वयंसेवक') ? 'V' : 'M');
+            const ids = JSON.parse(localStorage.getItem('memberIDs')) || [];
+            const prefix = `SCH-${code}-${yr}${mo}`;
+            let serial = 0;
+            ids.forEach(id => { if(id.startsWith(prefix)) { let s = parseInt(id.slice(-3)); if(s > serial) serial = s; } });
+            const newID = `${prefix}${String(serial + 1).padStart(3, '0')}`;
+            ids.push(newID);
+            localStorage.setItem('memberIDs', JSON.stringify(ids));
+            return newID;
+        }
+
+        // Form Submit Handler
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('firstName').value + ' ' + document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const type = document.querySelector('input[name="membershipType"]:checked').value;
+            const memberID = generateMemberID(type);
+
+            // Show Welcome Modal
+            document.getElementById('welcomeName').textContent = name;
+            document.getElementById('welcomeEmail').textContent = email ? '📧 ' + email : '📧 -';
+            document.getElementById('welcomeID').textContent = '🆔 ' + memberID;
+            document.getElementById('welcomeOverlay').classList.remove('hidden');
+            document.getElementById('welcomeOverlay').classList.add('flex');
+            this.reset();
+        });
+
+        function closeWelcome() {
+            document.getElementById('welcomeOverlay').classList.remove('flex');
+            document.getElementById('welcomeOverlay').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
