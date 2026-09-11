@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>साथ चले हम फाउंडेशन - Sath Chale Hum Foundation</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, 'Tiro Devanagari Hindi', sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 0 30px 10px rgba(239, 68, 68, 0.35);
+            }
+        }
+
+        .btn-pulse {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Card Styling */
+        .card-base {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+        }
+        .card-base:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-1 { border-color: #16a34a; }
+        .card-1 .card-btn { background-color: #16a34a; color: #fff; }
+
+        .card-2 { border-color: #2563eb; }
+        .card-2 .card-btn { background-color: #2563eb; color: #fff; }
+
+        .card-5 { border-color: #f97316; }
+        .card-5 .card-btn { background-color: #f97316; color: #fff; }
+
+        .card-10 { border-color: #db2777; }
+        .card-10 .card-btn { background-color: #db2777; color: #fff; }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+        @keyframes bounce-rotate {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(10deg); }
+        }
+        .smiley-anim {
+            display: inline-block;
+            animation: bounce-rotate 1.8s ease-in-out infinite;
+        }
+
+        /* Donation Form Styles */
+        .form-container { max-width: 820px; width: 100%; background: #ffffff; padding: 35px 40px; border-radius: 20px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); margin: 40px auto; border: 2px solid #e2e8f0; }
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: 700; color: #1a2a6c; margin-bottom: 4px; font-size: 14px; }
+        label .required { color: #b21f1f; font-weight: 700; }
+        label .hint { font-weight: 400; color: #888; font-size: 12px; }
+        input, select, textarea { width: 100%; padding: 11px 14px; border: 2px solid #dce1e8; border-radius: 10px; font-size: 15px; transition: 0.3s; background: #fafbfc; }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #1a2a6c; background: white; box-shadow: 0 0 0 4px rgba(26,42,108,0.1); }
+        textarea { resize: vertical; min-height: 65px; }
+        .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+        @media (max-width: 600px) { .row-2, .row-3 { grid-template-columns: 1fr; gap: 0; } }
+        .btn-submit { width: 100%; padding: 15px; background: #b21f1f; color: white; border: none; border-radius: 10px; font-size: 20px; font-weight: 700; cursor: pointer; transition: 0.3s; margin-top: 10px; letter-spacing: 1px; }
+        .btn-submit:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(178,31,31,0.4); }
+        .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .btn-submit.incomplete { background: #b21f1f; animation: none; }
+        .btn-submit.complete { background: #1a7a3a; animation: blinkGreen 1.5s ease-in-out infinite; }
+        @keyframes blinkGreen { 0% { background: #1a7a3a; } 50% { background: #2ecc71; } 100% { background: #1a7a3a; } }
+        .message { margin-top: 18px; padding: 14px; border-radius: 12px; display: none; font-weight: 500; }
+        .message.success { display: block; background: #d4edda; color: #155724; border: 1px solid #b8daff; }
+        .message.error { display: block; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .message.loading { display: block; background: #e2e8f0; color: #1a2a6c; }
+        .welcome-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center; animation: fadeIn 0.5s ease; }
+        .welcome-overlay.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        .welcome-card { background: #ffffff; padding: 35px 30px; border-radius: 20px; max-width: 460px; width: 92%; text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.5); position: relative; animation: slideUp 0.5s ease; }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .welcome-card .close-btn { position: absolute; top: 10px; right: 16px; font-size: 26px; cursor: pointer; color: #999; transition: 0.3s; background: none; border: none; font-weight: 700; }
+        .welcome-card .close-btn:hover { color: #b21f1f; }
+        .welcome-card .icon { font-size: 55px; margin-bottom: 3px; }
+        .welcome-card h2 { color: #1a2a6c; font-size: 24px; margin-bottom: 3px; }
+        .welcome-card .user-name { color: #b21f1f; font-weight: 700; font-size: 20px; margin: 2px 0; }
+        .welcome-card .user-email { color: #1a2a6c; font-weight: 600; font-size: 14px; background: #f0f3f8; padding: 4px 15px; border-radius: 8px; display: inline-block; margin: 2px 0; }
+        .welcome-card .user-mobile { color: #1a2a6c; font-weight: 600; font-size: 14px; background: #f0f3f8; padding: 4px 15px; border-radius: 8px; display: inline-block; margin: 2px 0; }
+        .welcome-card .user-id { color: #1a7a3a; font-weight: 700; font-size: 17px; background: #e8f5e9; padding: 5px 16px; border-radius: 8px; display: inline-block; margin: 5px 0 8px 0; letter-spacing: 1px; }
+        .welcome-card .success-msg { color: #1a2a6c; font-weight: 600; font-size: 15px; margin: 6px 0; }
+        .welcome-card .divider { border: none; border-top: 2px dashed #dce1e8; margin: 10px 0; }
+        .welcome-card .details-title { color: #1a2a6c; font-weight: 700; font-size: 15px; margin-bottom: 5px; }
+        .welcome-card .detail-row { display: flex; justify-content: space-between; padding: 3px 8px; font-size: 14px; border-bottom: 1px solid #f5f5f5; }
+        .welcome-card .detail-row:last-child { border-bottom: none; }
+        .welcome-card .detail-label { color: #888; font-weight: 500; }
+        .welcome-card .detail-value { color: #1a2a6c; font-weight: 600; }
+        .welcome-card .gratitude { color: #555; font-size: 14px; margin: 8px 0 6px 0; line-height: 1.5; }
+        .welcome-card .slogan { font-size: 20px; font-weight: 700; padding: 6px 0; letter-spacing: 1px; }
+        .welcome-card .slogan .blue { color: #1a2a6c; }
+        .welcome-card .slogan .orange { color: #ff7900; }
+        .welcome-card .thankyou { color: #555; font-size: 15px; margin: 4px 0 8px 0; }
+        .welcome-card .btn-ok { padding: 10px 40px; background: #1a7a3a; color: white; border: none; border-radius: 30px; font-size: 17px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .welcome-card .btn-ok:hover { background: #2ecc71; transform: scale(1.05); }
+        .badge { display: inline-block; background: #fdbb2d; color: #1a2a6c; padding: 4px 14px; border-radius: 30px; font-weight: 600; font-size: 12px; }
+        .section-title { background: #f0f3f8; padding: 10px 15px; border-radius: 10px; margin: 22px 0 15px; font-weight: 700; color: #1a2a6c; font-size: 16px; border-left: 5px solid #fdbb2d; }
+        .lang-hi .en-only { display: none; }
+        .lang-en .hi-only { display: none; }
+        .slogan-box { text-align: center; font-size: 22px; font-weight: 700; padding: 10px 0 12px 0; letter-spacing: 1px; }
+        .slogan-box .blue { color: #1a2a6c; }
+        .slogan-box .orange { color: #ff7900; }
+        .amount-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-bottom: 8px; }
+        .amount-option { padding: 10px 4px; text-align: center; border: 2px solid #dce1e8; border-radius: 10px; cursor: pointer; font-weight: 700; color: #1a2a6c; background: #fff; transition: 0.2s; }
+        .amount-option.selected { border-color: #1a7a3a; background: #1a7a3a; color: #fff; }
+        .amount-option input { display: none; }
+        .amount-option .rupee { font-size: 20px; font-weight: 900; }
+        .amount-option .value { font-size: 20px; font-weight: 900; }
+        .amount-option .sub-text { display: block; font-size: 10px; font-weight: 500; opacity: 0.7; }
+        .amount-divider { text-align: center; color: #888; font-size: 13px; font-weight: 600; margin: 8px 0; }
+        .frequency-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+        .freq-option { padding: 12px 8px; text-align: center; border: 2px solid #dce1e8; border-radius: 10px; cursor: pointer; font-weight: 600; color: #1a2a6c; background: #fff; transition: 0.2s; }
+        .freq-option.selected { border-color: #1a7a3a; background: #1a7a3a; color: #fff; }
+        .freq-option input { display: none; }
+        .freq-option .freq-sub { display: block; font-size: 11px; opacity: 0.75; }
+        .purpose-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .purpose-option { padding: 12px 6px; text-align: center; border: 2px solid #dce1e8; border-radius: 10px; cursor: pointer; font-weight: 600; color: #1a2a6c; background: #fff; transition: 0.2s; }
+        .purpose-option.selected { border-color: #1a7a3a; background: #1a7a3a; color: #fff; }
+        .purpose-option input { display: none; }
+        .purpose-option .purpose-icon { display: block; font-size: 22px; margin-bottom: 2px; }
+        .donation-type-box { background: #f5f8fc; border-radius: 14px; padding: 16px; border: 2px solid #e5eaf0; }
+        .donation-type-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+        .donation-type-option { padding: 12px 6px; text-align: center; border: 2px solid #dce1e8; border-radius: 10px; cursor: pointer; font-weight: 600; color: #1a2a6c; background: #fff; transition: 0.25s; }
+        .donation-type-option.selected { border-color: #1a7a3a; background: #1a7a3a; color: #fff; font-weight: 900; }
+        .donation-type-option input { display: none; }
+        .donation-type-option .icon { font-size: 28px; display: block; margin-bottom: 3px; }
+        .donation-type-option small { display: block; margin-top: 2px; font-size: 11px; opacity: 0.8; }
+        .donation-details { margin-top: 12px; padding: 16px 18px; border-radius: 12px; background: #fff; border: 2px solid #e5eaf0; display: none; }
+        .donation-details.active { display: block; }
+        .donation-details h4 { color: #1a2a6c; font-size: 16px; margin-bottom: 8px; }
+        .detail-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid #f0f4f8; gap: 10px; }
+        .detail-row:last-child { border-bottom: none; }
+        .detail-label { color: #63768a; font-weight: 600; }
+        .detail-value { color: #1a2a6c; font-weight: 700; text-align: right; word-break: break-word; }
+        .copyable { cursor: pointer; background: #f5f8fc; padding: 3px 9px; border-radius: 6px; }
+        .file-upload-area { border: 2px dashed #dce1e8; border-radius: 12px; padding: 25px 14px; text-align: center; cursor: pointer; background: #fafbfc; transition: 0.3s; }
+        .file-upload-area:hover { border-color: #1a2a6c; background: #f0f4f8; }
+        .file-upload-area input { display: none; }
+        .upload-icon { font-size: 45px; display: block; margin-bottom: 4px; }
+        .file-name { display: none; margin-top: 8px; padding: 8px 12px; background: #e8f5e9; border-radius: 8px; color: #1a7a3a; font-weight: 600; word-break: break-all; }
+        .total-box { background: linear-gradient(135deg, #1a2a6c, #2a4a8c); border-radius: 14px; padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; color: #fff; margin-top: 16px; flex-wrap: wrap; gap: 6px; }
+        .total-label { font-size: 16px; font-weight: 600; }
+        .total-amount { font-size: 36px; font-weight: 900; }
+        .total-per { font-size: 15px; font-weight: 600; opacity: 0.85; }
+        .address-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .address-row .form-group { margin-bottom: 0; }
+        @media (max-width: 600px) {
+            .address-row { grid-template-columns: 1fr; gap: 0; }
+            .address-row .form-group { margin-bottom: 16px; }
+        }
+        .country-other-input, .state-other-input { display: none; margin-top: 6px; }
+        .country-other-input.active, .state-other-input.active { display: block; }
+        .district-select { display: block; }
+        .district-select.hide { display: none; }
+        .district-text-input { display: none; }
+        .district-text-input.active { display: block; }
+    </style>
+</head>
+<body class="lang-hi flex flex-col min-h-screen selection:bg-orange-500 selection:text-white">
+
+    <!-- HEADER SECTION (Same As Home Page) -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3.5 group">
+                <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Chale Hum Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-[900] text-slate-900 tracking-tight leading-tight">
+                        साथ चले हम फाउंडेशन
+                    </h1>
+                    <p class="text-xs text-orange-600 font-[800] tracking-wider">साथ चले हम, बदलाव की ओर</p>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-6 font-[800] text-slate-700 text-sm">
+                <a href="index.html#home" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="index.html#about" class="hover:text-orange-600 transition-colors">About Us</a>
+                <a href="index.html#work" class="hover:text-orange-600 transition-colors">Work</a>
+                <a href="index.html#team" class="hover:text-orange-600 transition-colors">Team</a>
+                <a href="join-us.html" class="hover:text-orange-600 transition-colors font-[900] text-orange-600">Join Us</a>
+                <a href="index.html#events" class="hover:text-orange-600 transition-colors">Events</a>
+                <a href="donate.html" class="btn-pulse bg-red-600 text-white px-6 py-2.5 rounded-full font-[900] shadow-lg hover:bg-red-700 transition-all text-xs tracking-wider uppercase">
+                    Donate Us
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-toggle" class="md:hidden text-slate-800 text-2xl focus:outline-none p-1">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 backdrop-blur-2xl border-t border-slate-100 px-6 pt-5 pb-6 space-y-3.5 font-[800] text-slate-700 shadow-2xl">
+            <a href="index.html#home" class="block py-1 hover:text-orange-600">Home</a>
+            <a href="index.html#about" class="block py-1 hover:text-orange-600">About Us</a>
+            <a href="index.html#work" class="block py-1 hover:text-orange-600">Work</a>
+            <a href="index.html#team" class="block py-1 hover:text-orange-600">Team</a>
+            <a href="join-us.html" class="block py-1 text-orange-600 font-[900]">Join Us</a>
+            <a href="index.html#events" class="block py-1 hover:text-orange-600">Events</a>
+            <a href="donate.html" class="btn-pulse inline-block text-center bg-red-600 text-white px-6 py-3 rounded-2xl font-[900] shadow-lg w-full mt-2 uppercase text-xs tracking-wider">
+                Donate Us
+            </a>
+        </div>
+    </header>
+
+    <!-- WELCOME OVERLAY -->
+    <div class="welcome-overlay" id="welcomeOverlay">
+        <div class="welcome-card">
+            <button class="close-btn" onclick="closeWelcome()">✕</button>
+            <div class="icon">🎉</div>
+            <h2 id="welcomeTitle">धन्यवाद! 🙏</h2>
+            <div class="user-name" id="welcomeName">राहुल कुमार</div>
+            <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin:4px 0;">
+                <div class="user-email" id="welcomeEmail">📧 rahul@email.com</div>
+                <div class="user-mobile" id="welcomeMobile">📱 9876543210</div>
+            </div>
+            <div class="user-id" id="welcomeID">🆔 SCH-DAAN-26090300001</div>
+            <div class="success-msg" id="welcomeSuccess">आपका दान सफलतापूर्वक प्राप्त हो गया है!</div>
+            <hr class="divider">
+            <div class="details-title" id="detailsTitle">📋 दान विवरण</div>
+            <div class="detail-row"><span class="detail-label" id="labelAmount">💰 राशि</span><span class="detail-value" id="showAmount">₹1,000</span></div>
+            <div class="detail-row"><span class="detail-label" id="labelDate">📅 दिनांक</span><span class="detail-value" id="showDate">03 सितम्बर 2026</span></div>
+            <div class="detail-row"><span class="detail-label" id="labelPurpose">📌 उद्देश्य</span><span class="detail-value" id="showPurpose">शिक्षा</span></div>
+            <div class="detail-row"><span class="detail-label" id="labelFrequency">🔄 आवृत्ति</span><span class="detail-value" id="showFrequency">एक बार</span></div>
+            <hr class="divider">
+            <div class="gratitude" id="gratitudeMsg">❤️ साथ चले हम फाउंडेशन की ओर से आपका हार्दिक आभार!</div>
+            <div class="slogan"><span class="blue" id="sloganBlue">आपका ₹1,</span><span class="orange" id="sloganOrange"> किसी की मुस्कान</span></div>
+            <div class="thankyou" id="thankyouMsg">🙏 धन्यवाद!</div>
+            <button class="btn-ok" onclick="closeWelcome()">✅ ठीक है</button>
+        </div>
+    </div>
+
+    <!-- MAIN DONATION SECTION & FORM -->
+    <main class="flex-grow py-12 px-4 sm:px-6">
+        <div class="form-container">
+            <div class="header text-center mb-8 pb-5 border-b-4 border-[#1a2a6c]">
+                <div class="bg-white border-2 border-blue-900 rounded-2xl p-5 mb-4 shadow-sm">
+                    <h2 class="font-[900] tracking-tight flex items-center justify-center gap-2 flex-wrap text-2xl sm:text-3xl">
+                        <span class="text-red-600">आपका ₹1,</span>
+                        <span class="text-blue-900">किसी की मुस्कान</span>
+                        <span class="smiley-anim text-3xl">😊</span>
+                    </h2>
+                    <p class="text-xs sm:text-sm font-[800] text-slate-600 mt-1">Your ₹1, Someone’s Smile</p>
+                </div>
+                <div class="bg-blue-950 text-white text-center py-2.5 px-4 rounded-lg font-[900] text-xs sm:text-sm mb-4">
+                    रोज़ ₹1 – बदलाव की ओर साथ चले हम!
+                </div>
+                <div class="lang-switch mt-3">
+                    <button class="bg-[#1a2a6c] text-white border-none py-1.5 px-5 rounded-full cursor-pointer font-bold text-sm mx-1 active" onclick="setLang('hi')">🇮🇳 हिंदी</button>
+                    <button class="bg-[#1a2a6c] text-white border-none py-1.5 px-5 rounded-full cursor-pointer font-bold text-sm mx-1" onclick="setLang('en')">🇬🇧 English</button>
+                </div>
+            </div>
+
+            <!-- DESCRIPTION GLASS BOX -->
+            <div class="glass-card rounded-[2rem] p-5 sm:p-8 mb-8 shadow-md border border-slate-200">
+                <h3 class="text-lg sm:text-xl font-[900] text-slate-900 mb-3 flex items-center gap-2">
+                    <span class="w-2.5 h-6 bg-orange-600 rounded-full"></span>
+                    Daily ₹1 Supporter | दैनिक ₹1 सहयोगी
+                </h3>
+                <p class="text-slate-700 mb-3 leading-relaxed text-sm sm:text-base font-[700]">
+                    हर दिन सिर्फ ₹1 का छोटा सा सहयोग किसी के जीवन में बड़ी उम्मीद ला सकता है। हमारे Daily ₹1 Supporter अभियान से जुड़कर शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता के प्रयासों में अपना योगदान दें। आपका छोटा कदम किसी की मुस्कान की वजह बन सकता है।
+                </p>
+                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed mb-4 font-[700] italic">
+                    A small contribution of just ₹1 a day can bring hope into someone’s life. Join our Daily ₹1 Supporter campaign and contribute to our efforts in education, healthcare, and support for those in need. Your small step can be the reason behind someone’s smile.
+                </p>
+                <div class="p-3 bg-orange-500/10 border-l-4 border-orange-500 rounded-r-xl text-slate-800 text-xs sm:text-sm font-[800]">
+                    अपनी सुविधा के अनुसार दैनिक सहयोग चुनें और जरूरतमंदों की सहायता के प्रयासों में सहभागी बनें।
+                    <span class="block text-[11px] text-slate-600 font-[700] mt-0.5">Choose a daily contribution that suits you and become part of our efforts to support those in need.</span>
+                </div>
+            </div>
+
+            <form id="donationForm" onsubmit="return false;">
+                <!-- NAME -->
+                <div class="section-title"><span class="hi-only">👤 दाता का नाम</span><span class="en-only">👤 Donor Name</span></div>
+                <div class="row-3">
+                    <div class="form-group">
+                        <label class="hi-only">पहला नाम <span class="required">*</span></label>
+                        <label class="en-only">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" placeholder="First" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="hi-only">मध्य नाम</label><label class="en-only">Middle Name</label>
+                        <input type="text" id="middleName" placeholder="Middle">
+                    </div>
+                    <div class="form-group">
+                        <label class="hi-only">अंतिम नाम <span class="required">*</span></label>
+                        <label class="en-only">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" placeholder="Last" required>
+                    </div>
+                </div>
+
+                <!-- EMAIL + MOBILE -->
+                <div class="row-2">
+                    <div class="form-group">
+                        <label class="hi-only">ईमेल पता <span class="required">*</span></label>
+                        <label class="en-only">Email Address <span class="required">*</span></label>
+                        <input type="email" id="email" placeholder="example@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="hi-only">मोबाइल नंबर <span class="required">*</span> <span class="hint">(10 अंक)</span></label>
+                        <label class="en-only">Mobile Number <span class="required">*</span> <span class="hint">(10 digits)</span></label>
+                        <input type="tel" id="mobile" placeholder="9876543210" maxlength="10" required>
+                    </div>
+                </div>
+
+                <!-- ADDRESS -->
+                <div class="form-group">
+                    <label class="hi-only">पता <span class="required">*</span></label>
+                    <label class="en-only">Address <span class="required">*</span></label>
+                    <textarea id="address" rows="2" class="hi-only" placeholder="घर का नंबर, गली, मोहल्ला..." required></textarea>
+                    <textarea id="addressEn" rows="2" class="en-only" placeholder="House no, street, locality..." required style="display:none;"></textarea>
+                </div>
+
+                <!-- COUNTRY + STATE -->
+                <div class="address-row">
+                    <div class="form-group">
+                        <label class="hi-only">देश <span class="required">*</span></label>
+                        <label class="en-only">Country <span class="required">*</span></label>
+                        <select id="countrySelect" class="country-select" required>
+                            <option value="India" selected>India</option>
+                            <option value="Other" class="hi-only">अन्य</option>
+                            <option value="Other" class="en-only">Other</option>
+                        </select>
+                        <input type="text" id="countryText" class="country-other-input" placeholder="देश / Country">
+                    </div>
+                    <div class="form-group">
+                        <label class="hi-only">राज्य <span class="required">*</span></label>
+                        <label class="en-only">State <span class="required">*</span></label>
+                        <select id="stateSelect" class="state-select" required>
+                            <option value="Bihar" selected>Bihar</option>
+                            <option value="Other" class="hi-only">अन्य</option>
+                            <option value="Other" class="en-only">Other</option>
+                        </select>
+                        <input type="text" id="stateText" class="state-other-input" placeholder="राज्य / State">
+                    </div>
+                </div>
+
+                <!-- DISTRICT + PINCODE -->
+                <div class="address-row" style="margin-top: 18px;">
+                    <div class="form-group">
+                        <label class="hi-only">जिला <span class="required">*</span></label>
+                        <label class="en-only">District <span class="required">*</span></label>
+                        <select id="districtSelect" class="district-select" required>
+                            <option value="">-- <span class="hi-only">जिला चुनें</span><span class="en-only">Select District</span> --</option>
+                            <option value="अररिया" class="hi-only">अररिया</option><option value="अरवल" class="hi-only">अरवल</option><option value="औरंगाबाद" class="hi-only">औरंगाबाद</option><option value="बाँका" class="hi-only">बाँका</option><option value="बेगूसराय" class="hi-only">बेगूसराय</option><option value="भागलपुर" class="hi-only">भागलपुर</option><option value="भोजपुर" class="hi-only">भोजपुर</option><option value="बक्सर" class="hi-only">बक्सर</option><option value="दरभंगा" class="hi-only">दरभंगा</option><option value="पूर्वी चम्पारण" class="hi-only">पूर्वी चम्पारण</option><option value="गया" class="hi-only">गया</option><option value="गोपालगंज" class="hi-only">गोपालगंज</option><option value="जमुई" class="hi-only">जमुई</option><option value="जहानाबाद" class="hi-only">जहानाबाद</option><option value="कैमूर" class="hi-only">कैमूर</option><option value="कटिहार" class="hi-only">कटिहार</option><option value="खगड़िया" class="hi-only">खगड़िया</option><option value="किशनगंज" class="hi-only">किशनगंज</option><option value="लखीसराय" class="hi-only">लखीसराय</option><option value="मधेपुरा" class="hi-only">मधेपुरा</option><option value="मधुबनी" class="hi-only">मधुबनी</option><option value="मुंगेर" class="hi-only">मुंगेर</option><option value="मुजफ्फरपुर" class="hi-only">मुजफ्फरपुर</option><option value="नालंदा" class="hi-only">नालंदा</option><option value="नवादा" class="hi-only">नवादा</option><option value="पटना" class="hi-only">पटना</option><option value="पूर्णिया" class="hi-only">पूर्णिया</option><option value="रोहतास" class="hi-only">रोहतास</option><option value="सहरसा" class="hi-only">सहरसा</option><option value="समस्तीपुर" class="hi-only">समस्तीपुर</option><option value="सारण" class="hi-only">सारण</option><option value="शिवहर" class="hi-only">शिवहर</option><option value="शेखपुरा" class="hi-only">शेखपुरा</option><option value="सीतामढ़ी" class="hi-only">सीतामढ़ी</option><option value="सिवान" class="hi-only">सिवान</option><option value="सुपौल" class="hi-only">सुपौल</option><option value="वैशाली" class="hi-only">वैशाली</option><option value="पश्चिमी चम्पारण" class="hi-only">पश्चिमी चम्पारण</option>
+                            <option value="Araria" class="en-only">Araria</option><option value="Arwal" class="en-only">Arwal</option><option value="Aurangabad" class="en-only">Aurangabad</option><option value="Banka" class="en-only">Banka</option><option value="Begusarai" class="en-only">Begusarai</option><option value="Bhagalpur" class="en-only">Bhagalpur</option><option value="Bhojpur" class="en-only">Bhojpur</option><option value="Buxar" class="en-only">Buxar</option><option value="Darbhanga" class="en-only">Darbhanga</option><option value="East Champaran" class="en-only">East Champaran</option><option value="Gaya" class="en-only">Gaya</option><option value="Gopalganj" class="en-only">Gopalganj</option><option value="Jamui" class="en-only">Jamui</option><option value="Jehanabad" class="en-only">Jehanabad</option><option value="Kaimur" class="en-only">Kaimur</option><option value="Katihar" class="en-only">Katihar</option><option value="Khagaria" class="en-only">Khagaria</option><option value="Kishanganj" class="en-only">Kishanganj</option><option value="Lakhisarai" class="en-only">Lakhisarai</option><option value="Madhepura" class="en-only">Madhepura</option><option value="Madhubani" class="en-only">Madhubani</option><option value="Munger" class="en-only">Munger</option><option value="Muzaffarpur" class="en-only">Muzaffarpur</option><option value="Nalanda" class="en-only">Nalanda</option><option value="Nawada" class="en-only">Nawada</option><option value="Patna" class="en-only">Patna</option><option value="Purnia" class="en-only">Purnia</option><option value="Rohtas" class="en-only">Rohtas</option><option value="Saharsa" class="en-only">Saharsa</option><option value="Samastipur" class="en-only">Samastipur</option><option value="Saran" class="en-only">Saran</option><option value="Sheohar" class="en-only">Sheohar</option><option value="Sheikhpura" class="en-only">Sheikhpura</option><option value="Sitamarhi" class="en-only">Sitamarhi</option><option value="Siwan" class="en-only">Siwan</option><option value="Supaul" class="en-only">Supaul</option><option value="Vaishali" class="en-only">Vaishali</option><option value="West Champaran" class="en-only">West Champaran</option>
+                        </select>
+                        <input type="text" id="districtText" class="district-text-input" placeholder="जिला / District">
+                    </div>
+                    <div class="form-group" id="pincodeGroup">
+                        <label class="hi-only">पिन कोड <span class="required" id="pincodeRequired">*</span> <span class="hint">(6 अंक)</span></label>
+                        <label class="en-only">PIN Code <span class="required" id="pincodeRequiredEn">*</span> <span class="hint">(6 digits)</span></label>
+                        <input type="text" id="pincode" placeholder="110001" maxlength="6">
+                    </div>
+                </div>
+
+                <!-- DONATION TYPE -->
+                <div class="form-group" style="margin-top: 18px;">
+                    <label class="hi-only">दान का प्रकार <span class="required">*</span></label>
+                    <label class="en-only">Donation Type <span class="required">*</span></label>
+                    <div class="donation-type-box">
+                        <div class="donation-type-grid">
+                            <label class="donation-type-option selected" data-type="bank">
+                                <input type="radio" name="donationType" value="bank" checked>
+                                <span class="icon">🏦</span>
+                                <span class="hi-only">बैंक खाता</span><span class="en-only">Bank Account</span>
+                                <small class="hi-only">बैंक</small><small class="en-only">Bank</small>
+                            </label>
+                            <label class="donation-type-option" data-type="upi">
+                                <input type="radio" name="donationType" value="upi">
+                                <span class="icon">📱</span>
+                                <span class="hi-only">UPI</span><span class="en-only">UPI</span>
+                                <small class="hi-only">यूपीआई</small><small class="en-only">UPI</small>
+                            </label>
+                            <label class="donation-type-option" data-type="qr">
+                                <input type="radio" name="donationType" value="qr">
+                                <span class="icon">📸</span>
+                                <span class="hi-only">QR Code</span><span class="en-only">QR Code</span>
+                                <small class="hi-only">स्कैन करें</small><small class="en-only">Scan</small>
+                            </label>
+                            <label class="donation-type-option" data-type="cheque">
+                                <input type="radio" name="donationType" value="cheque">
+                                <span class="icon">📝</span>
+                                <span class="hi-only">चेक</span><span class="en-only">Cheque</span>
+                                <small class="hi-only">चेक</small><small class="en-only">Cheque</small>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BANK DETAILS -->
+                <div class="donation-details active" id="bankDetails">
+                    <h4 id="bankTitle">🏦 बैंक खाता विवरण</h4>
+                    <div class="detail-row"><span class="detail-label" id="bankNameLabel">बैंक का नाम</span><span class="detail-value">State Bank of India</span></div>
+                    <div class="detail-row"><span class="detail-label" id="accountHolderLabel">खाता धारक</span><span class="detail-value">Sath Chale Hum Foundation</span></div>
+                    <div class="detail-row"><span class="detail-label" id="accountNumberLabel">खाता संख्या</span><span class="detail-value copyable" onclick="copyText('12345678901')">12345678901 📋</span></div>
+                    <div class="detail-row"><span class="detail-label">IFSC Code</span><span class="detail-value copyable" onclick="copyText('SBIN0001234')">SBIN0001234 📋</span></div>
+                    <div class="detail-row"><span class="detail-label" id="branchLabel">शाखा</span><span class="detail-value">Saharsa Main Branch</span></div>
+                </div>
+                <div class="donation-details" id="upiDetails">
+                    <h4 id="upiTitle">📱 UPI विवरण</h4>
+                    <div class="detail-row"><span class="detail-label">UPI ID</span><span class="detail-value copyable" onclick="copyText('sathchaleham@upi')">sathchaleham@upi 📋</span></div>
+                    <div class="detail-row"><span class="detail-label" id="supportedAppsLabel">समर्थित ऐप</span><span class="detail-value">Google Pay, PhonePe, Paytm, BHIM</span></div>
+                </div>
+                <div class="donation-details" id="qrDetails">
+                    <h4 id="qrTitle">📸 QR Code स्कैन करें</h4>
+                    <div style="text-align:center;padding:18px">
+                        <div style="font-size:55px;background:#f5f8fc;border-radius:12px;padding:20px;display:inline-block;">📱</div>
+                        <p id="qrMessage" style="margin-top:8px;font-weight:700;">यहाँ QR Code लगाया जाएगा</p>
+                        <p>UPI: sathchaleham@upi</p>
+                    </div>
+                </div>
+                <div class="donation-details" id="chequeDetails">
+                    <h4 id="chequeTitle">📝 चेक विवरण</h4>
+                    <div class="detail-row"><span class="detail-label" id="payableLabel">भुगतान योग्य</span><span class="detail-value">Sath Chale Hum Foundation</span></div>
+                    <div class="detail-row"><span class="detail-label" id="chequeBankLabel">बैंक का नाम</span><span class="detail-value">State Bank of India</span></div>
+                    <div class="detail-row"><span class="detail-label">Account Number</span><span class="detail-value">12345678901</span></div>
+                    <div class="detail-row"><span class="detail-label">IFSC Code</span><span class="detail-value">SBIN0001234</span></div>
+                </div>
+
+                <!-- PURPOSE -->
+                <div class="form-group" style="margin-top: 18px;">
+                    <label class="hi-only">दान का उद्देश्य <span class="required">*</span></label>
+                    <label class="en-only">Donation Purpose <span class="required">*</span></label>
+                    <div class="purpose-grid">
+                        <label class="purpose-option selected"><input type="radio" name="purpose" value="General" checked><span class="purpose-icon">🤝</span><span class="hi-only">जहाँ ज़रूरत हो</span><span class="en-only">Wherever Needed</span></label>
+                        <label class="purpose-option"><input type="radio" name="purpose" value="Education"><span class="purpose-icon">📚</span><span class="hi-only">शिक्षा</span><span class="en-only">Education</span></label>
+                        <label class="purpose-option"><input type="radio" name="purpose" value="Health"><span class="purpose-icon">🏥</span><span class="hi-only">स्वास्थ्य</span><span class="en-only">Health</span></label>
+                        <label class="purpose-option"><input type="radio" name="purpose" value="Food"><span class="purpose-icon">🍽️</span><span class="hi-only">भोजन</span><span class="en-only">Food</span></label>
+                    </div>
+                </div>
+
+                <!-- AMOUNT -->
+                <div class="form-group">
+                    <label class="hi-only">दान राशि <span class="required">*</span></label>
+                    <label class="en-only">Donation Amount <span class="required">*</span></label>
+                    <div class="slogan-box"><span class="blue" id="sloganBlueForm">आपका ₹1,</span><span class="orange" id="sloganOrangeForm"> किसी की मुस्कान</span></div>
+                    <div class="amount-grid">
+                        <label class="amount-option selected" data-value="1"><input type="radio" name="amount" value="1" checked><span class="rupee">₹</span><span class="value">1</span><span class="sub-text" id="month1">₹30/ माह</span></label>
+                        <label class="amount-option" data-value="2"><input type="radio" name="amount" value="2"><span class="rupee">₹</span><span class="value">2</span><span class="sub-text" id="month2">₹60/ माह</span></label>
+                        <label class="amount-option" data-value="5"><input type="radio" name="amount" value="5"><span class="rupee">₹</span><span class="value">5</span><span class="sub-text" id="month5">₹150/ माह</span></label>
+                        <label class="amount-option" data-value="10"><input type="radio" name="amount" value="10"><span class="rupee">₹</span><span class="value">10</span><span class="sub-text" id="month10">₹300/ माह</span></label>
+                    </div>
+                    <div class="amount-divider" id="regularDivider">✦ अपनी सुविधा के अनुसार दान करें ✦</div>
+                    <div class="amount-grid">
+                        <label class="amount-option" data-value="100"><input type="radio" name="amount" value="100"><span class="rupee">₹</span><span class="value">100</span></label>
+                        <label class="amount-option" data-value="200"><input type="radio" name="amount" value="200"><span class="rupee">₹</span><span class="value">200</span></label>
+                        <label class="amount-option" data-value="500"><input type="radio" name="amount" value="500"><span class="rupee">₹</span><span class="value">500</span></label>
+                        <label class="amount-option" data-value="1000"><input type="radio" name="amount" value="1000"><span class="rupee">₹</span><span class="value">1,000</span></label>
+                    </div>
+                    <div class="amount-divider" id="specialDivider">✦ विशेष दान करें ✦</div>
+                    <div class="amount-grid">
+                        <label class="amount-option" data-value="5000"><input type="radio" name="amount" value="5000"><span class="rupee">₹</span><span class="value">5,000</span></label>
+                        <label class="amount-option" data-value="10000"><input type="radio" name="amount" value="10000"><span class="rupee">₹</span><span class="value">10,000</span></label>
+                        <label class="amount-option" data-value="15000"><input type="radio" name="amount" value="15000"><span class="rupee">₹</span><span class="value">15,000</span></label>
+                        <label class="amount-option" data-value="20000"><input type="radio" name="amount" value="20000"><span class="rupee">₹</span><span class="value">20,000</span></label>
+                    </div>
+                    <div style="margin-top:10px;"><input type="number" id="customAmount" placeholder="अन्य राशि / Other Amount" min="1"></div>
+                </div>
+
+                <!-- FREQUENCY -->
+                <div class="form-group">
+                    <label class="hi-only">दान आवृत्ति <span class="required">*</span></label>
+                    <label class="en-only">Donation Frequency <span class="required">*</span></label>
+                    <div class="frequency-grid">
+                        <label class="freq-option selected" data-value="One-time"><input type="radio" name="frequency" value="One-time" checked><span class="hi-only">✅ एक बार</span><span class="en-only">✅ One-time</span><span class="freq-sub">One-time</span></label>
+                        <label class="freq-option" data-value="Monthly"><input type="radio" name="frequency" value="Monthly"><span class="hi-only">🔄 मासिक</span><span class="en-only">🔄 Monthly</span><span class="freq-sub">Monthly</span></label>
+                        <label class="freq-option" data-value="Yearly"><input type="radio" name="frequency" value="Yearly"><span class="hi-only">📅 वार्षिक</span><span class="en-only">📅 Yearly</span><span class="freq-sub">Yearly</span></label>
+                    </div>
+                </div>
+
+                <!-- TRANSACTION ID -->
+                <div class="form-group">
+                    <label class="hi-only">Transaction ID / UTR Number <span class="required">*</span></label>
+                    <label class="en-only">Transaction ID / UTR Number <span class="required">*</span></label>
+                    <input type="text" id="transactionId" placeholder="Transaction ID / UTR Number दर्ज करें" required>
+                </div>
+
+                <!-- PAYMENT DATE + PAYMENT STATUS -->
+                <div class="row-2">
+                    <div class="form-group">
+                        <label class="hi-only">भुगतान की तारीख <span class="required">*</span></label>
+                        <label class="en-only">Payment Date <span class="required">*</span></label>
+                        <input type="date" id="paymentDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="hi-only">भुगतान स्थिति <span class="required">*</span></label>
+                        <label class="en-only">Payment Status <span class="required">*</span></label>
+                        <select id="paymentStatus" required>
+                            <option value="" class="hi-only">-- चुनें --</option><option value="" class="en-only">-- Select --</option>
+                            <option value="Paid" class="hi-only">भुगतान किया गया</option><option value="Paid" class="en-only">Paid</option>
+                            <option value="Pending" class="hi-only">भुगतान लंबित</option><option value="Pending" class="en-only">Pending</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- SCREENSHOT -->
+                <div class="form-group">
+                    <label class="hi-only">भुगतान का स्क्रीनशॉट</label><label class="en-only">Payment Screenshot</label>
+                    <div class="file-upload-area" id="fileUploadArea">
+                        <span class="upload-icon">📤</span>
+                        <strong id="uploadText" class="hi-only">अपलोड करने के लिए क्लिक करें</strong>
+                        <strong id="uploadTextEn" class="en-only" style="display:none;">Click to upload</strong>
+                        <p id="uploadLimit" style="font-size:12px;color:#888;margin-top:5px;">PNG, JPG, JPEG • अधिकतम 5MB</p>
+                        <input type="file" id="screenshot" accept="image/png,image/jpeg">
+                        <div class="file-name" id="fileName"></div>
+                    </div>
+                </div>
+
+                <!-- MESSAGE -->
+                <div class="form-group">
+                    <label class="hi-only">संदेश</label><label class="en-only">Message</label>
+                    <textarea id="message" rows="2" class="hi-only" placeholder="आप कुछ कहना चाहेंगे?"></textarea>
+                    <textarea id="messageEn" rows="2" class="en-only" placeholder="Would you like to say something?" style="display:none;"></textarea>
+                </div>
+
+                <!-- TOTAL -->
+                <div class="total-box">
+                    <span class="total-label" id="totalLabel">💰 कुल राशि</span>
+                    <span class="total-amount">₹<span id="totalAmount">1</span><span class="total-per" id="totalPer">(एक बार)</span></span>
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="button" class="btn-submit incomplete" id="submitBtn" onclick="submitForm()">
+                    <span class="hi-only">❤️ दान करें</span>
+                    <span class="en-only">❤️ Donate Now</span>
+                </button>
+            </form>
+
+            <div id="messageBox" class="message"></div>
+            <div class="footer" style="text-align: center; margin-top: 25px; color: #666; font-size: 13px; border-top: 1px solid #eaeef2; padding-top: 20px;">
+                <span class="hi-only">🔒 आपकी जानकारी सुरक्षित है</span>
+                <span class="en-only">🔒 Your information is secure</span>
+                • <span class="badge"><span class="hi-only">📊 Google Sheets में सेव होगी</span><span class="en-only">📊 Saved to Google Sheets</span></span>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION (Same As Home Page) -->
+    <footer class="bg-slate-950 text-slate-300 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div class="space-y-3">
+                    <div class="flex items-center gap-3">
+                        <img src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png" alt="Sath Logo" class="h-10 w-auto">
+                        <span class="font-[900] text-white text-lg">Chale Hum Foundation</span>
+                    </div>
+                    <p class="text-sm font-[800] text-orange-400">साथ चले हम – बदलाव की ओर</p>
+                    <p class="text-xs font-[700] text-slate-400 italic">Step Together Towards Change</p>
+                </div>
+
+                <div>
+                    <h4 class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Our Social Media
+                    </h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-slate-900 hover:bg-orange-600 rounded-full flex items-center justify-center text-white transition-colors border border-slate-800" title="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-[900] text-white mb-4 text-sm tracking-wider uppercase border-b border-slate-800 pb-2">
+                        Quick Links | महत्वपूर्ण लिंक
+                    </h4>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-[700]">
+                        <a href="index.html#home" class="hover:text-orange-400">Home | होम</a>
+                        <a href="index.html#about" class="hover:text-orange-400">About Us | हमारे बारे में</a>
+                        <a href="index.html#work" class="hover:text-orange-400">Our Work | हमारे कार्य</a>
+                        <a href="index.html#team" class="hover:text-orange-400">Our Team | हमारी टीम</a>
+                        <a href="donate.html" class="hover:text-orange-400">Donate Us | दान करें</a>
+                        <a href="join-us.html" class="hover:text-orange-400">Join Us | हमारे साथ जुड़ें</a>
+                        <a href="index.html#events" class="hover:text-orange-400">Events | कार्यक्रम</a>
+                        <a href="index.html#contact" class="hover:text-orange-400">Contact Us | संपर्क करें</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terms & Conditions / Privacy Policy right above Copyright Section -->
+            <div class="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-[700] text-slate-500">
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-slate-300">Terms & Conditions</a>
+                    <span>|</span>
+                    <a href="#" class="hover:text-slate-300">Privacy Policy</a>
+                </div>
+                <p>© 2026 Sath Chale Hum Foundation. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE JAVASCRIPT -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        let currentLang = 'hi';
+
+        function setLang(lang) {
+            currentLang = lang;
+            document.body.className = 'lang-' + lang + ' flex flex-col min-h-screen selection:bg-orange-500 selection:text-white';
+            document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
+
+            document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+            document.querySelector(`.lang-switch button:${lang === 'hi' ? 'first-child' : 'last-child'}`).classList.add('active');
+
+            document.querySelectorAll('.hi-only').forEach(el => el.style.display = lang === 'hi' ? '' : 'none');
+            document.querySelectorAll('.en-only').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+
+            updateLabels(lang);
+            updateCountryStateVisibility();
+            updateDistrictVisibility();
+            updatePincodeValidation();
+
+            var districtText = document.getElementById('districtText');
+            if (lang === 'hi') {
+                districtText.placeholder = 'जिला';
+            } else {
+                districtText.placeholder = 'District';
+            }
+
+            setTimeout(function() { checkFormCompletion(); updateTotal(); }, 100);
+        }
+
+        function updateLabels(lang) {
+            const t = lang === 'hi' ? {
+                sloganBlue: 'आपका ₹1,', sloganOrange: ' किसी की मुस्कान',
+                gratitude: '❤️ साथ चले हम फाउंडेशन की ओर से आपका हार्दिक आभार!',
+                thankyou: '🙏 धन्यवाद!', welcomeTitle: 'धन्यवाद! 🙏',
+                welcomeSuccess: 'आपका दान सफलतापूर्वक प्राप्त हो गया है!',
+                detailsTitle: '📋 दान विवरण', labelAmount: '💰 राशि',
+                labelDate: '📅 दिनांक', labelPurpose: '📌 उद्देश्य',
+                labelFrequency: '🔄 आवृत्ति', totalLabel: '💰 कुल राशि',
+                sloganBlueForm: 'आपका ₹1,', sloganOrangeForm: ' किसी की मुस्कान',
+                month: 'माह', regular: '✦ अपनी सुविधा के अनुसार दान करें ✦',
+                special: '✦ विशेष दान करें ✦',
+                uploadText: 'अपलोड करने के लिए क्लिक करें',
+                uploadLimit: 'PNG, JPG, JPEG • अधिकतम 5MB',
+                bankTitle: '🏦 बैंक खाता विवरण', bankNameLabel: 'बैंक का नाम',
+                accountHolderLabel: 'खाता धारक', accountNumberLabel: 'खाता संख्या',
+                branchLabel: 'शाखा', upiTitle: '📱 UPI विवरण',
+                supportedAppsLabel: 'समर्थित ऐप', qrTitle: '📸 QR Code स्कैन करें',
+                qrMessage: 'यहाँ QR Code लगाया जाएगा',
+                chequeTitle: '📝 चेक विवरण', payableLabel: 'भुगतान योग्य',
+                chequeBankLabel: 'बैंक का नाम'
+            } : {
+                sloganBlue: 'Your ₹1,', sloganOrange: ' Someone\'s Smile',
+                gratitude: '❤️ From Sath Chale Hum Foundation, heartfelt gratitude to you!',
+                thankyou: '🙏 Thank You!', welcomeTitle: 'Thank You! 🙏',
+                welcomeSuccess: 'Your donation has been successfully received!',
+                detailsTitle: '📋 Donation Details', labelAmount: '💰 Amount',
+                labelDate: '📅 Date', labelPurpose: '📌 Purpose',
+                labelFrequency: '🔄 Frequency', totalLabel: '💰 Total Amount',
+                sloganBlueForm: 'Your ₹1,', sloganOrangeForm: ' Someone\'s Smile',
+                month: 'month', regular: '✦ Donate as per your convenience ✦',
+                special: '✦ Special Donation ✦',
+                uploadText: 'Click to upload',
+                uploadLimit: 'PNG, JPG, JPEG • Max 5MB',
+                bankTitle: '🏦 Bank Account Details', bankNameLabel: 'Bank Name',
+                accountHolderLabel: 'Account Holder', accountNumberLabel: 'Account Number',
+                branchLabel: 'Branch', upiTitle: '📱 UPI Details',
+                supportedAppsLabel: 'Supported Apps', qrTitle: '📸 Scan QR Code',
+                qrMessage: 'QR Code will be placed here',
+                chequeTitle: '📝 Cheque Details', payableLabel: 'Payable to',
+                chequeBankLabel: 'Bank Name'
+            };
+
+            document.getElementById('sloganBlue').textContent = t.sloganBlue;
+            document.getElementById('sloganOrange').textContent = t.sloganOrange;
+            document.getElementById('gratitudeMsg').textContent = t.gratitude;
+            document.getElementById('thankyouMsg').textContent = t.thankyou;
+            document.getElementById('welcomeTitle').textContent = t.welcomeTitle;
+            document.getElementById('welcomeSuccess').textContent = t.welcomeSuccess;
+            document.getElementById('detailsTitle').textContent = t.detailsTitle;
+            document.getElementById('labelAmount').textContent = t.labelAmount;
+            document.getElementById('labelDate').textContent = t.labelDate;
+            document.getElementById('labelPurpose').textContent = t.labelPurpose;
+            document.getElementById('labelFrequency').textContent = t.labelFrequency;
+            document.getElementById('totalLabel').textContent = t.totalLabel;
+            document.getElementById('sloganBlueForm').textContent = t.sloganBlueForm;
+            document.getElementById('sloganOrangeForm').textContent = t.sloganOrangeForm;
+            document.getElementById('regularDivider').textContent = t.regular;
+            document.getElementById('specialDivider').textContent = t.special;
+            document.getElementById('uploadText').textContent = t.uploadText;
+            document.getElementById('uploadTextEn').textContent = t.uploadText;
+            document.getElementById('uploadLimit').textContent = t.uploadLimit;
+            document.getElementById('bankTitle').textContent = t.bankTitle;
+            document.getElementById('bankNameLabel').textContent = t.bankNameLabel;
+            document.getElementById('accountHolderLabel').textContent = t.accountHolderLabel;
+            document.getElementById('accountNumberLabel').textContent = t.accountNumberLabel;
+            document.getElementById('branchLabel').textContent = t.branchLabel;
+            document.getElementById('upiTitle').textContent = t.upiTitle;
+            document.getElementById('supportedAppsLabel').textContent = t.supportedAppsLabel;
+            document.getElementById('qrTitle').textContent = t.qrTitle;
+            document.getElementById('qrMessage').textContent = t.qrMessage;
+            document.getElementById('chequeTitle').textContent = t.chequeTitle;
+            document.getElementById('payableLabel').textContent = t.payableLabel;
+            document.getElementById('chequeBankLabel').textContent = t.chequeBankLabel;
+
+            const month = t.month;
+            document.getElementById('month1').textContent = '₹30/ ' + month;
+            document.getElementById('month2').textContent = '₹60/ ' + month;
+            document.getElementById('month5').textContent = '₹150/ ' + month;
+            document.getElementById('month10').textContent = '₹300/ ' + month;
+
+            document.querySelectorAll('.donation-type-option').forEach(opt => {
+                const hiEls = opt.querySelectorAll('.hi-only');
+                const enEls = opt.querySelectorAll('.en-only');
+                hiEls.forEach(el => el.style.display = lang === 'hi' ? '' : 'none');
+                enEls.forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+            });
+        }
+
+        var countrySelect = document.getElementById('countrySelect');
+        var countryText = document.getElementById('countryText');
+        var stateSelect = document.getElementById('stateSelect');
+        var stateText = document.getElementById('stateText');
+        var districtSelect = document.getElementById('districtSelect');
+        var districtText = document.getElementById('districtText');
+        var pincodeInput = document.getElementById('pincode');
+
+        function updateCountryStateVisibility() {
+            var countryVal = countrySelect.value;
+            if (countryVal === 'Other') {
+                countryText.classList.add('active');
+                countryText.style.display = 'block';
+                countryText.required = true;
+                stateSelect.value = 'Other';
+            } else {
+                countryText.classList.remove('active');
+                countryText.style.display = 'none';
+                countryText.required = false;
+                countryText.value = '';
+            }
+
+            var currentStateVal = stateSelect.value;
+            if (currentStateVal === 'Other') {
+                stateText.classList.add('active');
+                stateText.style.display = 'block';
+                stateText.required = true;
+            } else {
+                stateText.classList.remove('active');
+                stateText.style.display = 'none';
+                stateText.required = false;
+                stateText.value = '';
+            }
+
+            updateDistrictVisibility();
+            updatePincodeValidation();
+        }
+
+        countrySelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                stateSelect.value = 'Other';
+            }
+            updateCountryStateVisibility();
+        });
+
+        stateSelect.addEventListener('change', function() {
+            updateCountryStateVisibility();
+        });
+
+        function updateDistrictVisibility() {
+            var country = countrySelect.value;
+            var state = stateSelect.value;
+
+            if (country === 'India' && state === 'Bihar') {
+                districtSelect.classList.remove('hide');
+                districtSelect.style.display = 'block';
+                districtSelect.required = true;
+                districtText.classList.remove('active');
+                districtText.style.display = 'none';
+                districtText.required = false;
+                districtText.value = '';
+            } else {
+                districtSelect.classList.add('hide');
+                districtSelect.style.display = 'none';
+                districtSelect.required = false;
+                districtSelect.value = '';
+                districtText.classList.add('active');
+                districtText.style.display = 'block';
+                districtText.required = true;
+            }
+            checkFormCompletion();
+        }
+
+        function updatePincodeValidation() {
+            var country = countrySelect.value;
+            var pincodeReq = document.getElementById('pincodeRequired');
+            var pincodeReqEn = document.getElementById('pincodeRequiredEn');
+            var pincodeHint = document.querySelectorAll('#pincodeGroup .hint');
+
+            if (country === 'Other') {
+                pincodeInput.required = false;
+                pincodeReq.style.display = 'none';
+                pincodeReqEn.style.display = 'none';
+                pincodeHint.forEach(function(el) { el.style.display = 'none'; });
+                pincodeInput.placeholder = 'पिन कोड / PIN Code';
+                pincodeInput.maxLength = '';
+                pincodeInput.removeAttribute('maxlength');
+            } else {
+                pincodeInput.required = true;
+                pincodeReq.style.display = 'inline';
+                pincodeReqEn.style.display = 'inline';
+                pincodeHint.forEach(function(el) { el.style.display = 'inline'; });
+                pincodeInput.placeholder = '110001';
+                pincodeInput.maxLength = '6';
+                pincodeInput.setAttribute('maxlength', '6');
+            }
+            checkFormCompletion();
+        }
+
+        document.querySelectorAll('.donation-type-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.donation-type-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+                const type = this.dataset.type;
+                document.querySelectorAll('.donation-details').forEach(d => d.classList.remove('active'));
+                if (type === 'bank') document.getElementById('bankDetails').classList.add('active');
+                else if (type === 'upi') document.getElementById('upiDetails').classList.add('active');
+                else if (type === 'qr') document.getElementById('qrDetails').classList.add('active');
+                else if (type === 'cheque') document.getElementById('chequeDetails').classList.add('active');
+                checkFormCompletion();
+            });
+        });
+
+        document.querySelectorAll('.amount-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+                document.getElementById('customAmount').value = '';
+                updateTotal();
+                checkFormCompletion();
+            });
+        });
+
+        document.getElementById('customAmount').addEventListener('input', function() {
+            if (this.value) {
+                document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+                updateTotal();
+                checkFormCompletion();
+            }
+        });
+
+        document.querySelectorAll('.freq-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.freq-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+                updateTotal();
+                checkFormCompletion();
+            });
+        });
+
+        document.querySelectorAll('.purpose-option').forEach(opt => {
+            opt.addEventListener('click', function() {
+                document.querySelectorAll('.purpose-option').forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+                this.querySelector('input').checked = true;
+            });
+        });
+
+        function updateTotal() {
+            const lang = currentLang;
+            let amount = 1;
+            const selectedAmount = document.querySelector('.amount-option.selected');
+            const customAmount = document.getElementById('customAmount').value;
+            if (customAmount) amount = customAmount;
+            else if (selectedAmount) amount = selectedAmount.dataset.value;
+
+            document.getElementById('totalAmount').textContent = Number(amount).toLocaleString('en-IN');
+
+            const freq = document.querySelector('.freq-option.selected input:checked');
+            let perText = '';
+            if (freq) {
+                const val = freq.value;
+                if (lang === 'hi') {
+                    if (val === 'Monthly') perText = '(मासिक)';
+                    else if (val === 'Yearly') perText = '(वार्षिक)';
+                    else perText = '(एक बार)';
+                } else {
+                    if (val === 'Monthly') perText = '(Monthly)';
+                    else if (val === 'Yearly') perText = '(Yearly)';
+                    else perText = '(One-time)';
+                }
+            }
+            document.getElementById('totalPer').textContent = perText;
+        }
+
+        function copyText(text) {
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showMessage('✅ Copied!', 'success');
+                });
+            }
+        }
+
+        const fileInput = document.getElementById('screenshot');
+        const fileUploadArea = document.getElementById('fileUploadArea');
+        const fileName = document.getElementById('fileName');
+
+        fileUploadArea.addEventListener('click', function(e) {
+            e.stopPropagation();
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function() {
+            if (!this.files.length) return;
+            const file = this.files[0];
+            if (file.size > 5 * 1024 * 1024) {
+                showMessage('❌ File size must be less than 5MB.', 'error');
+                this.value = '';
+                return;
+            }
+            fileName.textContent = '📎 ' + file.name;
+            fileName.style.display = 'block';
+            checkFormCompletion();
+        });
+
+        function generateDonationID() {
+            const date = new Date();
+            const year = String(date.getFullYear()).slice(-2);
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const prefix = 'SCH-DAAN-' + year + month + day;
+            let ids = JSON.parse(localStorage.getItem('donationIDs')) || [];
+            let maxSerial = 0;
+            ids.forEach(id => {
+                if (id.startsWith(prefix)) {
+                    const serial = parseInt(id.slice(-5));
+                    if (serial > maxSerial) maxSerial = serial;
+                }
+            });
+            const newSerial = maxSerial + 1;
+            const serialStr = String(newSerial).padStart(5, '0');
+            const newID = prefix + serialStr;
+            ids.push(newID);
+            localStorage.setItem('donationIDs', JSON.stringify(ids));
+            return newID;
+        }
+
+        function checkFormCompletion() {
+            const btn = document.getElementById('submitBtn');
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const address = document.getElementById('address').value.trim() || document.getElementById('addressEn').value.trim();
+            const transactionId = document.getElementById('transactionId').value.trim();
+            const paymentDate = document.getElementById('paymentDate').value;
+            const paymentStatus = document.getElementById('paymentStatus').value;
+            const selectedAmount = document.querySelector('.amount-option.selected');
+            const customAmount = document.getElementById('customAmount').value;
+            const freqSelected = document.querySelector('.freq-option.selected');
+            const donationTypeSelected = document.querySelector('.donation-type-option.selected');
+            const purposeSelected = document.querySelector('.purpose-option.selected');
+
+            var country = countrySelect.value;
+            var countryOk = country === 'Other' ? countryText.value.trim() !== '' : true;
+
+            var state = stateSelect.value;
+            var stateOk = state === 'Other' ? stateText.value.trim() !== '' : true;
+
+            var districtOk = false;
+            if (country === 'India' && state === 'Bihar') {
+                districtOk = districtSelect.value.trim() !== '';
+            } else {
+                districtOk = districtText.value.trim() !== '';
+            }
+
+            var pincodeOk = true;
+            if (country === 'India') {
+                var pincode = document.getElementById('pincode').value.trim();
+                pincodeOk = pincode !== '' && pincode.length === 6;
+            }
+
+            var allFilled = true;
+            if (!firstName || !lastName || !email || !mobile || mobile.length !== 10 ||
+                !address || !countryOk || !stateOk || !districtOk || !pincodeOk ||
+                !transactionId || !paymentDate || !paymentStatus ||
+                (!selectedAmount && !customAmount) || !freqSelected || !donationTypeSelected || !purposeSelected) {
+                allFilled = false;
+            }
+
+            btn.className = allFilled ? 'btn-submit complete' : 'btn-submit incomplete';
+        }
+
+        function showWelcome(data) {
+            document.getElementById('welcomeName').textContent = data.fullName;
+            document.getElementById('welcomeEmail').textContent = '📧 ' + data.email;
+            document.getElementById('welcomeMobile').textContent = '📱 ' + data.mobile;
+            document.getElementById('welcomeID').textContent = '🆔 ' + data.donationID;
+            document.getElementById('showAmount').textContent = '₹' + data.amount;
+            document.getElementById('showDate').textContent = data.date;
+            document.getElementById('showPurpose').textContent = data.purpose;
+            document.getElementById('showFrequency').textContent = data.frequency;
+            document.getElementById('welcomeOverlay').classList.add('active');
+        }
+
+        function closeWelcome() {
+            document.getElementById('welcomeOverlay').classList.remove('active');
+        }
+
+        document.getElementById('welcomeOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeWelcome();
+        });
+
+        function showMessage(text, type) {
+            const box = document.getElementById('messageBox');
+            box.textContent = text;
+            box.className = 'message ' + type;
+            setTimeout(function() { box.className = 'message'; }, 5000);
+        }
+
+        function submitForm() {
+            const lang = currentLang;
+            const btn = document.getElementById('submitBtn');
+
+            const firstName = document.getElementById('firstName').value.trim();
+            const middleName = document.getElementById('middleName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const fullName = (firstName + ' ' + middleName + ' ' + lastName).trim().replace(/\s+/g, ' ');
+            const email = document.getElementById('email').value.trim();
+            const mobile = document.getElementById('mobile').value.trim();
+            const address = document.getElementById('address').value.trim() || document.getElementById('addressEn').value.trim();
+            const transactionId = document.getElementById('transactionId').value.trim();
+            const paymentDate = document.getElementById('paymentDate').value;
+            const paymentStatus = document.getElementById('paymentStatus').value;
+            const message = document.getElementById('message').value.trim() || document.getElementById('messageEn').value.trim();
+            const donationType = document.querySelector('.donation-type-option.selected input:checked')?.value || 'bank';
+            const screenshot = fileInput.files.length ? fileInput.files[0].name : '';
+
+            var countryVal = countrySelect.value;
+            var countryName = countryVal === 'Other' ? countryText.value.trim() : countryVal;
+
+            var stateVal = stateSelect.value;
+            var stateName = stateVal === 'Other' ? stateText.value.trim() : stateVal;
+
+            var district = '';
+            if (countryVal === 'India' && stateVal === 'Bihar') {
+                district = districtSelect.value;
+            } else {
+                district = districtText.value.trim();
+            }
+
+            var pincode = document.getElementById('pincode').value.trim();
+
+            let amount = '';
+            const selectedAmount = document.querySelector('.amount-option.selected');
+            const customAmount = document.getElementById('customAmount').value;
+            if (customAmount) amount = customAmount;
+            else if (selectedAmount) amount = selectedAmount.dataset.value;
+
+            const selectedPurpose = document.querySelector('.purpose-option.selected input:checked');
+            let purpose = '';
+            if (selectedPurpose) {
+                const val = selectedPurpose.value;
+                if (val === 'General') purpose = lang === 'hi' ? 'जहाँ ज़रूरत हो' : 'Wherever Needed';
+                else if (val === 'Education') purpose = lang === 'hi' ? 'शिक्षा' : 'Education';
+                else if (val === 'Health') purpose = lang === 'hi' ? 'स्वास्थ्य' : 'Health';
+                else if (val === 'Food') purpose = lang === 'hi' ? 'भोजन' : 'Food';
+            }
+
+            const selectedFreq = document.querySelector('.freq-option.selected input:checked');
+            let frequency = '';
+            if (selectedFreq) {
+                const val = selectedFreq.value;
+                if (val === 'One-time') frequency = lang === 'hi' ? 'एक बार' : 'One-time';
+                else if (val === 'Monthly') frequency = lang === 'hi' ? 'मासिक' : 'Monthly';
+                else if (val === 'Yearly') frequency = lang === 'hi' ? 'वार्षिक' : 'Yearly';
+            }
+
+            if (!fullName) { showMessage(lang === 'hi' ? 'कृपया पूरा नाम भरें।' : 'Please enter full name.', 'error'); return; }
+            if (!email) { showMessage(lang === 'hi' ? 'कृपया ईमेल भरें।' : 'Please enter email.', 'error'); return; }
+            if (!mobile || mobile.length !== 10) { showMessage(lang === 'hi' ? 'कृपया 10 अंकों का मोबाइल नंबर भरें।' : 'Please enter 10 digit mobile number.', 'error'); return; }
+            if (!address) { showMessage(lang === 'hi' ? 'कृपया पता भरें।' : 'Please enter address.', 'error'); return; }
+            if (!countryName) { showMessage(lang === 'hi' ? 'कृपया देश चुनें या नाम लिखें।' : 'Please select or enter country.', 'error'); return; }
+            if (!stateName) { showMessage(lang === 'hi' ? 'कृपया राज्य चुनें या नाम लिखें।' : 'Please select or enter state.', 'error'); return; }
+            if (!district) { showMessage(lang === 'hi' ? 'कृपया जिला भरें।' : 'Please enter district.', 'error'); return; }
+            if (countryVal === 'India') {
+                if (!pincode || pincode.length !== 6) {
+                    showMessage(lang === 'hi' ? 'कृपया 6 अंकों का पिन कोड भरें।' : 'Please enter 6 digit PIN code.', 'error');
+                    return;
+                }
+            }
+            if (!amount) { showMessage(lang === 'hi' ? 'कृपया दान राशि चुनें।' : 'Please select donation amount.', 'error'); return; }
+            if (!transactionId) { showMessage(lang === 'hi' ? 'कृपया Transaction ID भरें।' : 'Please enter Transaction ID.', 'error'); return; }
+            if (!paymentDate) { showMessage(lang === 'hi' ? 'कृपया भुगतान तिथि चुनें।' : 'Please select payment date.', 'error'); return; }
+            if (!paymentStatus) { showMessage(lang === 'hi' ? 'कृपया भुगतान स्थिति चुनें।' : 'Please select payment status.', 'error'); return; }
+
+            const donationID = generateDonationID();
+
+            const dateObj = new Date(paymentDate);
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = dateObj.toLocaleDateString(lang === 'hi' ? 'hi-IN' : 'en-US', options);
+
+            const data = {
+                donationID: donationID, fullName: fullName, email: email, mobile: mobile,
+                address: address, country: countryName, state: stateName, district: district, pincode: pincode,
+                donationType: donationType, amount: amount, purpose: purpose, frequency: frequency,
+                transactionId: transactionId, paymentDate: paymentDate, paymentStatus: paymentStatus,
+                screenshot: screenshot, message: message, language: lang,
+                timestamp: new Date().toLocaleString(lang === 'hi' ? 'hi-IN' : 'en-US')
+            };
+
+            btn.disabled = true;
+            btn.textContent = lang === 'hi' ? '⏳ सेव हो रहा है...' : '⏳ Saving...';
+            showMessage(lang === 'hi' ? 'सेव हो रहा है...' : 'Saving...', 'loading');
+
+            try {
+                const donations = JSON.parse(localStorage.getItem('sathChaleHumDonations')) || [];
+                donations.push(data);
+                localStorage.setItem('sathChaleHumDonations', JSON.stringify(donations));
+
+                showMessage(lang === 'hi' ? '✅ दान सफल!' : '✅ Donation Successful!', 'success');
+
+                showWelcome({
+                    fullName: fullName, email: email, mobile: mobile,
+                    donationID: donationID, amount: amount,
+                    date: formattedDate, purpose: purpose, frequency: frequency
+                });
+
+                document.getElementById('donationForm').reset();
+                document.querySelectorAll('.amount-option').forEach(o => o.classList.remove('selected'));
+                document.querySelectorAll('.amount-option')[0].classList.add('selected');
+                document.querySelectorAll('.amount-option input')[0].checked = true;
+                document.querySelectorAll('.freq-option').forEach(o => o.classList.remove('selected'));
+                document.querySelector('.freq-option').classList.add('selected');
+                document.querySelector('.freq-option input').checked = true;
+                document.querySelectorAll('.purpose-option').forEach(o => o.classList.remove('selected'));
+                document.querySelector('.purpose-option').classList.add('selected');
+                document.querySelector('.purpose-option input').checked = true;
+                document.querySelectorAll('.donation-type-option').forEach(o => o.classList.remove('selected'));
+                document.querySelector('.donation-type-option').classList.add('selected');
+                document.querySelector('.donation-type-option input').checked = true;
+                document.querySelectorAll('.donation-details').forEach(d => d.classList.remove('active'));
+                document.getElementById('bankDetails').classList.add('active');
+                fileName.style.display = 'none';
+                fileInput.value = '';
+
+                countrySelect.value = 'India';
+                stateSelect.value = 'Bihar';
+                countryText.value = '';
+                stateText.value = '';
+                updateCountryStateVisibility();
+                updateDistrictVisibility();
+                updatePincodeValidation();
+                updateTotal();
+                checkFormCompletion();
+
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage(lang === 'hi' ? '❌ कुछ गलत हो गया। कृपया पुनः प्रयास करें।' : '❌ Something went wrong. Please try again.', 'error');
+            }
+
+            btn.disabled = false;
+            btn.innerHTML = '<span class="hi-only">❤️ दान करें</span><span class="en-only">❤️ Donate Now</span>';
+            setLang(lang);
+            setTimeout(function() { checkFormCompletion(); }, 200);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('donationForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+            inputs.forEach(function(input) {
+                input.addEventListener('change', checkFormCompletion);
+                input.addEventListener('input', checkFormCompletion);
+                input.addEventListener('keyup', checkFormCompletion);
+            });
+            updateCountryStateVisibility();
+            updateDistrictVisibility();
+            updatePincodeValidation();
+            setTimeout(function() { checkFormCompletion(); updateTotal(); }, 200);
+        });
+
+        setLang('hi');
+    </script>
+</body>
+</html>
