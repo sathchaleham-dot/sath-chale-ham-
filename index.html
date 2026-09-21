@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Home | साथ चले हम फाउंडेशन | Sath Chale Hum Foundation</title>
-  <meta name="description" content="साथ चले हम फाउंडेशन — शिक्षा, स्वास्थ्य, महिला सशक्तिकरण और जरूरतमंदों की सहायता के लिए समर्पित संस्था। 12A & 80G प्रमाणित।">
+  <meta name="description" content="साथ चले हम फाउंडेशन — शिक्षा, स्वास्थ्य, महिला सशक्तिकरण के लिए समर्पित। 12A & 80G प्रमाणित।">
   <meta name="theme-color" content="#0A2540">
   <link rel="icon" type="image/png" href="sath_chale_ham_logo_HD-1.png">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
@@ -17,6 +15,13 @@
   <style>
     *{ margin:0; padding:0; box-sizing:border-box; }
     html{ scroll-behavior:smooth; overflow-x:hidden; }
+    body{ font-family:"Poppins","Tiro Devanagari Hindi",sans-serif;
+      background:#F8FAFC; color:#0F172A; overflow-x:hidden; line-height:1.6; }
+    body.splash-active{ overflow:hidden; }
+    a{ text-decoration:none; color:inherit; }
+    img{ max-width:100%; display:block; }
+    button{ font-family:inherit; cursor:pointer; border:none; }
+
     :root{
       --navy:#0A2540; --navy-2:#0F2E4F;
       --blue:#1E40AF; --blue-2:#2563EB; --blue-light:#3B82F6;
@@ -26,119 +31,397 @@
       --white:#FFFFFF; --text:#0F172A; --text-soft:#475569;
       --muted:#64748B; --border:#E2E8F0; --bg:#F8FAFC;
     }
-    body{ font-family:"Poppins","Tiro Devanagari Hindi",sans-serif;
-      background:var(--bg); color:var(--text); overflow-x:hidden; line-height:1.6; }
-    a{ text-decoration:none; color:inherit; }
-    img{ max-width:100%; display:block; }
-    button{ font-family:inherit; cursor:pointer; border:none; }
 
     .container{ width:min(1240px,92%); margin:auto; }
     .hindi{ font-family:"Tiro Devanagari Hindi",serif; }
 
-    .section{ padding:90px 0; position:relative; overflow:hidden; }
-    .section-title{ text-align:center; margin-bottom:55px; }
-    .section-title .small-title{
-      display:inline-block; color:var(--blue); font-size:.9rem; font-weight:800;
-      letter-spacing:2.5px; text-transform:uppercase; margin-bottom:12px; }
-    .section-title h2{ font-size:clamp(1.9rem,3.8vw,3rem); line-height:1.2;
-      font-weight:900; color:var(--navy); }
-    .section-title h2 span{ color:var(--blue-2); }
-    .section-title p{ max-width:800px; margin:18px auto 0;
-      color:var(--muted); line-height:1.8; font-size:1rem; }
+    /* ============ SPLASH SCREEN ============ */
+    .splash-screen{
+      position:fixed; inset:0;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(37,99,235,.35), transparent 45%),
+        radial-gradient(circle at 80% 70%, rgba(251,191,36,.2), transparent 50%),
+        linear-gradient(135deg,#0A2540 0%,#0F2E4F 50%,#0A2540 100%);
+      z-index:999999;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      transition:opacity 1s ease, visibility 1s ease, transform 1s ease;
+    }
+    .splash-screen.hide{
+      opacity:0; visibility:hidden;
+      transform:scale(1.08); pointer-events:none;
+    }
+    .splash-screen::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:28px 28px;
+      pointer-events:none;
+      animation:dotMove 20s linear infinite;
+    }
+    @keyframes dotMove{
+      from{ background-position:0 0; }
+      to{ background-position:56px 56px; }
+    }
+    .splash-glow{
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:600px; height:600px;
+      border-radius:50%;
+      background:radial-gradient(circle,
+        rgba(251,191,36,.15) 0%,
+        rgba(251,191,36,.05) 30%,
+        transparent 60%);
+      animation:glowPulse 3s ease-in-out infinite;
+      pointer-events:none;
+    }
+    .splash-glow.ring-1{
+      width:800px; height:800px;
+      border:1px solid rgba(251,191,36,.08);
+      background:transparent;
+      animation:ringExpand 4s ease-in-out infinite;
+    }
+    .splash-glow.ring-2{
+      width:1000px; height:1000px;
+      border:1px solid rgba(37,99,235,.1);
+      background:transparent;
+      animation:ringExpand 4s ease-in-out infinite .8s;
+    }
+    @keyframes glowPulse{
+      0%,100%{ transform:translate(-50%,-50%) scale(1); opacity:.8; }
+      50%{ transform:translate(-50%,-50%) scale(1.15); opacity:1; }
+    }
+    @keyframes ringExpand{
+      0%{ transform:translate(-50%,-50%) scale(.85); opacity:0; }
+      50%{ opacity:.6; }
+      100%{ transform:translate(-50%,-50%) scale(1.15); opacity:0; }
+    }
+    .splash-logo-wrap{
+      position:relative; z-index:2;
+      display:flex; flex-direction:column;
+      align-items:center; gap:32px;
+    }
+    .splash-logo{
+      width:clamp(200px, 28vw, 300px);
+      height:clamp(200px, 28vw, 300px);
+      border-radius:50%;
+      background:#fff;
+      padding:12px;
+      box-shadow:
+        0 40px 100px rgba(251,191,36,.5),
+        0 0 0 8px rgba(251,191,36,.2),
+        0 0 0 20px rgba(37,99,235,.15),
+        inset 0 0 60px rgba(37,99,235,.08);
+      animation:logoAppear 1.2s cubic-bezier(.2,.8,.3,1.4) forwards;
+      opacity:0;
+      position:relative;
+      overflow:hidden;
+    }
+    .splash-logo::before{
+      content:"";
+      position:absolute;
+      top:-50%; left:-50%;
+      width:200%; height:200%;
+      background:linear-gradient(45deg,
+        transparent 30%,
+        rgba(255,255,255,.7) 50%,
+        transparent 70%);
+      animation:shine 3s ease-in-out infinite;
+      animation-delay:1.5s;
+      pointer-events:none;
+    }
+    @keyframes shine{
+      0%{ transform:translateX(-100%) translateY(-100%) rotate(45deg); }
+      100%{ transform:translateX(100%) translateY(100%) rotate(45deg); }
+    }
+    @keyframes logoAppear{
+      0%{ transform:scale(0) rotate(-180deg); opacity:0; }
+      60%{ transform:scale(1.1) rotate(10deg); opacity:1; }
+      100%{ transform:scale(1) rotate(0); opacity:1; }
+    }
+    .splash-logo img{
+      width:100%; height:100%;
+      object-fit:contain; border-radius:50%;
+    }
+    .splash-name{
+      text-align:center;
+      animation:nameSlide 1s ease-out .9s forwards;
+      opacity:0; transform:translateY(20px);
+    }
+    @keyframes nameSlide{
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .splash-name h1{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:clamp(1.8rem, 4.5vw, 3rem);
+      font-weight:900; color:#fff;
+      line-height:1.15; letter-spacing:-.5px;
+      margin-bottom:10px;
+      text-shadow:0 4px 20px rgba(0,0,0,.3);
+    }
+    .splash-name h1 .gold{
+      background:linear-gradient(90deg,#FBBF24,#F59E0B,#FCD34D,#FBBF24);
+      background-size:300% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:goldShift 3s ease infinite;
+    }
+    @keyframes goldShift{
+      0%,100%{ background-position:0% 50%; }
+      50%{ background-position:100% 50%; }
+    }
+    .splash-name p{
+      color:#93C5FD;
+      font-size:clamp(.8rem, 1.8vw, 1rem);
+      font-weight:700;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      opacity:0;
+      animation:taglineIn .8s ease-out 1.5s forwards;
+    }
+    @keyframes taglineIn{ to{ opacity:1; } }
+    .splash-loader{
+      width:clamp(240px, 40vw, 380px);
+      height:4px;
+      background:rgba(255,255,255,.1);
+      border-radius:100px;
+      overflow:hidden;
+      margin-top:14px;
+      opacity:0;
+      animation:loaderAppear .5s ease .5s forwards;
+    }
+    @keyframes loaderAppear{ to{ opacity:1; } }
+    .splash-loader-fill{
+      height:100%; width:0%;
+      background:linear-gradient(90deg,#FBBF24,#F59E0B,#2563EB);
+      border-radius:100px;
+      box-shadow:0 0 20px rgba(251,191,36,.7);
+      animation:loadProgress 5s cubic-bezier(.4,0,.2,1) forwards;
+      animation-delay:.3s;
+    }
+    @keyframes loadProgress{
+      0%{ width:0%; }
+      100%{ width:100%; }
+    }
+    .splash-percent{
+      color:var(--gold);
+      font-family:"Poppins",sans-serif;
+      font-size:.85rem; font-weight:900;
+      letter-spacing:3px;
+      margin-top:12px;
+      opacity:0;
+      animation:loaderAppear .5s ease .5s forwards;
+    }
+    .splash-footer{
+      position:absolute; bottom:32px;
+      left:0; right:0;
+      text-align:center;
+      color:rgba(147,197,253,.5);
+      font-size:.72rem; font-weight:700;
+      letter-spacing:2px; text-transform:uppercase;
+      opacity:0;
+      animation:taglineIn 1s ease 2s forwards;
+    }
+    .splash-footer i{ color:var(--gold); margin-right:6px; }
+    .splash-dot{
+      position:absolute;
+      border-radius:50%;
+      background:var(--gold);
+      opacity:.5;
+      box-shadow:0 0 12px rgba(251,191,36,.8);
+      animation:floatDot linear infinite;
+      pointer-events:none;
+    }
+    @keyframes floatDot{
+      0%{ transform:translateY(0) translateX(0); opacity:0; }
+      10%{ opacity:.7; }
+      90%{ opacity:.7; }
+      100%{ transform:translateY(-100vh) translateX(40px); opacity:0; }
+    }
+    @media(max-width:600px){
+      .splash-logo-wrap{ gap:22px; }
+      .splash-footer{ font-size:.6rem; bottom:20px; }
+    }
 
-    /* SCROLL PROGRESS BAR */
+    /* ============ MAIN PAGE ============ */
+    .page-wrapper{
+      opacity:0;
+      transition:opacity 1s ease;
+    }
+    .page-wrapper.visible{ opacity:1; }
+
+    /* SCROLL PROGRESS */
     .scroll-progress{
-      position:fixed;
-      top:0; left:0;
-      height:3px;
-      width:0%;
+      position:fixed; top:0; left:0;
+      height:3px; width:0%;
       background:linear-gradient(90deg,#2563EB,#FBBF24,#DC2626);
       z-index:99999;
       transition:width .1s linear;
       box-shadow:0 2px 8px rgba(251,191,36,.5);
     }
 
+    /* ANNOUNCEMENT BAR */
+    .announce-bar{
+      position:fixed; top:0; left:0; right:0;
+      background:linear-gradient(90deg,#7F1D1D,#DC2626,#7F1D1D);
+      color:#fff;
+      padding:9px 0;
+      z-index:9998;
+      font-size:.78rem;
+      font-weight:700;
+      overflow:hidden;
+    }
+    .announce-inner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      text-align:center;
+      padding:0 16px;
+    }
+    .announce-inner i{ color:var(--gold); animation:sparkle 2s infinite; }
+    @keyframes sparkle{
+      0%,100%{ transform:rotate(0); }
+      50%{ transform:rotate(20deg) scale(1.2); }
+    }
+
     /* HEADER */
     .site-header{
-      position:fixed; left:0; top:0; width:100%; z-index:9999;
+      position:fixed; left:0; top:38px; width:100%; z-index:9990;
       background:linear-gradient(135deg,#0A2540 0%,#0F2E4F 50%,#0A2540 100%);
-      backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+      backdrop-filter:blur(20px);
       border-bottom:1px solid rgba(59,130,246,.15);
       box-shadow:0 8px 32px rgba(10,37,64,.18);
+      transition:top .3s ease;
     }
-    .header-inner{ min-height:92px; display:flex; align-items:center;
-      justify-content:space-between; gap:20px; }
-    .brand{ display:flex; align-items:center; gap:14px;
-      min-width:0; flex-shrink:0; }
-    .logo-box{ width:66px; height:66px; border-radius:16px;
-      background:#FFFFFF; display:block; padding:0;
+    .header-inner{
+      min-height:82px;
+      display:flex; align-items:center;
+      justify-content:space-between; gap:20px;
+    }
+    .brand{ display:flex; align-items:center; gap:14px; min-width:0; }
+    .logo-box{
+      width:60px; height:60px;
+      border-radius:15px;
+      background:#fff;
       box-shadow:0 8px 24px rgba(59,130,246,.35);
       border:2px solid rgba(251,191,36,.4);
-      transition:.35s ease; flex-shrink:0; overflow:hidden;
-      position:relative; line-height:0; }
-    .logo-box:hover{ transform:translateY(-2px) rotate(-3deg);
-      border-color:var(--gold); }
-    .logo-box img{ width:100%; height:100%;
-      object-fit:cover; object-position:center; }
-    .brand-text{ min-width:0; }
-    .brand-name{ color:#fff;
-      font-size:clamp(1.2rem,2.4vw,1.7rem); font-weight:900;
-      line-height:1.1; white-space:nowrap; letter-spacing:-.5px;
-      font-family:"Tiro Devanagari Hindi",serif; }
+      transition:.35s;
+      flex-shrink:0; overflow:hidden;
+      line-height:0;
+    }
+    .logo-box:hover{
+      transform:translateY(-2px) rotate(-3deg);
+      border-color:var(--gold);
+    }
+    .logo-box img{ width:100%; height:100%; object-fit:cover; }
+    .brand-name{
+      color:#fff;
+      font-size:clamp(1.1rem,2.2vw,1.55rem);
+      font-weight:900; line-height:1.1;
+      white-space:nowrap;
+      font-family:"Tiro Devanagari Hindi",serif;
+    }
     .brand-name .gold{ color:var(--gold); }
-    .brand-tagline{ color:#93C5FD; font-size:.7rem; font-weight:600;
-      margin-top:3px; white-space:nowrap; letter-spacing:.4px; }
-
-    .desktop-nav{ display:flex; align-items:center; gap:2px; flex-wrap:nowrap; }
-    .desktop-nav > a{ color:#E0F2FE; font-size:.78rem; font-weight:700;
-      padding:11px 10px; border-radius:10px; transition:.25s ease;
-      white-space:nowrap; position:relative; }
-    .desktop-nav > a:hover{ color:var(--gold);
-      background:rgba(59,130,246,.15); }
-    .desktop-nav > a.active{ color:var(--gold);
-      background:rgba(59,130,246,.2); }
-    .desktop-nav > a.active::after{ content:""; position:absolute;
-      bottom:4px; left:50%; transform:translateX(-50%);
-      width:20px; height:2px; border-radius:2px; background:var(--gold); }
-
-    .donate-nav{ display:inline-flex; align-items:center; gap:7px;
+    .brand-tagline{
+      color:#93C5FD;
+      font-size:.68rem; font-weight:600;
+      margin-top:3px; white-space:nowrap;
+    }
+    .desktop-nav{
+      display:flex; align-items:center;
+      gap:2px; flex-wrap:nowrap;
+    }
+    .desktop-nav > a{
+      color:#E0F2FE;
+      font-size:.76rem; font-weight:700;
+      padding:10px 9px;
+      border-radius:10px;
+      transition:.25s;
+      white-space:nowrap;
+      position:relative;
+    }
+    .desktop-nav > a:hover{
+      color:var(--gold);
+      background:rgba(59,130,246,.15);
+    }
+    .desktop-nav > a.active{
+      color:var(--gold);
+      background:rgba(59,130,246,.2);
+    }
+    .desktop-nav > a.active::after{
+      content:"";
+      position:absolute;
+      bottom:4px; left:50%;
+      transform:translateX(-50%);
+      width:20px; height:2px;
+      border-radius:2px;
+      background:var(--gold);
+    }
+    .donate-nav{
+      display:inline-flex;
+      align-items:center; gap:7px;
       background:linear-gradient(135deg,#DC2626,#991B1B)!important;
-      padding:11px 17px!important; color:#fff!important;
-      font-weight:900!important; border-radius:11px!important;
+      padding:10px 16px!important;
+      color:#fff!important;
+      font-weight:900!important;
+      border-radius:11px!important;
       box-shadow:0 6px 20px rgba(220,38,38,.45);
-      animation:pulseDonate 2s infinite; margin-left:6px; }
-    .donate-nav:hover{ color:#fff!important;
-      background:linear-gradient(135deg,#EF4444,#DC2626)!important;
-      transform:translateY(-2px)!important; }
+      animation:pulseDonate 2s infinite;
+      margin-left:6px;
+    }
+    .donate-nav:hover{ transform:translateY(-2px)!important; }
     @keyframes pulseDonate{
       0%,100%{ transform:scale(1); }
-      50%{ transform:scale(1.04); } }
-
-    .menu-toggle{ display:none; width:46px; height:46px;
-      border-radius:12px; background:rgba(59,130,246,.15);
-      border:1px solid rgba(59,130,246,.3); padding:11px; }
-    .menu-toggle span{ display:block; width:100%; height:2.5px;
-      background:#fff; margin:4.5px 0; border-radius:5px;
-      transition:.3s; }
-    .menu-toggle.active span:nth-child(1){
-      transform:rotate(45deg) translate(6px,6px); }
+      50%{ transform:scale(1.05); }
+    }
+    .menu-toggle{
+      display:none;
+      width:44px; height:44px;
+      border-radius:12px;
+      background:rgba(59,130,246,.15);
+      border:1px solid rgba(59,130,246,.3);
+      padding:11px;
+    }
+    .menu-toggle span{
+      display:block; width:100%; height:2.5px;
+      background:#fff;
+      margin:4px 0;
+      border-radius:5px;
+      transition:.3s;
+    }
+    .menu-toggle.active span:nth-child(1){ transform:rotate(45deg) translate(6px,6px); }
     .menu-toggle.active span:nth-child(2){ opacity:0; }
-    .menu-toggle.active span:nth-child(3){
-      transform:rotate(-45deg) translate(6px,-6px); }
-
-    .mobile-nav{ display:none;
+    .menu-toggle.active span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
+    .mobile-nav{
+      display:none;
       background:linear-gradient(180deg,#0A2540,#0F2E4F);
       border-top:1px solid rgba(59,130,246,.2);
-      padding:14px 4% 20px; }
-    .mobile-nav a{ display:block; color:#E0F2FE;
-      padding:14px 16px; border-radius:10px; font-weight:700;
-      font-size:.9rem; margin:4px 0; transition:.25s;
-      border:1px solid transparent; }
+      padding:14px 4% 20px;
+    }
+    .mobile-nav a{
+      display:block; color:#E0F2FE;
+      padding:14px 16px;
+      border-radius:10px;
+      font-weight:700; font-size:.9rem;
+      margin:4px 0;
+      transition:.25s;
+      border:1px solid transparent;
+    }
     .mobile-nav a:hover, .mobile-nav a.active{
-      background:rgba(59,130,246,.15); color:var(--gold);
-      border-color:rgba(59,130,246,.3); }
-    .mobile-nav .donate-nav{ text-align:center;
-      margin-top:12px; justify-content:center; }
+      background:rgba(59,130,246,.15);
+      color:var(--gold);
+      border-color:rgba(59,130,246,.3);
+    }
+    .mobile-nav .donate-nav{
+      text-align:center;
+      margin-top:12px;
+      justify-content:center;
+    }
     .mobile-nav.active{ display:block; }
 
     /* HERO */
@@ -147,105 +430,102 @@
       min-height:100vh;
       display:flex;
       align-items:center;
-      padding:150px 0 90px;
+      padding:170px 0 100px;
       overflow:hidden;
       color:#fff;
     }
     .hero-bg-slider{
-      position:absolute;
-      inset:0;
-      z-index:0;
+      position:absolute; inset:0; z-index:0;
     }
     .hero-bg-slide{
-      position:absolute;
-      inset:0;
+      position:absolute; inset:0;
       opacity:0;
-      transition:opacity 1.5s ease;
+      transition:opacity 1.5s ease, transform 8s ease;
       background-size:cover;
       background-position:center;
-      background-repeat:no-repeat;
     }
-    .hero-bg-slide.active{ opacity:1; }
+    .hero-bg-slide.active{ opacity:1; transform:scale(1.05); }
     .hero-bg-slide::after{
-      content:""; position:absolute; inset:0;
-      background:linear-gradient(135deg,rgba(10,37,64,.92),rgba(30,64,175,.82));
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(135deg,rgba(10,37,64,.93),rgba(30,64,175,.82));
     }
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
-      background-size:24px 24px;
-      opacity:.5;
-      pointer-events:none;
+    .hero-particles{
+      position:absolute; inset:0;
       z-index:1;
+      pointer-events:none;
+    }
+    .particle{
+      position:absolute;
+      width:5px; height:5px;
+      background:rgba(251,191,36,.55);
+      border-radius:50%;
+      animation:floatUp linear infinite;
+      box-shadow:0 0 12px rgba(251,191,36,.8);
+    }
+    @keyframes floatUp{
+      0%{ transform:translateY(100vh) scale(0.5); opacity:0; }
+      10%{ opacity:1; }
+      90%{ opacity:1; }
+      100%{ transform:translateY(-100px) scale(1.2); opacity:0; }
     }
     .hero .container{ position:relative; z-index:2; }
-
-    .hero-content{
-      max-width:900px;
-      margin:auto;
-      text-align:center;
-    }
+    .hero-content{ max-width:940px; margin:auto; text-align:center; }
     .hero-badge{
       display:inline-flex;
-      align-items:center;
-      gap:9px;
+      align-items:center; gap:9px;
       padding:9px 22px;
       border-radius:100px;
       background:rgba(251,191,36,.12);
       border:1px solid rgba(251,191,36,.4);
       color:var(--gold);
-      font-size:.72rem;
-      font-weight:900;
+      font-size:.72rem; font-weight:900;
       letter-spacing:2.5px;
       text-transform:uppercase;
       margin-bottom:26px;
       animation:fadeInUp .8s ease;
     }
-    .hero-badge i{
-      animation:sparkle 2s infinite;
-    }
-    @keyframes sparkle{
-      0%,100%{ transform:rotate(0) scale(1); }
-      50%{ transform:rotate(20deg) scale(1.2); }
-    }
-
+    .hero-badge i{ animation:sparkle 2s infinite; }
     .hero h1{
       font-family:"Tiro Devanagari Hindi",serif;
-      font-size:clamp(2rem,5.5vw,4rem);
+      font-size:clamp(2.2rem,6vw,4.5rem);
       font-weight:900;
-      line-height:1.15;
-      letter-spacing:-1px;
-      margin-bottom:22px;
+      line-height:1.1;
+      letter-spacing:-1.5px;
+      margin-bottom:24px;
       animation:fadeInUp .8s .15s ease backwards;
     }
-    .hero h1 span{
-      color:var(--gold);
-      position:relative;
-      display:inline-block;
+    .hero h1 .grad-text{
+      background:linear-gradient(90deg,#FBBF24,#F59E0B,#FCD34D,#FBBF24);
+      background-size:300% 100%;
+      -webkit-background-clip:text;
+      background-clip:text;
+      -webkit-text-fill-color:transparent;
+      animation:gradientShift 4s ease infinite;
     }
-    .hero h1 .typed-text{
-      color:var(--gold);
+    @keyframes gradientShift{
+      0%,100%{ background-position:0% 50%; }
+      50%{ background-position:100% 50%; }
     }
     .hero h1 .cursor{
       display:inline-block;
-      width:3px;
-      height:1em;
+      width:4px; height:1em;
       background:var(--gold);
-      margin-left:4px;
+      margin-left:6px;
       animation:blink 1s infinite;
       vertical-align:middle;
+      border-radius:2px;
     }
     @keyframes blink{
       0%,50%{ opacity:1; }
       51%,100%{ opacity:0; }
     }
-
     .hero p.lead{
       color:#BFDBFE;
       font-size:clamp(.95rem,1.5vw,1.15rem);
       line-height:1.85;
-      max-width:780px;
-      margin:0 auto 34px;
+      max-width:800px;
+      margin:0 auto 36px;
       animation:fadeInUp .8s .3s ease backwards;
     }
     .hero p.lead-en{
@@ -255,33 +535,23 @@
       margin-top:10px;
       display:block;
     }
-
     .hero-buttons{
-      display:flex;
-      gap:14px;
-      justify-content:center;
-      flex-wrap:wrap;
-      margin-bottom:50px;
+      display:flex; gap:14px;
+      justify-content:center; flex-wrap:wrap;
+      margin-bottom:52px;
       animation:fadeInUp .8s .45s ease backwards;
     }
-
-    @keyframes fadeInUp{
-      from{ opacity:0; transform:translateY(30px); }
-      to{ opacity:1; transform:translateY(0); }
-    }
-
-    /* HERO STATS */
     .hero-stats{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:16px;
-      max-width:960px;
+      max-width:980px;
       margin:auto;
       animation:fadeInUp .8s .6s ease backwards;
     }
     .hero-stat{
       padding:22px 14px;
-      border-radius:18px;
+      border-radius:20px;
       background:rgba(255,255,255,.06);
       backdrop-filter:blur(12px);
       border:1.5px solid rgba(255,255,255,.15);
@@ -295,13 +565,13 @@
       box-shadow:0 20px 45px rgba(251,191,36,.2);
     }
     .hero-stat-icon{
-      width:46px; height:46px;
-      border-radius:13px;
+      width:48px; height:48px;
+      border-radius:14px;
       margin:0 auto 12px;
       display:grid; place-items:center;
       background:linear-gradient(145deg,#FBBF24,#F59E0B);
       color:#0A2540;
-      font-size:1.1rem;
+      font-size:1.15rem;
       box-shadow:0 8px 20px rgba(251,191,36,.4);
     }
     .hero-stat-value{
@@ -311,318 +581,510 @@
       color:var(--gold);
       line-height:1;
       margin-bottom:6px;
-      letter-spacing:-.5px;
     }
     .hero-stat-label{
-      color:#BFDBFE;
-      font-size:.72rem;
-      font-weight:800;
-      letter-spacing:.3px;
-      line-height:1.35;
+      color:#fff; font-size:.76rem; font-weight:800;
       font-family:"Tiro Devanagari Hindi",serif;
     }
     .hero-stat-sub{
-      color:#93C5FD;
-      font-size:.62rem;
-      font-weight:700;
-      margin-top:3px;
-      letter-spacing:.3px;
-      text-transform:uppercase;
+      color:#93C5FD; font-size:.62rem; font-weight:700;
+      margin-top:3px; text-transform:uppercase;
     }
-
-    /* SCROLL INDICATOR */
     .scroll-indicator{
       position:absolute;
-      bottom:24px;
-      left:50%;
+      bottom:26px; left:50%;
       transform:translateX(-50%);
       z-index:2;
       color:var(--gold);
-      font-size:1.2rem;
+      font-size:1.1rem;
       animation:bounce 2s infinite;
-      opacity:.7;
-      cursor:pointer;
+      opacity:.75;
     }
     @keyframes bounce{
       0%,100%{ transform:translateX(-50%) translateY(0); }
       50%{ transform:translateX(-50%) translateY(10px); }
     }
-
-    @media(max-width:900px){
-      .hero{ padding:130px 0 70px; }
-      .hero-stats{ grid-template-columns:repeat(2,1fr); gap:12px; }
-    }
-    @media(max-width:500px){
-      .hero-stats{ grid-template-columns:1fr 1fr; }
-      .hero-stat{ padding:16px 10px; }
-      .hero-stat-icon{ width:38px; height:38px; font-size:.95rem; margin-bottom:8px; }
+    @keyframes fadeInUp{
+      from{ opacity:0; transform:translateY(30px); }
+      to{ opacity:1; transform:translateY(0); }
     }
 
     /* BUTTONS */
-    .btn{ display:inline-flex; align-items:center; justify-content:center;
-      gap:10px; min-height:54px; padding:15px 30px;
-      border-radius:13px; font-size:.9rem; font-weight:800;
-      transition:.3s ease; letter-spacing:.3px;
-      cursor:pointer; font-family:inherit; }
+    .btn{
+      display:inline-flex;
+      align-items:center; justify-content:center;
+      gap:10px;
+      min-height:54px;
+      padding:15px 30px;
+      border-radius:13px;
+      font-size:.9rem; font-weight:800;
+      transition:.3s;
+      letter-spacing:.3px;
+      cursor:pointer;
+    }
     .btn:hover{ transform:translateY(-4px); }
-    .btn-red{ color:#fff;
+    .btn-red{
+      color:#fff;
       background:linear-gradient(135deg,#DC2626,#991B1B);
-      box-shadow:0 12px 32px rgba(220,38,38,.45); }
-    .btn-gold{ color:#0A2540;
+      box-shadow:0 12px 32px rgba(220,38,38,.45);
+    }
+    .btn-gold{
+      color:#0A2540;
       background:linear-gradient(135deg,#FBBF24,#F59E0B);
-      box-shadow:0 12px 32px rgba(251,191,36,.45); }
-    .btn-blue{ color:#fff;
+      box-shadow:0 12px 32px rgba(251,191,36,.45);
+    }
+    .btn-blue{
+      color:#fff;
       background:linear-gradient(135deg,#2563EB,#1E40AF);
-      box-shadow:0 12px 32px rgba(37,99,235,.45); }
-    .btn-green{ color:#fff;
-      background:linear-gradient(135deg,#059669,#047857);
-      box-shadow:0 12px 32px rgba(5,150,105,.45); }
-    .btn-outline{ color:#fff; background:rgba(255,255,255,.06);
+      box-shadow:0 12px 32px rgba(37,99,235,.45);
+    }
+    .btn-outline{
+      color:#fff;
+      background:rgba(255,255,255,.06);
       border:1.5px solid rgba(255,255,255,.3);
-      backdrop-filter:blur(8px); }
-    .btn-outline:hover{ background:rgba(255,255,255,.14);
-      border-color:var(--gold); color:var(--gold); }
+      backdrop-filter:blur(8px);
+    }
+    .btn-outline:hover{
+      background:rgba(255,255,255,.14);
+      border-color:var(--gold);
+      color:var(--gold);
+    }
     .btn-pulse-red{ animation:pulseRed 1.8s infinite; }
     @keyframes pulseRed{
       0%,100%{ box-shadow:0 12px 32px rgba(220,38,38,.4); }
-      50%{ box-shadow:0 16px 42px rgba(220,38,38,.75); } }
+      50%{ box-shadow:0 16px 42px rgba(220,38,38,.75); }
+    }
 
-    /* ABOUT PREVIEW */
-    .about-preview{
+    /* SECTION */
+    .section{ padding:90px 0; position:relative; overflow:hidden; }
+    .section-title{ text-align:center; margin-bottom:55px; }
+    .section-title .small-title{
+      display:inline-block;
+      color:var(--blue);
+      font-size:.88rem; font-weight:800;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+    .section-title h2{
+      font-size:clamp(1.9rem,3.8vw,3rem);
+      line-height:1.2; font-weight:900;
+      color:var(--navy);
+    }
+    .section-title h2 span{ color:var(--blue-2); }
+    .section-title p{
+      max-width:800px;
+      margin:18px auto 0;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:1rem;
+    }
+
+    /* ABOUT BENTO */
+    .about-bento{
       padding:90px 0;
       background:linear-gradient(180deg,#FFFFFF,#F8FAFC);
       position:relative;
     }
-    .about-preview-grid{
+    .bento-grid{
       display:grid;
-      grid-template-columns:1fr 1.1fr;
-      gap:60px;
-      align-items:center;
+      grid-template-columns:1.3fr 1fr 1fr;
+      grid-template-rows:auto auto;
+      gap:18px;
     }
-    .about-visual{
-      position:relative;
-      padding:20px;
-    }
-    .about-visual::before{
-      content:""; position:absolute;
-      top:0; left:0;
-      width:70%; height:70%;
-      border-radius:24px;
-      background:linear-gradient(135deg,#2563EB,#1E40AF);
-      opacity:.08;
-      z-index:0;
-    }
-    .about-visual::after{
-      content:""; position:absolute;
-      bottom:0; right:0;
-      width:55%; height:55%;
-      border-radius:24px;
-      background:linear-gradient(135deg,#FBBF24,#F59E0B);
-      opacity:.14;
-      z-index:0;
-    }
-    .about-img-main{
-      position:relative; z-index:2;
+    .bento-card{
+      padding:30px 26px;
       border-radius:22px;
-      overflow:hidden;
-      box-shadow:0 25px 60px rgba(15,23,42,.2);
-      border:6px solid #fff;
-    }
-    .about-img-main img{
-      width:100%;
-      aspect-ratio:4/3;
-      object-fit:cover;
-    }
-    .about-img-sub{
-      position:absolute;
-      bottom:20px; right:0;
-      width:50%;
-      z-index:3;
-      border-radius:18px;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(15,23,42,.25);
-      border:6px solid #fff;
-    }
-    .about-img-sub img{
-      width:100%;
-      aspect-ratio:1/1;
-      object-fit:cover;
-    }
-    .about-badge{
-      position:absolute;
-      top:40px; left:0;
-      z-index:4;
-      padding:14px 20px;
-      border-radius:16px;
-      background:linear-gradient(135deg,#0A2540,#1E40AF);
-      color:#fff;
-      box-shadow:0 15px 40px rgba(10,37,64,.4);
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-    .about-badge i{
-      font-size:1.5rem;
-      color:var(--gold);
-    }
-    .about-badge strong{
-      display:block;
-      font-size:1.3rem;
-      font-weight:900;
-      line-height:1;
-      font-family:"Poppins",sans-serif;
-      margin-bottom:4px;
-    }
-    .about-badge span{
-      font-size:.7rem;
-      color:#93C5FD;
-      font-weight:700;
-      letter-spacing:.4px;
-    }
-    .about-content h2{
-      font-family:"Tiro Devanagari Hindi",serif;
-      font-size:clamp(1.6rem,3vw,2.3rem);
-      font-weight:900;
-      color:var(--navy);
-      line-height:1.3;
-      margin-bottom:18px;
-    }
-    .about-content h2 span{ color:var(--blue-2); }
-    .about-content p{
-      color:var(--text-soft);
-      font-size:.95rem;
-      line-height:1.9;
-      margin-bottom:16px;
-    }
-    .about-content .en{
-      font-style:italic;
-      color:var(--muted);
-      font-size:.82rem;
-      padding-left:16px;
-      border-left:3px solid var(--blue-soft);
-    }
-    .about-features{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin:26px 0;
-    }
-    .about-feature{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding:11px 13px;
-      border-radius:12px;
       background:#fff;
       border:1px solid var(--border);
-      font-size:.82rem;
-      font-weight:800;
-      color:var(--navy);
+      box-shadow:0 12px 34px rgba(15,23,42,.08);
+      transition:.4s cubic-bezier(.2,.8,.3,1);
+      position:relative;
+      overflow:hidden;
+    }
+    .bento-card:hover{
+      transform:translateY(-6px);
+      box-shadow:0 25px 60px rgba(37,99,235,.15);
+      border-color:var(--blue-light);
+    }
+    .bento-card::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; height:5px;
+      background:linear-gradient(90deg,#2563EB,#1E40AF);
+    }
+    .bento-card.gold::before{ background:linear-gradient(90deg,#FBBF24,#F59E0B); }
+    .bento-card.red::before{ background:linear-gradient(90deg,#DC2626,#991B1B); }
+    .bento-card.green::before{ background:linear-gradient(90deg,#059669,#047857); }
+    .bento-card.purple::before{ background:linear-gradient(90deg,#7C3AED,#5B21B6); }
+    .bento-large{
+      grid-column:1 / 2;
+      grid-row:1 / 3;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      background:linear-gradient(135deg,#0A2540,#1E40AF);
+      color:#fff;
+      border:none;
+      padding:40px 36px;
+    }
+    .bento-large::before{ display:none; }
+    .bento-large h3{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:clamp(1.5rem,2.5vw,2rem);
+      font-weight:900;
+      line-height:1.3;
+      margin-bottom:16px;
+    }
+    .bento-large h3 span{ color:var(--gold); }
+    .bento-large p{
+      color:#BFDBFE;
+      font-size:.9rem;
+      line-height:1.8;
+      margin-bottom:20px;
+    }
+    .bento-large .bento-img{
+      border-radius:16px;
+      overflow:hidden;
+      margin-top:auto;
+      border:3px solid rgba(251,191,36,.3);
+      aspect-ratio:16/9;
+    }
+    .bento-large .bento-img img{
+      width:100%; height:100%;
+      object-fit:cover;
+    }
+    .bento-large .bento-cta{
+      margin-top:20px;
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      color:var(--gold);
+      font-weight:900;
+      font-size:.85rem;
       transition:.3s;
     }
-    .about-feature:hover{
-      border-color:var(--blue-light);
-      transform:translateY(-3px);
-      box-shadow:0 10px 24px rgba(37,99,235,.1);
-    }
-    .about-feature i{
-      flex-shrink:0;
-      width:32px; height:32px;
-      border-radius:9px;
+    .bento-large .bento-cta:hover{ gap:14px; }
+    .bento-icon{
+      width:52px; height:52px;
+      border-radius:15px;
       display:grid; place-items:center;
-      background:linear-gradient(145deg,#EFF6FF,#DBEAFE);
-      color:var(--blue-2);
-      font-size:.85rem;
+      margin-bottom:16px;
+      background:linear-gradient(145deg,#2563EB,#1E40AF);
+      color:#fff;
+      font-size:1.25rem;
+      box-shadow:0 10px 24px rgba(37,99,235,.3);
+    }
+    .bento-card.gold .bento-icon{
+      background:linear-gradient(145deg,#FBBF24,#F59E0B);
+      color:#0A2540;
+    }
+    .bento-card.red .bento-icon{
+      background:linear-gradient(145deg,#DC2626,#991B1B);
+    }
+    .bento-card.green .bento-icon{
+      background:linear-gradient(145deg,#059669,#047857);
+    }
+    .bento-card.purple .bento-icon{
+      background:linear-gradient(145deg,#7C3AED,#5B21B6);
+    }
+    .bento-card h4{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:1.05rem;
+      font-weight:900;
+      color:var(--navy);
+      line-height:1.35;
+      margin-bottom:8px;
+    }
+    .bento-card p{
+      color:var(--text-soft);
+      font-size:.82rem;
+      line-height:1.7;
+      margin:0;
     }
 
-    @media(max-width:900px){
-      .about-preview{ padding:60px 0; }
-      .about-preview-grid{ grid-template-columns:1fr; gap:40px; }
-      .about-visual{ padding:12px; }
-    }
-    @media(max-width:500px){
-      .about-features{ grid-template-columns:1fr; }
-    }
-
-    /* IMPACT NUMBERS */
-    .numbers-section{
-      padding:80px 0;
-      background:linear-gradient(135deg,#7F1D1D,#DC2626 45%,#0A2540);
+    /* IMPACT RINGS */
+    .rings-section{
+      padding:90px 0;
+      background:linear-gradient(135deg,#0A2540,#1E40AF);
       color:#fff;
       position:relative;
       overflow:hidden;
     }
-    .numbers-section::before{
-      content:""; position:absolute; inset:0;
-      background-image:radial-gradient(circle,rgba(255,255,255,.06) 1px,transparent 1px);
+    .rings-section::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
       background-size:26px 26px;
-      opacity:.6;
+      opacity:.5;
       pointer-events:none;
     }
-    .numbers-section .container{ position:relative; z-index:2; }
-
-    .numbers-grid{
+    .rings-section .container{ position:relative; z-index:2; }
+    .rings-section .section-title h2{ color:#fff; }
+    .rings-section .section-title h2 span{ color:var(--gold); }
+    .rings-section .section-title .small-title{ color:var(--gold); }
+    .rings-section .section-title p{ color:#93C5FD; }
+    .rings-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
-      gap:22px;
+      gap:24px;
     }
-    .number-card{
-      padding:32px 22px;
+    .ring-card{
+      padding:28px 20px;
       border-radius:22px;
-      background:rgba(255,255,255,.08);
+      background:rgba(255,255,255,.05);
       backdrop-filter:blur(10px);
       border:1.5px solid rgba(255,255,255,.15);
       text-align:center;
       transition:.4s;
     }
-    .number-card:hover{
+    .ring-card:hover{
       transform:translateY(-8px);
-      background:rgba(255,255,255,.14);
       border-color:var(--gold);
+      background:rgba(255,255,255,.1);
       box-shadow:0 22px 50px rgba(0,0,0,.35);
     }
-    .number-icon{
-      width:60px; height:60px;
-      border-radius:18px;
-      margin:0 auto 16px;
-      display:grid; place-items:center;
-      background:linear-gradient(145deg,#FBBF24,#F59E0B);
-      color:#0A2540;
-      font-size:1.5rem;
-      box-shadow:0 10px 24px rgba(251,191,36,.4);
+    .ring-wrap{
+      position:relative;
+      width:130px; height:130px;
+      margin:0 auto 18px;
     }
-    .number-value{
-      font-family:"Poppins",sans-serif;
-      font-size:clamp(1.7rem,3vw,2.4rem);
-      font-weight:900;
+    .ring-wrap svg{
+      width:100%; height:100%;
+      transform:rotate(-90deg);
+    }
+    .ring-bg{
+      fill:none;
+      stroke:rgba(255,255,255,.1);
+      stroke-width:8;
+    }
+    .ring-fill{
+      fill:none;
+      stroke:url(#ringGradient);
+      stroke-width:8;
+      stroke-linecap:round;
+      stroke-dasharray:326.7;
+      stroke-dashoffset:326.7;
+      transition:stroke-dashoffset 2s ease;
+      filter:drop-shadow(0 0 8px rgba(251,191,36,.6));
+    }
+    .ring-center{
+      position:absolute; inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+    }
+    .ring-center i{
+      font-size:1.35rem;
       color:var(--gold);
-      line-height:1;
-      margin-bottom:8px;
-      letter-spacing:-.5px;
+      margin-bottom:6px;
     }
-    .number-label{
-      font-size:.88rem;
-      font-weight:800;
+    .ring-center strong{
+      font-family:"Poppins",sans-serif;
+      font-size:1.35rem;
+      font-weight:900;
       color:#fff;
-      line-height:1.4;
-      margin-bottom:4px;
-      font-family:"Tiro Devanagari Hindi",serif;
+      line-height:1;
     }
-    .number-sublabel{
-      font-size:.7rem;
+    .ring-card h4{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:.92rem;
+      font-weight:900;
+      color:#fff;
+      margin-bottom:4px;
+    }
+    .ring-card span{
+      font-size:.68rem;
       color:#93C5FD;
       font-weight:700;
-      letter-spacing:.3px;
       text-transform:uppercase;
     }
 
-    @media(max-width:900px){
-      .numbers-section{ padding:60px 0; }
-      .numbers-grid{ grid-template-columns:repeat(2,1fr); gap:16px; }
+    /* GOAL TRACKER */
+    .goal-section{
+      padding:70px 0;
+      background:linear-gradient(180deg,#F8FAFC,#EFF6FF);
+      position:relative;
     }
-    @media(max-width:500px){
-      .numbers-grid{ grid-template-columns:1fr; }
+    .goal-box{
+      max-width:920px;
+      margin:auto;
+      padding:44px 40px;
+      border-radius:30px;
+      background:#fff;
+      border:2px solid var(--border);
+      box-shadow:0 25px 65px rgba(220,38,38,.12);
+      position:relative;
+      overflow:hidden;
     }
+    .goal-box::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0; height:6px;
+      background:linear-gradient(90deg,#DC2626,#FBBF24,#2563EB);
+    }
+    .goal-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+      margin-bottom:20px;
+    }
+    .goal-head-left{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .goal-head-icon{
+      width:60px; height:60px;
+      border-radius:18px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg,#DC2626,#991B1B);
+      color:#fff;
+      font-size:1.5rem;
+      box-shadow:0 12px 28px rgba(220,38,38,.4);
+    }
+    .goal-head-text h3{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:clamp(1.1rem,2.5vw,1.5rem);
+      font-weight:900;
+      color:var(--navy);
+      line-height:1.3;
+      margin-bottom:4px;
+    }
+    .goal-head-text p{
+      font-size:.82rem;
+      color:var(--muted);
+      font-weight:700;
+      margin:0;
+    }
+    .goal-percent{
+      font-family:"Poppins",sans-serif;
+      font-size:clamp(1.6rem,3vw,2.2rem);
+      font-weight:900;
+      color:var(--red);
+      line-height:1;
+    }
+    .goal-progress-wrap{ margin-bottom:22px; }
+    .goal-progress{
+      height:16px;
+      background:#F1F5F9;
+      border-radius:100px;
+      overflow:hidden;
+      position:relative;
+      box-shadow:inset 0 2px 6px rgba(15,23,42,.06);
+    }
+    .goal-progress-fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,#DC2626,#FBBF24);
+      border-radius:100px;
+      transition:width 2s cubic-bezier(.2,.8,.3,1);
+      position:relative;
+    }
+    .goal-progress-fill::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+      animation:shimmer 2s infinite;
+      border-radius:100px;
+    }
+    @keyframes shimmer{
+      0%{ transform:translateX(-100%); }
+      100%{ transform:translateX(100%); }
+    }
+    .goal-stats{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+    .goal-stat{
+      padding:14px 16px;
+      border-radius:14px;
+      background:#F8FAFC;
+      border:1px solid var(--border);
+      text-align:center;
+    }
+    .goal-stat strong{
+      display:block;
+      font-family:"Poppins",sans-serif;
+      font-size:1.1rem;
+      font-weight:900;
+      color:var(--navy);
+      line-height:1;
+      margin-bottom:5px;
+    }
+    .goal-stat span{
+      font-size:.68rem;
+      color:var(--muted);
+      font-weight:800;
+      text-transform:uppercase;
+    }
+    .goal-stat.raised strong{ color:var(--green); }
+    .goal-stat.target strong{ color:var(--red); }
+
+    /* LIVE TICKER */
+    .ticker-section{
+      padding:22px 0;
+      background:linear-gradient(135deg,#059669,#047857);
+      color:#fff;
+      overflow:hidden;
+      position:relative;
+      border-top:3px solid var(--gold);
+      border-bottom:3px solid var(--gold);
+    }
+    .ticker-label{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      position:absolute;
+      left:0; top:0; bottom:0;
+      padding:0 24px;
+      background:linear-gradient(135deg,#DC2626,#991B1B);
+      font-size:.78rem;
+      font-weight:900;
+      letter-spacing:1px;
+      text-transform:uppercase;
+      z-index:3;
+      box-shadow:8px 0 24px rgba(0,0,0,.3);
+    }
+    .ticker-label i{
+      color:var(--gold);
+      animation:pulse 1s infinite;
+    }
+    @keyframes pulse{
+      0%,100%{ opacity:1; }
+      50%{ opacity:.4; }
+    }
+    .ticker-track-wrap{
+      margin-left:180px;
+      overflow:hidden;
+      mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+      -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+    }
+    .ticker-track{
+      display:flex;
+      gap:60px;
+      animation:tickerScroll 40s linear infinite;
+      width:max-content;
+    }
+    .ticker-track:hover{ animation-play-state:paused; }
+    @keyframes tickerScroll{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
+    .ticker-item{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:.85rem;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .ticker-item i{ color:var(--gold); }
+    .ticker-item strong{ color:#FEF3C7; }
 
     /* OUR WORK */
     .work-section{
@@ -635,13 +1097,13 @@
       overflow:hidden;
     }
     .work-section::before{
-      content:""; position:absolute; inset:0;
+      content:"";
+      position:absolute; inset:0;
       background-image:radial-gradient(circle,rgba(37,99,235,.05) 1px,transparent 1px);
       background-size:28px 28px;
       pointer-events:none;
     }
     .work-section .container{ position:relative; z-index:2; }
-
     .work-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -660,7 +1122,8 @@
       cursor:pointer;
     }
     .work-card::before{
-      content:""; position:absolute;
+      content:"";
+      position:absolute;
       top:0; left:0; right:0; height:4px;
       background:linear-gradient(90deg,#2563EB,#1E40AF);
     }
@@ -692,17 +1155,16 @@
     .work-card:nth-child(4n+2) .work-icon{
       background:linear-gradient(145deg,#FBBF24,#F59E0B);
       color:#0A2540;
-      box-shadow:0 10px 22px rgba(251,191,36,.35);
     }
     .work-card:nth-child(4n+3) .work-icon{
       background:linear-gradient(145deg,#DC2626,#991B1B);
-      box-shadow:0 10px 22px rgba(220,38,38,.3);
     }
     .work-card:nth-child(4n+4) .work-icon{
       background:linear-gradient(145deg,#059669,#047857);
-      box-shadow:0 10px 22px rgba(5,150,105,.3);
     }
-    .work-card:hover .work-icon{ transform:scale(1.1) rotate(-6deg); }
+    .work-card:hover .work-icon{
+      transform:scale(1.1) rotate(-6deg);
+    }
     .work-card h4{
       font-family:"Tiro Devanagari Hindi",serif;
       font-size:.9rem;
@@ -718,21 +1180,171 @@
       font-family:"Poppins",sans-serif;
       font-weight:700;
       margin-top:4px;
-      letter-spacing:.2px;
     }
 
-    @media(max-width:1000px){
-      .work-grid{ grid-template-columns:repeat(3,1fr); gap:16px; }
+    /* AWARDS STRIP */
+    .awards-section{
+      padding:50px 0;
+      background:linear-gradient(135deg,#FEF3C7,#FDE68A);
+      border-top:1px solid var(--gold);
+      border-bottom:1px solid var(--gold);
+      position:relative;
+      overflow:hidden;
     }
-    @media(max-width:700px){
-      .work-section{ padding:60px 0; }
-      .work-grid{ grid-template-columns:repeat(2,1fr); }
+    .awards-section::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:radial-gradient(circle,rgba(217,119,6,.08) 1px,transparent 1px);
+      background-size:20px 20px;
+      pointer-events:none;
     }
-    @media(max-width:400px){
-      .work-grid{ grid-template-columns:1fr; }
+    .awards-inner{
+      position:relative;
+      z-index:2;
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+    .award-item{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      padding:18px 22px;
+      border-radius:16px;
+      background:rgba(255,255,255,.75);
+      border:1.5px solid rgba(217,119,6,.3);
+      box-shadow:0 10px 24px rgba(217,119,6,.1);
+      transition:.3s;
+    }
+    .award-item:hover{
+      transform:translateY(-4px);
+      box-shadow:0 16px 36px rgba(217,119,6,.2);
+      border-color:var(--gold-dark);
+    }
+    .award-icon{
+      flex-shrink:0;
+      width:50px; height:50px;
+      border-radius:14px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg,#FBBF24,#F59E0B);
+      color:#0A2540;
+      font-size:1.25rem;
+      box-shadow:0 8px 20px rgba(217,119,6,.3);
+    }
+    .award-text strong{
+      display:block;
+      font-family:"Poppins",sans-serif;
+      font-size:.95rem;
+      font-weight:900;
+      color:var(--navy);
+      line-height:1.2;
+      margin-bottom:2px;
+    }
+    .award-text span{
+      font-size:.68rem;
+      color:var(--gold-dark);
+      font-weight:800;
+      text-transform:uppercase;
     }
 
-    /* SUCCESS STORIES SLIDESHOW */
+    /* HOW WE WORK */
+    .how-section{
+      padding:90px 0;
+      background:linear-gradient(180deg,#FFFFFF,#F8FAFC);
+      position:relative;
+    }
+    .how-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:22px;
+      position:relative;
+    }
+    .how-grid::before{
+      content:"";
+      position:absolute;
+      top:60px; left:12%; right:12%;
+      height:3px;
+      background:linear-gradient(90deg,#2563EB,#FBBF24,#059669,#DC2626);
+      border-radius:3px;
+      z-index:0;
+      opacity:.35;
+    }
+    .how-card{
+      position:relative;
+      z-index:1;
+      padding:30px 22px;
+      border-radius:22px;
+      background:#fff;
+      border:1px solid var(--border);
+      box-shadow:0 12px 34px rgba(15,23,42,.08);
+      text-align:center;
+      transition:.35s;
+    }
+    .how-card:hover{
+      transform:translateY(-8px);
+      box-shadow:0 22px 55px rgba(37,99,235,.15);
+      border-color:var(--blue-light);
+    }
+    .how-step{
+      position:absolute;
+      top:-16px; left:50%;
+      transform:translateX(-50%);
+      width:38px; height:38px;
+      border-radius:50%;
+      background:linear-gradient(145deg,#0A2540,#1E40AF);
+      color:#fff;
+      display:grid; place-items:center;
+      font-family:"Poppins",sans-serif;
+      font-size:.9rem;
+      font-weight:900;
+      box-shadow:0 8px 20px rgba(10,37,64,.4);
+      border:4px solid #fff;
+    }
+    .how-card:nth-child(2) .how-step{
+      background:linear-gradient(145deg,#FBBF24,#F59E0B);
+      color:#0A2540;
+    }
+    .how-card:nth-child(3) .how-step{
+      background:linear-gradient(145deg,#059669,#047857);
+    }
+    .how-card:nth-child(4) .how-step{
+      background:linear-gradient(145deg,#DC2626,#991B1B);
+    }
+    .how-icon{
+      width:70px; height:70px;
+      border-radius:20px;
+      margin:16px auto 18px;
+      display:grid; place-items:center;
+      background:linear-gradient(145deg,#2563EB,#1E40AF);
+      color:#fff;
+      font-size:1.6rem;
+      box-shadow:0 12px 28px rgba(37,99,235,.3);
+    }
+    .how-card:nth-child(2) .how-icon{
+      background:linear-gradient(145deg,#FBBF24,#F59E0B);
+      color:#0A2540;
+    }
+    .how-card:nth-child(3) .how-icon{
+      background:linear-gradient(145deg,#059669,#047857);
+    }
+    .how-card:nth-child(4) .how-icon{
+      background:linear-gradient(145deg,#DC2626,#991B1B);
+    }
+    .how-card h4{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:1.05rem;
+      font-weight:900;
+      color:var(--navy);
+      margin-bottom:10px;
+    }
+    .how-card p{
+      color:var(--text-soft);
+      font-size:.83rem;
+      line-height:1.7;
+      margin:0;
+    }
+
+    /* STORIES */
     .stories-section{
       padding:90px 0;
       background:
@@ -744,7 +1356,8 @@
       overflow:hidden;
     }
     .stories-section::before{
-      content:""; position:absolute; inset:0;
+      content:"";
+      position:absolute; inset:0;
       background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
       background-size:28px 28px;
       opacity:.5;
@@ -755,7 +1368,6 @@
     .stories-section .section-title h2 span{ color:var(--gold); }
     .stories-section .section-title .small-title{ color:var(--gold); }
     .stories-section .section-title p{ color:#93C5FD; }
-
     .story-slider{
       position:relative;
       overflow:hidden;
@@ -823,9 +1435,7 @@
       color:#93C5FD;
       font-weight:700;
       margin-top:4px;
-      letter-spacing:.3px;
     }
-
     .story-controls{
       display:flex;
       align-items:center;
@@ -842,14 +1452,12 @@
       display:grid; place-items:center;
       font-size:1rem;
       transition:.3s;
-      backdrop-filter:blur(8px);
     }
     .story-btn:hover{
       background:linear-gradient(135deg,#FBBF24,#F59E0B);
       color:#0A2540;
       border-color:var(--gold);
       transform:translateY(-3px);
-      box-shadow:0 12px 28px rgba(251,191,36,.4);
     }
     .story-dots{
       display:flex;
@@ -872,132 +1480,92 @@
       box-shadow:0 4px 12px rgba(251,191,36,.5);
     }
 
-    @media(max-width:800px){
-      .story-card{ padding:40px 26px; flex-direction:column; text-align:center; gap:22px; }
-      .story-photo{ width:150px; height:150px; border-radius:20px; }
-      .story-btn{ width:44px; height:44px; }
-    }
-    @media(max-width:500px){
-      .stories-section{ padding:60px 0; }
-      .story-card{ padding:32px 20px; }
-      .story-photo{ width:120px; height:120px; border-radius:16px; }
-    }
-
-    /* HOW WE WORK */
-    .how-section{
+    /* TEAM */
+    .team-section{
       padding:90px 0;
       background:linear-gradient(180deg,#FFFFFF,#F8FAFC);
       position:relative;
     }
-    .how-grid{
+    .team-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:22px;
-      position:relative;
     }
-    .how-grid::before{
-      content:"";
-      position:absolute;
-      top:60px; left:12%; right:12%;
-      height:3px;
-      background:linear-gradient(90deg,#2563EB,#FBBF24,#059669,#DC2626);
-      border-radius:3px;
-      z-index:0;
-      opacity:.35;
-    }
-    .how-card{
-      position:relative;
-      z-index:1;
-      padding:30px 22px;
+    .team-card{
       border-radius:22px;
+      overflow:hidden;
       background:#fff;
       border:1px solid var(--border);
       box-shadow:0 12px 34px rgba(15,23,42,.08);
+      transition:.4s;
       text-align:center;
-      transition:.35s;
+      padding-bottom:24px;
     }
-    .how-card:hover{
+    .team-card:hover{
       transform:translateY(-8px);
-      box-shadow:0 22px 55px rgba(37,99,235,.15);
+      box-shadow:0 22px 55px rgba(37,99,235,.18);
       border-color:var(--blue-light);
     }
-    .how-step{
+    .team-img{
+      aspect-ratio:1/1;
+      overflow:hidden;
+      position:relative;
+    }
+    .team-img::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg,transparent 60%,rgba(10,37,64,.6));
+    }
+    .team-img img{
+      width:100%; height:100%;
+      object-fit:cover;
+      transition:.6s;
+    }
+    .team-card:hover .team-img img{ transform:scale(1.1); }
+    .team-social-overlay{
       position:absolute;
-      top:-16px; left:50%;
-      transform:translateX(-50%);
-      width:38px; height:38px;
-      border-radius:50%;
-      background:linear-gradient(145deg,#0A2540,#1E40AF);
-      color:#fff;
-      display:grid; place-items:center;
-      font-family:"Poppins",sans-serif;
-      font-size:.9rem;
-      font-weight:900;
-      box-shadow:0 8px 20px rgba(10,37,64,.4);
-      border:4px solid #fff;
+      bottom:14px; left:50%;
+      transform:translateX(-50%) translateY(20px);
+      display:flex;
+      gap:8px;
+      opacity:0;
+      transition:.4s;
       z-index:2;
     }
-    .how-card:nth-child(2) .how-step{
-      background:linear-gradient(145deg,#FBBF24,#F59E0B);
-      color:#0A2540;
-      box-shadow:0 8px 20px rgba(251,191,36,.5);
+    .team-card:hover .team-social-overlay{
+      opacity:1;
+      transform:translateX(-50%) translateY(0);
     }
-    .how-card:nth-child(3) .how-step{
-      background:linear-gradient(145deg,#059669,#047857);
-      box-shadow:0 8px 20px rgba(5,150,105,.4);
-    }
-    .how-card:nth-child(4) .how-step{
-      background:linear-gradient(145deg,#DC2626,#991B1B);
-      box-shadow:0 8px 20px rgba(220,38,38,.4);
-    }
-    .how-icon{
-      width:70px; height:70px;
-      border-radius:20px;
-      margin:16px auto 18px;
+    .team-social-overlay a{
+      width:34px; height:34px;
+      border-radius:10px;
+      background:rgba(255,255,255,.9);
+      color:var(--navy);
       display:grid; place-items:center;
-      background:linear-gradient(145deg,#2563EB,#1E40AF);
-      color:#fff;
-      font-size:1.6rem;
-      box-shadow:0 12px 28px rgba(37,99,235,.3);
+      font-size:.8rem;
+      transition:.25s;
     }
-    .how-card:nth-child(2) .how-icon{
-      background:linear-gradient(145deg,#FBBF24,#F59E0B);
-      color:#0A2540;
-      box-shadow:0 12px 28px rgba(251,191,36,.4);
+    .team-social-overlay a:hover{
+      background:linear-gradient(135deg,#FBBF24,#F59E0B);
+      transform:scale(1.1);
     }
-    .how-card:nth-child(3) .how-icon{
-      background:linear-gradient(145deg,#059669,#047857);
-      box-shadow:0 12px 28px rgba(5,150,105,.35);
-    }
-    .how-card:nth-child(4) .how-icon{
-      background:linear-gradient(145deg,#DC2626,#991B1B);
-      box-shadow:0 12px 28px rgba(220,38,38,.35);
-    }
-    .how-card h4{
+    .team-info{ padding:18px 16px 0; }
+    .team-info h4{
       font-family:"Tiro Devanagari Hindi",serif;
-      font-size:1.05rem;
+      font-size:1.02rem;
       font-weight:900;
       color:var(--navy);
-      margin-bottom:10px;
-      line-height:1.35;
+      margin-bottom:4px;
     }
-    .how-card p{
-      color:var(--text-soft);
-      font-size:.83rem;
-      line-height:1.7;
-      margin:0;
-    }
-
-    @media(max-width:900px){
-      .how-section{ padding:60px 0; }
-      .how-grid{ grid-template-columns:repeat(2,1fr); gap:20px; }
-      .how-grid::before{ display:none; }
-    }
-    @media(max-width:500px){
-      .how-grid{ grid-template-columns:1fr; }
+    .team-info span{
+      display:block;
+      font-size:.75rem;
+      color:var(--red);
+      font-weight:800;
+      text-transform:uppercase;
     }
 
-    /* HOW YOU CAN HELP */
+    /* HELP */
     .help-section{
       padding:90px 0;
       background:
@@ -1008,13 +1576,13 @@
       overflow:hidden;
     }
     .help-section::before{
-      content:""; position:absolute; inset:0;
+      content:"";
+      position:absolute; inset:0;
       background-image:radial-gradient(circle,rgba(220,38,38,.04) 1px,transparent 1px);
       background-size:28px 28px;
       pointer-events:none;
     }
     .help-section .container{ position:relative; z-index:2; }
-
     .help-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
@@ -1030,21 +1598,18 @@
       transition:.35s;
       position:relative;
       overflow:hidden;
+      display:flex;
+      flex-direction:column;
     }
     .help-card::before{
-      content:""; position:absolute;
+      content:"";
+      position:absolute;
       top:0; left:0; right:0; height:5px;
       background:linear-gradient(90deg,#DC2626,#991B1B);
     }
-    .help-card:nth-child(2)::before{
-      background:linear-gradient(90deg,#2563EB,#1E40AF);
-    }
-    .help-card:nth-child(3)::before{
-      background:linear-gradient(90deg,#FBBF24,#F59E0B);
-    }
-    .help-card:nth-child(4)::before{
-      background:linear-gradient(90deg,#059669,#047857);
-    }
+    .help-card:nth-child(2)::before{ background:linear-gradient(90deg,#2563EB,#1E40AF); }
+    .help-card:nth-child(3)::before{ background:linear-gradient(90deg,#FBBF24,#F59E0B); }
+    .help-card:nth-child(4)::before{ background:linear-gradient(90deg,#059669,#047857); }
     .help-card:hover{
       transform:translateY(-10px);
       box-shadow:0 25px 60px rgba(37,99,235,.18);
@@ -1063,31 +1628,30 @@
     }
     .help-card:nth-child(2) .help-icon{
       background:linear-gradient(145deg,#2563EB,#1E40AF);
-      box-shadow:0 14px 32px rgba(37,99,235,.4);
     }
     .help-card:nth-child(3) .help-icon{
       background:linear-gradient(145deg,#FBBF24,#F59E0B);
       color:#0A2540;
-      box-shadow:0 14px 32px rgba(251,191,36,.4);
     }
     .help-card:nth-child(4) .help-icon{
       background:linear-gradient(145deg,#059669,#047857);
-      box-shadow:0 14px 32px rgba(5,150,105,.4);
     }
-    .help-card:hover .help-icon{ transform:scale(1.1) rotate(-6deg); }
+    .help-card:hover .help-icon{
+      transform:scale(1.1) rotate(-6deg);
+    }
     .help-card h4{
       font-family:"Tiro Devanagari Hindi",serif;
       font-size:1.1rem;
       font-weight:900;
       color:var(--navy);
       margin-bottom:10px;
-      line-height:1.35;
     }
     .help-card p{
       color:var(--text-soft);
       font-size:.83rem;
       line-height:1.7;
       margin:0 0 16px;
+      flex:1;
     }
     .help-link{
       display:inline-flex;
@@ -1097,22 +1661,13 @@
       font-weight:900;
       color:var(--blue-2);
       transition:.3s;
-      letter-spacing:.3px;
     }
-    .help-link:hover{ gap:11px; color:var(--blue); }
+    .help-link:hover{ gap:11px; }
     .help-card:nth-child(1) .help-link{ color:var(--red); }
     .help-card:nth-child(3) .help-link{ color:var(--gold-dark); }
     .help-card:nth-child(4) .help-link{ color:var(--green); }
 
-    @media(max-width:1000px){
-      .help-grid{ grid-template-columns:repeat(2,1fr); }
-    }
-    @media(max-width:600px){
-      .help-section{ padding:60px 0; }
-      .help-grid{ grid-template-columns:1fr; gap:16px; }
-    }
-
-    /* EVENTS PREVIEW */
+    /* EVENTS */
     .events-preview{
       padding:90px 0;
       background:linear-gradient(180deg,#FFFFFF,#F8FAFC);
@@ -1171,9 +1726,7 @@
       letter-spacing:1.5px;
       text-transform:uppercase;
     }
-    .event-body{
-      padding:22px 22px 24px;
-    }
+    .event-body{ padding:22px 22px 24px; }
     .event-meta{
       display:flex;
       gap:16px;
@@ -1216,7 +1769,6 @@
       color:#fff;
       font-size:.78rem;
       font-weight:900;
-      letter-spacing:.3px;
       transition:.3s;
     }
     .event-btn:hover{
@@ -1224,12 +1776,7 @@
       box-shadow:0 10px 24px rgba(37,99,235,.4);
     }
 
-    @media(max-width:900px){
-      .events-preview{ padding:60px 0; }
-      .events-grid{ grid-template-columns:1fr; gap:18px; }
-    }
-
-    /* GALLERY PREVIEW */
+    /* GALLERY */
     .gallery-preview{
       padding:90px 0;
       background:
@@ -1239,22 +1786,15 @@
       position:relative;
       overflow:hidden;
     }
-    .gallery-preview::before{
-      content:""; position:absolute; inset:0;
-      background-image:radial-gradient(circle,rgba(37,99,235,.04) 1px,transparent 1px);
-      background-size:28px 28px;
-      pointer-events:none;
-    }
     .gallery-preview .container{ position:relative; z-index:2; }
-
     .gallery-grid{
       display:grid;
       grid-template-columns:repeat(4,1fr);
       gap:14px;
+      grid-auto-rows:180px;
     }
     .gallery-item{
       position:relative;
-      aspect-ratio:1/1;
       border-radius:18px;
       overflow:hidden;
       cursor:pointer;
@@ -1265,7 +1805,6 @@
     .gallery-item:nth-child(6){
       grid-column:span 2;
       grid-row:span 2;
-      aspect-ratio:1/1;
     }
     .gallery-item img{
       width:100%; height:100%;
@@ -1274,15 +1813,14 @@
     }
     .gallery-item::after{
       content:"";
-      position:absolute;
-      inset:0;
+      position:absolute; inset:0;
       background:linear-gradient(135deg,rgba(10,37,64,.7),rgba(37,99,235,.5));
       opacity:0;
       transition:.4s;
     }
     .gallery-item:hover::after{ opacity:1; }
     .gallery-item:hover img{ transform:scale(1.15); }
-    .gallery-item .gallery-icon{
+    .gallery-icon{
       position:absolute;
       top:50%; left:50%;
       transform:translate(-50%,-50%) scale(0);
@@ -1294,20 +1832,9 @@
       font-size:1.4rem;
       transition:.4s;
       z-index:2;
-      box-shadow:0 10px 24px rgba(251,191,36,.5);
     }
     .gallery-item:hover .gallery-icon{
       transform:translate(-50%,-50%) scale(1);
-    }
-
-    @media(max-width:800px){
-      .gallery-preview{ padding:60px 0; }
-      .gallery-grid{ grid-template-columns:repeat(2,1fr); gap:10px; }
-      .gallery-item:nth-child(1),
-      .gallery-item:nth-child(6){
-        grid-column:span 1;
-        grid-row:span 1;
-      }
     }
 
     /* PARTNERS */
@@ -1317,7 +1844,6 @@
       border-top:1px solid var(--border);
       border-bottom:1px solid var(--border);
       overflow:hidden;
-      position:relative;
     }
     .partners-label{
       text-align:center;
@@ -1335,8 +1861,7 @@
     .partners-label::before,
     .partners-label::after{
       content:"";
-      width:40px;
-      height:1.5px;
+      width:40px; height:1.5px;
       background:var(--border);
     }
     .partners-marquee{
@@ -1352,10 +1877,13 @@
       width:max-content;
     }
     .partners-track:hover{ animation-play-state:paused; }
+    @keyframes marquee{
+      from{ transform:translateX(0); }
+      to{ transform:translateX(-50%); }
+    }
     .partner-logo{
       flex-shrink:0;
-      width:130px;
-      height:60px;
+      width:130px; height:60px;
       display:flex;
       align-items:center;
       justify-content:center;
@@ -1374,42 +1902,70 @@
       opacity:1;
       transform:scale(1.08);
     }
-    @keyframes marquee{
-      from{ transform:translateX(0); }
-      to{ transform:translateX(-50%); }
-    }
 
-    /* CTA STRIP */
-    .cta-strip{ position:relative; padding:85px 0;
-      background:radial-gradient(circle at 15% 20%,rgba(251,191,36,.15),transparent 35%),
+    /* CTA */
+    .cta-strip{
+      position:relative;
+      padding:85px 0;
+      background:
+        radial-gradient(circle at 15% 20%,rgba(251,191,36,.15),transparent 35%),
         radial-gradient(circle at 85% 80%,rgba(59,130,246,.2),transparent 40%),
         linear-gradient(135deg,#0A2540 0%,#1E40AF 50%,#0A2540 100%);
-      color:#fff; overflow:hidden; text-align:center; }
-    .cta-strip::before{ content:""; position:absolute; inset:0;
+      color:#fff;
+      overflow:hidden;
+      text-align:center;
+    }
+    .cta-strip::before{
+      content:"";
+      position:absolute; inset:0;
       background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);
-      background-size:24px 24px; opacity:.7; pointer-events:none; }
+      background-size:24px 24px;
+      opacity:.7;
+    }
     .cta-strip .container{ position:relative; z-index:2; }
-    .cta-badge{ display:inline-flex; align-items:center; gap:8px;
-      padding:8px 20px; border-radius:100px;
+    .cta-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 20px;
+      border-radius:100px;
       background:rgba(251,191,36,.15);
-      border:1px solid rgba(251,191,36,.4); color:var(--gold);
-      font-size:.72rem; font-weight:900; letter-spacing:2.5px;
-      text-transform:uppercase; margin-bottom:22px; }
-    .cta-strip h2{ font-family:"Tiro Devanagari Hindi",serif;
-      font-size:clamp(2rem,4.5vw,3.2rem); font-weight:900;
-      line-height:1.25; margin-bottom:16px; letter-spacing:-.5px; }
+      border:1px solid rgba(251,191,36,.4);
+      color:var(--gold);
+      font-size:.72rem;
+      font-weight:900;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      margin-bottom:22px;
+    }
+    .cta-strip h2{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:clamp(2rem,4.5vw,3.2rem);
+      font-weight:900;
+      line-height:1.25;
+      margin-bottom:16px;
+      letter-spacing:-.5px;
+    }
     .cta-strip h2 span{ color:var(--gold); }
-    .cta-strip p{ color:#93C5FD; font-size:1.05rem;
-      max-width:660px; margin:0 auto 34px; line-height:1.8; }
-    .cta-buttons{ display:flex; justify-content:center;
-      flex-wrap:wrap; gap:14px; }
+    .cta-strip p{
+      color:#93C5FD;
+      font-size:1.05rem;
+      max-width:660px;
+      margin:0 auto 34px;
+      line-height:1.8;
+    }
+    .cta-buttons{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:14px;
+    }
 
     /* NEWSLETTER */
     .newsletter-section{
       padding:80px 0;
       background:linear-gradient(180deg,#FFFFFF,#F8FAFC);
       text-align:center;
-      position:relative;
     }
     .newsletter-box{
       max-width:860px;
@@ -1423,7 +1979,8 @@
       overflow:hidden;
     }
     .newsletter-box::before{
-      content:""; position:absolute;
+      content:"";
+      position:absolute;
       top:0; left:0; right:0; height:6px;
       background:linear-gradient(90deg,#DC2626,#FBBF24,#2563EB);
     }
@@ -1490,162 +2047,294 @@
       align-items:center;
       gap:9px;
       box-shadow:0 12px 28px rgba(37,99,235,.35);
-      letter-spacing:.3px;
     }
     .newsletter-form-big button:hover{
       transform:translateY(-3px);
       box-shadow:0 18px 42px rgba(37,99,235,.5);
     }
-    @media(max-width:600px){
-      .newsletter-section{ padding:60px 0; }
-      .newsletter-box{ padding:32px 22px; border-radius:22px; }
-      .newsletter-form-big{ flex-direction:column; }
-      .newsletter-form-big input,
-      .newsletter-form-big button{ width:100%; justify-content:center; }
-    }
 
     /* FOOTER */
-    footer{ background:radial-gradient(circle at 10% 20%,rgba(59,130,246,.1),transparent 40%),
+    footer{
+      background:
+        radial-gradient(circle at 10% 20%,rgba(59,130,246,.1),transparent 40%),
         radial-gradient(circle at 90% 80%,rgba(251,191,36,.06),transparent 40%),
         linear-gradient(160deg,#0A2540 0%,#0F2E4F 60%,#0A2540 100%);
-      color:#fff; padding-top:80px; position:relative; overflow:hidden; }
-    footer::before{ content:""; position:absolute;
+      color:#fff;
+      padding-top:80px;
+      position:relative;
+      overflow:hidden;
+    }
+    footer::before{
+      content:"";
+      position:absolute;
       top:0; left:0; right:0; height:1px;
-      background:linear-gradient(90deg,transparent,rgba(251,191,36,.6),transparent); }
-    .footer-grid{ display:grid;
+      background:linear-gradient(90deg,transparent,rgba(251,191,36,.6),transparent);
+    }
+    .footer-grid{
+      display:grid;
       grid-template-columns:repeat(5,1fr);
-      gap:32px; padding-bottom:60px; position:relative; z-index:2; }
-    .footer-brand-head{ display:flex; align-items:center;
-      gap:10px; margin-bottom:20px; }
-    .footer-logo-box{ width:60px; height:60px; border-radius:15px;
-      background:#FFFFFF; display:block; padding:0;
+      gap:32px;
+      padding-bottom:60px;
+      position:relative;
+      z-index:2;
+    }
+    .footer-brand-head{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin-bottom:20px;
+    }
+    .footer-logo-box{
+      width:60px; height:60px;
+      border-radius:15px;
+      background:#fff;
       border:2px solid rgba(251,191,36,.4);
       box-shadow:0 8px 22px rgba(59,130,246,.3);
-      flex-shrink:0; overflow:hidden;
-      position:relative; line-height:0; }
-    .footer-logo-box img{ width:100%; height:100%;
-      object-fit:cover; object-position:center; }
-    .footer-brand-text{ min-width:0; }
-    .footer-brand-text h3{ font-family:"Tiro Devanagari Hindi",serif;
-      font-size:1.05rem; font-weight:900; color:#fff;
-      line-height:1.15; margin-bottom:4px; }
-    .footer-tagline-text{ color:#93C5FD; font-size:.66rem;
-      font-weight:600; letter-spacing:.4px;
-      font-family:"Tiro Devanagari Hindi",serif; }
-    .footer-desc{ color:#93C5FD; font-size:.8rem; line-height:1.7;
-      margin-bottom:20px; max-width:100%; }
-    .footer-badge{ display:inline-flex; align-items:center; gap:7px;
-      padding:6px 12px; background:rgba(251,191,36,.1);
-      border:1px solid rgba(251,191,36,.3); border-radius:100px;
-      color:var(--gold); font-size:.68rem; font-weight:900;
-      letter-spacing:.4px; margin-bottom:20px; }
-
+      flex-shrink:0;
+      overflow:hidden;
+    }
+    .footer-logo-box img{ width:100%; height:100%; object-fit:cover; }
+    .footer-brand-text h3{
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:1.05rem;
+      font-weight:900;
+      color:#fff;
+      line-height:1.15;
+      margin-bottom:4px;
+    }
+    .footer-tagline-text{
+      color:#93C5FD;
+      font-size:.66rem;
+      font-weight:600;
+      letter-spacing:.4px;
+      font-family:"Tiro Devanagari Hindi",serif;
+    }
+    .footer-desc{
+      color:#93C5FD;
+      font-size:.8rem;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+    .footer-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      padding:6px 12px;
+      background:rgba(251,191,36,.1);
+      border:1px solid rgba(251,191,36,.3);
+      border-radius:100px;
+      color:var(--gold);
+      font-size:.68rem;
+      font-weight:900;
+      margin-bottom:20px;
+    }
     .footer-heading, .footer-social-heading{
-      font-family:"Tiro Devanagari Hindi",serif; font-size:.92rem;
-      font-weight:900; color:#fff; margin-bottom:22px;
-      padding-bottom:12px; position:relative; }
+      font-family:"Tiro Devanagari Hindi",serif;
+      font-size:.92rem;
+      font-weight:900;
+      color:#fff;
+      margin-bottom:22px;
+      padding-bottom:12px;
+      position:relative;
+    }
     .footer-heading::after, .footer-social-heading::after{
-      content:""; position:absolute; bottom:0; left:0;
+      content:"";
+      position:absolute;
+      bottom:0; left:0;
       width:32px; height:2px;
       background:linear-gradient(90deg,#FBBF24,#F59E0B);
-      border-radius:2px; }
-
-    .social-icons{ display:flex; gap:8px; flex-wrap:wrap; }
-    .social-icon{ width:38px; height:38px; display:grid;
-      place-items:center; border-radius:10px;
-      background:rgba(59,130,246,.12); color:#93C5FD;
-      font-size:.9rem; transition:.3s;
-      border:1px solid rgba(59,130,246,.25); }
-    .social-icon:hover{ transform:translateY(-4px);
+      border-radius:2px;
+    }
+    .social-icons{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .social-icon{
+      width:38px; height:38px;
+      display:grid; place-items:center;
+      border-radius:10px;
+      background:rgba(59,130,246,.12);
+      color:#93C5FD;
+      font-size:.9rem;
+      transition:.3s;
+      border:1px solid rgba(59,130,246,.25);
+    }
+    .social-icon:hover{
+      transform:translateY(-4px);
       background:linear-gradient(135deg,#FBBF24,#F59E0B);
-      color:#0A2540; border-color:var(--gold);
-      box-shadow:0 8px 22px rgba(251,191,36,.4); }
-
+      color:#0A2540;
+      border-color:var(--gold);
+      box-shadow:0 8px 22px rgba(251,191,36,.4);
+    }
     .footer-links{ list-style:none; }
     .footer-links li{ margin-bottom:10px; }
-    .footer-links a{ color:#93C5FD; font-size:.78rem;
-      font-weight:600; display:inline-flex; align-items:center;
-      gap:7px; transition:.25s; line-height:1.5; }
-    .footer-links a i{ font-size:.56rem; color:#FBBF24; }
-    .footer-links a:hover{ color:var(--gold); transform:translateX(4px); }
-
+    .footer-links a{
+      color:#93C5FD;
+      font-size:.78rem;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:7px;
+      transition:.25s;
+    }
+    .footer-links a i{
+      font-size:.56rem;
+      color:#FBBF24;
+    }
+    .footer-links a:hover{
+      color:var(--gold);
+      transform:translateX(4px);
+    }
     .contact-info{ list-style:none; }
-    .contact-info li{ display:flex; gap:10px;
-      align-items:flex-start; margin-bottom:14px;
-      color:#93C5FD; font-size:.78rem; line-height:1.65; }
-    .contact-info li i{ flex-shrink:0; width:28px; height:28px;
-      display:grid; place-items:center; border-radius:8px;
+    .contact-info li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-bottom:14px;
+      color:#93C5FD;
+      font-size:.78rem;
+      line-height:1.65;
+    }
+    .contact-info li i{
+      flex-shrink:0;
+      width:28px; height:28px;
+      display:grid; place-items:center;
+      border-radius:8px;
       background:rgba(59,130,246,.15);
-      border:1px solid rgba(59,130,246,.25); color:#FBBF24;
-      font-size:.72rem; margin-top:1px; }
-    .contact-info li strong{ display:block; color:#fff;
-      font-size:.7rem; margin-bottom:2px;
-      letter-spacing:.3px; text-transform:uppercase; }
+      border:1px solid rgba(59,130,246,.25);
+      color:#FBBF24;
+      font-size:.72rem;
+      margin-top:1px;
+    }
+    .contact-info li strong{
+      display:block;
+      color:#fff;
+      font-size:.7rem;
+      margin-bottom:2px;
+      text-transform:uppercase;
+    }
     .contact-info li a{ color:#93C5FD; }
-    .footer-newsletter{ margin-top:6px; padding-top:16px;
-      border-top:1px solid rgba(59,130,246,.2); }
-    .footer-newsletter label{ display:block; color:#93C5FD;
-      font-size:.68rem; font-weight:800; letter-spacing:.5px;
-      text-transform:uppercase; margin-bottom:10px; }
-    .newsletter-form{ display:flex; gap:6px;
+    .footer-newsletter{
+      margin-top:6px;
+      padding-top:16px;
+      border-top:1px solid rgba(59,130,246,.2);
+    }
+    .footer-newsletter label{
+      display:block;
+      color:#93C5FD;
+      font-size:.68rem;
+      font-weight:800;
+      text-transform:uppercase;
+      margin-bottom:10px;
+    }
+    .newsletter-form{
+      display:flex;
+      gap:6px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(59,130,246,.25);
-      border-radius:12px; padding:5px; }
-    .newsletter-form:focus-within{ border-color:var(--gold);
-      box-shadow:0 0 0 4px rgba(251,191,36,.1); }
-    .newsletter-form input{ flex:1; background:transparent;
-      border:none; outline:none; padding:8px 10px; color:#fff;
-      font-family:inherit; font-size:.76rem; min-width:0; }
+      border-radius:12px;
+      padding:5px;
+    }
+    .newsletter-form input{
+      flex:1;
+      background:transparent;
+      border:none;
+      outline:none;
+      padding:8px 10px;
+      color:#fff;
+      font-family:inherit;
+      font-size:.76rem;
+      min-width:0;
+    }
     .newsletter-form input::placeholder{ color:#6B8CAE; }
-    .newsletter-form button{ flex-shrink:0; width:36px; height:36px;
+    .newsletter-form button{
+      flex-shrink:0;
+      width:36px; height:36px;
       border-radius:8px;
       background:linear-gradient(135deg,#FBBF24,#F59E0B);
-      color:#0A2540; font-size:.82rem; display:grid;
-      place-items:center; }
-
-    .footer-bottom{ border-top:1px solid rgba(59,130,246,.15);
-      padding:22px 0; position:relative; z-index:2; }
-    .footer-bottom-inner{ display:flex; flex-direction:column;
-      align-items:center; justify-content:center;
-      gap:12px; text-align:center; }
-    .footer-copy{ color:#6B8CAE; font-size:.76rem; font-weight:600;
-      order:1; }
+      color:#0A2540;
+      font-size:.82rem;
+      display:grid; place-items:center;
+    }
+    .footer-bottom{
+      border-top:1px solid rgba(59,130,246,.15);
+      padding:22px 0;
+      position:relative;
+      z-index:2;
+    }
+    .footer-bottom-inner{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      text-align:center;
+    }
+    .footer-copy{
+      color:#6B8CAE;
+      font-size:.76rem;
+      font-weight:600;
+    }
     .footer-copy strong{ color:#93C5FD; font-weight:800; }
-    .footer-legal{ display:flex; gap:4px; flex-wrap:nowrap;
-      align-items:center; justify-content:center; order:2; }
-    .footer-legal a{ color:#93C5FD; font-size:.72rem;
-      font-weight:700; padding:5px 8px; border-radius:8px;
-      transition:.25s; white-space:nowrap; }
-    .footer-legal a:hover{ color:var(--gold);
-      background:rgba(59,130,246,.15); }
-    .footer-legal span{ color:rgba(59,130,246,.5); font-size:.72rem; }
-    .footer-made{ color:#6B8CAE; font-size:.72rem; font-weight:600;
-      display:inline-flex; align-items:center; gap:6px; order:3; }
+    .footer-legal{
+      display:flex;
+      gap:4px;
+      align-items:center;
+      justify-content:center;
+    }
+    .footer-legal a{
+      color:#93C5FD;
+      font-size:.72rem;
+      font-weight:700;
+      padding:5px 8px;
+      border-radius:8px;
+      transition:.25s;
+      white-space:nowrap;
+    }
+    .footer-legal a:hover{
+      color:var(--gold);
+      background:rgba(59,130,246,.15);
+    }
+    .footer-legal span{
+      color:rgba(59,130,246,.5);
+      font-size:.72rem;
+    }
+    .footer-made{
+      color:#6B8CAE;
+      font-size:.72rem;
+      font-weight:600;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
     .footer-made i{ color:#DC2626; font-size:.68rem; }
 
-    /* BACK TOP */
-    .back-top{ position:fixed; right:22px; bottom:22px;
-      width:48px; height:48px; border-radius:14px;
+    /* FLOATING */
+    .back-top{
+      position:fixed;
+      right:22px; bottom:22px;
+      width:48px; height:48px;
+      border-radius:14px;
       background:linear-gradient(135deg,#2563EB,#1E40AF);
-      color:#fff; cursor:pointer; z-index:1000;
-      display:grid; place-items:center; opacity:0;
-      visibility:hidden; transition:.3s;
-      box-shadow:0 10px 28px rgba(37,99,235,.45); }
+      color:#fff;
+      cursor:pointer;
+      z-index:1000;
+      display:grid; place-items:center;
+      opacity:0; visibility:hidden;
+      transition:.3s;
+      box-shadow:0 10px 28px rgba(37,99,235,.45);
+    }
     .back-top.show{ opacity:1; visibility:visible; }
     .back-top:hover{ transform:translateY(-4px); }
-
-    /* WHATSAPP FLOAT */
     .wa-float{
       position:fixed;
-      right:22px;
-      bottom:82px;
-      width:56px;
-      height:56px;
+      right:22px; bottom:82px;
+      width:56px; height:56px;
       border-radius:50%;
       background:linear-gradient(135deg,#25D366,#128C7E);
       color:#fff;
-      display:grid;
-      place-items:center;
+      display:grid; place-items:center;
       font-size:1.6rem;
       z-index:999;
       box-shadow:0 14px 34px rgba(37,211,102,.5);
@@ -1654,7 +2343,6 @@
     }
     .wa-float:hover{
       transform:scale(1.1) translateY(-3px);
-      box-shadow:0 20px 45px rgba(37,211,102,.7);
       color:#fff;
     }
     @keyframes waPulse{
@@ -1662,9 +2350,15 @@
       50%{ box-shadow:0 18px 45px rgba(37,211,102,.9); }
     }
 
-    @media(max-width:500px){
-      .wa-float{ width:50px; height:50px; font-size:1.4rem;
-        right:18px; bottom:76px; }
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform:translateY(40px);
+      transition:opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible{
+      opacity:1;
+      transform:translateY(0);
     }
 
     /* RESPONSIVE */
@@ -1675,90 +2369,148 @@
     }
     @media(max-width:1000px){
       .desktop-nav > a{ padding:10px 6px; font-size:.68rem; }
-      .logo-box{ width:62px; height:62px; }
+      .logo-box{ width:56px; height:56px; }
+      .work-grid{ grid-template-columns:repeat(3,1fr); gap:16px; }
     }
     @media(max-width:900px){
       .desktop-nav{ display:none; }
       .menu-toggle{ display:block; }
-      .header-inner{ min-height:78px; }
-      .brand-name{ font-size:clamp(1.1rem,3vw,1.4rem); }
-      .brand-tagline{ font-size:.66rem; }
-      .logo-box{ width:60px; height:60px; }
+      .header-inner{ min-height:72px; }
+      .brand-name{ font-size:clamp(1.05rem,3vw,1.35rem); }
+      .brand-tagline{ font-size:.64rem; }
+      .logo-box{ width:54px; height:54px; }
       .footer-grid{ grid-template-columns:1fr 1fr; gap:36px 24px; }
+      .hero{ padding:140px 0 70px; }
+      .hero-stats{ grid-template-columns:repeat(2,1fr); gap:12px; }
+      .bento-grid{ grid-template-columns:1fr 1fr; }
+      .bento-large{ grid-column:1 / -1; grid-row:auto; }
+      .rings-grid{ grid-template-columns:repeat(2,1fr); gap:16px; }
+      .how-grid{ grid-template-columns:repeat(2,1fr); gap:20px; }
+      .how-grid::before{ display:none; }
+      .team-grid{ grid-template-columns:repeat(2,1fr); }
+      .help-grid{ grid-template-columns:repeat(2,1fr); }
+      .events-grid{ grid-template-columns:1fr; gap:18px; }
+      .awards-inner{ grid-template-columns:repeat(2,1fr); gap:14px; }
+    }
+    @media(max-width:800px){
+      .story-card{
+        padding:40px 26px;
+        flex-direction:column;
+        text-align:center;
+        gap:22px;
+      }
+      .story-photo{ width:150px; height:150px; }
+      .gallery-grid{
+        grid-template-columns:repeat(2,1fr);
+        grid-auto-rows:150px;
+      }
+      .gallery-item:nth-child(1),
+      .gallery-item:nth-child(6){
+        grid-column:span 1;
+        grid-row:span 1;
+      }
     }
     @media(max-width:700px){
       .section{ padding:70px 0; }
-      .footer-grid{ grid-template-columns:1fr; gap:32px;
-        padding-bottom:40px; }
+      .work-grid{ grid-template-columns:repeat(2,1fr); }
+      .footer-grid{ grid-template-columns:1fr; gap:32px; padding-bottom:40px; }
       .footer-bottom-inner{ gap:10px; }
-      .footer-legal{ flex-wrap:nowrap; gap:1px; }
-      .footer-legal a{ font-size:.68rem; padding:4px 6px; }
-      .footer-legal span{ font-size:.68rem; }
       .cta-strip{ padding:65px 0; }
       .cta-buttons{ flex-direction:column; }
       .cta-buttons .btn{ width:100%; }
     }
     @media(max-width:600px){
-      .brand-name{ font-size:clamp(1rem,4vw,1.15rem);
-        white-space:normal; line-height:1.15; }
-      .brand-tagline{ font-size:.62rem; white-space:normal; }
-      .logo-box{ width:54px; height:54px; border-radius:13px; }
-      .brand{ gap:11px; }
-      .cta-strip h2{ font-size:1.55rem; }
-      .cta-strip p{ font-size:.92rem; }
-      .social-icon{ width:38px; height:38px; font-size:.9rem; }
-      .footer-brand-text h3{ font-size:1rem; }
-    }
-    @media(max-width:420px){
-      .footer-legal a{ font-size:.62rem; padding:3px 4px; }
-      .footer-legal span{ font-size:.62rem; }
-    }
-    @media(max-width:380px){
-      .brand-name{ font-size:1rem; }
-      .brand-tagline{ font-size:.6rem; }
-      .logo-box{ width:50px; height:50px; }
-      .footer-legal a{ font-size:.58rem; padding:3px 3px; }
-      .footer-legal span{ font-size:.58rem; }
+      .brand-name{ font-size:clamp(1rem,4vw,1.15rem); white-space:normal; line-height:1.15; }
+      .brand-tagline{ font-size:.6rem; white-space:normal; }
+      .logo-box{ width:48px; height:48px; border-radius:12px; }
+      .brand{ gap:10px; }
+      .footer-legal a{ font-size:.68rem; padding:4px 6px; }
+      .footer-legal span{ font-size:.68rem; }
+      .bento-grid{ grid-template-columns:1fr; gap:14px; }
+      .rings-grid{ grid-template-columns:1fr; }
+      .how-grid{ grid-template-columns:1fr; }
+      .team-grid{ grid-template-columns:1fr; gap:16px; }
+      .help-grid{ grid-template-columns:1fr; gap:16px; }
+      .awards-inner{ grid-template-columns:1fr; }
+      .newsletter-box{ padding:32px 22px; border-radius:22px; }
+      .newsletter-form-big{ flex-direction:column; }
+      .newsletter-form-big input,
+      .newsletter-form-big button{ width:100%; justify-content:center; }
+      .goal-box{ padding:30px 22px; }
+      .goal-head{ flex-direction:column; align-items:flex-start; }
+      .goal-numbers{ grid-template-columns:1fr; }
+      .goal-stats{ grid-template-columns:1fr; }
+      .wa-float{ width:50px; height:50px; font-size:1.4rem; right:18px; bottom:76px; }
+      .ticker-label{ padding:0 14px; font-size:.68rem; }
+      .ticker-label span{ display:none; }
+      .ticker-track-wrap{ margin-left:60px; }
     }
     @media (prefers-reduced-motion: reduce){
       *,*::before,*::after{
         animation-duration:.01ms!important;
         animation-iteration-count:1!important;
-        transition-duration:.01ms!important; } }
-
-    /* SCROLL REVEAL */
-    .reveal{
-      opacity:0;
-      transform:translateY(40px);
-      transition:opacity .8s ease, transform .8s ease;
-    }
-    .reveal.visible{
-      opacity:1;
-      transform:translateY(0);
+        transition-duration:.01ms!important;
+      }
     }
   </style>
 </head>
 
-<body>
+<body class="splash-active">
+
+<!-- SPLASH SCREEN -->
+<div class="splash-screen" id="splashScreen">
+  <div class="splash-glow"></div>
+  <div class="splash-glow ring-1"></div>
+  <div class="splash-glow ring-2"></div>
+
+  <div class="splash-logo-wrap">
+    <div class="splash-logo">
+      <img src="sath_chale_ham_logo_HD-1.png" alt="साथ चले हम फाउंडेशन Logo">
+    </div>
+    <div class="splash-name">
+      <h1>साथ चले हम <span class="gold">फाउंडेशन</span></h1>
+      <p>Sath Chale Hum Foundation</p>
+    </div>
+    <div class="splash-loader">
+      <div class="splash-loader-fill"></div>
+    </div>
+    <div class="splash-percent" id="splashPercent">0%</div>
+  </div>
+
+  <div class="splash-footer">
+    <i class="fa-solid fa-hands-holding-heart"></i>
+    साथ चले हम, बदलाव की ओर · Together We Move Towards Change
+  </div>
+</div>
+
+
+<!-- PAGE WRAPPER -->
+<div class="page-wrapper" id="pageWrapper">
 
 <!-- SCROLL PROGRESS -->
 <div class="scroll-progress" id="scrollProgress"></div>
 
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  <div class="announce-inner">
+    <i class="fa-solid fa-bullhorn"></i>
+    <span>🎉 हमारा नया अभियान <strong style="color:#FBBF24;">"Daily ₹1 Supporter"</strong> शुरू हो चुका है — आज ही जुड़ें!</span>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header class="site-header">
   <div class="container header-inner">
     <a href="index.html" class="brand">
       <div class="logo-box">
-        <img src="sath_chale_ham_logo_HD-1.png" alt="साथ चले हम फाउंडेशन Logo">
+        <img src="sath_chale_ham_logo_HD-1.png" alt="Logo">
       </div>
       <div class="brand-text">
         <div class="brand-name">साथ चले हम <span class="gold">फाउंडेशन</span></div>
         <div class="brand-tagline">साथ चले हम, बदलाव की ओर</div>
       </div>
     </a>
-
-    <nav class="desktop-nav" aria-label="Main navigation">
+    <nav class="desktop-nav">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About Us</a>
       <a href="work.html">Our Work</a>
@@ -1771,15 +2523,11 @@
         <i class="fa-solid fa-heart"></i> Donate Us
       </a>
     </nav>
-
-    <button class="menu-toggle" id="menuToggle"
-            aria-label="Open Menu" aria-expanded="false"
-            aria-controls="mobileNav" type="button">
+    <button class="menu-toggle" id="menuToggle" type="button">
       <span></span><span></span><span></span>
     </button>
   </div>
-
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+  <nav class="mobile-nav" id="mobileNav">
     <a href="index.html" class="active">Home | होम</a>
     <a href="about.html">About Us | हमारे बारे में</a>
     <a href="work.html">Our Work | हमारे कार्य</a>
@@ -1803,6 +2551,7 @@
     <div class="hero-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1800&q=85')"></div>
     <div class="hero-bg-slide" style="background-image:url('https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1800&q=85')"></div>
   </div>
+  <div class="hero-particles" id="heroParticles"></div>
 
   <div class="container">
     <div class="hero-content">
@@ -1810,29 +2559,23 @@
         <i class="fa-solid fa-hands-holding-heart"></i>
         Together We Make a Difference
       </div>
-
-      <h1>
-        साथ चले हम, <span class="typed-text" id="typedText"></span><span class="cursor"></span>
-      </h1>
-
+      <h1>साथ चले हम, <span class="grad-text" id="typedText"></span><span class="cursor"></span></h1>
       <p class="lead hindi">
-        शिक्षा, स्वास्थ्य, महिला सशक्तिकरण और जरूरतमंदों की सहायता — हर कदम पर
-        आपके साथ। आइए, मिलकर एक बेहतर समाज बनाएँ।
+        शिक्षा, स्वास्थ्य, महिला सशक्तिकरण और जरूरतमंदों की सहायता — हर कदम पर आपके साथ।
+        आइए, मिलकर एक बेहतर समाज बनाएँ।
         <span class="lead-en">Education, healthcare, women empowerment, and support for the needy — together, let's build a better society.</span>
       </p>
-
       <div class="hero-buttons">
         <a href="donate.html" class="btn btn-red btn-pulse-red">
-          <i class="fa-solid fa-heart"></i> Donate Now | दान करें
+          <i class="fa-solid fa-heart"></i> Donate Now
         </a>
         <a href="join-us.html" class="btn btn-gold">
-          <i class="fa-solid fa-user-plus"></i> Join Us | जुड़ें
+          <i class="fa-solid fa-user-plus"></i> Join Us
         </a>
         <a href="#about" class="btn btn-outline">
           <i class="fa-solid fa-circle-info"></i> Learn More
         </a>
       </div>
-
       <div class="hero-stats">
         <div class="hero-stat">
           <div class="hero-stat-icon"><i class="fa-solid fa-users"></i></div>
@@ -1861,98 +2604,202 @@
       </div>
     </div>
   </div>
-
-  <a href="#about" class="scroll-indicator" aria-label="Scroll Down">
-    <i class="fa-solid fa-chevron-down"></i>
-  </a>
+  <a href="#about" class="scroll-indicator"><i class="fa-solid fa-chevron-down"></i></a>
 </section>
 
 
-<!-- ABOUT PREVIEW -->
-<section class="about-preview" id="about">
+<!-- ABOUT BENTO -->
+<section class="about-bento" id="about">
   <div class="container">
-    <div class="about-preview-grid reveal">
+    <div class="section-title reveal">
+      <span class="small-title">About Us</span>
+      <h2>हमारे बारे में | <span>Who We Are</span></h2>
+      <p class="hindi">2016 से शिक्षा, स्वास्थ्य और जरूरतमंदों की सहायता में समर्पित।</p>
+    </div>
 
-      <div class="about-visual">
-        <div class="about-badge">
-          <i class="fa-solid fa-hands-holding-heart"></i>
-          <div>
-            <strong>10+</strong>
-            <span>Years of Service</span>
-          </div>
+    <div class="bento-grid">
+      <div class="bento-card bento-large reveal">
+        <div>
+          <h3>साथ चले हम <span>फाउंडेशन</span></h3>
+          <p class="hindi">
+            हम एक सामाजिक संस्था हैं जो 2016 से शिक्षा, स्वास्थ्य, महिला सशक्तिकरण और
+            जरूरतमंदों की सहायता के लिए काम कर रही है। सहरसा, बिहार से शुरू हुई यात्रा
+            आज कई जिलों तक पहुँच चुकी है।
+          </p>
         </div>
-        <div class="about-img-main">
-          <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=800&q=85" alt="Helping Hands">
+        <div class="bento-img">
+          <img src="https://images.unsplash.com/photo-1593113646773-028c64a8f1b8?auto=format&fit=crop&w=800&q=85" alt="Foundation">
         </div>
-        <div class="about-img-sub">
-          <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=500&q=85" alt="Our Work">
-        </div>
+        <a href="about.html" class="bento-cta">Read Full Story <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
-      <div class="about-content">
-        <span class="small-title" style="display:inline-block; color:var(--blue); font-size:.85rem; font-weight:800; letter-spacing:2.5px; text-transform:uppercase; margin-bottom:12px;">About Us</span>
-        <h2>साथ चले हम <span>फाउंडेशन</span></h2>
-        <p class="hindi">
-          साथ चले हम फाउंडेशन एक सामाजिक संस्था है जो 2016 से शिक्षा, स्वास्थ्य,
-          महिला सशक्तिकरण और जरूरतमंदों की सहायता के लिए समर्पित है। सहरसा, बिहार
-          से शुरू हुई यह यात्रा आज कई जिलों तक पहुँच चुकी है।
-        </p>
-        <p class="en">
-          Sath Chale Hum Foundation is a social organization dedicated since 2016
-          to education, healthcare, women empowerment, and support for those in need.
-          What started in Saharsa, Bihar, has now expanded to many districts.
-        </p>
-
-        <div class="about-features">
-          <div class="about-feature"><i class="fa-solid fa-certificate"></i> 12A &amp; 80G Certified</div>
-          <div class="about-feature"><i class="fa-solid fa-shield-halved"></i> CSR-1 Registered</div>
-          <div class="about-feature"><i class="fa-solid fa-eye"></i> 100% Transparent</div>
-          <div class="about-feature"><i class="fa-solid fa-people-group"></i> Community Driven</div>
-        </div>
-
-        <a href="about.html" class="btn btn-blue">
-          <i class="fa-solid fa-arrow-right"></i> Read Our Story | हमारी कहानी
-        </a>
+      <div class="bento-card gold reveal">
+        <div class="bento-icon"><i class="fa-solid fa-certificate"></i></div>
+        <h4>12A &amp; 80G प्रमाणित</h4>
+        <p>कानूनी मान्यता प्राप्त संस्था — आपका हर दान सुरक्षित।</p>
       </div>
 
+      <div class="bento-card red reveal">
+        <div class="bento-icon"><i class="fa-solid fa-shield-halved"></i></div>
+        <h4>CSR-1 Registered</h4>
+        <p>कंपनियों के साथ CSR साझेदारी के लिए अधिकृत।</p>
+      </div>
+
+      <div class="bento-card green reveal">
+        <div class="bento-icon"><i class="fa-solid fa-eye"></i></div>
+        <h4>100% पारदर्शिता</h4>
+        <p>हर रुपये का हिसाब — पूरी रिपोर्ट सार्वजनिक।</p>
+      </div>
+
+      <div class="bento-card purple reveal">
+        <div class="bento-icon"><i class="fa-solid fa-people-group"></i></div>
+        <h4>500+ स्वयंसेवक</h4>
+        <p>समर्पित टीम और स्थानीय समुदाय के सहयोग से बदलाव।</p>
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- IMPACT NUMBERS -->
-<section class="numbers-section">
+<!-- IMPACT RINGS -->
+<section class="rings-section">
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FBBF24"/>
+        <stop offset="100%" stop-color="#F59E0B"/>
+      </linearGradient>
+    </defs>
+  </svg>
   <div class="container">
-    <div class="section-title" style="margin-bottom:45px;">
-      <span class="small-title" style="color:var(--gold);">Our Impact</span>
-      <h2 style="color:#fff;">आँकड़ों में हमारा काम | <span style="color:var(--gold);">Impact in Numbers</span></h2>
+    <div class="section-title reveal">
+      <span class="small-title">Our Impact</span>
+      <h2>आँकड़ों में हमारा काम | <span>Impact in Numbers</span></h2>
     </div>
 
-    <div class="numbers-grid">
-      <div class="number-card reveal">
-        <div class="number-icon"><i class="fa-solid fa-users"></i></div>
-        <div class="number-value" data-count="10000" data-suffix="+">0</div>
-        <div class="number-label">लोगों की मदद</div>
-        <div class="number-sublabel">People Helped</div>
+    <div class="rings-grid">
+      <div class="ring-card reveal">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" cx="60" cy="60" r="52" data-percent="95"/>
+          </svg>
+          <div class="ring-center">
+            <i class="fa-solid fa-users"></i>
+            <strong><span data-count="10000" data-suffix="+">0</span></strong>
+          </div>
+        </div>
+        <h4>लोगों की मदद</h4>
+        <span>People Helped</span>
       </div>
-      <div class="number-card reveal">
-        <div class="number-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <div class="number-value" data-count="2500" data-suffix="+">0</div>
-        <div class="number-label">बच्चों को शिक्षा</div>
-        <div class="number-sublabel">Children Educated</div>
+
+      <div class="ring-card reveal">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" cx="60" cy="60" r="52" data-percent="85"/>
+          </svg>
+          <div class="ring-center">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <strong><span data-count="2500" data-suffix="+">0</span></strong>
+          </div>
+        </div>
+        <h4>बच्चों को शिक्षा</h4>
+        <span>Children Educated</span>
       </div>
-      <div class="number-card reveal">
-        <div class="number-icon"><i class="fa-solid fa-utensils"></i></div>
-        <div class="number-value" data-count="50000" data-suffix="+">0</div>
-        <div class="number-label">भोजन वितरित</div>
-        <div class="number-sublabel">Meals Distributed</div>
+
+      <div class="ring-card reveal">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" cx="60" cy="60" r="52" data-percent="92"/>
+          </svg>
+          <div class="ring-center">
+            <i class="fa-solid fa-utensils"></i>
+            <strong><span data-count="50000" data-suffix="+">0</span></strong>
+          </div>
+        </div>
+        <h4>भोजन वितरित</h4>
+        <span>Meals Served</span>
       </div>
-      <div class="number-card reveal">
-        <div class="number-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-        <div class="number-value" data-count="50" data-suffix="+">0</div>
-        <div class="number-label">गाँव और शहर</div>
-        <div class="number-sublabel">Villages &amp; Cities</div>
+
+      <div class="ring-card reveal">
+        <div class="ring-wrap">
+          <svg viewBox="0 0 120 120">
+            <circle class="ring-bg" cx="60" cy="60" r="52"/>
+            <circle class="ring-fill" cx="60" cy="60" r="52" data-percent="78"/>
+          </svg>
+          <div class="ring-center">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <strong><span data-count="50" data-suffix="+">0</span></strong>
+          </div>
+        </div>
+        <h4>गाँव और शहर</h4>
+        <span>Villages &amp; Cities</span>
       </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GOAL TRACKER -->
+<section class="goal-section">
+  <div class="container">
+    <div class="goal-box reveal">
+      <div class="goal-head">
+        <div class="goal-head-left">
+          <div class="goal-head-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="goal-head-text">
+            <h3>इस महीने का लक्ष्य | This Month's Goal</h3>
+            <p>शिक्षा एवं भोजन वितरण के लिए</p>
+          </div>
+        </div>
+        <div class="goal-percent" id="goalPercent">0%</div>
+      </div>
+      <div class="goal-progress-wrap">
+        <div class="goal-progress">
+          <div class="goal-progress-fill" id="goalFill" data-percent="68"></div>
+        </div>
+      </div>
+      <div class="goal-stats">
+        <div class="goal-stat raised">
+          <strong>₹3,40,000</strong>
+          <span>Raised / एकत्रित</span>
+        </div>
+        <div class="goal-stat target">
+          <strong>₹5,00,000</strong>
+          <span>Target / लक्ष्य</span>
+        </div>
+        <div class="goal-stat">
+          <strong>482</strong>
+          <span>Donors / दानदाता</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIVE TICKER -->
+<section class="ticker-section">
+  <div class="ticker-label">
+    <i class="fa-solid fa-circle"></i>
+    <span>LIVE</span>
+  </div>
+  <div class="ticker-track-wrap">
+    <div class="ticker-track">
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Priya K.</strong> ने ₹500 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Rahul S.</strong> ने ₹1,000 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Sunita D.</strong> ने ₹150 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Amit K.</strong> ने ₹2,500 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Neha R.</strong> ने ₹300 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Vikash M.</strong> ने ₹750 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Priya K.</strong> ने ₹500 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Rahul S.</strong> ने ₹1,000 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Sunita D.</strong> ने ₹150 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Amit K.</strong> ने ₹2,500 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Neha R.</strong> ने ₹300 दान किया</div>
+      <div class="ticker-item"><i class="fa-solid fa-heart"></i> <strong>Vikash M.</strong> ने ₹750 दान किया</div>
     </div>
   </div>
 </section>
@@ -1964,188 +2811,67 @@
     <div class="section-title reveal">
       <span class="small-title">Our Work</span>
       <h2>हमारे कार्यक्षेत्र | <span>Our Work Areas</span></h2>
-      <p class="hindi">
-        16 प्रमुख क्षेत्रों में हम समाज के विकास के लिए कार्यरत हैं।
-      </p>
+      <p class="hindi">16 प्रमुख क्षेत्रों में हम समाज के विकास के लिए कार्यरत हैं।</p>
     </div>
-
     <div class="work-grid">
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-        <h4>शिक्षा<span class="work-en">Education</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-stethoscope"></i></div>
-        <h4>स्वास्थ्य<span class="work-en">Healthcare</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-person-dress"></i></div>
-        <h4>महिला सशक्तिकरण<span class="work-en">Women Empowerment</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
-        <h4>गरीब कल्याण<span class="work-en">Poor Welfare</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-wheelchair"></i></div>
-        <h4>दिव्यांगजन कल्याण<span class="work-en">Disability Welfare</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-person-cane"></i></div>
-        <h4>वृद्धजन कल्याण<span class="work-en">Senior Citizens</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-users-gear"></i></div>
-        <h4>युवा एवं कौशल<span class="work-en">Youth &amp; Skill</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-briefcase"></i></div>
-        <h4>रोजगार एवं आजीविका<span class="work-en">Employment</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-house-chimney"></i></div>
-        <h4>ग्रामीण विकास<span class="work-en">Rural Development</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-wheat-awn"></i></div>
-        <h4>कृषि एवं किसान<span class="work-en">Agriculture</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-tree"></i></div>
-        <h4>पर्यावरण एवं जल<span class="work-en">Environment</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-hand-sparkles"></i></div>
-        <h4>स्वच्छता एवं पोषण<span class="work-en">Sanitation</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-paw"></i></div>
-        <h4>पशु कल्याण<span class="work-en">Animal Welfare</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-truck-medical"></i></div>
-        <h4>आपदा राहत<span class="work-en">Disaster Relief</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-        <h4>सामाजिक न्याय<span class="work-en">Social Justice</span></h4>
-      </div>
-      <div class="work-card reveal">
-        <div class="work-icon"><i class="fa-solid fa-laptop-code"></i></div>
-        <h4>डिजिटल शिक्षा<span class="work-en">Digital Education</span></h4>
-      </div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-graduation-cap"></i></div><h4>शिक्षा<span class="work-en">Education</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-stethoscope"></i></div><h4>स्वास्थ्य<span class="work-en">Healthcare</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-person-dress"></i></div><h4>महिला सशक्तिकरण<span class="work-en">Women Empowerment</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-hand-holding-heart"></i></div><h4>गरीब कल्याण<span class="work-en">Poor Welfare</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-wheelchair"></i></div><h4>दिव्यांगजन कल्याण<span class="work-en">Disability Welfare</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-person-cane"></i></div><h4>वृद्धजन कल्याण<span class="work-en">Senior Citizens</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-users-gear"></i></div><h4>युवा एवं कौशल<span class="work-en">Youth &amp; Skill</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-briefcase"></i></div><h4>रोजगार एवं आजीविका<span class="work-en">Employment</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-house-chimney"></i></div><h4>ग्रामीण विकास<span class="work-en">Rural Development</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-wheat-awn"></i></div><h4>कृषि एवं किसान<span class="work-en">Agriculture</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-tree"></i></div><h4>पर्यावरण एवं जल<span class="work-en">Environment</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-hand-sparkles"></i></div><h4>स्वच्छता एवं पोषण<span class="work-en">Sanitation</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-paw"></i></div><h4>पशु कल्याण<span class="work-en">Animal Welfare</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-truck-medical"></i></div><h4>आपदा राहत<span class="work-en">Disaster Relief</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-scale-balanced"></i></div><h4>सामाजिक न्याय<span class="work-en">Social Justice</span></h4></div>
+      <div class="work-card reveal"><div class="work-icon"><i class="fa-solid fa-laptop-code"></i></div><h4>डिजिटल शिक्षा<span class="work-en">Digital Education</span></h4></div>
     </div>
-
     <div style="text-align:center; margin-top:44px;">
       <a href="work.html" class="btn btn-blue">
-        <i class="fa-solid fa-arrow-right"></i> View All Work | सभी कार्य देखें
+        <i class="fa-solid fa-arrow-right"></i> View All Work
       </a>
     </div>
   </div>
 </section>
 
 
-<!-- SUCCESS STORIES -->
-<section class="stories-section">
+<!-- AWARDS -->
+<section class="awards-section">
   <div class="container">
-    <div class="section-title reveal">
-      <span class="small-title">Success Stories</span>
-      <h2>सफलता की कहानियाँ | <span>Success Stories</span></h2>
-      <p class="hindi">
-        हमारे काम से बदली कुछ ज़िंदगियों की कहानियाँ — जो हमें आगे बढ़ने की प्रेरणा देती हैं।
-      </p>
-    </div>
-
-    <div class="story-slider" data-story-slider>
-      <div class="story-track" data-story-track>
-
-        <div class="story-card">
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="Priya">
-          </div>
-          <div class="story-body">
-            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-            <p class="story-text">
-              "पहले मैं स्कूल नहीं जा पाती थी। साथ चले हम फाउंडेशन की मदद से आज
-              मैं कॉलेज में पढ़ रही हूँ और अपने सपनों को पूरा कर रही हूँ।"
-            </p>
-            <p class="story-text-en">
-              "I couldn't go to school before. With the help of Sath Chale Hum
-              Foundation, today I'm studying in college and fulfilling my dreams."
-            </p>
-            <div class="story-name">Priya Kumari</div>
-            <div class="story-role">Student · Saharsa, Bihar</div>
-          </div>
+    <div class="awards-inner">
+      <div class="award-item">
+        <div class="award-icon"><i class="fa-solid fa-file-shield"></i></div>
+        <div class="award-text">
+          <strong>12A Certified</strong>
+          <span>Income Tax Dept.</span>
         </div>
-
-        <div class="story-card">
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=85" alt="Rahul">
-          </div>
-          <div class="story-body">
-            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-            <p class="story-text">
-              "बाढ़ के समय जब सब कुछ डूब गया था, तब इन लोगों ने हमारे परिवार को
-              भोजन, कपड़े और आश्रय दिया। मैं हमेशा आभारी रहूँगा।"
-            </p>
-            <p class="story-text-en">
-              "When everything was submerged during the floods, these people gave
-              our family food, clothes, and shelter. I'll always be grateful."
-            </p>
-            <div class="story-name">Rahul Sharma</div>
-            <div class="story-role">Flood Survivor · Supaul, Bihar</div>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=85" alt="Sunita">
-          </div>
-          <div class="story-body">
-            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-            <p class="story-text">
-              "महिला सशक्तिकरण कार्यक्रम के बाद मैंने सिलाई का काम सीखा और आज
-              अपना छोटा व्यवसाय चलाती हूँ। मेरा परिवार अब आत्मनिर्भर है।"
-            </p>
-            <p class="story-text-en">
-              "After the women empowerment program, I learned tailoring and today
-              I run my own small business. My family is now self-reliant."
-            </p>
-            <div class="story-name">Sunita Devi</div>
-            <div class="story-role">Entrepreneur · Madhepura, Bihar</div>
-          </div>
-        </div>
-
-        <div class="story-card">
-          <div class="story-photo">
-            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=500&q=85" alt="Amit">
-          </div>
-          <div class="story-body">
-            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
-            <p class="story-text">
-              "मेरी माँ की बीमारी में इन लोगों ने इलाज कराया और हमें नया जीवन
-              दिया। ऐसी संस्था दुर्लभ होती है।"
-            </p>
-            <p class="story-text-en">
-              "These people got my mother treated during her illness and gave us
-              a new life. Such organizations are rare."
-            </p>
-            <div class="story-name">Amit Kumar</div>
-            <div class="story-role">Beneficiary · Patna, Bihar</div>
-          </div>
-        </div>
-
       </div>
-    </div>
-
-    <div class="story-controls">
-      <button class="story-btn" data-story-prev aria-label="Previous" type="button">
-        <i class="fa-solid fa-chevron-left"></i>
-      </button>
-      <div class="story-dots" data-story-dots></div>
-      <button class="story-btn" data-story-next aria-label="Next" type="button">
-        <i class="fa-solid fa-chevron-right"></i>
-      </button>
+      <div class="award-item">
+        <div class="award-icon"><i class="fa-solid fa-receipt"></i></div>
+        <div class="award-text">
+          <strong>80G Approved</strong>
+          <span>Tax Exemption</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fa-solid fa-building-shield"></i></div>
+        <div class="award-text">
+          <strong>CSR-1 Registered</strong>
+          <span>MCA India</span>
+        </div>
+      </div>
+      <div class="award-item">
+        <div class="award-icon"><i class="fa-solid fa-award"></i></div>
+        <div class="award-text">
+          <strong>NGO Darpan</strong>
+          <span>Govt. of India</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -2157,11 +2883,8 @@
     <div class="section-title reveal">
       <span class="small-title">How We Work</span>
       <h2>हम कैसे काम करते हैं? | <span>How We Work</span></h2>
-      <p class="hindi">
-        हमारी कार्यशैली सरल, ईमानदार और पारदर्शी है — हर कदम पर आपके साथ।
-      </p>
+      <p class="hindi">हमारी कार्यशैली सरल, ईमानदार और पारदर्शी है।</p>
     </div>
-
     <div class="how-grid">
       <div class="how-card reveal">
         <div class="how-step">1</div>
@@ -2192,15 +2915,193 @@
 </section>
 
 
-<!-- HOW YOU CAN HELP -->
+<!-- SUCCESS STORIES -->
+<section class="stories-section">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="small-title">Success Stories</span>
+      <h2>सफलता की कहानियाँ | <span>Success Stories</span></h2>
+      <p class="hindi">कुछ ज़िंदगियों की कहानियाँ जो हमें आगे बढ़ने की प्रेरणा देती हैं।</p>
+    </div>
+
+    <div class="story-slider" data-story-slider>
+      <div class="story-track" data-story-track>
+
+        <div class="story-card">
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=85" alt="Priya">
+          </div>
+          <div class="story-body">
+            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="story-text">
+              "पहले मैं स्कूल नहीं जा पाती थी। साथ चले हम फाउंडेशन की मदद से आज
+              मैं कॉलेज में पढ़ रही हूँ और अपने सपनों को पूरा कर रही हूँ।"
+            </p>
+            <p class="story-text-en">
+              "I couldn't go to school before. With their help, today I'm
+              studying in college and fulfilling my dreams."
+            </p>
+            <div class="story-name">Priya Kumari</div>
+            <div class="story-role">Student · Saharsa, Bihar</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=85" alt="Rahul">
+          </div>
+          <div class="story-body">
+            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="story-text">
+              "बाढ़ के समय जब सब कुछ डूब गया था, तब इन लोगों ने हमारे परिवार को
+              भोजन, कपड़े और आश्रय दिया। मैं हमेशा आभारी रहूँगा।"
+            </p>
+            <p class="story-text-en">
+              "During the floods, these people gave our family food, clothes,
+              and shelter. I'll always be grateful."
+            </p>
+            <div class="story-name">Rahul Sharma</div>
+            <div class="story-role">Flood Survivor · Supaul, Bihar</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=85" alt="Sunita">
+          </div>
+          <div class="story-body">
+            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="story-text">
+              "महिला सशक्तिकरण कार्यक्रम के बाद मैंने सिलाई का काम सीखा और आज
+              अपना छोटा व्यवसाय चलाती हूँ। मेरा परिवार अब आत्मनिर्भर है।"
+            </p>
+            <p class="story-text-en">
+              "After the women empowerment program, I learned tailoring and run
+              my own small business. My family is now self-reliant."
+            </p>
+            <div class="story-name">Sunita Devi</div>
+            <div class="story-role">Entrepreneur · Madhepura, Bihar</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-photo">
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=500&q=85" alt="Amit">
+          </div>
+          <div class="story-body">
+            <div class="story-quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+            <p class="story-text">
+              "मेरी माँ की बीमारी में इन लोगों ने इलाज कराया और हमें नया जीवन
+              दिया। ऐसी संस्था दुर्लभ होती है।"
+            </p>
+            <p class="story-text-en">
+              "These people got my mother treated during her illness and gave us
+              a new life. Such organizations are rare."
+            </p>
+            <div class="story-name">Amit Kumar</div>
+            <div class="story-role">Beneficiary · Patna, Bihar</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="story-controls">
+      <button class="story-btn" data-story-prev type="button"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="story-dots" data-story-dots></div>
+      <button class="story-btn" data-story-next type="button"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="team-section">
+  <div class="container">
+    <div class="section-title reveal">
+      <span class="small-title">Our Team</span>
+      <h2>हमारी टीम | <span>Meet Our Team</span></h2>
+      <p class="hindi">समर्पित लोग जो हर दिन बदलाव के लिए काम करते हैं।</p>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-card reveal">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=500&q=85" alt="Member">
+          <div class="team-social-overlay">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>Ajay Kumar</h4>
+          <span>Founder &amp; President</span>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=500&q=85" alt="Member">
+          <div class="team-social-overlay">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>Priyam Singh</h4>
+          <span>Treasurer</span>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=85" alt="Member">
+          <div class="team-social-overlay">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>P K Prabhakar</h4>
+          <span>Volunteer Coordinator</span>
+        </div>
+      </div>
+
+      <div class="team-card reveal">
+        <div class="team-img">
+          <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=85" alt="Member">
+          <div class="team-social-overlay">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#"><i class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="team-info">
+          <h4>S Kumari</h4>
+          <span>Program Coordinator</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:44px;">
+      <a href="team.html" class="btn btn-blue">
+        <i class="fa-solid fa-arrow-right"></i> View Full Team
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- HELP -->
 <section class="help-section">
   <div class="container">
     <div class="section-title reveal">
       <span class="small-title">How You Can Help</span>
       <h2>आप हमारी मदद कैसे कर सकते हैं? | <span>How You Can Help</span></h2>
-      <p class="hindi">
-        आपके पास कई तरीके हैं — समय, दान, जागरूकता या आवाज़। हर योगदान मायने रखता है।
-      </p>
+      <p class="hindi">आपके पास कई तरीके हैं — हर योगदान मायने रखता है।</p>
     </div>
 
     <div class="help-grid">
@@ -2208,52 +3109,41 @@
         <div class="help-icon"><i class="fa-solid fa-hand-holding-dollar"></i></div>
         <h4>दान करें</h4>
         <p>अपनी क्षमता के अनुसार जरूरतमंदों की मदद के लिए योगदान दें।</p>
-        <a href="donate.html" class="help-link">
-          Donate Now <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <a href="donate.html" class="help-link">Donate Now <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="help-card reveal">
         <div class="help-icon"><i class="fa-solid fa-hands-helping"></i></div>
         <h4>स्वयंसेवक बनें</h4>
         <p>अपना समय और कौशल समाज सेवा में लगाएँ।</p>
-        <a href="join-us.html" class="help-link">
-          Join as Volunteer <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <a href="join-us.html" class="help-link">Join as Volunteer <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="help-card reveal">
         <div class="help-icon"><i class="fa-solid fa-bullhorn"></i></div>
         <h4>जागरूकता फैलाएँ</h4>
         <p>सही जानकारी दूसरों तक पहुँचाएँ और लोगों को जागरूक करें।</p>
-        <a href="about.html" class="help-link">
-          Learn More <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <a href="about.html" class="help-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
       </div>
       <div class="help-card reveal">
         <div class="help-icon"><i class="fa-solid fa-building"></i></div>
         <h4>CSR साझेदारी</h4>
         <p>कंपनियों के साथ CSR के माध्यम से सहयोग करें।</p>
-        <a href="contact.html" class="help-link">
-          Partner with Us <i class="fa-solid fa-arrow-right"></i>
-        </a>
+        <a href="contact.html" class="help-link">Partner with Us <i class="fa-solid fa-arrow-right"></i></a>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- EVENTS PREVIEW -->
+<!-- EVENTS -->
 <section class="events-preview">
   <div class="container">
     <div class="section-title reveal">
       <span class="small-title">Upcoming Events</span>
       <h2>आने वाले कार्यक्रम | <span>Upcoming Events</span></h2>
-      <p class="hindi">
-        हमारे आगामी कार्यक्रमों में शामिल हों और बदलाव का हिस्सा बनें।
-      </p>
+      <p class="hindi">हमारे आगामी कार्यक्रमों में शामिल हों और बदलाव का हिस्सा बनें।</p>
     </div>
 
     <div class="events-grid">
-
       <div class="event-card reveal">
         <div class="event-image">
           <img src="https://images.unsplash.com/photo-1497486751825-1233686d5d80?auto=format&fit=crop&w=800&q=85" alt="Event">
@@ -2313,27 +3203,24 @@
           </a>
         </div>
       </div>
-
     </div>
 
     <div style="text-align:center; margin-top:44px;">
       <a href="events.html" class="btn btn-blue">
-        <i class="fa-solid fa-calendar-days"></i> View All Events | सभी कार्यक्रम
+        <i class="fa-solid fa-calendar-days"></i> View All Events
       </a>
     </div>
   </div>
 </section>
 
 
-<!-- GALLERY PREVIEW -->
+<!-- GALLERY -->
 <section class="gallery-preview">
   <div class="container">
     <div class="section-title reveal">
       <span class="small-title">Our Gallery</span>
       <h2>हमारी गैलरी | <span>Our Gallery</span></h2>
-      <p class="hindi">
-        हमारे काम की कुछ झलकियाँ — जो हमारे समर्पण की कहानी कहती हैं।
-      </p>
+      <p class="hindi">हमारे काम की कुछ झलकियाँ।</p>
     </div>
 
     <div class="gallery-grid">
@@ -2365,7 +3252,7 @@
 
     <div style="text-align:center; margin-top:44px;">
       <a href="gallery.html" class="btn btn-blue">
-        <i class="fa-solid fa-images"></i> View Full Gallery | पूरी गैलरी देखें
+        <i class="fa-solid fa-images"></i> View Full Gallery
       </a>
     </div>
   </div>
@@ -2396,7 +3283,7 @@
 </section>
 
 
-<!-- CTA STRIP -->
+<!-- CTA -->
 <section class="cta-strip">
   <div class="container">
     <div class="cta-badge">
@@ -2410,10 +3297,10 @@
     </p>
     <div class="cta-buttons">
       <a href="donate.html" class="btn btn-red btn-pulse-red">
-        <i class="fa-solid fa-heart"></i> Donate Us | दान करें
+        <i class="fa-solid fa-heart"></i> Donate Us
       </a>
       <a href="join-us.html" class="btn btn-gold">
-        <i class="fa-solid fa-user-plus"></i> Join Us | जुड़ें
+        <i class="fa-solid fa-user-plus"></i> Join Us
       </a>
       <a href="contact.html" class="btn btn-outline">
         <i class="fa-solid fa-envelope"></i> Contact Us
@@ -2435,7 +3322,6 @@
         हर महीने की अपडेट, कार्यक्रमों की जानकारी, सफलता की कहानियाँ एवं
         संस्था से जुड़ी सभी गतिविधियाँ सीधे आपके inbox में पाएँ।
       </p>
-
       <form class="newsletter-form-big" onsubmit="event.preventDefault(); alert('✅ धन्यवाद! आप subscribe हो गए हैं।');">
         <input type="email" placeholder="your@email.com" required>
         <button type="submit">
@@ -2451,7 +3337,6 @@
 <footer>
   <div class="container">
     <div class="footer-grid">
-
       <div>
         <div class="footer-brand-head">
           <div class="footer-logo-box">
@@ -2471,10 +3356,10 @@
         </div>
         <h4 class="footer-social-heading">Our Social Media</h4>
         <div class="social-icons">
-          <a href="https://www.facebook.com/share/1PUUzvUfoo/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/sathchaleham" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://youtube.com/@sathchaleham" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://wa.me/917011893028" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/1PUUzvUfoo/" target="_blank" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/sathchaleham" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://youtube.com/@sathchaleham" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://wa.me/917011893028" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
 
@@ -2527,11 +3412,10 @@
           <label>Newsletter</label>
           <form class="newsletter-form" onsubmit="event.preventDefault(); alert('धन्यवाद! आप subscribe हो गए हैं।');">
             <input type="email" placeholder="your@email.com" required>
-            <button type="submit" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
           </form>
         </div>
       </div>
-
     </div>
 
     <div class="footer-bottom">
@@ -2550,56 +3434,101 @@
 </footer>
 
 
-<!-- WHATSAPP -->
-<a href="https://wa.me/917011893028" target="_blank" rel="noopener noreferrer"
-   class="wa-float" aria-label="WhatsApp Chat">
+<!-- FLOATING BUTTONS -->
+<a href="https://wa.me/917011893028" target="_blank" class="wa-float">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<button class="back-top" id="backTop" aria-label="Back to Top" type="button">
+<button class="back-top" id="backTop" type="button">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
+
+</div><!-- END PAGE WRAPPER -->
 
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-  /* ========== SCROLL PROGRESS ========== */
-  var progressBar = document.getElementById("scrollProgress");
-  window.addEventListener("scroll", function(){
-    var scrollTop = window.scrollY;
-    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
-    var percent = (scrollTop / docHeight) * 100;
-    if(progressBar) progressBar.style.width = percent + "%";
-  });
+  /* ========= SPLASH CONTROL ========= */
+  var splashScreen = document.getElementById("splashScreen");
+  var pageWrapper = document.getElementById("pageWrapper");
+  var percentEl = document.getElementById("splashPercent");
+  var SPLASH_DURATION = 5000;
 
-  /* ========== MOBILE MENU ========== */
+  var startTime = Date.now();
+  var percentTimer = setInterval(function(){
+    var elapsed = Date.now() - startTime;
+    var percent = Math.min(Math.floor((elapsed / SPLASH_DURATION) * 100), 100);
+    if(percentEl) percentEl.textContent = percent + "%";
+    if(percent >= 100) clearInterval(percentTimer);
+  }, 50);
+
+  setTimeout(function(){
+    if(splashScreen) splashScreen.classList.add("hide");
+    if(pageWrapper) pageWrapper.classList.add("visible");
+    document.body.classList.remove("splash-active");
+    setTimeout(function(){
+      if(splashScreen) splashScreen.style.display = "none";
+      // Trigger animations after splash
+      checkReveal();
+      checkCounters();
+      checkRings();
+      checkGoal();
+    }, 700);
+  }, SPLASH_DURATION);
+
+  /* ========= SPLASH FLOATING DOTS ========= */
+  var splash = document.getElementById("splashScreen");
+  if(splash){
+    for(var i = 0; i < 20; i++){
+      var dot = document.createElement("div");
+      dot.className = "splash-dot";
+      var size = 3 + Math.random() * 5;
+      dot.style.width = size + "px";
+      dot.style.height = size + "px";
+      dot.style.left = Math.random() * 100 + "%";
+      dot.style.bottom = "-20px";
+      dot.style.animationDuration = (5 + Math.random() * 8) + "s";
+      dot.style.animationDelay = (Math.random() * 4) + "s";
+      splash.appendChild(dot);
+    }
+  }
+
+  /* ========= HERO PARTICLES ========= */
+  var particlesEl = document.getElementById("heroParticles");
+  if(particlesEl){
+    for(var i = 0; i < 30; i++){
+      var p = document.createElement("div");
+      p.className = "particle";
+      p.style.left = Math.random() * 100 + "%";
+      p.style.animationDuration = (8 + Math.random() * 12) + "s";
+      p.style.animationDelay = Math.random() * 10 + "s";
+      p.style.opacity = 0.3 + Math.random() * 0.5;
+      particlesEl.appendChild(p);
+    }
+  }
+
+  /* ========= MOBILE MENU ========= */
   var menuToggle = document.getElementById("menuToggle");
   var mobileNav = document.getElementById("mobileNav");
   if(menuToggle && mobileNav){
     menuToggle.addEventListener("click", function(){
       mobileNav.classList.toggle("active");
       menuToggle.classList.toggle("active");
-      menuToggle.setAttribute("aria-expanded",
-        mobileNav.classList.contains("active") ? "true" : "false");
     });
     mobileNav.querySelectorAll("a").forEach(function(link){
       link.addEventListener("click", function(){
         mobileNav.classList.remove("active");
         menuToggle.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  /* ========== TYPING EFFECT ========== */
+  /* ========= TYPING EFFECT ========= */
   var typedTextEl = document.getElementById("typedText");
   if(typedTextEl){
     var words = ["बदलाव की ओर", "बेहतर कल की ओर", "समाज सेवा की ओर"];
-    var wordIndex = 0;
-    var charIndex = 0;
-    var isDeleting = false;
-
+    var wordIndex = 0, charIndex = 0, isDeleting = false;
     function typeLoop(){
       var current = words[wordIndex];
       if(!isDeleting){
@@ -2623,10 +3552,10 @@ document.addEventListener("DOMContentLoaded", function(){
         setTimeout(typeLoop, 50);
       }
     }
-    setTimeout(typeLoop, 800);
+    setTimeout(typeLoop, SPLASH_DURATION + 1500);
   }
 
-  /* ========== HERO BG SLIDER ========== */
+  /* ========= HERO BG SLIDER ========= */
   var heroSlides = document.querySelectorAll(".hero-bg-slide");
   if(heroSlides.length > 1){
     var slideIndex = 0;
@@ -2637,33 +3566,36 @@ document.addEventListener("DOMContentLoaded", function(){
     }, 5000);
   }
 
-  /* ========== NUMBER COUNTERS ========== */
-  var counters = document.querySelectorAll("[data-count]");
-  var counterAnimated = new WeakSet();
+  /* ========= SCROLL PROGRESS ========= */
+  var progressBar = document.getElementById("scrollProgress");
+  window.addEventListener("scroll", function(){
+    var scrollTop = window.scrollY;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var percent = (scrollTop / docHeight) * 100;
+    if(progressBar) progressBar.style.width = percent + "%";
+  });
 
+  /* ========= COUNTERS ========= */
+  var counters = document.querySelectorAll("[data-count]");
+  var countersDone = new WeakSet();
   function animateCounter(el){
-    if(counterAnimated.has(el)) return;
-    counterAnimated.add(el);
+    if(countersDone.has(el)) return;
+    countersDone.add(el);
     var target = parseInt(el.getAttribute("data-count"), 10);
     var suffix = el.getAttribute("data-suffix") || "";
-    var duration = 1800;
+    var duration = 2000;
     var startTime = null;
-
     function step(ts){
       if(!startTime) startTime = ts;
       var progress = Math.min((ts - startTime) / duration, 1);
       var eased = 1 - Math.pow(1 - progress, 3);
       var current = Math.floor(eased * target);
       el.textContent = current.toLocaleString("en-IN") + suffix;
-      if(progress < 1){
-        requestAnimationFrame(step);
-      } else {
-        el.textContent = target.toLocaleString("en-IN") + suffix;
-      }
+      if(progress < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString("en-IN") + suffix;
     }
     requestAnimationFrame(step);
   }
-
   function checkCounters(){
     counters.forEach(function(el){
       var rect = el.getBoundingClientRect();
@@ -2672,58 +3604,91 @@ document.addEventListener("DOMContentLoaded", function(){
       }
     });
   }
-  window.addEventListener("scroll", checkCounters);
-  checkCounters();
 
-  /* ========== SCROLL REVEAL ========== */
-  var revealEls = document.querySelectorAll(".reveal");
-  function revealOnScroll(){
-    revealEls.forEach(function(el){
+  /* ========= PROGRESS RINGS ========= */
+  var rings = document.querySelectorAll(".ring-fill");
+  var ringsDone = new WeakSet();
+  function animateRing(el){
+    if(ringsDone.has(el)) return;
+    ringsDone.add(el);
+    var percent = parseInt(el.getAttribute("data-percent"), 10);
+    var circumference = 2 * Math.PI * 52;
+    var offset = circumference - (percent / 100) * circumference;
+    el.style.strokeDashoffset = offset;
+  }
+  function checkRings(){
+    rings.forEach(function(el){
+      var rect = el.getBoundingClientRect();
+      if(rect.top < window.innerHeight * 0.85) animateRing(el);
+    });
+  }
+
+  /* ========= GOAL ========= */
+  var goalFill = document.getElementById("goalFill");
+  var goalPercentEl = document.getElementById("goalPercent");
+  var goalDone = false;
+  function checkGoal(){
+    if(goalDone) return;
+    if(!goalFill) return;
+    var rect = goalFill.getBoundingClientRect();
+    if(rect.top < window.innerHeight * 0.85){
+      goalDone = true;
+      var percent = parseInt(goalFill.getAttribute("data-percent"), 10);
+      goalFill.style.width = percent + "%";
+      var current = 0;
+      var timer = setInterval(function(){
+        current++;
+        if(current >= percent){ current = percent; clearInterval(timer); }
+        if(goalPercentEl) goalPercentEl.textContent = current + "%";
+      }, 25);
+    }
+  }
+
+  /* ========= REVEAL ========= */
+  function checkReveal(){
+    document.querySelectorAll(".reveal").forEach(function(el){
       var rect = el.getBoundingClientRect();
       if(rect.top < window.innerHeight * 0.88){
         el.classList.add("visible");
       }
     });
   }
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
+  function checkAll(){
+    checkReveal();
+    checkCounters();
+    checkRings();
+    checkGoal();
+  }
+  window.addEventListener("scroll", checkAll);
 
-  /* ========== STORY SLIDER ========== */
+  /* ========= STORY SLIDER ========= */
   document.querySelectorAll("[data-story-slider]").forEach(function(slider){
     var track = slider.querySelector("[data-story-track]");
     var cards = track ? track.children : [];
     var total = cards.length;
     if(!total) return;
-
     var container = slider.parentElement;
     var prevBtn = container.querySelector("[data-story-prev]");
     var nextBtn = container.querySelector("[data-story-next]");
     var dotsWrap = container.querySelector("[data-story-dots]");
     var current = 0;
     var autoTimer = null;
-    var AUTO_DELAY = 7000;
-
     var dots = [];
+
     if(dotsWrap){
       dotsWrap.innerHTML = "";
       for(var i = 0; i < total; i++){
         var d = document.createElement("button");
         d.className = "story-dot" + (i === 0 ? " active" : "");
         d.type = "button";
-        d.setAttribute("aria-label", "Story " + (i+1));
-        (function(idx){
-          d.addEventListener("click", function(){ goTo(idx); });
-        })(i);
+        (function(idx){ d.addEventListener("click", function(){ goTo(idx); }); })(i);
         dotsWrap.appendChild(d);
         dots.push(d);
       }
     }
-
     function render(){
       track.style.transform = "translateX(" + (-current * 100) + "%)";
-      dots.forEach(function(dot, idx){
-        dot.classList.toggle("active", idx === current);
-      });
+      dots.forEach(function(dot, idx){ dot.classList.toggle("active", idx === current); });
     }
     function goTo(idx){
       current = (idx + total) % total;
@@ -2734,38 +3699,31 @@ document.addEventListener("DOMContentLoaded", function(){
     function prev(){ goTo(current - 1); }
     function restartAuto(){
       if(autoTimer) clearInterval(autoTimer);
-      autoTimer = setInterval(next, AUTO_DELAY);
+      autoTimer = setInterval(next, 7000);
     }
-
     if(nextBtn) nextBtn.addEventListener("click", next);
     if(prevBtn) prevBtn.addEventListener("click", prev);
-
-    slider.addEventListener("mouseenter", function(){
-      if(autoTimer) clearInterval(autoTimer);
-    });
+    slider.addEventListener("mouseenter", function(){ if(autoTimer) clearInterval(autoTimer); });
     slider.addEventListener("mouseleave", restartAuto);
 
-    var startX = 0, endX = 0, isDragging = false;
+    var startX = 0, endX = 0, dragging = false;
     slider.addEventListener("touchstart", function(e){
-      startX = e.touches[0].clientX;
-      isDragging = true;
+      startX = e.touches[0].clientX; dragging = true;
     }, {passive:true});
     slider.addEventListener("touchmove", function(e){
-      if(!isDragging) return;
-      endX = e.touches[0].clientX;
+      if(dragging) endX = e.touches[0].clientX;
     }, {passive:true});
     slider.addEventListener("touchend", function(){
-      if(!isDragging) return;
+      if(!dragging) return;
       var diff = startX - endX;
-      if(Math.abs(diff) > 50){ diff > 0 ? next() : prev(); }
-      isDragging = false;
+      if(Math.abs(diff) > 50) diff > 0 ? next() : prev();
+      dragging = false;
     });
-
     render();
     restartAuto();
   });
 
-  /* ========== BACK TO TOP ========== */
+  /* ========= BACK TOP ========= */
   var backTop = document.getElementById("backTop");
   if(backTop){
     window.addEventListener("scroll", function(){
