@@ -58,9 +58,8 @@ section[id],main[id]{scroll-margin-top:160px;}
 .intro-progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--gold));animation:introProgress 10s linear forwards;border-radius:10px;box-shadow:0 0 15px rgba(244,197,66,.6);}
 @keyframes introProgress{to{width:100%;}}
 
-/* ===== TOP FIXED (Ticker + Buttons) ===== */
-.top-fixed{position:fixed;top:0;left:0;right:0;z-index:9600;transition:transform .45s cubic-bezier(.2,.8,.2,1);}
-.top-fixed.hidden{transform:translateY(-100%);opacity:0;pointer-events:none;}
+/* ===== TOP FIXED ===== */
+.top-fixed{position:fixed;top:0;left:0;right:0;z-index:9600;}
 .top-ticker{height:42px;display:flex;align-items:center;background:linear-gradient(90deg,#043d27,#087443,#043d27);color:#fff;overflow:hidden;border-bottom:1px solid rgba(244,197,66,.2);}
 .ticker-label{flex:0 0 auto;display:flex;align-items:center;gap:7px;padding:0 16px;height:100%;background:linear-gradient(135deg,var(--gold),var(--yellow));color:#173a26;font-size:10px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;position:relative;z-index:3;}
 .ticker-label::after{content:"";position:absolute;right:-10px;top:0;bottom:0;width:20px;background:linear-gradient(90deg,var(--gold),transparent);}
@@ -72,20 +71,13 @@ section[id],main[id]{scroll-margin-top:160px;}
 .ticker-item{display:inline-flex;align-items:center;gap:8px;color:rgba(255,255,255,.92);}
 .ticker-item i{color:var(--gold);font-size:11px;}
 .ticker-item a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;font-weight:800;}
-
 .top-buttons{height:52px;display:flex;align-items:center;justify-content:center;gap:12px;background:rgba(2,28,18,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(244,197,66,.15);padding:0 16px;}
 .top-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:50px;font-size:12.5px;font-weight:900;letter-spacing:.03em;transition:.35s;white-space:nowrap;text-decoration:none;box-shadow:0 8px 22px rgba(0,0,0,.3);}
 .top-btn.donate{background:linear-gradient(135deg,#e63946,#c1121f);color:#fff;}
 .top-btn.donate:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(230,57,70,.6);}
 .top-btn.member{background:linear-gradient(135deg,#ffd83d,#f4c542);color:#173a26;}
 .top-btn.member:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(244,197,66,.6);}
-@media(max-width:900px){
-  .top-ticker{height:38px;}
-  .ticker-label{padding:0 12px;font-size:9px;gap:5px;}
-  .ticker-track{gap:38px;font-size:10.5px;padding-left:15px;animation-duration:55s;}
-  .top-buttons{height:auto;padding:8px;gap:8px;}
-  .top-btn{padding:9px 14px;font-size:11px;gap:5px;flex:1;justify-content:center;}
-}
+@media(max-width:900px){.top-ticker{height:38px;}.ticker-label{padding:0 12px;font-size:9px;gap:5px;}.ticker-track{gap:38px;font-size:10.5px;padding-left:15px;animation-duration:55s;}.top-buttons{height:auto;padding:8px;gap:8px;}.top-btn{padding:9px 14px;font-size:11px;gap:5px;flex:1;justify-content:center;}}
 body .site-header{top:94px;}
 @media(max-width:900px){body .site-header{top:98px;}}
 
@@ -145,6 +137,51 @@ body .site-header{top:94px;}
 .hero-segment span{display:block;height:100%;width:0;background:var(--gold);}
 .hero-segment.active span{animation:heroProgress 5.5s linear forwards;}
 @keyframes heroProgress{from{width:0;}to{width:100%;}}
+
+/* ===== ₹1 ORBIT SECTION ===== */
+.rupee-section{position:relative;padding:120px 0 60px;background:radial-gradient(circle at 15% 20%,rgba(8,116,67,.09),transparent 25%),radial-gradient(circle at 85% 80%,rgba(244,197,66,.1),transparent 28%),#f7fbf8;overflow:hidden;}
+.rupee-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:55px;align-items:center;}
+.rupee-copy h2{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(28px,3.8vw,48px);line-height:1.28;font-weight:900;color:var(--deep);}
+.rupee-copy h2 span{color:var(--green);}
+.rupee-copy p{margin-top:20px;color:var(--muted);line-height:1.9;font-size:15px;}
+.rupee-note{margin-top:22px;padding:16px 20px;border-radius:16px;border-left:4px solid var(--gold);background:rgba(244,197,66,.1);font-family:'Noto Sans Devanagari',sans-serif;font-size:13px;line-height:1.85;color:#3d4d44;font-weight:600;}
+.rupee-note i{color:var(--gold);margin-right:6px;}
+.quote-zone{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:min(560px,94vw);height:150px;pointer-events:none;z-index:30;display:flex;align-items:center;justify-content:center;}
+.quote-card{position:absolute;top:20px;left:50%;width:100%;padding:22px 30px 24px;border-radius:26px;background:linear-gradient(135deg,#fffdf5 0%,#fff9e6 60%,#fff5d4 100%);border:2.5px solid var(--gold);box-shadow:0 40px 80px rgba(139,99,18,.3);text-align:center;transform:translate(-50%,-40px) scale(.6);opacity:0;pointer-events:none;}
+.quote-card.show{animation:quoteDropUp 4s cubic-bezier(.2,.8,.2,1) forwards;}
+@keyframes quoteDropUp{0%{transform:translate(-50%,-60px) scale(.5) rotate(-6deg);opacity:0;}10%{transform:translate(-50%,10px) scale(1.08) rotate(2deg);opacity:1;}18%{transform:translate(-50%,0) scale(1);opacity:1;}82%{transform:translate(-50%,0) scale(1);opacity:1;}100%{transform:translate(-50%,-80px) scale(.7) rotate(-6deg);opacity:0;}}
+.quote-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:50px;background:linear-gradient(135deg,var(--gold),var(--yellow));color:#173a26;font-size:9.5px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px;}
+.quote-hi{font-family:'Noto Sans Devanagari',sans-serif;font-size:clamp(16px,2.1vw,20px);font-weight:900;color:#173a26;line-height:1.55;white-space:pre-line;}
+.quote-divider{width:60px;height:2px;margin:14px auto 12px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.quote-en{display:block;font-size:clamp(12.5px,1.6vw,14.5px);font-weight:700;color:#8b6312;line-height:1.65;font-style:italic;white-space:pre-line;}
+.rupee-visual{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:70px;}
+.rupee-stage{position:relative;width:min(500px,94vw);aspect-ratio:1;display:flex;align-items:center;justify-content:center;isolation:isolate;}
+.ripple{position:absolute;inset:0;border-radius:50%;border:1.5px solid rgba(8,116,67,.28);animation:rippleOut 4.4s ease-out infinite;}
+.ripple.gold{border-color:rgba(244,197,66,.4);}
+.ripple:nth-child(1){animation-delay:0s;}.ripple:nth-child(2){animation-delay:1.4s;}.ripple:nth-child(3){animation-delay:2.8s;}
+@keyframes rippleOut{0%{transform:scale(.32);opacity:.75;}100%{transform:scale(1.22);opacity:0;}}
+.rotating-ring{position:absolute;inset:8%;border-radius:50%;border:2px dashed rgba(244,197,66,.5);animation:rotateRing 22s linear infinite;}
+@keyframes rotateRing{to{transform:rotate(360deg);}}
+.sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:radial-gradient(circle,#fff,var(--gold));box-shadow:0 0 15px var(--gold);animation:sparkleFloat 3.5s ease-in-out infinite;z-index:7;pointer-events:none;}
+.sp1{top:12%;left:26%;}.sp2{top:26%;right:14%;animation-delay:.9s;}.sp3{bottom:20%;left:14%;animation-delay:1.8s;}.sp4{bottom:14%;right:26%;animation-delay:2.6s;}
+@keyframes sparkleFloat{0%,100%{transform:translateY(0) scale(0);opacity:0;}50%{transform:translateY(-18px) scale(1.5);opacity:1;}}
+.orbit{position:absolute;inset:0;animation:orbitSpin 34s linear infinite;pointer-events:none;z-index:6;}
+@keyframes orbitSpin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+.orbit-item{position:absolute;top:50%;left:50%;width:0;height:0;transform:rotate(var(--a)) translateY(-175px);}
+.orbit-item span{display:inline-block;padding:10px 18px;border-radius:50px;background:rgba(255,255,255,.98);border:1px solid rgba(8,116,67,.13);color:var(--green);font-family:'Noto Sans Devanagari',sans-serif;font-size:12px;font-weight:800;white-space:nowrap;box-shadow:0 10px 28px rgba(8,116,67,.18);animation:orbitCounter 34s linear infinite;}
+@keyframes orbitCounter{from{transform:translate(-50%,-50%) rotate(calc(-1 * var(--a))) rotate(0);}to{transform:translate(-50%,-50%) rotate(calc(-1 * var(--a))) rotate(-360deg);}}
+.rupee-core{position:relative;z-index:8;width:220px;height:220px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;background:radial-gradient(circle at 35% 28%,#fffbe0 0%,#ffd83d 35%,#e5b432 70%,#a87c17 100%);border:7px solid #f4c542;box-shadow:0 0 0 3px #8b6312,0 25px 60px rgba(139,99,18,.45),0 0 60px rgba(244,197,66,.5),inset 0 -10px 25px rgba(0,0,0,.18),inset 0 8px 20px rgba(255,255,255,.55);animation:rupeeFloat 3.5s ease-in-out infinite;transition:transform .3s;user-select:none;}
+.rupee-core:hover{transform:scale(1.04);}
+@keyframes rupeeFloat{50%{transform:translateY(-10px);}}
+.rupee-core strong{position:relative;z-index:3;font-family:'Yatra One',serif;font-size:88px;color:#3d2a04;line-height:1;text-shadow:0 2px 0 rgba(255,255,255,.5),0 -1px 0 rgba(0,0,0,.35),0 3px 6px rgba(0,0,0,.4);}
+.rupee-shine{position:absolute;inset:7px;border-radius:50%;overflow:hidden;pointer-events:none;z-index:5;mask:radial-gradient(circle,#000 95%,transparent 100%);-webkit-mask:radial-gradient(circle,#000 95%,transparent 100%);}
+.rupee-shine::before{content:"";position:absolute;top:-50%;left:-130%;width:70%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.9) 50%,transparent);transform:rotate(25deg);animation:rupeeShine 3.8s ease-in-out infinite;}
+@keyframes rupeeShine{0%,55%{left:-130%;}75%,100%{left:160%;}}
+.tap-hint{position:absolute;bottom:-38px;left:50%;transform:translateX(-50%);padding:8px 18px;border-radius:50px;background:linear-gradient(135deg,var(--green),var(--dark));color:#fff;font-family:'Noto Sans Devanagari',sans-serif;font-size:11.5px;font-weight:800;white-space:nowrap;box-shadow:0 12px 28px rgba(8,116,67,.4);animation:tapHintPulse 2s ease-in-out infinite;z-index:9;pointer-events:none;}
+.tap-hint i{margin-right:4px;color:var(--gold);}
+@keyframes tapHintPulse{0%,100%{transform:translateX(-50%) scale(1);}50%{transform:translateX(-50%) scale(1.06);}}
+@media(max-width:1100px){.rupee-layout{grid-template-columns:1fr;}.rupee-copy{text-align:center;max-width:750px;margin:auto;}}
+@media(max-width:600px){.rupee-visual{padding-top:200px;}.rupee-stage{width:min(380px,94vw);}.rupee-core{width:180px;height:180px;}.rupee-core strong{font-size:72px;}.orbit-item{transform:rotate(var(--a)) translateY(-135px);}.orbit-item span{padding:7px 12px;font-size:10px;}}
 
 /* ===== DAILY SUPPORTER ===== */
 .daily-marquee-wrap{position:relative;overflow:hidden;padding:24px 0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);margin-bottom:10px;}
@@ -251,7 +288,7 @@ body .site-header{top:94px;}
 .calc-cta{display:flex;justify-content:center;gap:14px;margin-top:34px;flex-wrap:wrap;}
 @media(max-width:640px){.calc-box{padding:60px 20px 28px;}.calc-badge{top:14px;left:50%;right:auto;transform:translateX(-50%);font-size:9px;padding:6px 12px;}.calc-amount-value{font-size:70px;}}
 
-/* ===== IMPACT NUMBERS — SLOW MOTION ===== */
+/* ===== IMPACT NUMBERS ===== */
 .impact-section{background:linear-gradient(135deg,#021c12 0%,#043d27 55%,#021c12 100%);color:#fff;padding:100px 0;position:relative;overflow:hidden;}
 .impact-section::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:28px 28px;opacity:.5;pointer-events:none;}
 .impact-section .section-title{color:#fff;}
@@ -462,10 +499,8 @@ footer{background:linear-gradient(160deg,#021c12 0%,#043d27 60%,#021c12 100%);co
 .donate-popup h3 span{color:#e63946;}
 .popup-orbit-wrap{position:relative;width:180px;height:180px;margin:0 auto 24px;}
 .popup-orbit-ring{position:absolute;inset:0;border-radius:50%;border:2px dashed rgba(244,197,66,.5);animation:rotateRing 15s linear infinite;}
-@keyframes rotateRing{to{transform:rotate(360deg);}}
 .popup-orbit-dot{position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 28%,#fffbe0,#ffd83d 40%,#e5b432 80%);border:3px solid #f4c542;box-shadow:0 0 20px rgba(244,197,66,.9);}
 .popup-rupee-core{position:absolute;inset:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 35% 28%,#fffbe0 0%,#ffd83d 35%,#e5b432 70%,#a87c17 100%);border:5px solid #f4c542;box-shadow:0 0 0 3px #8b6312,0 15px 40px rgba(139,99,18,.4),0 0 40px rgba(244,197,66,.6),inset 0 -8px 20px rgba(0,0,0,.18),inset 0 6px 16px rgba(255,255,255,.5);animation:rupeeFloat 3s ease-in-out infinite;}
-@keyframes rupeeFloat{50%{transform:translateY(-6px);}}
 .popup-rupee-core strong{font-family:'Yatra One',serif;font-size:56px;color:#3d2a04;line-height:1;text-shadow:0 2px 0 rgba(255,255,255,.5),0 -1px 0 rgba(0,0,0,.35),0 3px 6px rgba(0,0,0,.4);}
 .donate-popup-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:18px 24px;background:linear-gradient(135deg,#e63946,#c1121f);color:#fff;border:0;border-radius:50px;font-family:'Poppins',sans-serif;font-size:15px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;box-shadow:0 18px 40px rgba(230,57,70,.45);animation:redPulse 2s ease-in-out infinite;text-decoration:none;}
 @keyframes redPulse{0%,100%{box-shadow:0 18px 40px rgba(230,57,70,.45),0 0 0 0 rgba(230,57,70,.6);}50%{box-shadow:0 22px 50px rgba(230,57,70,.6),0 0 0 16px rgba(230,57,70,0);}}
@@ -489,7 +524,7 @@ footer{background:linear-gradient(160deg,#021c12 0%,#043d27 60%,#021c12 100%);co
 
 <body>
 
-<!-- INTRO SCREEN (10 sec) -->
+<!-- INTRO SCREEN -->
 <div class="intro-screen" id="introScreen">
   <div class="intro-bg"><div class="intro-orb one"></div><div class="intro-orb two"></div></div>
   <div class="intro-content">
@@ -504,7 +539,7 @@ footer{background:linear-gradient(160deg,#021c12 0%,#043d27 60%,#021c12 100%);co
 
 <div class="scroll-progress" id="scrollProgress"></div>
 
-<!-- TOP FIXED: Ticker + 2 Buttons -->
+<!-- TOP FIXED: Ticker + Buttons -->
 <div class="top-fixed" id="topFixed">
   <div class="top-ticker">
     <div class="ticker-label"><i class="fa-solid fa-bullhorn"></i> Latest</div>
@@ -618,6 +653,53 @@ footer{background:linear-gradient(160deg,#021c12 0%,#043d27 60%,#021c12 100%);co
       <div class="hero-segment"><span></span></div>
     </div>
   </div></div></div>
+</section>
+
+<!-- ₹1 ORBIT SECTION -->
+<section class="rupee-section" id="rupee">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-kicker"><i class="fa-solid fa-heart"></i> Small Support • Big Hope</div>
+      <h2 class="section-title">आपका छोटा सा साथ…<br><span>किसी की बड़ी मुस्कान 😊</span></h2>
+      <div class="gold-line"></div>
+    </div>
+    <div class="rupee-layout">
+      <div class="rupee-copy reveal-left">
+        <h2>एक छोटी शुरुआत…<br><span>एक बड़ा भाव।</span></h2>
+        <p>हर सहयोग की अपनी कहानी होती है। आपका छोटा सा साथ किसी बड़े प्रयास का हिस्सा बन सकता है — शिक्षा, स्वास्थ्य, सहयोग, उम्मीद और मुस्कान के साथ।</p>
+        <div class="rupee-note"><i class="fa-solid fa-quote-left"></i> आपका ₹1 अकेले छोटा लग सकता है — लेकिन जब हज़ारों लोग साथ चलते हैं, तो यह एक बच्चे की पूरी स्कूल-किट बन जाता है।</div>
+      </div>
+      <div class="rupee-visual">
+        <div class="quote-zone">
+          <div class="quote-card" id="quoteCard">
+            <div class="quote-badge"><i class="fa-solid fa-sparkles"></i> Thought of the Tap</div>
+            <div class="quote-hi" id="quoteHi">एक ₹1 छोटा लग सकता है,
+पर किसी के लिए यह पूरी दुनिया है।</div>
+            <div class="quote-divider"></div>
+            <div class="quote-en" id="quoteEn">₹1 may seem small,
+but for someone it's their whole world.</div>
+          </div>
+        </div>
+        <div class="rupee-stage" id="rupeeStage">
+          <div class="ripple"></div><div class="ripple gold"></div><div class="ripple"></div>
+          <div class="rotating-ring"></div>
+          <div class="sparkle sp1"></div><div class="sparkle sp2"></div><div class="sparkle sp3"></div><div class="sparkle sp4"></div>
+          <div class="orbit">
+            <div class="orbit-item" style="--a:0deg"><span>शिक्षा</span></div>
+            <div class="orbit-item" style="--a:72deg"><span>स्वास्थ्य</span></div>
+            <div class="orbit-item" style="--a:144deg"><span>सहयोग</span></div>
+            <div class="orbit-item" style="--a:216deg"><span>उम्मीद</span></div>
+            <div class="orbit-item" style="--a:288deg"><span>मुस्कान</span></div>
+          </div>
+          <div class="rupee-core" id="rupeeCoin" role="button" tabindex="0" aria-label="Tap ₹1">
+            <strong>₹1</strong>
+            <div class="rupee-shine"></div>
+          </div>
+          <div class="tap-hint" id="tapHint"><i class="fa-solid fa-hand-pointer"></i> Tap करके देखें</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- SMILE STRIP -->
@@ -747,7 +829,7 @@ footer{background:linear-gradient(160deg,#021c12 0%,#043d27 60%,#021c12 100%);co
   </div>
 </section>
 
-<!-- IMPACT IN NUMBERS (slow motion) -->
+<!-- IMPACT IN NUMBERS -->
 <section class="impact-section" id="impact">
   <svg width="0" height="0" style="position:absolute">
     <defs>
@@ -1203,6 +1285,46 @@ document.addEventListener("DOMContentLoaded", function(){
   showHero(0);
   setInterval(() => showHero(hi + 1), 5500);
 
+  /* ₹1 ORBIT QUOTES */
+  (function(){
+    const quotes = [
+      {hi:"एक ₹1 छोटा लग सकता है,\nपर किसी के लिए यह पूरी दुनिया है।",en:"₹1 may seem small,\nbut for someone it's their whole world."},
+      {hi:"जब आप देते हैं,\nतब आप सबसे अमीर होते हैं।",en:"You are richest when you give."},
+      {hi:"मुस्कान की कीमत नहीं होती,\nबस एक ₹1 चाहिए।",en:"A smile is priceless,\nit just needs ₹1."},
+      {hi:"देने वाला कभी खाली नहीं होता।",en:"The giver never becomes empty."},
+      {hi:"आपका छोटा कदम,\nकिसी का पूरा सपना।",en:"Your small step,\nsomeone's whole dream."}
+    ];
+    const coin = document.getElementById("rupeeCoin");
+    const card = document.getElementById("quoteCard");
+    const hiEl = document.getElementById("quoteHi");
+    const enEl = document.getElementById("quoteEn");
+    const hint = document.getElementById("tapHint");
+    if(!coin || !card) return;
+    let last = -1;
+    coin.addEventListener("click", () => {
+      let idx;
+      do { idx = Math.floor(Math.random() * quotes.length); } while(idx === last && quotes.length > 1);
+      last = idx;
+      hiEl.textContent = quotes[idx].hi;
+      enEl.textContent = quotes[idx].en;
+      card.classList.remove("show");
+      void card.offsetWidth;
+      card.classList.add("show");
+      if(hint) hint.style.opacity = "0";
+      if(typeof confetti !== "undefined"){
+        const r = coin.getBoundingClientRect();
+        confetti({
+          particleCount: 60, spread: 90,
+          origin: { x: (r.left + r.width/2) / window.innerWidth, y: (r.top + r.height/2) / window.innerHeight },
+          colors: ["#f4c542","#ffd83d","#087443","#fff"]
+        });
+      }
+    });
+    coin.addEventListener("keydown", e => {
+      if(e.key === "Enter" || e.key === " "){ e.preventDefault(); coin.click(); }
+    });
+  })();
+
   /* SLIDERS */
   function createSlider(cfg){
     const track = document.getElementById(cfg.track);
@@ -1420,7 +1542,7 @@ document.addEventListener("DOMContentLoaded", function(){
   if(gw) gw.addEventListener("change", updateGoal);
   updateGoal();
 
-  /* COUNTERS + RINGS (SLOW MOTION 4s) */
+  /* COUNTERS + RINGS */
   function animCount(el){
     const t = parseInt(el.dataset.count, 10);
     const p = el.dataset.prefix || "";
@@ -1556,25 +1678,15 @@ document.addEventListener("DOMContentLoaded", function(){
   const yr = document.getElementById("currentYear");
   if(yr) yr.textContent = new Date().getFullYear();
 
-  /* POPUP after 10 sec */
+  /* POPUP — 12 seconds after page load (2s after intro ends) */
   const popup = document.getElementById("donatePopup");
   const popupClose = document.getElementById("donatePopupClose");
   if(popup){
-    let shouldShow = true;
-    try{
-      const lastShown = localStorage.getItem("popupLastShown");
-      if(lastShown){
-        const diff = Date.now() - parseInt(lastShown, 10);
-        if(diff < 60 * 60 * 1000){ shouldShow = false; }
-      }
-    }catch(e){}
-    if(shouldShow){
-      setTimeout(() => {
-        popup.classList.add("show");
-        document.body.classList.add("popup-active");
-        try{ localStorage.setItem("popupLastShown", Date.now().toString()); }catch(e){}
-      }, 10000);
-    }
+    setTimeout(() => {
+      popup.classList.add("show");
+      document.body.classList.add("popup-active");
+    }, 12000);
+
     const closePopup = () => {
       popup.classList.remove("show");
       document.body.classList.remove("popup-active");
