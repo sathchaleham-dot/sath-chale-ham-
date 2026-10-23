@@ -1,1745 +1,628 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About Us | हमारे बारे में - साथ चले हम फाउंडेशन</title>
-
-    <meta name="description"
-          content="साथ चले हम फाउंडेशन - About Us, Mission, Vision और Our Values. साथ चले हम, बदलाव की ओर।">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Mukta:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <style>
-        *{
-            box-sizing:border-box;
-            margin:0;
-            padding:0;
-        }
-
-        html{
-            scroll-behavior:smooth;
-        }
-
-        body{
-            font-family:'Mukta','Poppins',sans-serif;
-            background:#f8fafc;
-            color:#111827;
-            line-height:1.6;
-        }
-
-        :root{
-            --navy:#001254;
-            --deep-blue:#001b5e;
-            --blue:#073b9b;
-            --orange:#f37021;
-            --deep-orange:#d95700;
-            --red:#d60000;
-            --white:#fff;
-            --text:#111827;
-            --muted:#64748b;
-            --border:#e2e8f0;
-        }
-
-        a{
-            text-decoration:none;
-        }
-
-        /* =========================================
-           HEADER
-        ========================================= */
-
-        .main-header{
-            position:sticky;
-            top:0;
-            z-index:9999;
-            background:rgba(255,255,255,.97);
-            backdrop-filter:blur(18px);
-            border-bottom:1px solid rgba(243,112,33,.18);
-            box-shadow:0 8px 30px rgba(0,18,84,.08);
-        }
-
-        .header-container{
-            max-width:1280px;
-            margin:auto;
-            padding:12px 22px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:25px;
-        }
-
-        .brand{
-            display:flex;
-            align-items:center;
-            gap:12px;
-            min-width:0;
-            color:inherit;
-        }
-
-        .brand-logo{
-            width:58px;
-            height:58px;
-            object-fit:contain;
-            flex-shrink:0;
-            filter:drop-shadow(0 5px 10px rgba(0,18,84,.15));
-        }
-
-        .brand-name{
-            color:var(--navy);
-            font-family:'Poppins',sans-serif;
-            font-size:1.25rem;
-            line-height:1.1;
-            font-weight:900;
-            letter-spacing:-.4px;
-        }
-
-        .brand-tagline{
-            margin-top:4px;
-            color:var(--orange);
-            font-size:.84rem;
-            font-weight:800;
-        }
-
-        /* =========================================
-           DESKTOP NAV
-        ========================================= */
-
-        .desktop-nav{
-            display:flex;
-            align-items:center;
-            gap:5px;
-        }
-
-        .desktop-nav a{
-            color:#1e293b;
-            font-family:'Poppins',sans-serif;
-            font-size:.82rem;
-            font-weight:700;
-            padding:10px 12px;
-            border-radius:10px;
-            transition:.3s ease;
-        }
-
-        .desktop-nav a:hover{
-            color:var(--orange);
-            background:#fff7ed;
-        }
-
-        .desktop-nav .active{
-            color:var(--orange);
-            background:#fff7ed;
-        }
-
-        .desktop-donate{
-            color:#fff !important;
-            background:linear-gradient(135deg,#d60000,#f37021) !important;
-            padding:11px 19px !important;
-            border-radius:999px !important;
-            margin-left:4px;
-            box-shadow:0 8px 22px rgba(214,0,0,.25);
-        }
-
-        @keyframes donatePulse{
-            0%{
-                transform:scale(1);
-                box-shadow:0 0 0 0 rgba(214,0,0,.65);
-            }
-
-            50%{
-                transform:scale(1.06);
-                box-shadow:0 0 22px 7px rgba(214,0,0,.28);
-            }
-
-            100%{
-                transform:scale(1);
-                box-shadow:0 0 0 0 rgba(214,0,0,0);
-            }
-        }
-
-        .donate-pulse{
-            animation:donatePulse 1.8s infinite;
-        }
-
-        /* =========================================
-           MOBILE MENU
-        ========================================= */
-
-        .mobile-menu-button{
-            display:none;
-            border:0;
-            background:transparent;
-            color:var(--navy);
-            font-size:1.7rem;
-            cursor:pointer;
-        }
-
-        .mobile-menu{
-            display:none;
-            background:#fff;
-            border-top:1px solid #f1f5f9;
-            box-shadow:0 15px 30px rgba(0,18,84,.10);
-            padding:14px 20px 22px;
-        }
-
-        .mobile-menu.show{
-            display:block;
-        }
-
-        .mobile-menu a{
-            display:block;
-            color:#1e293b;
-            font-family:'Poppins',sans-serif;
-            font-weight:700;
-            padding:12px 8px;
-            border-bottom:1px solid #f1f5f9;
-        }
-
-        .mobile-menu a:hover{
-            color:var(--orange);
-        }
-
-        .mobile-donate{
-            margin-top:14px;
-            text-align:center;
-            color:#fff !important;
-            background:linear-gradient(135deg,#d60000,#f37021);
-            border-radius:999px;
-            border:0 !important;
-            padding:13px !important;
-        }
-
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .about-hero{
-            position:relative;
-            overflow:hidden;
-            padding:95px 20px;
-            color:#fff;
-
-            background:
-                radial-gradient(
-                    circle at 15% 20%,
-                    rgba(243,112,33,.35),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 85% 70%,
-                    rgba(7,59,155,.35),
-                    transparent 35%
-                ),
-                linear-gradient(
-                    135deg,
-                    #001254,
-                    #001b5e,
-                    #111827
-                );
-        }
-
-        .about-hero::before{
-            content:"";
-            position:absolute;
-            inset:0;
-
-            background-image:
-                radial-gradient(
-                    rgba(255,255,255,.12) 1px,
-                    transparent 1px
-                );
-
-            background-size:22px 22px;
-            opacity:.5;
-        }
-
-        .hero-content{
-            position:relative;
-            z-index:2;
-            max-width:1000px;
-            margin:auto;
-            text-align:center;
-        }
-
-        .hero-badge{
-            display:inline-block;
-            padding:8px 18px;
-            border-radius:999px;
-            background:rgba(243,112,33,.15);
-            border:1px solid rgba(243,112,33,.4);
-            color:#fdba74;
-            font-family:'Poppins',sans-serif;
-            font-size:.75rem;
-            font-weight:800;
-            letter-spacing:1px;
-        }
-
-        .hero-title{
-            margin:20px 0 10px;
-            font-family:'Poppins',sans-serif;
-            font-size:clamp(2rem,5vw,4rem);
-            line-height:1.1;
-            font-weight:900;
-        }
-
-        .hero-title span{
-            color:#fb923c;
-        }
-
-        .hero-subtitle{
-            max-width:750px;
-            margin:auto;
-            color:#fed7aa;
-            font-size:1.1rem;
-            font-weight:700;
-        }
-
-        /* =========================================
-           MAIN
-        ========================================= */
-
-        .main-content{
-            max-width:1180px;
-            margin:auto;
-            padding:80px 20px;
-        }
-
-        /* =========================================
-           SECTION TITLE
-        ========================================= */
-
-        .section-title{
-            text-align:center;
-            margin-bottom:45px;
-        }
-
-        .section-title h2{
-            color:var(--navy);
-            font-family:'Poppins',sans-serif;
-            font-size:clamp(1.7rem,4vw,2.7rem);
-            line-height:1.2;
-            font-weight:900;
-        }
-
-        .section-title p{
-            margin-top:8px;
-            color:var(--orange);
-            font-weight:800;
-            font-size:.9rem;
-        }
-
-        .section-line{
-            width:75px;
-            height:4px;
-            margin:14px auto 0;
-            border-radius:999px;
-            background:linear-gradient(
-                90deg,
-                var(--navy),
-                var(--orange)
-            );
-        }
-
-        /* =========================================
-           ABOUT CARD
-        ========================================= */
-
-        .about-card{
-            position:relative;
-            overflow:hidden;
-            background:#fff;
-            border-radius:28px;
-            padding:45px;
-            border:1px solid var(--border);
-            box-shadow:0 20px 55px rgba(0,18,84,.08);
-        }
-
-        .about-card::after{
-            content:"";
-            position:absolute;
-            right:-80px;
-            top:-80px;
-            width:220px;
-            height:220px;
-            border-radius:50%;
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(243,112,33,.12),
-                    rgba(7,59,155,.08)
-                );
-        }
-
-        .about-heading{
-            display:flex;
-            align-items:center;
-            gap:16px;
-            margin-bottom:30px;
-        }
-
-        .about-icon{
-            width:58px;
-            height:58px;
-            flex-shrink:0;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            color:#fff;
-            font-size:1.5rem;
-            border-radius:17px;
-            background:linear-gradient(
-                135deg,
-                var(--orange),
-                var(--deep-orange)
-            );
-            box-shadow:0 12px 25px rgba(243,112,33,.22);
-        }
-
-        .about-heading h2{
-            color:var(--navy);
-            font-size:1.8rem;
-            font-weight:900;
-        }
-
-        .heading-line{
-            width:55px;
-            height:4px;
-            margin-top:5px;
-            background:var(--orange);
-            border-radius:999px;
-        }
-
-        .about-text{
-            color:#334155;
-            font-size:1.05rem;
-            line-height:1.9;
-        }
-
-        .about-text p{
-            margin-bottom:18px;
-        }
-
-        .highlight-box{
-            padding:18px 20px;
-            border-left:5px solid var(--orange);
-            border-radius:12px;
-            background:linear-gradient(
-                90deg,
-                #fff7ed,
-                #fff
-            );
-            color:#9a3412;
-            font-weight:800;
-        }
-
-        .english-text{
-            color:#64748b;
-            font-size:.95rem;
-            font-style:italic;
-        }
-
-        .english-highlight{
-            color:#334155;
-            font-weight:700;
-            font-style:normal;
-            padding:18px;
-            border-left:5px solid #94a3b8;
-            background:#f8fafc;
-            border-radius:12px;
-        }
-
-        /* =========================================
-           MISSION / VISION
-        ========================================= */
-
-        .mission-vision{
-            margin-top:90px;
-        }
-
-        .mv-grid{
-            display:grid;
-            grid-template-columns:repeat(2,1fr);
-            gap:28px;
-        }
-
-        .mv-card{
-            padding:38px;
-            border-radius:28px;
-            color:#fff;
-            min-height:500px;
-            display:flex;
-            flex-direction:column;
-            justify-content:space-between;
-            box-shadow:0 22px 55px rgba(0,18,84,.14);
-        }
-
-        .mission-card{
-            background:linear-gradient(
-                135deg,
-                #f37021,
-                #d95700
-            );
-        }
-
-        .vision-card{
-            background:linear-gradient(
-                135deg,
-                #001254,
-                #111827
-            );
-        }
-
-        .mv-top{
-            display:flex;
-            align-items:center;
-            gap:15px;
-            margin-bottom:25px;
-        }
-
-        .mv-icon{
-            width:55px;
-            height:55px;
-            border-radius:16px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            background:rgba(255,255,255,.14);
-            border:1px solid rgba(255,255,255,.18);
-            font-size:1.5rem;
-        }
-
-        .mv-card h3{
-            font-family:'Poppins',sans-serif;
-            font-size:1.45rem;
-            font-weight:800;
-        }
-
-        .mv-main{
-            padding:20px;
-            border-radius:18px;
-            background:rgba(255,255,255,.10);
-            border:1px solid rgba(255,255,255,.16);
-            line-height:1.8;
-            font-weight:700;
-        }
-
-        .mv-secondary{
-            margin-top:20px;
-            color:rgba(255,255,255,.85);
-            line-height:1.8;
-            font-size:.92rem;
-        }
-
-        .mv-english{
-            padding-top:20px;
-            margin-top:25px;
-            border-top:1px solid rgba(255,255,255,.20);
-            color:rgba(255,255,255,.75);
-            font-size:.85rem;
-            line-height:1.8;
-            font-style:italic;
-        }
-
-        /* =========================================
-           VALUES
-        ========================================= */
-
-        .values-section{
-            margin-top:90px;
-        }
-
-        .values-grid{
-            display:grid;
-            grid-template-columns:repeat(3,1fr);
-            gap:22px;
-        }
-
-        .value-card{
-            position:relative;
-            background:#fff;
-            padding:28px;
-            border-radius:22px;
-            border:1px solid var(--border);
-            box-shadow:0 10px 30px rgba(0,18,84,.06);
-            transition:.35s ease;
-            overflow:hidden;
-        }
-
-        .value-card::before{
-            content:"";
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:4px;
-            background:linear-gradient(
-                90deg,
-                var(--navy),
-                var(--orange)
-            );
-        }
-
-        .value-card:hover{
-            transform:translateY(-7px);
-            box-shadow:0 20px 40px rgba(0,18,84,.12);
-            border-color:rgba(243,112,33,.35);
-        }
-
-        .value-icon{
-            width:52px;
-            height:52px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            border-radius:15px;
-            background:#fff7ed;
-            color:var(--orange);
-            font-size:1.3rem;
-            margin-bottom:18px;
-        }
-
-        .value-card h3{
-            color:var(--navy);
-            font-size:1.1rem;
-            font-weight:900;
-        }
-
-        .value-card .hindi{
-            margin-top:8px;
-            color:var(--orange);
-            font-weight:800;
-            font-size:.9rem;
-            line-height:1.6;
-        }
-
-        .value-card .english{
-            margin-top:7px;
-            color:#64748b;
-            font-size:.8rem;
-            font-style:italic;
-            line-height:1.6;
-        }
-
-        .value-seven{
-            grid-column:1/-1;
-            max-width:600px;
-            width:100%;
-            margin:auto;
-        }
-
-        /* =========================================
-           HOME STYLE FOOTER
-        ========================================= */
-
-        footer{
-            background:var(--navy);
-            color:#fff;
-        }
-
-        .footer-main{
-            padding:70px 0 45px;
-        }
-
-        .container{
-            max-width:1180px;
-            margin:auto;
-            padding:0 20px;
-        }
-
-        .footer-grid{
-            display:grid;
-            grid-template-columns:1.5fr 1fr 1fr;
-            gap:45px;
-        }
-
-        .footer-brand{
-            max-width:380px;
-        }
-
-        .footer-logo{
-            width:75px;
-            height:75px;
-            object-fit:contain;
-            margin-bottom:18px;
-            border-radius:50%;
-        }
-
-        .footer-brand h3{
-            font-family:'Poppins',sans-serif;
-            font-size:1.35rem;
-            margin-bottom:5px;
-        }
-
-        .footer-brand .hi-tagline{
-            color:#ff963e;
-            font-size:1rem;
-            font-weight:700;
-        }
-
-        .footer-brand .en-tagline{
-            opacity:.75;
-            font-family:'Poppins',sans-serif;
-            font-size:.82rem;
-            margin-top:4px;
-        }
-
-        .footer-column h4{
-            font-family:'Poppins',sans-serif;
-            font-size:1rem;
-            margin-bottom:20px;
-            color:#ff963e;
-        }
-
-        .footer-column ul{
-            list-style:none;
-        }
-
-        .footer-column li{
-            margin-bottom:9px;
-        }
-
-        .footer-column a{
-            color:rgba(255,255,255,.76);
-            font-size:.9rem;
-            transition:.3s;
-        }
-
-        .footer-column a:hover{
-            color:#ff963e;
-            padding-left:4px;
-        }
-
-        .social-heading{
-            font-family:'Poppins',sans-serif;
-            font-size:.95rem;
-            font-weight:700;
-            margin-top:25px;
-            margin-bottom:13px;
-        }
-
-        .social-icons{
-            display:flex;
-            gap:11px;
-        }
-
-        .social-icons a{
-            width:43px;
-            height:43px;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            border-radius:50%;
-            background:rgba(255,255,255,.1);
-            color:#fff;
-            font-size:1rem;
-            transition:.3s;
-        }
-
-        .social-icons a:hover{
-            background:var(--orange);
-            transform:translateY(-4px);
-            padding-left:0;
-        }
-
-        .footer-bottom{
-            border-top:1px solid rgba(255,255,255,.13);
-            padding:22px 0;
-            text-align:center;
-            color:rgba(255,255,255,.72);
-            font-size:.82rem;
-        }
-
-        .footer-bottom strong{
-            color:#fff;
-        }
-
-        /* =========================================
-           RESPONSIVE
-        ========================================= */
-
-        @media(max-width:1100px){
-
-            .desktop-nav{
-                gap:0;
-            }
-
-            .desktop-nav a{
-                padding:9px 8px;
-                font-size:.76rem;
-            }
-        }
-
-        @media(max-width:850px){
-
-            .desktop-nav{
-                display:none;
-            }
-
-            .mobile-menu-button{
-                display:block;
-            }
-
-            .header-container{
-                padding:10px 16px;
-            }
-
-            .brand-name{
-                font-size:1rem;
-            }
-
-            .brand-tagline{
-                font-size:.7rem;
-            }
-
-            .brand-logo{
-                width:50px;
-                height:50px;
-            }
-
-            .mv-grid{
-                grid-template-columns:1fr;
-            }
-
-            .values-grid{
-                grid-template-columns:repeat(2,1fr);
-            }
-
-            .footer-grid{
-                grid-template-columns:1fr 1fr;
-            }
-
-            .footer-brand{
-                grid-column:1/-1;
-            }
-        }
-
-        @media(max-width:600px){
-
-            .about-hero{
-                padding:65px 16px;
-            }
-
-            .main-content{
-                padding:55px 15px;
-            }
-
-            .about-card{
-                padding:25px 20px;
-                border-radius:22px;
-            }
-
-            .about-heading h2{
-                font-size:1.35rem;
-            }
-
-            .about-icon{
-                width:48px;
-                height:48px;
-                font-size:1.2rem;
-            }
-
-            .about-text{
-                font-size:.98rem;
-            }
-
-            .mv-card{
-                padding:25px 20px;
-                min-height:auto;
-                border-radius:22px;
-            }
-
-            .values-grid{
-                grid-template-columns:1fr;
-            }
-
-            .value-seven{
-                grid-column:auto;
-            }
-
-            .footer-grid{
-                grid-template-columns:1fr;
-                gap:30px;
-            }
-
-            .footer-brand{
-                grid-column:auto;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Impact | Sath Chale Hum Foundation</title>
+
+<!-- Google Fonts: Premium Typography -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     PREMIUM DESIGN SYSTEM & VARIABLES
+     ═══════════════════════════════════════════════════════════ */
+  :root {
+    --bg-dark: #050B14;
+    --bg-card: rgba(15, 23, 42, 0.6);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --gold: #FBBF24;
+    --gold-light: #FCD34D;
+    --gold-dark: #D97706;
+    --emerald: #10B981;
+    --text-main: #F8FAFC;
+    --text-muted: #94A3B8;
+    --glow-gold: 0 0 30px rgba(251, 191, 36, 0.3);
+    
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --font-hindi: 'Tiro Devanagari Hindi', serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 80px 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  /* Premium Mesh Background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -20%; left: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    bottom: -20%; right: -10%;
+    width: 70vw; height: 70vw;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Common Section Title */
+  .sec-header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .sec-header .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    border-radius: 100px;
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    box-shadow: var(--glow-gold);
+  }
+  .sec-header h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  .sec-header h2 em {
+    font-style: normal;
+    font-family: var(--font-hindi);
+    color: var(--gold);
+    display: block;
+    margin-top: 8px;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     1. IMPACT CALCULATOR
+     ═══════════════════════════════════════════════════════════ */
+  .calc-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--border-glass);
+    border-radius: 32px;
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+
+  /* Left Side: Controls */
+  .calc-controls {
+    padding: 50px;
+    border-right: 1px solid var(--border-glass);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .premium-select-box {
+    position: relative;
+  }
+  .premium-select-box label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .custom-select {
+    width: 100%;
+    appearance: none;
+    padding: 18px 24px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    color: #fff;
+    font-family: var(--font-hindi);
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+  }
+  .custom-select:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.15);
+  }
+  .custom-select option { background: #0F172A; color: #fff; padding: 10px; }
+  .select-icon {
+    position: absolute;
+    right: 24px; top: 55px;
+    color: var(--gold);
+    pointer-events: none;
+    font-size: 1.2rem;
+  }
+
+  /* Premium Slider & Amount */
+  .premium-slider-box {
+    position: relative;
+  }
+  .slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+  }
+  .slider-header p {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .amount-display-wrap {
+    position: relative;
+  }
+  /* Amount Font Preserved as Requested (Extra Bold & Premium) */
+  .slider-header h1 {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 800; /* Extra Bold */
+    color: var(--gold);
+    line-height: 1;
+    text-shadow: var(--glow-gold);
+    transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.3, 1.4);
+  }
+  .slider-header h1.pulse-amt {
+    transform: scale(1.1);
+  }
+  
+  /* New: 80G Badge */
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--emerald);
+    background: rgba(16, 185, 129, 0.1);
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(16, 185, 129, 0.2);
+  }
+
+  /* Custom Slider with Progress Fill */
+  .slider-track-wrapper {
+    position: relative;
+    height: 8px;
+    margin: 25px 0 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .slider-fill {
+    position: absolute;
+    top: 0; left: 0; height: 100%;
+    width: 0%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.6);
+    pointer-events: none;
+    transition: width 0.1s;
+  }
+  .custom-slider {
+    -webkit-appearance: none;
+    position: absolute;
+    top: -12px; left: 0;
+    width: 100%;
+    height: 32px;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .custom-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fff, #E2E8F0);
+    border: 4px solid var(--gold);
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.8), 0 10px 20px rgba(0,0,0,0.4);
+    cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .custom-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(251, 191, 36, 1), 0 10px 20px rgba(0,0,0,0.5);
+  }
+
+  /* New: Quick Amount Chips */
+  .quick-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+  }
+  .chip {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-glass);
+    border-radius: 100px;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .chip:hover {
+    background: rgba(251, 191, 36, 0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+  .chip.active {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+  }
+
+  .slider-ticks {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .slider-ticks span.active { color: var(--gold); font-weight: 800; }
+
+  /* Right Side: Live Preview */
+  .calc-preview {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at center, rgba(251, 191, 36, 0.05), transparent 70%);
+    position: relative;
+  }
+  .preview-icon {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.3);
+    display: grid; place-items: center;
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 30px;
+    box-shadow: 0 0 40px rgba(251, 191, 36, 0.2), inset 0 0 20px rgba(251, 191, 36, 0.1);
+    animation: floatIcon 3s ease-in-out infinite;
+  }
+  @keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .preview-text-hi {
+    font-family: var(--font-hindi);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .preview-text-hi strong { color: var(--gold); font-size: 1.6rem; }
+  .preview-text-en {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     RESPONSIVE DESIGN
+     ═══════════════════════════════════════════════════════════ */
+  @media (max-width: 992px) {
+    .calc-wrapper { grid-template-columns: 1fr; }
+    .calc-controls { border-right: none; border-bottom: 1px solid var(--border-glass); padding: 30px; }
+    .calc-preview { padding: 40px 30px; }
+  }
+  @media (max-width: 768px) {
+    .slider-header h1 { font-size: 3rem; }
+    .preview-text-hi { font-size: 1.2rem; }
+    .preview-text-hi strong { font-size: 1.3rem; }
+  }
+</style>
 </head>
-
 <body>
 
-<!-- =========================================================
-     HEADER
-========================================================= -->
+<!-- SVG Gradients -->
+<svg width="0" height="0">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="50%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+  </defs>
+</svg>
 
-<header class="main-header">
+<div class="container">
 
-    <div class="header-container">
+  <!-- 1. IMPACT CALCULATOR -->
+  <section id="impact-calculator">
+    <div class="sec-header">
+      <div class="badge"><i class="fa-solid fa-bolt"></i> Live Impact</div>
+      <h2>Calculate Your Impact <em>आपके सहयोग का असर</em></h2>
+    </div>
+    
+    <div class="calc-wrapper">
+      
+      <!-- Left Side: Controls -->
+      <div class="calc-controls">
+        
+        <!-- 16 Categories Dropdown -->
+        <div class="premium-select-box">
+          <label>Select Work Area / कार्यक्षेत्र चुनें</label>
+          <select class="custom-select" id="calcWork">
+            <option value="1">📚 1. शिक्षा एवं बाल विकास</option>
+            <option value="2">👩 2. महिला सशक्तिकरण</option>
+            <option value="3">🏥 3. स्वास्थ्य एवं चिकित्सा</option>
+            <option value="4">🤝 4. गरीब एवं जरूरतमंद कल्याण</option>
+            <option value="5">♿ 5. दिव्यांगजन कल्याण</option>
+            <option value="6">👴 6. वृद्धजन कल्याण</option>
+            <option value="7">🎓 7. युवा विकास</option>
+            <option value="8">💼 8. रोजगार एवं आजीविका</option>
+            <option value="9">🏘️ 9. ग्रामीण विकास</option>
+            <option value="10">🌾 10. कृषि एवं किसान कल्याण</option>
+            <option value="11">🌱 11. पर्यावरण संरक्षण</option>
+            <option value="12">💧 12. स्वच्छता एवं पोषण</option>
+            <option value="13">🐾 13. पशु कल्याण</option>
+            <option value="14">🌊 14. आपदा राहत</option>
+            <option value="15">⚖️ 15. सामाजिक न्याय</option>
+            <option value="16">💻 16. डिजिटल शिक्षा</option>
+          </select>
+          <i class="fa-solid fa-chevron-down select-icon"></i>
+        </div>
 
-        <!-- LOGO + NAME -->
-
-        <a href="index.html" class="brand">
-
-            <img
-                src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-                alt="साथ चले हम फाउंडेशन Logo"
-                class="brand-logo"
-            >
-
+        <!-- Amount & Slider -->
+        <div class="premium-slider-box">
+          <div class="slider-header">
             <div>
-
-                <h1 class="brand-name">
-                    साथ चले हम फाउंडेशन
-                </h1>
-
-                <p class="brand-tagline">
-                    साथ चले हम, बदलाव की ओर
-                </p>
-
+              <p>Your Contribution / आपका सहयोग</p>
+              <div class="trust-badge"><i class="fa-solid fa-shield-check"></i> 80G Tax Exemption</div>
             </div>
+            <h1 id="calcAmount">₹1</h1>
+          </div>
+          
+          <!-- Quick Chips -->
+          <div class="quick-chips" id="quickChips">
+            <button class="chip" data-amt="500">₹500</button>
+            <button class="chip" data-amt="1000">₹1K</button>
+            <button class="chip" data-amt="5000">₹5K</button>
+            <button class="chip" data-amt="10000">₹10K</button>
+          </div>
 
-        </a>
+          <!-- Slider with Golden Fill -->
+          <div class="slider-track-wrapper">
+            <div class="slider-fill" id="sliderFill"></div>
+            <input type="range" class="custom-slider" id="calcSlider" min="1" max="15000" value="1" step="1">
+          </div>
+          
+          <div class="slider-ticks" id="calcMarks">
+            <span data-val="1" class="active">₹1</span>
+            <span data-val="5000">₹5K</span>
+            <span data-val="10000">₹10K</span>
+            <span data-val="15000">₹15K</span>
+          </div>
+        </div>
 
+      </div>
 
-        <!-- DESKTOP NAVIGATION -->
-
-        <nav class="desktop-nav">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="about.html" class="active">
-                About Us
-            </a>
-
-            <a href="work.html">
-                Work
-            </a>
-
-            <a href="team.html">
-                Team
-            </a>
-
-            <a href="join-us.html">
-                Join Us
-            </a>
-
-            <a href="events.html">
-                Events
-            </a>
-
-            <a
-                href="donate.html"
-                class="desktop-donate donate-pulse"
-            >
-                Donate Us
-            </a>
-
-        </nav>
-
-
-        <!-- MOBILE MENU BUTTON -->
-
-        <button
-            id="menuToggle"
-            class="mobile-menu-button"
-            aria-label="Open Menu"
-            aria-expanded="false"
-        >
-            <i class="fa-solid fa-bars"></i>
-        </button>
+      <!-- Right Side: Live Preview -->
+      <div class="calc-preview">
+        <div class="preview-icon" id="calcIcon">
+          <i class="fa-solid fa-book-open-reader"></i>
+        </div>
+        <div class="preview-text-hi" id="calcText">
+          आपके <strong>₹1</strong> से किसी बच्चे को <strong>एक पेन</strong> मिल सकती है।
+        </div>
+        <div class="preview-text-en" id="calcTextEn">
+          Your ₹1 can provide a pen to a child.
+        </div>
+      </div>
 
     </div>
+  </section>
 
-
-    <!-- MOBILE NAVIGATION -->
-
-    <div id="mobileMenu" class="mobile-menu">
-
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="about.html">
-            About Us
-        </a>
-
-        <a href="work.html">
-            Work
-        </a>
-
-        <a href="team.html">
-            Team
-        </a>
-
-        <a href="join-us.html">
-            Join Us
-        </a>
-
-        <a href="events.html">
-            Events
-        </a>
-
-        <a
-            href="donate.html"
-            class="mobile-donate donate-pulse"
-        >
-            Donate Us
-        </a>
-
-    </div>
-
-</header>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="about-hero">
-
-    <div class="hero-content">
-
-        <span class="hero-badge">
-            WHO WE ARE | हमारी पहचान
-        </span>
-
-        <h1 class="hero-title">
-            About Us <span>| हमारे बारे में</span>
-        </h1>
-
-        <p class="hero-subtitle">
-            साथ चले हम – बदलाव की ओर
-            <br>
-            Step Together Towards Change
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     MAIN CONTENT
-========================================================= -->
-
-<main class="main-content">
-
-
-    <!-- =====================================================
-         ABOUT US
-    ====================================================== -->
-
-    <section id="about">
-
-        <div class="about-card">
-
-            <div class="about-heading">
-
-                <div class="about-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <div>
-
-                    <h2>
-                        About Us | हमारे बारे में
-                    </h2>
-
-                    <div class="heading-line"></div>
-
-                </div>
-
-            </div>
-
-
-            <div class="about-text">
-
-                <p>
-                    साथ चले हम फाउंडेशन एक सामाजिक संस्था है,
-                    जिसका उद्देश्य शिक्षा, स्वास्थ्य, महिला सशक्तिकरण,
-                    गरीब एवं जरूरतमंद लोगों की सहायता, ग्रामीण विकास,
-                    कौशल विकास, पर्यावरण संरक्षण और सामाजिक जागरूकता
-                    जैसे क्षेत्रों में सकारात्मक बदलाव लाना है।
-                </p>
-
-                <p>
-                    हम बच्चों, महिलाओं, युवाओं, बुजुर्गों, दिव्यांगजनों
-                    तथा जरूरतमंद परिवारों के साथ मिलकर कार्य करने का
-                    प्रयास करते हैं। हमारा मानना है कि समाज में स्थायी
-                    बदलाव तभी संभव है जब लोग एक-दूसरे का सहयोग करें
-                    और विकास की प्रक्रिया में स्वयं भागीदार बनें।
-                </p>
-
-                <p class="highlight-box">
-                    हमारा प्रयास जरूरतमंद लोगों तक सहायता, अवसर,
-                    शिक्षा, जागरूकता और आत्मनिर्भरता के साधन पहुँचाना है।
-                </p>
-
-            </div>
-
-
-            <div class="about-text english-text">
-
-                <p>
-                    Sath Chale Hum Foundation is a social organization
-                    committed to bringing positive change in areas such as
-                    education, healthcare, women empowerment, support for
-                    poor and needy people, rural development, skill
-                    development, environmental protection, and social awareness.
-                </p>
-
-                <p>
-                    We strive to work together with children, women, youth,
-                    senior citizens, persons with disabilities, and families
-                    in need. We believe that lasting change in society is
-                    possible when people support one another and actively
-                    participate in the process of development.
-                </p>
-
-                <p class="english-highlight">
-                    Our effort is to provide people in need with support,
-                    opportunities, education, awareness, and means to become
-                    self-reliant.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         MISSION & VISION
-    ====================================================== -->
-
-    <section class="mission-vision">
-
-        <div class="section-title">
-
-            <h2>
-                Our Mission & Our Vision |
-                हमारा मिशन और हमारा विज़न
-            </h2>
-
-            <div class="section-line"></div>
-
-        </div>
-
-
-        <div class="mv-grid">
-
-
-            <!-- MISSION -->
-
-            <article class="mv-card mission-card">
-
-                <div>
-
-                    <div class="mv-top">
-
-                        <div class="mv-icon">
-                            <i class="fa-solid fa-bullseye"></i>
-                        </div>
-
-                        <h3>
-                            Our Mission | हमारा मिशन
-                        </h3>
-
-                    </div>
-
-
-                    <div class="mv-main">
-
-                        हमारा मिशन समाज के जरूरतमंद और वंचित लोगों तक
-                        शिक्षा, स्वास्थ्य, सहायता, कौशल, जागरूकता और
-                        विकास के अवसर पहुँचाना है।
-
-                    </div>
-
-
-                    <p class="mv-secondary">
-
-                        हम विशेष रूप से बच्चों की शिक्षा एवं विकास,
-                        महिलाओं की आत्मनिर्भरता, युवाओं के कौशल एवं
-                        रोजगार, ग्रामीण समुदायों के विकास, जरूरतमंद
-                        परिवारों की सहायता तथा सामाजिक एवं पर्यावरणीय
-                        जागरूकता को बढ़ावा देने के लिए कार्य करना चाहते हैं।
-
-                    </p>
-
-                </div>
-
-
-                <div class="mv-english">
-
-                    <strong>English:</strong>
-
-                    Our mission is to provide education, healthcare,
-                    support, skills, awareness, and development opportunities
-                    to people in need and underserved communities.
-
-                    <br><br>
-
-                    We aim to work especially towards supporting children's
-                    education and development, promoting women's self-reliance,
-                    developing skills and employment opportunities for youth,
-                    supporting rural community development, assisting families
-                    in need, and promoting social and environmental awareness.
-
-                </div>
-
-            </article>
-
-
-            <!-- VISION -->
-
-            <article class="mv-card vision-card">
-
-                <div>
-
-                    <div class="mv-top">
-
-                        <div class="mv-icon">
-                            <i class="fa-solid fa-eye"></i>
-                        </div>
-
-                        <h3>
-                            Our Vision | हमारा विज़न
-                        </h3>
-
-                    </div>
-
-
-                    <div class="mv-main">
-
-                        हमारा विज़न एक ऐसे समावेशी, जागरूक,
-                        आत्मनिर्भर और सशक्त समाज का निर्माण करना है,
-                        जहाँ हर व्यक्ति को सम्मान, अवसर और आगे बढ़ने
-                        का अधिकार मिले।
-
-                    </div>
-
-
-                    <p class="mv-secondary">
-
-                        हम ऐसा समाज देखना चाहते हैं जहाँ बच्चे शिक्षा
-                        से जुड़े हों, महिलाएँ आत्मनिर्भर हों, युवा कौशल
-                        और रोजगार से जुड़े हों, बुजुर्गों एवं दिव्यांगजनों
-                        को सम्मान और सहयोग मिले तथा समुदाय मिलकर अपने
-                        विकास की दिशा तय करे।
-
-                    </p>
-
-                </div>
-
-
-                <div class="mv-english">
-
-                    <strong>English:</strong>
-
-                    Our vision is to build an inclusive, aware,
-                    self-reliant, and empowered society where every
-                    person has the right to dignity, opportunities,
-                    and the chance to move forward.
-
-                    <br><br>
-
-                    We envision a society where children have access to
-                    education, women are self-reliant, youth are connected
-                    with skills and employment opportunities, senior citizens
-                    and persons with disabilities receive respect and support,
-                    and communities work together to shape their own path
-                    of development.
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         OUR VALUES
-    ====================================================== -->
-
-    <section class="values-section">
-
-        <div class="section-title">
-
-            <h2>
-                Our Values | हमारे मूल्य
-            </h2>
-
-            <p>
-                Core Principles Guiding Our Social Work
-            </p>
-
-            <div class="section-line"></div>
-
-        </div>
-
-
-        <div class="values-grid">
-
-
-            <!-- VALUE 1 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                </div>
-
-                <h3>
-                    1. सेवा | Service
-                </h3>
-
-                <div class="hindi">
-                    जरूरतमंद लोगों तक सहायता और सहयोग पहुँचाना।
-                </div>
-
-                <div class="english">
-                    Providing support and assistance to people in need.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 2 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-scale-balanced"></i>
-                </div>
-
-                <h3>
-                    2. समानता | Equality
-                </h3>
-
-                <div class="hindi">
-                    हर व्यक्ति के साथ समान और सम्मानजनक व्यवहार करना।
-                </div>
-
-                <div class="english">
-                    Treating every person equally and with respect.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 3 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-
-                <h3>
-                    3. ईमानदारी | Integrity
-                </h3>
-
-                <div class="hindi">
-                    अपने कार्यों में ईमानदारी और जिम्मेदारी बनाए रखना।
-                </div>
-
-                <div class="english">
-                    Maintaining honesty and responsibility in our work.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 4 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-eye"></i>
-                </div>
-
-                <h3>
-                    4. पारदर्शिता | Transparency
-                </h3>
-
-                <div class="hindi">
-                    अपने कार्यों और गतिविधियों के बारे में स्पष्ट जानकारी साझा करना।
-                </div>
-
-                <div class="english">
-                    Sharing clear information about our work and activities.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 5 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <h3>
-                    5. करुणा | Compassion
-                </h3>
-
-                <div class="hindi">
-                    जरूरतमंद लोगों की परिस्थितियों को समझकर सहयोग करना।
-                </div>
-
-                <div class="english">
-                    Understanding the needs of people and supporting them with compassion.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 6 -->
-
-            <article class="value-card">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-hand-fist"></i>
-                </div>
-
-                <h3>
-                    6. सशक्तिकरण | Empowerment
-                </h3>
-
-                <div class="hindi">
-                    लोगों को आत्मनिर्भर बनने के अवसर और साधन उपलब्ध कराना।
-                </div>
-
-                <div class="english">
-                    Providing people with opportunities and resources to become self-reliant.
-                </div>
-
-            </article>
-
-
-            <!-- VALUE 7 -->
-
-            <article class="value-card value-seven">
-
-                <div class="value-icon">
-                    <i class="fa-solid fa-people-group"></i>
-                </div>
-
-                <h3>
-                    7. सामुदायिक भागीदारी | Community Participation
-                </h3>
-
-                <div class="hindi">
-                    स्थानीय लोगों को विकास और सामाजिक कार्यों में शामिल करना।
-                </div>
-
-                <div class="english">
-                    Involving local people in development and social activities.
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- =========================================================
-     FOOTER — SAME STYLE AS HOME PAGE
-========================================================= -->
-
-<footer>
-
-    <div class="footer-main">
-
-        <div class="container">
-
-            <div class="footer-grid">
-
-
-                <!-- FOOTER BRAND -->
-
-                <div class="footer-brand">
-
-                    <img
-                        class="footer-logo"
-                        src="https://raw.githubusercontent.com/sathchaleham-dot/sath-chale-ham-/main/sath_chale_ham_logo_HD-1.png"
-                        alt="Sath Chale Hum Foundation Logo"
-                    >
-
-                    <h3>
-                        Sath Chale Hum Foundation
-                    </h3>
-
-                    <div class="hi-tagline">
-                        साथ चले हम – बदलाव की ओर
-                    </div>
-
-                    <div class="en-tagline">
-                        Step Together Towards Change
-                    </div>
-
-
-                    <div class="social-heading">
-                        Our Social Media
-                    </div>
-
-                    <div class="social-icons">
-
-                        <a
-                            href="https://www.facebook.com/share/1PUUzvUfoo/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Facebook"
-                        >
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-
-                        <a
-                            href="https://www.instagram.com/sathchaleham?stkn=MWFzanhuYjFpcGhrZg=="
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="Instagram"
-                        >
-                            <i class="fa-brands fa-instagram"></i>
-                        </a>
-
-                        <a
-                            href="https://youtube.com/@sathchaleham?si=uKH0gC8E7rM_xdpC"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="YouTube"
-                        >
-                            <i class="fa-brands fa-youtube"></i>
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- QUICK LINKS -->
-
-                <div class="footer-column">
-
-                    <h4>
-                        Quick Links | महत्वपूर्ण लिंक
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            <a href="index.html">
-                                Home | होम
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="about.html">
-                                About Us | हमारे बारे में
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="work.html">
-                                Our Work | हमारे कार्य
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="team.html">
-                                Our Team | हमारी टीम
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="donate.html">
-                                Donate Us | दान करें
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="join-us.html">
-                                Join Us | हमारे साथ जुड़ें
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="events.html">
-                                Events | कार्यक्रम
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <!-- MORE LINKS -->
-
-                <div class="footer-column">
-
-                    <h4>
-                        More Links
-                    </h4>
-
-                    <ul>
-
-                        <li>
-                            <a href="contact.html">
-                                Contact Us | संपर्क करें
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="downloads.html">
-                                Downloads | डाउनलोड
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="terms-conditions.html">
-                                Terms & Conditions
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="privacy-policy.html">
-                                Privacy Policy
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         COPYRIGHT — ENGLISH ONLY
-    ====================================================== -->
-
-    <div class="footer-bottom">
-
-        <div class="container">
-
-            <div>
-                © 2026
-                <strong>Sath Chale Hum Foundation.</strong>
-                All Rights Reserved.
-            </div>
-
-            <div style="margin-top:5px;">
-                -Sath Chale Hum Foundation-
-            </div>
-
-        </div>
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     MOBILE MENU SCRIPT
-========================================================= -->
+</div>
 
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+  
+  const cs = document.getElementById("calcSlider");
+  const ca = document.getElementById("calcAmount");
+  const ct = document.getElementById("calcText");
+  const cte = document.getElementById("calcTextEn");
+  const ci = document.getElementById("calcIcon");
+  const cw = document.getElementById("calcWork");
+  const cm = document.querySelectorAll("#calcMarks span");
+  const sliderFill = document.getElementById("sliderFill");
+  const chips = document.querySelectorAll(".chip");
 
-    const menuToggle =
-        document.getElementById("menuToggle");
+  const workImpacts = {
+    1: { icon: "fa-book-open-reader", tiers: [
+      { max: 50, hi: 'आपके <strong>₹{amt}</strong> से एक बच्चे को <strong>नई कॉपी और पेन</strong> मिल सकती है।', en: "A new notebook and pen for one child." },
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} बच्चों की स्कूल-किट</strong> मिल सकती है।', en: "School kits for {n} children." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} बच्चों की वार्षिक छात्रवृत्ति</strong> दी जा सकती है।', en: "Annual scholarship for {n} children." }
+    ]},
+    2: { icon: "fa-person-dress", tiers: [
+      { max: 200, hi: 'आपके <strong>₹{amt}</strong> से एक महिला को <strong>सिलाई किट</strong> मिल सकती है।', en: "Sewing kit for a woman." },
+      { max: 1000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} महिलाओं का कौशल प्रशिक्षण</strong> हो सकता है।', en: "Skill training for {n} women." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>एक SHG को पूरी मदद</strong> दी जा सकती है।', en: "Complete support for one SHG." }
+    ]},
+    3: { icon: "fa-heart-pulse", tiers: [
+      { max: 200, hi: 'आपके <strong>₹{amt}</strong> से एक व्यक्ति की <strong>निःशुल्क जाँच</strong> हो सकती है।', en: "Free check-up for one person." },
+      { max: 800, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} लोगों को दवाएँ</strong> मिल सकती हैं।', en: "Medicines for {n} people." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>पूरा स्वास्थ्य शिविर</strong> लगाया जा सकता है।', en: "A complete health camp." }
+    ]},
+    4: { icon: "fa-hand-holding-heart", tiers: [
+      { max: 200, hi: 'आपके <strong>₹{amt}</strong> से एक परिवार को <strong>हफ्ते का राशन</strong> मिल सकता है।', en: "One week of meals for a family." },
+      { max: 800, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} परिवारों को राशन किट</strong> मिल सकती है।', en: "Ration kits for {n} families." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>20+ परिवारों की मदद</strong> हो सकती है।', en: "Support for 20+ families." }
+    ]},
+    5: { icon: "fa-wheelchair", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से दिव्यांगजन को <strong>सहायक सामग्री</strong> मिल सकती है।', en: "Assistive aid." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>व्हीलचेयर</strong> दी जा सकती है।', en: "A wheelchair." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} दिव्यांगजनों की मदद</strong> हो सकती है।', en: "Support for {n} persons." }
+    ]},
+    6: { icon: "fa-person-cane", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से वृद्धजन की <strong>दवा</strong> मिल सकती है।', en: "Medicines." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>वृद्धाश्रम में मदद</strong> हो सकती है।', en: "Old-age home support." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} वृद्धजनों का महीना</strong> चल सकता है।', en: "One month for {n}." }
+    ]},
+    7: { icon: "fa-user-graduate", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से युवा के लिए <strong>स्टेशनरी</strong> मिल सकती है।', en: "Stationery." },
+      { max: 2000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} युवाओं का कौशल प्रशिक्षण</strong> हो सकता है।', en: "Skill training for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से एक <strong>पूरा प्रशिक्षण शिविर</strong> लग सकता है।', en: "A training camp." }
+    ]},
+    8: { icon: "fa-briefcase", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>रोजगार पंजीकरण</strong> में सहायता होगी।', en: "Employment registration." },
+      { max: 2000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} युवाओं को इंटरव्यू किट</strong> मिलेगी।', en: "Interview kits." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} युवाओं को रोजगार</strong> मिल सकता है।', en: "Employment for {n}." }
+    ]},
+    9: { icon: "fa-house-chimney", tiers: [
+      { max: 1000, hi: 'आपके <strong>₹{amt}</strong> से गाँव में <strong>स्वच्छता सामग्री</strong> मिल सकती है।', en: "Sanitation material." },
+      { max: 5000, hi: 'आपके <strong>₹{amt}</strong> से <strong>ग्राम विकास</strong> में योगदान होगा।', en: "Rural development." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>पूरे गाँव का उत्थान</strong> हो सकता है।', en: "Village upliftment." }
+    ]},
+    10: { icon: "fa-wheat-awn", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से किसान को <strong>बीज</strong> मिल सकते हैं।', en: "Seeds." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} किसानों को खाद</strong> मिल सकती है।', en: "Fertilizer for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} किसानों की मदद</strong> हो सकती है।', en: "Support for {n}." }
+    ]},
+    11: { icon: "fa-leaf", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} पौधे</strong> लगाए जा सकते हैं।', en: "{n} saplings." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>वृक्षारोपण अभियान</strong> चलाया जा सकता है।', en: "Tree plantation." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से एक <strong>मियावाकी वन</strong> विकसित हो सकता है।', en: "A Miyawaki forest." }
+    ]},
+    12: { icon: "fa-droplet", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>स्वच्छता किट</strong> मिल सकती है।', en: "Hygiene kits." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} परिवारों को किट</strong> मिल सकती है।', en: "Kits for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से पूरे मोहल्ले को <strong>सामग्री</strong> मिल सकती है।', en: "Community supplies." }
+    ]},
+    13: { icon: "fa-paw", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>पशु आहार</strong> मिल सकता है।', en: "Animal food." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} जानवरों की देखभाल</strong> हो सकती है।', en: "Care for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>पशु शेल्टर</strong> को सहयोग मिल सकता है।', en: "Animal shelter support." }
+    ]},
+    14: { icon: "fa-house-flood-water", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>राहत किट</strong> मिल सकती है।', en: "Relief kit." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} परिवारों को राहत</strong> मिल सकती है।', en: "Relief for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से एक <strong>पूरा राहत शिविर</strong> लग सकता है।', en: "Relief camp." }
+    ]},
+    15: { icon: "fa-scale-balanced", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>कानूनी जानकारी</strong> मिल सकती है।', en: "Legal awareness." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} लोगों को कानूनी सहायता</strong> मिल सकती है।', en: "Legal aid for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से <strong>जागरूकता शिविर</strong> लग सकता है।', en: "Awareness camp." }
+    ]},
+    16: { icon: "fa-laptop", tiers: [
+      { max: 500, hi: 'आपके <strong>₹{amt}</strong> से <strong>डिजिटल साक्षरता</strong> सामग्री मिल सकती है।', en: "Digital literacy." },
+      { max: 3000, hi: 'आपके <strong>₹{amt}</strong> से <strong>{n} युवाओं को कंप्यूटर प्रशिक्षण</strong> मिल सकता है।', en: "Computer training for {n}." },
+      { max: 15000, hi: 'आपके <strong>₹{amt}</strong> से एक <strong>डिजिटल शिक्षा शिविर</strong> लग सकता है।', en: "Digital education camp." }
+    ]}
+  };
 
-    const mobileMenu =
-        document.getElementById("mobileMenu");
+  function updateCalc(val) {
+    const v = parseInt(val, 10);
+    const wk = cw.value;
+    const data = workImpacts[wk] || workImpacts[1];
+    
+    // Update Amount with Pulse Animation
+    ca.textContent = "₹" + v.toLocaleString("en-IN");
+    ca.classList.remove("pulse-amt");
+    void ca.offsetWidth; // Trigger reflow
+    ca.classList.add("pulse-amt");
 
-
-    menuToggle.addEventListener("click", function(){
-
-        mobileMenu.classList.toggle("show");
-
-        const isOpen =
-            mobileMenu.classList.contains("show");
-
-        menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-        );
-
-
-        const icon =
-            menuToggle.querySelector("i");
-
-
-        if(isOpen){
-
-            icon.classList.remove("fa-bars");
-
-            icon.classList.add("fa-xmark");
-
-        }else{
-
-            icon.classList.remove("fa-xmark");
-
-            icon.classList.add("fa-bars");
-
-        }
-
+    // Update Slider Fill
+    const pct = ((v - 1) / (15000 - 1)) * 100;
+    sliderFill.style.width = pct + "%";
+    
+    // Update Marks
+    cm.forEach(m => {
+      m.classList.toggle("active", v >= parseInt(m.dataset.val));
     });
 
+    // Update Chips
+    chips.forEach(c => {
+      c.classList.toggle("active", parseInt(c.dataset.amt) === v);
+    });
+    
+    // Update Preview Text
+    let found = data.tiers[data.tiers.length - 1];
+    for (let i = 0; i < data.tiers.length; i++) {
+      if (v <= data.tiers[i].max) { found = data.tiers[i]; break; }
+    }
+    
+    let n = Math.max(1, Math.floor(v / 20));
+    ct.innerHTML = found.hi.replace(/\{amt\}/g, v.toLocaleString("en-IN")).replace(/\{n\}/g, n);
+    cte.textContent = found.en.replace(/\{n\}/g, n);
+    ci.innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
+  }
 
-    /* Close mobile menu after clicking */
+  if(cs) cs.addEventListener("input", (e) => updateCalc(e.target.value));
+  if(cw) cw.addEventListener("change", () => updateCalc(cs.value));
+  
+  // Quick Chip Listeners
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const amt = parseInt(chip.dataset.amt);
+      cs.value = amt;
+      updateCalc(amt);
+    });
+  });
 
-    document
-        .querySelectorAll("#mobileMenu a")
-        .forEach(function(link){
+  // Initialize
+  updateCalc(1);
 
-            link.addEventListener("click",function(){
-
-                mobileMenu.classList.remove("show");
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-                const icon =
-                    menuToggle.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
-
+});
 </script>
 
 </body>
